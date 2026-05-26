@@ -109,9 +109,9 @@ Install with `pip install aiozai-sdk` (requires Python 3.9+, pydantic >= 2.0).
 
 ```python
 import os
-from aiozai_sdk import AiozClient
+from aiozai_sdk import AiozAIClient
 
-client = AiozClient(api_key=os.environ["AIOZ_AI_API_KEY"])
+client = AiozAIClient(api_key=os.environ["AIOZ_AI_API_KEY"])
 
 # List models
 result = client.models.model.api_key_model_list(body={})
@@ -120,9 +120,9 @@ result = client.models.model.api_key_model_list(body={})
 **Configuration** — override the base URL, timeout, and retry policy:
 
 ```python
-from aiozai_sdk import AiozClient, RetryConfig
+from aiozai_sdk import AiozAIClient, RetryConfig
 
-client = AiozClient(
+client = AiozAIClient(
     api_key=os.environ["AIOZ_AI_API_KEY"],
     base_url="https://api.aiozai.network/api/v1",
     timeout=60.0,
@@ -150,9 +150,9 @@ Install with `npm install @aiozai/nodejs-client` (requires Node.js 18+).
 **Quick start** — create a client and call a service:
 
 ```typescript
-import { createAiozClient, services } from '@aiozai/nodejs-client'
+import { createAiozAIClient, services } from '@aiozai/nodejs-client'
 
-const { rawClient } = createAiozClient({ apiKey: process.env.AIOZ_AI_API_KEY })
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY })
 
 // List models
 const models = await services.models.postApiKeyModelList({
@@ -164,7 +164,7 @@ const models = await services.models.postApiKeyModelList({
 **Configuration** — override the base URL, timeout, and retry policy:
 
 ```typescript
-const { rawClient } = createAiozClient({
+const { rawClient } = createAiozAIClient({
   apiKey: process.env.AIOZ_AI_API_KEY,
   baseUrl: 'https://api.aiozai.network/api/v1',
   timeout: 60_000,

@@ -1,4 +1,4 @@
-# AIOZ AI Go SDK
+# AIOZ AI Go Client
 
 Go client SDK for the [AIOZ AI](https://aiozai.network) API. Auto-generated from the OpenAPI specification with full type safety.
 
