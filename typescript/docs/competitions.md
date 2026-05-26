@@ -112,7 +112,7 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```typescript
-import { postApiKeyCompetition } from '@aioz-network/aiozai-sdk';
+import { postApiKeyCompetition } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyCompetition({
     body: {
@@ -228,7 +228,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyCompetitionList } from '@aioz-network/aiozai-sdk';
+import { postApiKeyCompetitionList } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyCompetitionList({
     body: {
@@ -328,7 +328,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyCompetitionPathByPath } from '@aioz-network/aiozai-sdk';
+import { getApiKeyCompetitionPathByPath } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyCompetitionPathByPath({ path: { path: '...' } });
 console.log(response.data);
@@ -372,7 +372,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyCompetitionPreSubmit } from '@aioz-network/aiozai-sdk';
+import { postApiKeyCompetitionPreSubmit } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyCompetitionPreSubmit({
     body: {
@@ -449,7 +449,7 @@ SourceCodeUrl  string    `json:"source_code_url"` |
 **Example**
 
 ```typescript
-import { postApiKeyCompetitionSubmit } from '@aioz-network/aiozai-sdk';
+import { postApiKeyCompetitionSubmit } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyCompetitionSubmit();
 console.log(response.data);
@@ -503,7 +503,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyCompetitionSubmitCost } from '@aioz-network/aiozai-sdk';
+import { postApiKeyCompetitionSubmitCost } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyCompetitionSubmitCost({
     body: {
@@ -583,7 +583,7 @@ SourceCodeUrl  string    `json:"source_code_url"` |
 **Example**
 
 ```typescript
-import { getApiKeyCompetitionSubmitHistoryById } from '@aioz-network/aiozai-sdk';
+import { getApiKeyCompetitionSubmitHistoryById } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyCompetitionSubmitHistoryById({ path: { id: '...' } });
 console.log(response.data);
@@ -675,7 +675,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyCompetitionById } from '@aioz-network/aiozai-sdk';
+import { getApiKeyCompetitionById } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyCompetitionById({ path: { id: '...' } });
 console.log(response.data);
@@ -794,7 +794,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyCompetitionById } from '@aioz-network/aiozai-sdk';
+import { putApiKeyCompetitionById } from '@aiozai/nodejs-client';
 
 const response = await putApiKeyCompetitionById({
     body: {
@@ -845,7 +845,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyCompetitionById } from '@aioz-network/aiozai-sdk';
+import { deleteApiKeyCompetitionById } from '@aiozai/nodejs-client';
 
 const response = await deleteApiKeyCompetitionById({ path: { id: '...' } });
 console.log(response.data);
@@ -888,7 +888,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyCompetitionByIdJoin } from '@aioz-network/aiozai-sdk';
+import { postApiKeyCompetitionByIdJoin } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyCompetitionByIdJoin({ path: { id: '...' } });
 console.log(response.data);
@@ -931,7 +931,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyCompetitionByIdLaunch } from '@aioz-network/aiozai-sdk';
+import { postApiKeyCompetitionByIdLaunch } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyCompetitionByIdLaunch({ path: { id: '...' } });
 console.log(response.data);
@@ -1013,7 +1013,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyCompetitionByIdLeaderboard } from '@aioz-network/aiozai-sdk';
+import { getApiKeyCompetitionByIdLeaderboard } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyCompetitionByIdLeaderboard({ path: { id: '...' } });
 console.log(response.data);
@@ -1056,7 +1056,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyCompetitionByIdLeave } from '@aioz-network/aiozai-sdk';
+import { postApiKeyCompetitionByIdLeave } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyCompetitionByIdLeave({ path: { id: '...' } });
 console.log(response.data);
@@ -1134,7 +1134,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyCompetitionByIdPublicLeaderboard } from '@aioz-network/aiozai-sdk';
+import { getApiKeyCompetitionByIdPublicLeaderboard } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyCompetitionByIdPublicLeaderboard({ path: { id: '...', phase: '...' } });
 console.log(response.data);
@@ -1235,7 +1235,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postPublicCompetitionList } from '@aioz-network/aiozai-sdk';
+import { postPublicCompetitionList } from '@aiozai/nodejs-client';
 
 const response = await postPublicCompetitionList({
     body: {
@@ -1290,7 +1290,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicCompetitionMetadata } from '@aioz-network/aiozai-sdk';
+import { getPublicCompetitionMetadata } from '@aiozai/nodejs-client';
 
 const response = await getPublicCompetitionMetadata();
 console.log(response.data);
@@ -1376,7 +1376,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicCompetitionPathByPath } from '@aioz-network/aiozai-sdk';
+import { getPublicCompetitionPathByPath } from '@aiozai/nodejs-client';
 
 const response = await getPublicCompetitionPathByPath({ path: { path: '...' } });
 console.log(response.data);
@@ -1427,7 +1427,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicCompetitionTimelineById } from '@aioz-network/aiozai-sdk';
+import { getPublicCompetitionTimelineById } from '@aiozai/nodejs-client';
 
 const response = await getPublicCompetitionTimelineById({ path: { id: '...' } });
 console.log(response.data);
@@ -1513,7 +1513,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicCompetitionById } from '@aioz-network/aiozai-sdk';
+import { getPublicCompetitionById } from '@aiozai/nodejs-client';
 
 const response = await getPublicCompetitionById({ path: { id: '...' } });
 console.log(response.data);
@@ -1588,7 +1588,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicCompetitionByIdLeaderboard } from '@aioz-network/aiozai-sdk';
+import { getPublicCompetitionByIdLeaderboard } from '@aiozai/nodejs-client';
 
 const response = await getPublicCompetitionByIdLeaderboard({ path: { id: '...' } });
 console.log(response.data);
@@ -1663,7 +1663,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicCompetitionByIdPublicLeaderboard } from '@aioz-network/aiozai-sdk';
+import { getPublicCompetitionByIdPublicLeaderboard } from '@aiozai/nodejs-client';
 
 const response = await getPublicCompetitionByIdPublicLeaderboard({ path: { id: '...' } });
 console.log(response.data);
@@ -1716,7 +1716,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicCompetitionByIdTimelines } from '@aioz-network/aiozai-sdk';
+import { getPublicCompetitionByIdTimelines } from '@aiozai/nodejs-client';
 
 const response = await getPublicCompetitionByIdTimelines({ path: { id: '...' } });
 console.log(response.data);

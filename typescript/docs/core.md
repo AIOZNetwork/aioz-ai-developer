@@ -46,7 +46,7 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```typescript
-import { getApiKeyBalance } from '@aioz-network/aiozai-sdk';
+import { getApiKeyBalance } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyBalance();
 console.log(response.data);
@@ -162,7 +162,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyCommentsById } from '@aioz-network/aiozai-sdk';
+import { putApiKeyCommentsById } from '@aiozai/nodejs-client';
 
 const response = await putApiKeyCommentsById({
     body: {
@@ -276,7 +276,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyCommentsById } from '@aioz-network/aiozai-sdk';
+import { deleteApiKeyCommentsById } from '@aiozai/nodejs-client';
 
 const response = await deleteApiKeyCommentsById({ path: { id: '...' } });
 console.log(response.data);
@@ -319,7 +319,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyDatasetByIdLike } from '@aioz-network/aiozai-sdk';
+import { putApiKeyDatasetByIdLike } from '@aiozai/nodejs-client';
 
 const response = await putApiKeyDatasetByIdLike({ path: { id: '...' } });
 console.log(response.data);
@@ -364,7 +364,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyDependencyLibRequest } from '@aioz-network/aiozai-sdk';
+import { postApiKeyDependencyLibRequest } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyDependencyLibRequest({
     body: {
@@ -435,7 +435,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyDependencyList } from '@aioz-network/aiozai-sdk';
+import { postApiKeyDependencyList } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyDependencyList();
 console.log(response.data);
@@ -492,7 +492,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyDependencyById } from '@aioz-network/aiozai-sdk';
+import { getApiKeyDependencyById } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyDependencyById({ path: { id: '...' } });
 console.log(response.data);
@@ -611,7 +611,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyDiscussionByIdComments } from '@aioz-network/aiozai-sdk';
+import { getApiKeyDiscussionByIdComments } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyDiscussionByIdComments({ path: { id: '...' } });
 console.log(response.data);
@@ -727,7 +727,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyDiscussionByIdComments } from '@aioz-network/aiozai-sdk';
+import { postApiKeyDiscussionByIdComments } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyDiscussionByIdComments({
     body: {
@@ -782,7 +782,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyItemsByIdReact } from '@aioz-network/aiozai-sdk';
+import { putApiKeyItemsByIdReact } from '@aiozai/nodejs-client';
 
 const response = await putApiKeyItemsByIdReact({
     body: {
@@ -830,7 +830,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyModelByIdLike } from '@aioz-network/aiozai-sdk';
+import { putApiKeyModelByIdLike } from '@aiozai/nodejs-client';
 
 const response = await putApiKeyModelByIdLike({ path: { id: '...' } });
 console.log(response.data);
@@ -878,7 +878,7 @@ _No fields defined._
 **Example**
 
 ```typescript
-import { postApiKeyModelByIdTask } from '@aioz-network/aiozai-sdk';
+import { postApiKeyModelByIdTask } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyModelByIdTask({
     body: {
@@ -921,7 +921,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyOfferInvite } from '@aioz-network/aiozai-sdk';
+import { postApiKeyOfferInvite } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyOfferInvite({
     body: {
@@ -990,7 +990,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyOfferJoin } from '@aioz-network/aiozai-sdk';
+import { postApiKeyOfferJoin } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyOfferJoin({
     body: {
@@ -1037,7 +1037,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyOfferByOffer_idAccept } from '@aioz-network/aiozai-sdk';
+import { putApiKeyOfferByOffer_idAccept } from '@aiozai/nodejs-client';
 
 const response = await putApiKeyOfferByOffer_idAccept({ path: { offer_id: '...' } });
 console.log(response.data);
@@ -1080,7 +1080,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyOfferByOffer_idDeny } from '@aioz-network/aiozai-sdk';
+import { putApiKeyOfferByOffer_idDeny } from '@aiozai/nodejs-client';
 
 const response = await putApiKeyOfferByOffer_idDeny({ path: { offer_id: '...' } });
 console.log(response.data);
@@ -1123,7 +1123,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyOfferByOffer_idResend } from '@aioz-network/aiozai-sdk';
+import { getApiKeyOfferByOffer_idResend } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyOfferByOffer_idResend({ path: { offer_id: '...' } });
 console.log(response.data);
@@ -1166,7 +1166,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyOfferByOffer_idRevoke } from '@aioz-network/aiozai-sdk';
+import { deleteApiKeyOfferByOffer_idRevoke } from '@aiozai/nodejs-client';
 
 const response = await deleteApiKeyOfferByOffer_idRevoke({ path: { offer_id: '...' } });
 console.log(response.data);
@@ -1225,7 +1225,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyPackageApiBuy } from '@aioz-network/aiozai-sdk';
+import { postApiKeyPackageApiBuy } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyPackageApiBuy({
     body: {
@@ -1284,7 +1284,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyPackageBuyCost } from '@aioz-network/aiozai-sdk';
+import { postApiKeyPackageBuyCost } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyPackageBuyCost({
     body: {
@@ -1341,7 +1341,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyPackageMasterBuyCost } from '@aioz-network/aiozai-sdk';
+import { postApiKeyPackageMasterBuyCost } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyPackageMasterBuyCost({
     body: {
@@ -1403,7 +1403,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyPackagePlaygroundBuy } from '@aioz-network/aiozai-sdk';
+import { postApiKeyPackagePlaygroundBuy } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyPackagePlaygroundBuy({
     body: {
@@ -1465,7 +1465,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyPackageById } from '@aioz-network/aiozai-sdk';
+import { getApiKeyPackageById } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyPackageById({ path: { id: '...' } });
 console.log(response.data);
@@ -1518,7 +1518,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyPermission } from '@aioz-network/aiozai-sdk';
+import { getApiKeyPermission } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyPermission();
 console.log(response.data);
@@ -1585,7 +1585,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyPlatformTaskDatasetByIdTraining } from '@aioz-network/aiozai-sdk';
+import { getApiKeyPlatformTaskDatasetByIdTraining } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyPlatformTaskDatasetByIdTraining({ path: { id: '...' } });
 console.log(response.data);
@@ -1652,7 +1652,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyPlatformTaskModelByIdVerify } from '@aioz-network/aiozai-sdk';
+import { getApiKeyPlatformTaskModelByIdVerify } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyPlatformTaskModelByIdVerify({ path: { id: '...' } });
 console.log(response.data);
@@ -1710,7 +1710,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyPlatformTaskById } from '@aioz-network/aiozai-sdk';
+import { getApiKeyPlatformTaskById } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyPlatformTaskById({ path: { id: '...' } });
 console.log(response.data);
@@ -1766,7 +1766,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeySearch } from '@aioz-network/aiozai-sdk';
+import { getApiKeySearch } from '@aiozai/nodejs-client';
 
 const response = await getApiKeySearch();
 console.log(response.data);
@@ -1820,7 +1820,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyStatistics } from '@aioz-network/aiozai-sdk';
+import { postApiKeyStatistics } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyStatistics({
     body: {
@@ -1871,7 +1871,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyTask } from '@aioz-network/aiozai-sdk';
+import { postApiKeyTask } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyTask({
     body: {
@@ -1952,7 +1952,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyTaskHistories } from '@aioz-network/aiozai-sdk';
+import { getApiKeyTaskHistories } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyTaskHistories();
 console.log(response.data);
@@ -1995,7 +1995,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyTaskByIdCancel } from '@aioz-network/aiozai-sdk';
+import { deleteApiKeyTaskByIdCancel } from '@aiozai/nodejs-client';
 
 const response = await deleteApiKeyTaskByIdCancel({ path: { id: '...' } });
 console.log(response.data);
@@ -2062,7 +2062,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyTaskByIdDetail } from '@aioz-network/aiozai-sdk';
+import { getApiKeyTaskByIdDetail } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyTaskByIdDetail({ path: { id: '...' } });
 console.log(response.data);
@@ -2118,7 +2118,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyTrainingTaskById } from '@aioz-network/aiozai-sdk';
+import { getApiKeyTrainingTaskById } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyTrainingTaskById({ path: { id: '...' } });
 console.log(response.data);
@@ -2182,7 +2182,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyTrainingTaskList } from '@aioz-network/aiozai-sdk';
+import { getApiKeyTrainingTaskList } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyTrainingTaskList();
 console.log(response.data);

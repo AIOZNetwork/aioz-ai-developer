@@ -98,7 +98,7 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```typescript
-import { postApiKeyCollectionByIdReport } from '@aioz-network/aiozai-sdk';
+import { postApiKeyCollectionByIdReport } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyCollectionByIdReport({
     body: {
@@ -203,7 +203,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyCommentsByIdReport } from '@aioz-network/aiozai-sdk';
+import { postApiKeyCommentsByIdReport } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyCommentsByIdReport({
     body: {
@@ -313,7 +313,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyDiscussionCompetitionById } from '@aioz-network/aiozai-sdk';
+import { getApiKeyDiscussionCompetitionById } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyDiscussionCompetitionById({ path: { id: '...' } });
 console.log(response.data);
@@ -413,7 +413,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyDiscussionCompetitionById } from '@aioz-network/aiozai-sdk';
+import { postApiKeyDiscussionCompetitionById } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyDiscussionCompetitionById({
     body: {
@@ -521,7 +521,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyDiscussionDatasetById } from '@aioz-network/aiozai-sdk';
+import { getApiKeyDiscussionDatasetById } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyDiscussionDatasetById({ path: { id: '...' } });
 console.log(response.data);
@@ -621,7 +621,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyDiscussionDatasetById } from '@aioz-network/aiozai-sdk';
+import { postApiKeyDiscussionDatasetById } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyDiscussionDatasetById({
     body: {
@@ -729,7 +729,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyDiscussionModelById } from '@aioz-network/aiozai-sdk';
+import { getApiKeyDiscussionModelById } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyDiscussionModelById({ path: { id: '...' } });
 console.log(response.data);
@@ -829,7 +829,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyDiscussionModelById } from '@aioz-network/aiozai-sdk';
+import { postApiKeyDiscussionModelById } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyDiscussionModelById({
     body: {
@@ -935,7 +935,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyDiscussionById } from '@aioz-network/aiozai-sdk';
+import { putApiKeyDiscussionById } from '@aiozai/nodejs-client';
 
 const response = await putApiKeyDiscussionById({
     body: {
@@ -1034,7 +1034,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyDiscussionById } from '@aioz-network/aiozai-sdk';
+import { deleteApiKeyDiscussionById } from '@aiozai/nodejs-client';
 
 const response = await deleteApiKeyDiscussionById({ path: { id: '...' } });
 console.log(response.data);
@@ -1134,7 +1134,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyDiscussionByIdReport } from '@aioz-network/aiozai-sdk';
+import { postApiKeyDiscussionByIdReport } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyDiscussionByIdReport({
     body: {
@@ -1238,7 +1238,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicDiscussionCompetitionById } from '@aioz-network/aiozai-sdk';
+import { getPublicDiscussionCompetitionById } from '@aiozai/nodejs-client';
 
 const response = await getPublicDiscussionCompetitionById({ path: { id: '...' } });
 console.log(response.data);
@@ -1335,7 +1335,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicDiscussionDatasetById } from '@aioz-network/aiozai-sdk';
+import { getPublicDiscussionDatasetById } from '@aiozai/nodejs-client';
 
 const response = await getPublicDiscussionDatasetById({ path: { id: '...' } });
 console.log(response.data);
@@ -1432,7 +1432,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicDiscussionModelById } from '@aioz-network/aiozai-sdk';
+import { getPublicDiscussionModelById } from '@aiozai/nodejs-client';
 
 const response = await getPublicDiscussionModelById({ path: { id: '...' } });
 console.log(response.data);
@@ -1519,7 +1519,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicDiscussionById } from '@aioz-network/aiozai-sdk';
+import { getPublicDiscussionById } from '@aiozai/nodejs-client';
 
 const response = await getPublicDiscussionById({ path: { id: '...' } });
 console.log(response.data);
@@ -1632,7 +1632,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicDiscussionByIdComments } from '@aioz-network/aiozai-sdk';
+import { getPublicDiscussionByIdComments } from '@aiozai/nodejs-client';
 
 const response = await getPublicDiscussionByIdComments({ path: { id: '...' } });
 console.log(response.data);

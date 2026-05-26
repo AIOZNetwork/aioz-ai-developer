@@ -1,4 +1,4 @@
-# @aioz-network/aiozai-sdk
+# @aiozai/nodejs-client
 
 TypeScript SDK for the [AIOZ AI](https://aiozai.network) API. Auto-generated from the OpenAPI specification with full type safety.
 
@@ -12,15 +12,15 @@ TypeScript SDK for the [AIOZ AI](https://aiozai.network) API. Auto-generated fro
 ## Installation
 
 ```bash
-npm install @aioz-network/aiozai-sdk
+npm install @aiozai/nodejs-client
 ```
 
 ## Quick Start
 
 ```typescript
-import { createAiozClient, services } from '@aioz-network/aiozai-sdk'
+import { createAiozAIClient, services } from '@aiozai/nodejs-client'
 
-const { rawClient } = createAiozClient({ apiKey: process.env.AIOZ_API_KEY })
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY })
 
 // List models
 const models = await services.models.postApiKeyModelList({
@@ -38,7 +38,7 @@ const model = await services.models.getApiKeyModelById({
 ## Error Handling
 
 ```typescript
-import { AiozApiError } from '@aioz-network/aiozai-sdk'
+import { AiozApiError } from '@aiozai/nodejs-client'
 
 try {
   const result = await services.models.getApiKeyModelById({
@@ -55,9 +55,9 @@ try {
 ## Configuration
 
 ```typescript
-const { rawClient } = createAiozClient({
-  apiKey: process.env.AIOZ_API_KEY,
-  baseUrl: 'https://custom-api.example.com/api/v1',
+const { rawClient } = createAiozAIClient({
+  apiKey: process.env.AIOZ_AI_API_KEY,
+  baseUrl: 'https://api.aiozai.network/api/v1',
   timeout: 60_000,
   retryConfig: { maxRetries: 5, baseDelay: 2000 },
 })
@@ -65,20 +65,20 @@ const { rawClient } = createAiozClient({
 
 ## Service Groups
 
-| Service | Description | Reference |
-| --- | --- | --- |
-| `services.models` | AI model management | [docs/models.md](docs/models.md) |
-| `services.datasets` | Dataset management | [docs/datasets.md](docs/datasets.md) |
-| `services.competitions` | Competitions & submissions | [docs/competitions.md](docs/competitions.md) |
-| `services.collections` | Curated collections | [docs/collections.md](docs/collections.md) |
-| `services.discussions` | Discussions & comments | [docs/discussions.md](docs/discussions.md) |
-| `services.notifications` | Notification system | [docs/notifications.md](docs/notifications.md) |
-| `services.organizations` | Organization management | [docs/organizations.md](docs/organizations.md) |
-| `services.repositories` | Repository operations | [docs/repositories.md](docs/repositories.md) |
-| `services.storage` | Storage & uploads | [docs/storage.md](docs/storage.md) |
-| `services.users` | User management | [docs/users.md](docs/users.md) |
-| `services.core` | Core endpoints, search, offers | [docs/core.md](docs/core.md) |
-| `services.public_` | Public endpoints (no auth) | [docs/public.md](docs/public.md) |
+| Service | Access | Description | Reference |
+| --- | --- | --- | --- |
+| Models | `client.models` | AI model management | [docs/models.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/models.md) |
+| Datasets | `client.datasets` | Dataset management | [docs/datasets.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/datasets.md) |
+| Competitions | `client.competitions` | Competitions & submissions | [docs/competitions.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/competitions.md) |
+| Collections | `client.collections` | Curated collections | [docs/collections.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/collections.md) |
+| Discussions | `client.discussions` | Discussions & comments | [docs/discussions.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/discussions.md) |
+| Notifications | `client.notifications` | Notification system | [docs/notifications.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/notifications.md) |
+| Organizations | `client.organizations` | Organization management | [docs/organizations.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/organizations.md) |
+| Repositories | `client.repositories` | Repository operations | [docs/repositories.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/repositories.md) |
+| Storage | `client.storage` | Storage & uploads | [docs/storage.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/storage.md) |
+| Users | `client.users` | User management | [docs/users.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/users.md) |
+| Core | `client.core` | Core endpoints, search, offers | [docs/core.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/core.md) |
+| Public | `client.public` | Public endpoints (no auth) | [docs/public.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/public.md) |
 
 ## Requirements
 
@@ -102,9 +102,9 @@ Apache-2.0
 Initialize the client once with your API key and reuse it across all calls:
 
 ```typescript
-import { createAiozClient } from '@aioz-network/aiozai-sdk'
+import { createAiozAIClient } from '@aiozai/nodejs-client'
 
-const { rawClient } = createAiozClient({ apiKey: process.env.AIOZ_API_KEY })
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY })
 
 // Pass rawClient to every service call:
 // services.models.postApiKeyModel({ client: rawClient, body: { ... } })

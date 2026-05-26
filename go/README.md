@@ -14,7 +14,7 @@ Go client SDK for the [AIOZ AI](https://aiozai.network) API. Auto-generated from
 ## Installation
 
 ```bash
-go get github.com/aioz-network/aiozai-sdk-go@latest
+go get github.com/AIOZNetwork/aioz-ai-go-client@latest
 ```
 
 Requires Go 1.22 or later.
@@ -30,12 +30,12 @@ import (
     "log"
     "os"
 
-    aiozai "github.com/aioz-network/aiozai-sdk-go"
+    aiozai "github.com/AIOZNetwork/aioz-ai-go-client"
 )
 
 func main() {
     client, err := aiozai.NewClient(
-        aiozai.WithAPIKey(os.Getenv("AIOZ_API_KEY")),
+        aiozai.WithAPIKey(os.Getenv("AIOZ_AI_API_KEY")),
     )
     if err != nil {
         log.Fatal(err)
@@ -65,8 +65,8 @@ if errors.As(err, &apiErr) {
 import "time"
 
 client, err := aiozai.NewClient(
-    aiozai.WithAPIKey(os.Getenv("AIOZ_API_KEY")),
-    aiozai.WithBaseURL("https://custom-api.example.com/api/v1"),
+    aiozai.WithAPIKey(os.Getenv("AIOZ_AI_API_KEY")),
+    aiozai.WithBaseURL("https://api.aiozai.network/api/v1"),
     aiozai.WithTimeout(60 * time.Second),
     aiozai.WithRetryConfig(&aiozai.RetryConfig{
         MaxRetries: 5,
@@ -113,11 +113,11 @@ Initialize the client once with your API key and reuse it across all calls:
 ```go
 import (
     "os"
-    aiozai "github.com/aioz-network/aiozai-sdk-go"
+    aiozai "github.com/AIOZNetwork/aioz-ai-go-client"
 )
 
 client, err := aiozai.NewClient(
-    aiozai.WithAPIKey(os.Getenv("AIOZ_API_KEY")),
+    aiozai.WithAPIKey(os.Getenv("AIOZ_AI_API_KEY")),
 )
 if err != nil {
     log.Fatal(err)

@@ -11,9 +11,9 @@ pip install aiozai-sdk
 ## Quick Start
 
 ```python
-from aiozai_sdk import AiozClient
+from aiozai_sdk import AiozAIClient
 
-client = AiozClient(api_key="your-api-key")
+client = AiozAIClient(api_key="your-api-key")
 
 # Access services
 result = client.models.model.api_key_model_list(body={...})
@@ -33,9 +33,9 @@ except AiozAPIError as e:
 ## Configuration
 
 ```python
-from aiozai_sdk import AiozClient, RetryConfig
+from aiozai_sdk import AiozAIClient, RetryConfig
 
-client = AiozClient(
+client = AiozAIClient(
     api_key="your-api-key",
     base_url="https://api.aiozai.network/api/v1",
     timeout=60.0,
@@ -47,18 +47,18 @@ client = AiozClient(
 
 | Service | Access | Description | Reference |
 | --- | --- | --- | --- |
-| Models | `client.models` | AI model management | [docs/models.md](docs/models.md) |
-| Datasets | `client.datasets` | Dataset management | [docs/datasets.md](docs/datasets.md) |
-| Competitions | `client.competitions` | Competitions & submissions | [docs/competitions.md](docs/competitions.md) |
-| Collections | `client.collections` | Curated collections | [docs/collections.md](docs/collections.md) |
-| Discussions | `client.discussions` | Discussions & comments | [docs/discussions.md](docs/discussions.md) |
-| Notifications | `client.notifications` | Notification system | [docs/notifications.md](docs/notifications.md) |
-| Organizations | `client.organizations` | Organization management | [docs/organizations.md](docs/organizations.md) |
-| Repositories | `client.repositories` | Repository operations | [docs/repositories.md](docs/repositories.md) |
-| Storage | `client.storage` | Storage & uploads | [docs/storage.md](docs/storage.md) |
-| Users | `client.users` | User management | [docs/users.md](docs/users.md) |
-| Core | `client.core` | Core endpoints, search, offers | [docs/core.md](docs/core.md) |
-| Public | `client.public` | Public endpoints (no auth) | [docs/public.md](docs/public.md) |
+| Models | `client.models` | AI model management | [docs/models.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/models.md) |
+| Datasets | `client.datasets` | Dataset management | [docs/datasets.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/datasets.md) |
+| Competitions | `client.competitions` | Competitions & submissions | [docs/competitions.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/competitions.md) |
+| Collections | `client.collections` | Curated collections | [docs/collections.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/collections.md) |
+| Discussions | `client.discussions` | Discussions & comments | [docs/discussions.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/discussions.md) |
+| Notifications | `client.notifications` | Notification system | [docs/notifications.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/notifications.md) |
+| Organizations | `client.organizations` | Organization management | [docs/organizations.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/organizations.md) |
+| Repositories | `client.repositories` | Repository operations | [docs/repositories.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/repositories.md) |
+| Storage | `client.storage` | Storage & uploads | [docs/storage.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/storage.md) |
+| Users | `client.users` | User management | [docs/users.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/users.md) |
+| Core | `client.core` | Core endpoints, search, offers | [docs/core.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/core.md) |
+| Public | `client.public` | Public endpoints (no auth) | [docs/public.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/public.md) |
 
 ## Requirements
 
@@ -86,9 +86,9 @@ Initialize the client once with your API key and reuse it across all calls:
 
 ```python
 import os
-from aiozai_sdk import AiozClient
+from aiozai_sdk import AiozAIClient
 
-client = AiozClient(api_key=os.environ["AIOZ_API_KEY"])
+client = AiozAIClient(api_key=os.environ["AIOZ_AI_API_KEY"])
 
 # Use client.models, client.datasets, etc.
 ```

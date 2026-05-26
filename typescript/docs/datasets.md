@@ -119,7 +119,7 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```typescript
-import { postApiKeyDataset } from '@aioz-network/aiozai-sdk';
+import { postApiKeyDataset } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyDataset({
     body: {
@@ -253,7 +253,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyDatasetList } from '@aioz-network/aiozai-sdk';
+import { postApiKeyDatasetList } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyDatasetList({
     body: {
@@ -392,7 +392,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyDatasetListByAuthorByUsername } from '@aioz-network/aiozai-sdk';
+import { postApiKeyDatasetListByAuthorByUsername } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyDatasetListByAuthorByUsername({
     body: {
@@ -449,7 +449,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyDatasetMatchingTags } from '@aioz-network/aiozai-sdk';
+import { postApiKeyDatasetMatchingTags } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyDatasetMatchingTags({
     body: {
@@ -576,7 +576,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyDatasetOrganizationByOrg } from '@aioz-network/aiozai-sdk';
+import { getApiKeyDatasetOrganizationByOrg } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyDatasetOrganizationByOrg({ path: { org: '...' } });
 console.log(response.data);
@@ -685,7 +685,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyDatasetById } from '@aioz-network/aiozai-sdk';
+import { getApiKeyDatasetById } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyDatasetById({ path: { id: '...' } });
 console.log(response.data);
@@ -804,7 +804,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyDatasetById } from '@aioz-network/aiozai-sdk';
+import { putApiKeyDatasetById } from '@aiozai/nodejs-client';
 
 const response = await putApiKeyDatasetById({
     body: {
@@ -927,7 +927,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyDatasetById } from '@aioz-network/aiozai-sdk';
+import { deleteApiKeyDatasetById } from '@aiozai/nodejs-client';
 
 const response = await deleteApiKeyDatasetById({
     body: {
@@ -1000,7 +1000,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyDatasetByIdDownload } from '@aioz-network/aiozai-sdk';
+import { getApiKeyDatasetByIdDownload } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyDatasetByIdDownload({ path: { id: '...' } });
 console.log(response.data);
@@ -1069,7 +1069,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyDatasetByIdLike } from '@aioz-network/aiozai-sdk';
+import { getApiKeyDatasetByIdLike } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyDatasetByIdLike({ path: { id: '...' } });
 console.log(response.data);
@@ -1137,7 +1137,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyDatasetByIdMetadata } from '@aioz-network/aiozai-sdk';
+import { putApiKeyDatasetByIdMetadata } from '@aiozai/nodejs-client';
 
 const response = await putApiKeyDatasetByIdMetadata({
     body: {
@@ -1255,7 +1255,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyDatasetByUsernameByName } from '@aioz-network/aiozai-sdk';
+import { getApiKeyDatasetByUsernameByName } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyDatasetByUsernameByName({ path: { username: '...', name: '...' } });
 console.log(response.data);
@@ -1375,7 +1375,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postPublicDatasetList } from '@aioz-network/aiozai-sdk';
+import { postPublicDatasetList } from '@aiozai/nodejs-client';
 
 const response = await postPublicDatasetList({
     body: {
@@ -1508,7 +1508,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postPublicDatasetListByAuthorByUsername } from '@aioz-network/aiozai-sdk';
+import { postPublicDatasetListByAuthorByUsername } from '@aiozai/nodejs-client';
 
 const response = await postPublicDatasetListByAuthorByUsername({
     body: {
@@ -1551,7 +1551,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postPublicDatasetMatchingTags } from '@aioz-network/aiozai-sdk';
+import { postPublicDatasetMatchingTags } from '@aiozai/nodejs-client';
 
 const response = await postPublicDatasetMatchingTags({
     body: {
@@ -1606,7 +1606,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicDatasetMetadata } from '@aioz-network/aiozai-sdk';
+import { getPublicDatasetMetadata } from '@aiozai/nodejs-client';
 
 const response = await getPublicDatasetMetadata();
 console.log(response.data);
@@ -1719,7 +1719,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicDatasetOrganizationByOrg } from '@aioz-network/aiozai-sdk';
+import { getPublicDatasetOrganizationByOrg } from '@aiozai/nodejs-client';
 
 const response = await getPublicDatasetOrganizationByOrg({ path: { org: '...' } });
 console.log(response.data);
@@ -1830,7 +1830,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicDatasetTrending } from '@aioz-network/aiozai-sdk';
+import { getPublicDatasetTrending } from '@aiozai/nodejs-client';
 
 const response = await getPublicDatasetTrending();
 console.log(response.data);
@@ -1933,7 +1933,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicDatasetById } from '@aioz-network/aiozai-sdk';
+import { getPublicDatasetById } from '@aiozai/nodejs-client';
 
 const response = await getPublicDatasetById({ path: { id: '...' } });
 console.log(response.data);
@@ -2037,7 +2037,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicDatasetByUsernameByName } from '@aioz-network/aiozai-sdk';
+import { getPublicDatasetByUsernameByName } from '@aiozai/nodejs-client';
 
 const response = await getPublicDatasetByUsernameByName({ path: { username: '...', name: '...' } });
 console.log(response.data);

@@ -35,7 +35,7 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```typescript
-import { deleteApiKeyUser } from '@aioz-network/aiozai-sdk';
+import { deleteApiKeyUser } from '@aiozai/nodejs-client';
 
 const response = await deleteApiKeyUser();
 console.log(response.data);
@@ -206,7 +206,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyUserApiKey } from '@aioz-network/aiozai-sdk';
+import { postApiKeyUserApiKey } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyUserApiKey({
     body: {
@@ -263,7 +263,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserChallengeByWalletaddress } from '@aioz-network/aiozai-sdk';
+import { getApiKeyUserChallengeByWalletaddress } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyUserChallengeByWalletaddress({ path: { walletAddress: '...' } });
 console.log(response.data);
@@ -307,7 +307,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { patchApiKeyUserChangePassword } from '@aioz-network/aiozai-sdk';
+import { patchApiKeyUserChangePassword } from '@aiozai/nodejs-client';
 
 const response = await patchApiKeyUserChangePassword({
     body: {
@@ -355,7 +355,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyUserFollowById } from '@aioz-network/aiozai-sdk';
+import { putApiKeyUserFollowById } from '@aiozai/nodejs-client';
 
 const response = await putApiKeyUserFollowById({ path: { id: '...' } });
 console.log(response.data);
@@ -399,7 +399,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyUserLinkEmail } from '@aioz-network/aiozai-sdk';
+import { postApiKeyUserLinkEmail } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyUserLinkEmail({
     body: {
@@ -455,7 +455,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { patchApiKeyUserLinkEmailByEmail } from '@aioz-network/aiozai-sdk';
+import { patchApiKeyUserLinkEmailByEmail } from '@aiozai/nodejs-client';
 
 const response = await patchApiKeyUserLinkEmailByEmail({
     body: {
@@ -505,7 +505,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyUserLinkWallet } from '@aioz-network/aiozai-sdk';
+import { postApiKeyUserLinkWallet } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyUserLinkWallet({
     body: {
@@ -656,7 +656,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserMe } from '@aioz-network/aiozai-sdk';
+import { getApiKeyUserMe } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyUserMe();
 console.log(response.data);
@@ -702,7 +702,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserOffers } from '@aioz-network/aiozai-sdk';
+import { getApiKeyUserOffers } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyUserOffers();
 console.log(response.data);
@@ -762,7 +762,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserOrgUsernames } from '@aioz-network/aiozai-sdk';
+import { getApiKeyUserOrgUsernames } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyUserOrgUsernames();
 console.log(response.data);
@@ -832,7 +832,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserPermissionSearch } from '@aioz-network/aiozai-sdk';
+import { getApiKeyUserPermissionSearch } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyUserPermissionSearch();
 console.log(response.data);
@@ -883,7 +883,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { patchApiKeyUserProfile } from '@aioz-network/aiozai-sdk';
+import { patchApiKeyUserProfile } from '@aiozai/nodejs-client';
 
 const response = await patchApiKeyUserProfile({
     body: {
@@ -946,7 +946,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserPublicKey } from '@aioz-network/aiozai-sdk';
+import { getApiKeyUserPublicKey } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyUserPublicKey();
 console.log(response.data);
@@ -991,7 +991,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyUserPublicKey } from '@aioz-network/aiozai-sdk';
+import { postApiKeyUserPublicKey } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyUserPublicKey({
     body: {
@@ -1039,7 +1039,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyUserPublicKeyByKeyid } from '@aioz-network/aiozai-sdk';
+import { deleteApiKeyUserPublicKeyByKeyid } from '@aiozai/nodejs-client';
 
 const response = await deleteApiKeyUserPublicKeyByKeyid({ path: { keyId: '...' } });
 console.log(response.data);
@@ -1098,7 +1098,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyUserStatisticsEarnings } from '@aioz-network/aiozai-sdk';
+import { postApiKeyUserStatisticsEarnings } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyUserStatisticsEarnings({
     body: {
@@ -1166,7 +1166,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyUserStatisticsSpendingCost } from '@aioz-network/aiozai-sdk';
+import { postApiKeyUserStatisticsSpendingCost } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyUserStatisticsSpendingCost({
     body: {
@@ -1214,7 +1214,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyUserVoucherClaim } from '@aioz-network/aiozai-sdk';
+import { postApiKeyUserVoucherClaim } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyUserVoucherClaim({
     body: {
@@ -1285,7 +1285,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserWalletDepositHistory } from '@aioz-network/aiozai-sdk';
+import { getApiKeyUserWalletDepositHistory } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyUserWalletDepositHistory();
 console.log(response.data);
@@ -1361,7 +1361,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyUserWalletTransactionAnalytics } from '@aioz-network/aiozai-sdk';
+import { postApiKeyUserWalletTransactionAnalytics } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyUserWalletTransactionAnalytics({
     body: {
@@ -1438,7 +1438,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserWalletTransactionHistory } from '@aioz-network/aiozai-sdk';
+import { getApiKeyUserWalletTransactionHistory } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyUserWalletTransactionHistory();
 console.log(response.data);
@@ -1512,7 +1512,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyUserWalletTransactionRecent } from '@aioz-network/aiozai-sdk';
+import { postApiKeyUserWalletTransactionRecent } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyUserWalletTransactionRecent({
     body: {
@@ -1585,7 +1585,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserWalletWithdrawHistory } from '@aioz-network/aiozai-sdk';
+import { getApiKeyUserWalletWithdrawHistory } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyUserWalletWithdrawHistory();
 console.log(response.data);
@@ -1723,7 +1723,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserByUsername } from '@aioz-network/aiozai-sdk';
+import { getApiKeyUserByUsername } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyUserByUsername({ path: { username: '...' } });
 console.log(response.data);

@@ -40,7 +40,7 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```typescript
-import { getPublicContentTermsPrivacy } from '@aioz-network/aiozai-sdk';
+import { getPublicContentTermsPrivacy } from '@aiozai/nodejs-client';
 
 const response = await getPublicContentTermsPrivacy();
 console.log(response.data);
@@ -95,7 +95,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicContentByKeys } from '@aioz-network/aiozai-sdk';
+import { getPublicContentByKeys } from '@aiozai/nodejs-client';
 
 const response = await getPublicContentByKeys({ path: { keys: '...' } });
 console.log(response.data);
@@ -141,7 +141,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postPublicCostEstimating } from '@aioz-network/aiozai-sdk';
+import { postPublicCostEstimating } from '@aiozai/nodejs-client';
 
 const response = await postPublicCostEstimating({
     body: {
@@ -193,7 +193,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicMetadata } from '@aioz-network/aiozai-sdk';
+import { getPublicMetadata } from '@aiozai/nodejs-client';
 
 const response = await getPublicMetadata();
 console.log(response.data);
@@ -232,7 +232,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicRepositoryByOwnerusernameByRepositorynameContentReadme } from '@aioz-network/aiozai-sdk';
+import { getPublicRepositoryByOwnerusernameByRepositorynameContentReadme } from '@aiozai/nodejs-client';
 
 const response = await getPublicRepositoryByOwnerusernameByRepositorynameContentReadme({ path: { ownerUsername: '...', repositoryName: '...' } });
 console.log(response.data);
@@ -282,7 +282,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicSearch } from '@aioz-network/aiozai-sdk';
+import { getPublicSearch } from '@aiozai/nodejs-client';
 
 const response = await getPublicSearch();
 console.log(response.data);
@@ -346,7 +346,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicSearchUser } from '@aioz-network/aiozai-sdk';
+import { getPublicSearchUser } from '@aiozai/nodejs-client';
 
 const response = await getPublicSearchUser();
 console.log(response.data);
@@ -394,7 +394,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicTokenPrice } from '@aioz-network/aiozai-sdk';
+import { getPublicTokenPrice } from '@aiozai/nodejs-client';
 
 const response = await getPublicTokenPrice();
 console.log(response.data);
@@ -526,7 +526,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicUserByUsername } from '@aioz-network/aiozai-sdk';
+import { getPublicUserByUsername } from '@aiozai/nodejs-client';
 
 const response = await getPublicUserByUsername({ path: { username: '...' } });
 console.log(response.data);
@@ -570,7 +570,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicUserByUsernameExisted } from '@aioz-network/aiozai-sdk';
+import { getPublicUserByUsernameExisted } from '@aiozai/nodejs-client';
 
 const response = await getPublicUserByUsernameExisted({ path: { username: '...' } });
 console.log(response.data);
@@ -678,7 +678,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicUserByUsernameMedals } from '@aioz-network/aiozai-sdk';
+import { getPublicUserByUsernameMedals } from '@aiozai/nodejs-client';
 
 const response = await getPublicUserByUsernameMedals({ path: { username: '...' } });
 console.log(response.data);
@@ -723,7 +723,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicUserByUsernameMedalsStatistics } from '@aioz-network/aiozai-sdk';
+import { getPublicUserByUsernameMedalsStatistics } from '@aiozai/nodejs-client';
 
 const response = await getPublicUserByUsernameMedalsStatistics({ path: { username: '...' } });
 console.log(response.data);
@@ -785,7 +785,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicUserByUsernameOrganizations } from '@aioz-network/aiozai-sdk';
+import { getPublicUserByUsernameOrganizations } from '@aiozai/nodejs-client';
 
 const response = await getPublicUserByUsernameOrganizations({ path: { username: '...' } });
 console.log(response.data);

@@ -65,7 +65,7 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```typescript
-import { getApiKeyNotification } from '@aioz-network/aiozai-sdk';
+import { getApiKeyNotification } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyNotification();
 console.log(response.data);
@@ -108,7 +108,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyNotification } from '@aioz-network/aiozai-sdk';
+import { deleteApiKeyNotification } from '@aiozai/nodejs-client';
 
 const response = await deleteApiKeyNotification();
 console.log(response.data);
@@ -152,7 +152,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyNotificationList } from '@aioz-network/aiozai-sdk';
+import { putApiKeyNotificationList } from '@aiozai/nodejs-client';
 
 const response = await putApiKeyNotificationList({
     body: {
@@ -200,7 +200,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyNotificationList } from '@aioz-network/aiozai-sdk';
+import { deleteApiKeyNotificationList } from '@aiozai/nodejs-client';
 
 const response = await deleteApiKeyNotificationList({
     body: {
@@ -249,7 +249,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyNotificationStatistics } from '@aioz-network/aiozai-sdk';
+import { getApiKeyNotificationStatistics } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyNotificationStatistics();
 console.log(response.data);
@@ -299,7 +299,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyNotificationById } from '@aioz-network/aiozai-sdk';
+import { putApiKeyNotificationById } from '@aiozai/nodejs-client';
 
 const response = await putApiKeyNotificationById({
     body: {
@@ -346,7 +346,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyNotificationById } from '@aioz-network/aiozai-sdk';
+import { deleteApiKeyNotificationById } from '@aiozai/nodejs-client';
 
 const response = await deleteApiKeyNotificationById({ path: { id: '...' } });
 console.log(response.data);
