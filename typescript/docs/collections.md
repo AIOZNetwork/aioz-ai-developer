@@ -199,7 +199,7 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```typescript
-import { postApiKeyCollection } from '@aioz-network/aiozai-sdk';
+import { postApiKeyCollection } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyCollection({
     body: {
@@ -415,7 +415,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyCollectionList } from '@aioz-network/aiozai-sdk';
+import { postApiKeyCollectionList } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyCollectionList({
     body: {
@@ -621,7 +621,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyCollectionById } from '@aioz-network/aiozai-sdk';
+import { getApiKeyCollectionById } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyCollectionById({ path: { id: '...' } });
 console.log(response.data);
@@ -828,7 +828,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyCollectionById } from '@aioz-network/aiozai-sdk';
+import { putApiKeyCollectionById } from '@aiozai/nodejs-client';
 
 const response = await putApiKeyCollectionById({
     body: {
@@ -1033,7 +1033,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyCollectionById } from '@aioz-network/aiozai-sdk';
+import { deleteApiKeyCollectionById } from '@aiozai/nodejs-client';
 
 const response = await deleteApiKeyCollectionById({ path: { id: '...' } });
 console.log(response.data);
@@ -1238,7 +1238,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyCollectionByIdItem } from '@aioz-network/aiozai-sdk';
+import { postApiKeyCollectionByIdItem } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyCollectionByIdItem({
     body: {
@@ -1448,7 +1448,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyCollectionByIdItem } from '@aioz-network/aiozai-sdk';
+import { deleteApiKeyCollectionByIdItem } from '@aiozai/nodejs-client';
 
 const response = await deleteApiKeyCollectionByIdItem({
     body: {
@@ -1651,7 +1651,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyCollectionByIdVote } from '@aioz-network/aiozai-sdk';
+import { putApiKeyCollectionByIdVote } from '@aiozai/nodejs-client';
 
 const response = await putApiKeyCollectionByIdVote({ path: { id: '...' } });
 console.log(response.data);
@@ -1865,7 +1865,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyCollectionByUsernameList } from '@aioz-network/aiozai-sdk';
+import { postApiKeyCollectionByUsernameList } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyCollectionByUsernameList({
     body: {
@@ -2075,7 +2075,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postPublicCollectionList } from '@aioz-network/aiozai-sdk';
+import { postPublicCollectionList } from '@aiozai/nodejs-client';
 
 const response = await postPublicCollectionList({
     body: {
@@ -2275,7 +2275,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicCollectionById } from '@aioz-network/aiozai-sdk';
+import { getPublicCollectionById } from '@aiozai/nodejs-client';
 
 const response = await getPublicCollectionById({ path: { id: '...' } });
 console.log(response.data);
@@ -2483,7 +2483,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postPublicCollectionByUsernameList } from '@aioz-network/aiozai-sdk';
+import { postPublicCollectionByUsernameList } from '@aiozai/nodejs-client';
 
 const response = await postPublicCollectionByUsernameList({
     body: {

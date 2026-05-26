@@ -6,9 +6,9 @@ Official client SDKs for the [AIOZ AI](https://aiozai.network) API — auto-gene
 
 | Language | Package | Minimum Runtime | Documentation |
 | --- | --- | --- | --- |
-| Go | `github.com/aioz-network/aiozai-sdk-go` | Go 1.22+ | [go/](go/) |
+| Go | `https://github.com/AIOZNetwork/aioz-ai-go-client` | Go 1.22+ | [go/](go/) |
 | Python | `aiozai-sdk` (PyPI) | Python 3.9+ | [python/](python/) |
-| TypeScript | `@aioz-network/aiozai-sdk` (npm) | Node.js 18+ | [typescript/](typescript/) |
+| TypeScript | `@aiozai/nodejs-client` (npm) | Node.js 18+ | [typescript/](typescript/) |
 
 ## Features
 
@@ -41,7 +41,7 @@ Every SDK exposes the same twelve service groups:
 
 ## Go SDK
 
-Install with `go get github.com/aioz-network/aiozai-sdk-go@latest` (requires Go 1.22+).
+Install with `go get https://github.com/AIOZNetwork/aioz-ai-go-client@latest` (requires Go 1.22+).
 
 **Quick start** — initialize a client and call a service:
 
@@ -54,12 +54,12 @@ import (
     "log"
     "os"
 
-    aiozai "github.com/aioz-network/aiozai-sdk-go"
+    aiozai "https://github.com/AIOZNetwork/aioz-ai-go-client"
 )
 
 func main() {
     client, err := aiozai.NewClient(
-        aiozai.WithAPIKey(os.Getenv("AIOZ_API_KEY")),
+        aiozai.WithAPIKey(os.Getenv("AIOZ_AI_API_KEY")),
     )
     if err != nil {
         log.Fatal(err)
@@ -77,7 +77,7 @@ func main() {
 import "time"
 
 client, err := aiozai.NewClient(
-    aiozai.WithAPIKey(os.Getenv("AIOZ_API_KEY")),
+    aiozai.WithAPIKey(os.Getenv("AIOZ_AI_API_KEY")),
     aiozai.WithBaseURL("https://api.aiozai.network/api/v1"),
     aiozai.WithTimeout(60 * time.Second),
     aiozai.WithRetryConfig(&aiozai.RetryConfig{
@@ -111,7 +111,7 @@ Install with `pip install aiozai-sdk` (requires Python 3.9+, pydantic >= 2.0).
 import os
 from aiozai_sdk import AiozClient
 
-client = AiozClient(api_key=os.environ["AIOZ_API_KEY"])
+client = AiozClient(api_key=os.environ["AIOZ_AI_API_KEY"])
 
 # List models
 result = client.models.model.api_key_model_list(body={})
@@ -123,7 +123,7 @@ result = client.models.model.api_key_model_list(body={})
 from aiozai_sdk import AiozClient, RetryConfig
 
 client = AiozClient(
-    api_key=os.environ["AIOZ_API_KEY"],
+    api_key=os.environ["AIOZ_AI_API_KEY"],
     base_url="https://api.aiozai.network/api/v1",
     timeout=60.0,
     retry_config=RetryConfig(max_retries=5, base_delay=2.0, max_delay=60.0),
@@ -145,14 +145,14 @@ Full API reference: [python/README.md](python/README.md)
 
 ## TypeScript SDK
 
-Install with `npm install @aioz-network/aiozai-sdk` (requires Node.js 18+).
+Install with `npm install @aiozai/nodejs-client` (requires Node.js 18+).
 
 **Quick start** — create a client and call a service:
 
 ```typescript
-import { createAiozClient, services } from '@aioz-network/aiozai-sdk'
+import { createAiozClient, services } from '@aiozai/nodejs-client'
 
-const { rawClient } = createAiozClient({ apiKey: process.env.AIOZ_API_KEY })
+const { rawClient } = createAiozClient({ apiKey: process.env.AIOZ_AI_API_KEY })
 
 // List models
 const models = await services.models.postApiKeyModelList({
@@ -165,7 +165,7 @@ const models = await services.models.postApiKeyModelList({
 
 ```typescript
 const { rawClient } = createAiozClient({
-  apiKey: process.env.AIOZ_API_KEY,
+  apiKey: process.env.AIOZ_AI_API_KEY,
   baseUrl: 'https://api.aiozai.network/api/v1',
   timeout: 60_000,
   retryConfig: { maxRetries: 5, baseDelay: 2000 },
@@ -175,7 +175,7 @@ const { rawClient } = createAiozClient({
 **Error handling** — catch `AiozApiError` to inspect status code and message:
 
 ```typescript
-import { AiozApiError } from '@aioz-network/aiozai-sdk'
+import { AiozApiError } from '@aiozai/nodejs-client'
 
 try {
   const result = await services.models.getApiKeyModelById({
@@ -196,7 +196,7 @@ Full API reference: [typescript/README.md](typescript/README.md)
 All SDKs authenticate via an API key. Obtain your key from the [AIOZ AI dashboard](https://aiozai.network) and expose it as an environment variable:
 
 ```bash
-export AIOZ_API_KEY="your-api-key"
+export AIOZ_AI_API_KEY="your-api-key"
 ```
 
 ## Repository Structure

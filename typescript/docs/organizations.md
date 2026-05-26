@@ -44,7 +44,7 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```typescript
-import { postApiKeyOrganization } from '@aioz-network/aiozai-sdk';
+import { postApiKeyOrganization } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyOrganization({
     body: {
@@ -120,7 +120,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyOrganizationList } from '@aioz-network/aiozai-sdk';
+import { getApiKeyOrganizationList } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyOrganizationList();
 console.log(response.data);
@@ -178,7 +178,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyOrganizationByOrg } from '@aioz-network/aiozai-sdk';
+import { getApiKeyOrganizationByOrg } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyOrganizationByOrg({ path: { org: '...' } });
 console.log(response.data);
@@ -221,7 +221,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyOrganizationByOrg } from '@aioz-network/aiozai-sdk';
+import { deleteApiKeyOrganizationByOrg } from '@aiozai/nodejs-client';
 
 const response = await deleteApiKeyOrganizationByOrg({ path: { org: '...' } });
 console.log(response.data);
@@ -295,7 +295,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { patchApiKeyOrganizationByOrgInfo } from '@aioz-network/aiozai-sdk';
+import { patchApiKeyOrganizationByOrgInfo } from '@aiozai/nodejs-client';
 
 const response = await patchApiKeyOrganizationByOrgInfo({
     body: {
@@ -354,7 +354,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyOrganizationByOrgIsMember } from '@aioz-network/aiozai-sdk';
+import { getApiKeyOrganizationByOrgIsMember } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyOrganizationByOrgIsMember({ path: { org: '...' } });
 console.log(response.data);
@@ -397,7 +397,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyOrganizationByOrgLeave } from '@aioz-network/aiozai-sdk';
+import { deleteApiKeyOrganizationByOrgLeave } from '@aiozai/nodejs-client';
 
 const response = await deleteApiKeyOrganizationByOrgLeave({ path: { org: '...' } });
 console.log(response.data);
@@ -538,7 +538,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyOrganizationByOrgMembers } from '@aioz-network/aiozai-sdk';
+import { getApiKeyOrganizationByOrgMembers } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyOrganizationByOrgMembers({ path: { org: '...' } });
 console.log(response.data);
@@ -605,7 +605,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyOrganizationByOrgOffers } from '@aioz-network/aiozai-sdk';
+import { getApiKeyOrganizationByOrgOffers } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyOrganizationByOrgOffers({ path: { org: '...' } });
 console.log(response.data);
@@ -668,7 +668,7 @@ _No fields defined._
 **Example**
 
 ```typescript
-import { getApiKeyOrganizationByOrgPermission } from '@aioz-network/aiozai-sdk';
+import { getApiKeyOrganizationByOrgPermission } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyOrganizationByOrgPermission({
     body: {
@@ -728,7 +728,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyOrganizationByOrgSetting } from '@aioz-network/aiozai-sdk';
+import { getApiKeyOrganizationByOrgSetting } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyOrganizationByOrgSetting({ path: { org: '...' } });
 console.log(response.data);
@@ -795,7 +795,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { patchApiKeyOrganizationByOrgSetting } from '@aioz-network/aiozai-sdk';
+import { patchApiKeyOrganizationByOrgSetting } from '@aiozai/nodejs-client';
 
 const response = await patchApiKeyOrganizationByOrgSetting({
     body: {
@@ -867,7 +867,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyOrganizationByOrgStatisticsEarnings } from '@aioz-network/aiozai-sdk';
+import { postApiKeyOrganizationByOrgStatisticsEarnings } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyOrganizationByOrgStatisticsEarnings({
     body: {
@@ -941,7 +941,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyOrganizationByOrgStatisticsSpendingCost } from '@aioz-network/aiozai-sdk';
+import { postApiKeyOrganizationByOrgStatisticsSpendingCost } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyOrganizationByOrgStatisticsSpendingCost({
     body: {
@@ -1019,7 +1019,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyOrganizationByOrgWalletDepositHistory } from '@aioz-network/aiozai-sdk';
+import { getApiKeyOrganizationByOrgWalletDepositHistory } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyOrganizationByOrgWalletDepositHistory({
     body: {
@@ -1106,7 +1106,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyOrganizationByOrgWalletTransactionAnalytics } from '@aioz-network/aiozai-sdk';
+import { postApiKeyOrganizationByOrgWalletTransactionAnalytics } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyOrganizationByOrgWalletTransactionAnalytics({
     body: {
@@ -1189,7 +1189,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyOrganizationByOrgWalletTransactionHistory } from '@aioz-network/aiozai-sdk';
+import { getApiKeyOrganizationByOrgWalletTransactionHistory } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyOrganizationByOrgWalletTransactionHistory({
     body: {
@@ -1275,7 +1275,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyOrganizationByOrgWalletTransactionRecent } from '@aioz-network/aiozai-sdk';
+import { postApiKeyOrganizationByOrgWalletTransactionRecent } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyOrganizationByOrgWalletTransactionRecent({
     body: {
@@ -1333,7 +1333,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyOrganizationByOrgWalletWithdrawEarnings } from '@aioz-network/aiozai-sdk';
+import { postApiKeyOrganizationByOrgWalletWithdrawEarnings } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyOrganizationByOrgWalletWithdrawEarnings({
     body: {
@@ -1409,7 +1409,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyOrganizationByOrgWalletWithdrawHistory } from '@aioz-network/aiozai-sdk';
+import { getApiKeyOrganizationByOrgWalletWithdrawHistory } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyOrganizationByOrgWalletWithdrawHistory({
     body: {
@@ -1458,7 +1458,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyOrganizationByOrgByMember } from '@aioz-network/aiozai-sdk';
+import { deleteApiKeyOrganizationByOrgByMember } from '@aiozai/nodejs-client';
 
 const response = await deleteApiKeyOrganizationByOrgByMember({ path: { org: '...', member: '...' } });
 console.log(response.data);
@@ -1507,7 +1507,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { patchApiKeyOrganizationByOrgByMember } from '@aioz-network/aiozai-sdk';
+import { patchApiKeyOrganizationByOrgByMember } from '@aiozai/nodejs-client';
 
 const response = await patchApiKeyOrganizationByOrgByMember({
     body: {
@@ -1597,7 +1597,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicOrganization } from '@aioz-network/aiozai-sdk';
+import { getPublicOrganization } from '@aiozai/nodejs-client';
 
 const response = await getPublicOrganization();
 console.log(response.data);
@@ -1674,7 +1674,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicOrganizationByOrg } from '@aioz-network/aiozai-sdk';
+import { getPublicOrganizationByOrg } from '@aiozai/nodejs-client';
 
 const response = await getPublicOrganizationByOrg({ path: { org: '...' } });
 console.log(response.data);
@@ -1809,7 +1809,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicOrganizationByOrgMembers } from '@aioz-network/aiozai-sdk';
+import { getPublicOrganizationByOrgMembers } from '@aiozai/nodejs-client';
 
 const response = await getPublicOrganizationByOrgMembers({ path: { org: '...' } });
 console.log(response.data);

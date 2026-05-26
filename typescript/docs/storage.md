@@ -54,7 +54,7 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```typescript
-import { postApiKeyStorageUploadCreatePresignedUrl } from '@aioz-network/aiozai-sdk';
+import { postApiKeyStorageUploadCreatePresignedUrl } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyStorageUploadCreatePresignedUrl({
     body: {
@@ -108,7 +108,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyStorageUploadStatistics } from '@aioz-network/aiozai-sdk';
+import { getApiKeyStorageUploadStatistics } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyStorageUploadStatistics();
 console.log(response.data);
@@ -162,7 +162,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyStorageUploadByFolder } from '@aioz-network/aiozai-sdk';
+import { getApiKeyStorageUploadByFolder } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyStorageUploadByFolder();
 console.log(response.data);
@@ -197,7 +197,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyStorageW3sUrl } from '@aioz-network/aiozai-sdk';
+import { deleteApiKeyStorageW3sUrl } from '@aiozai/nodejs-client';
 
 const response = await deleteApiKeyStorageW3sUrl({
     body: {

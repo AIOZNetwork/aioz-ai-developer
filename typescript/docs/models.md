@@ -68,7 +68,7 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```typescript
-import { postApiKeyModel } from '@aioz-network/aiozai-sdk';
+import { postApiKeyModel } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyModel({
     body: {
@@ -203,7 +203,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyModelList } from '@aioz-network/aiozai-sdk';
+import { postApiKeyModelList } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyModelList({
     body: {
@@ -343,7 +343,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyModelListByAuthorByUsername } from '@aioz-network/aiozai-sdk';
+import { postApiKeyModelListByAuthorByUsername } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyModelListByAuthorByUsername({
     body: {
@@ -399,7 +399,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyModelMatchingTags } from '@aioz-network/aiozai-sdk';
+import { postApiKeyModelMatchingTags } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyModelMatchingTags({
     body: {
@@ -528,7 +528,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelOrganizationByOrg } from '@aioz-network/aiozai-sdk';
+import { getApiKeyModelOrganizationByOrg } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyModelOrganizationByOrg({ path: { org: '...' } });
 console.log(response.data);
@@ -571,7 +571,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyModelTaskReviewsById } from '@aioz-network/aiozai-sdk';
+import { deleteApiKeyModelTaskReviewsById } from '@aiozai/nodejs-client';
 
 const response = await deleteApiKeyModelTaskReviewsById({ path: { id: '...' } });
 console.log(response.data);
@@ -641,7 +641,7 @@ _No fields defined._
 **Example**
 
 ```typescript
-import { getApiKeyModelTaskByIdReviews } from '@aioz-network/aiozai-sdk';
+import { getApiKeyModelTaskByIdReviews } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyModelTaskByIdReviews({
     body: {
@@ -698,7 +698,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyModelTrainingCost } from '@aioz-network/aiozai-sdk';
+import { postApiKeyModelTrainingCost } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyModelTrainingCost({
     body: {
@@ -771,7 +771,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelTrainingTask } from '@aioz-network/aiozai-sdk';
+import { getApiKeyModelTrainingTask } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyModelTrainingTask({
     body: {
@@ -819,7 +819,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyModelTrainingTaskById } from '@aioz-network/aiozai-sdk';
+import { deleteApiKeyModelTrainingTaskById } from '@aiozai/nodejs-client';
 
 const response = await deleteApiKeyModelTrainingTaskById({ path: { id: '...' } });
 console.log(response.data);
@@ -883,7 +883,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelVerifyHubTaskById } from '@aioz-network/aiozai-sdk';
+import { getApiKeyModelVerifyHubTaskById } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyModelVerifyHubTaskById({ path: { id: '...' } });
 console.log(response.data);
@@ -921,7 +921,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelVerifySupportPlatforms } from '@aioz-network/aiozai-sdk';
+import { getApiKeyModelVerifySupportPlatforms } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyModelVerifySupportPlatforms();
 console.log(response.data);
@@ -979,7 +979,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelById } from '@aioz-network/aiozai-sdk';
+import { getApiKeyModelById } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyModelById({ path: { id: '...' } });
 console.log(response.data);
@@ -1048,7 +1048,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyModelById } from '@aioz-network/aiozai-sdk';
+import { putApiKeyModelById } from '@aiozai/nodejs-client';
 
 const response = await putApiKeyModelById({
     body: {
@@ -1105,7 +1105,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyModelById } from '@aioz-network/aiozai-sdk';
+import { deleteApiKeyModelById } from '@aiozai/nodejs-client';
 
 const response = await deleteApiKeyModelById({
     body: {
@@ -1176,7 +1176,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelByIdApiKey } from '@aioz-network/aiozai-sdk';
+import { getApiKeyModelByIdApiKey } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyModelByIdApiKey({ path: { id: '...' } });
 console.log(response.data);
@@ -1353,7 +1353,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyModelByIdApiKey } from '@aioz-network/aiozai-sdk';
+import { postApiKeyModelByIdApiKey } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyModelByIdApiKey({
     body: {
@@ -1429,7 +1429,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelByIdDownload } from '@aioz-network/aiozai-sdk';
+import { getApiKeyModelByIdDownload } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyModelByIdDownload({ path: { id: '...' } });
 console.log(response.data);
@@ -1484,7 +1484,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelByIdInfo } from '@aioz-network/aiozai-sdk';
+import { getApiKeyModelByIdInfo } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyModelByIdInfo({ path: { id: '...' } });
 console.log(response.data);
@@ -1553,7 +1553,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelByIdLike } from '@aioz-network/aiozai-sdk';
+import { getApiKeyModelByIdLike } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyModelByIdLike({ path: { id: '...' } });
 console.log(response.data);
@@ -1621,7 +1621,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyModelByIdMetadata } from '@aioz-network/aiozai-sdk';
+import { putApiKeyModelByIdMetadata } from '@aiozai/nodejs-client';
 
 const response = await putApiKeyModelByIdMetadata({
     body: {
@@ -1686,7 +1686,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyModelByIdPreVerify } from '@aioz-network/aiozai-sdk';
+import { postApiKeyModelByIdPreVerify } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyModelByIdPreVerify({
     body: {
@@ -1742,7 +1742,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelByIdServing } from '@aioz-network/aiozai-sdk';
+import { getApiKeyModelByIdServing } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyModelByIdServing({ path: { id: '...' } });
 console.log(response.data);
@@ -1801,7 +1801,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelByIdSetting } from '@aioz-network/aiozai-sdk';
+import { getApiKeyModelByIdSetting } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyModelByIdSetting({ path: { id: '...' } });
 console.log(response.data);
@@ -1869,7 +1869,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyModelByIdSetting } from '@aioz-network/aiozai-sdk';
+import { putApiKeyModelByIdSetting } from '@aiozai/nodejs-client';
 
 const response = await putApiKeyModelByIdSetting({
     body: {
@@ -1936,7 +1936,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyModelByIdStatistics } from '@aioz-network/aiozai-sdk';
+import { postApiKeyModelByIdStatistics } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyModelByIdStatistics({
     body: {
@@ -1993,7 +1993,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelByIdTaskCost } from '@aioz-network/aiozai-sdk';
+import { getApiKeyModelByIdTaskCost } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyModelByIdTaskCost({ path: { id: '...' } });
 console.log(response.data);
@@ -2067,7 +2067,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyModelByIdTaskReviews } from '@aioz-network/aiozai-sdk';
+import { postApiKeyModelByIdTaskReviews } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyModelByIdTaskReviews({
     body: {
@@ -2124,7 +2124,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyModelByIdVerify } from '@aioz-network/aiozai-sdk';
+import { postApiKeyModelByIdVerify } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyModelByIdVerify({
     body: {
@@ -2188,7 +2188,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyModelByIdVerifyCost } from '@aioz-network/aiozai-sdk';
+import { postApiKeyModelByIdVerifyCost } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyModelByIdVerifyCost({
     body: {
@@ -2247,7 +2247,7 @@ _No fields defined._
 **Example**
 
 ```typescript
-import { getApiKeyModelByIdVerifyPending } from '@aioz-network/aiozai-sdk';
+import { getApiKeyModelByIdVerifyPending } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyModelByIdVerifyPending({
     body: {
@@ -2348,7 +2348,7 @@ SysRequired       map[string]interface{} `json:"sys_require"` |
 **Example**
 
 ```typescript
-import { getApiKeyModelByIdVerifyTask } from '@aioz-network/aiozai-sdk';
+import { getApiKeyModelByIdVerifyTask } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyModelByIdVerifyTask({ path: { id: '...' } });
 console.log(response.data);
@@ -2436,7 +2436,7 @@ SysRequired       map[string]interface{} `json:"sys_require"` |
 **Example**
 
 ```typescript
-import { getApiKeyModelByIdVersioning } from '@aioz-network/aiozai-sdk';
+import { getApiKeyModelByIdVersioning } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyModelByIdVersioning({ path: { id: '...' } });
 console.log(response.data);
@@ -2480,7 +2480,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyModelByIdVersioning } from '@aioz-network/aiozai-sdk';
+import { putApiKeyModelByIdVersioning } from '@aiozai/nodejs-client';
 
 const response = await putApiKeyModelByIdVersioning({ path: { id: '...' } });
 console.log(response.data);
@@ -2524,7 +2524,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyModelByIdVersioning } from '@aioz-network/aiozai-sdk';
+import { deleteApiKeyModelByIdVersioning } from '@aiozai/nodejs-client';
 
 const response = await deleteApiKeyModelByIdVersioning({ path: { id: '...' } });
 console.log(response.data);
@@ -2622,7 +2622,7 @@ SysRequired       map[string]interface{} `json:"sys_require"` |
 **Example**
 
 ```typescript
-import { getApiKeyModelByIdVersioningList } from '@aioz-network/aiozai-sdk';
+import { getApiKeyModelByIdVersioningList } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyModelByIdVersioningList({ path: { id: '...' } });
 console.log(response.data);
@@ -2681,7 +2681,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelByUsernameByName } from '@aioz-network/aiozai-sdk';
+import { getApiKeyModelByUsernameByName } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyModelByUsernameByName({ path: { username: '...', name: '...' } });
 console.log(response.data);
@@ -2746,7 +2746,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyPackageList } from '@aioz-network/aiozai-sdk';
+import { postApiKeyPackageList } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyPackageList({
     body: {
@@ -2809,7 +2809,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserApiKeyById } from '@aioz-network/aiozai-sdk';
+import { getApiKeyUserApiKeyById } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyUserApiKeyById({ path: { id: '...' } });
 console.log(response.data);
@@ -2986,7 +2986,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyUserApiKeyById } from '@aioz-network/aiozai-sdk';
+import { putApiKeyUserApiKeyById } from '@aiozai/nodejs-client';
 
 const response = await putApiKeyUserApiKeyById({
     body: {
@@ -3169,7 +3169,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyUserApiKeyByIdStatistics } from '@aioz-network/aiozai-sdk';
+import { postApiKeyUserApiKeyByIdStatistics } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyUserApiKeyByIdStatistics({
     body: {
@@ -3227,7 +3227,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserPlaygroundRemaining } from '@aioz-network/aiozai-sdk';
+import { getApiKeyUserPlaygroundRemaining } from '@aiozai/nodejs-client';
 
 const response = await getApiKeyUserPlaygroundRemaining();
 console.log(response.data);
@@ -3348,7 +3348,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postPublicModelList } from '@aioz-network/aiozai-sdk';
+import { postPublicModelList } from '@aiozai/nodejs-client';
 
 const response = await postPublicModelList({
     body: {
@@ -3482,7 +3482,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postPublicModelListByAuthorByUsername } from '@aioz-network/aiozai-sdk';
+import { postPublicModelListByAuthorByUsername } from '@aiozai/nodejs-client';
 
 const response = await postPublicModelListByAuthorByUsername({
     body: {
@@ -3532,7 +3532,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postPublicModelMatchingTags } from '@aioz-network/aiozai-sdk';
+import { postPublicModelMatchingTags } from '@aiozai/nodejs-client';
 
 const response = await postPublicModelMatchingTags({
     body: {
@@ -3587,7 +3587,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicModelMetadata } from '@aioz-network/aiozai-sdk';
+import { getPublicModelMetadata } from '@aiozai/nodejs-client';
 
 const response = await getPublicModelMetadata();
 console.log(response.data);
@@ -3702,7 +3702,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicModelOrganizationByOrg } from '@aioz-network/aiozai-sdk';
+import { getPublicModelOrganizationByOrg } from '@aiozai/nodejs-client';
 
 const response = await getPublicModelOrganizationByOrg({ path: { org: '...' } });
 console.log(response.data);
@@ -3815,7 +3815,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicModelTrending } from '@aioz-network/aiozai-sdk';
+import { getPublicModelTrending } from '@aiozai/nodejs-client';
 
 const response = await getPublicModelTrending();
 console.log(response.data);
@@ -3867,7 +3867,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicModelById } from '@aioz-network/aiozai-sdk';
+import { getPublicModelById } from '@aiozai/nodejs-client';
 
 const response = await getPublicModelById({ path: { id: '...' } });
 console.log(response.data);
@@ -3949,7 +3949,7 @@ SysRequired       map[string]interface{} `json:"sys_require"` |
 **Example**
 
 ```typescript
-import { getPublicModelByIdVersioning } from '@aioz-network/aiozai-sdk';
+import { getPublicModelByIdVersioning } from '@aiozai/nodejs-client';
 
 const response = await getPublicModelByIdVersioning({ path: { id: '...' } });
 console.log(response.data);
@@ -4002,7 +4002,7 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicModelByUsernameByName } from '@aioz-network/aiozai-sdk';
+import { getPublicModelByUsernameByName } from '@aiozai/nodejs-client';
 
 const response = await getPublicModelByUsernameByName({ path: { username: '...', name: '...' } });
 console.log(response.data);
