@@ -20,8 +20,8 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `name` | `string` | No |  |
+| `description` | `string` | Yes |  |
+| `name` | `string` | Yes |  |
 | `thumbnail` | `string` | No |  |
 | `visibility` | `string` | Yes | One of: `public`, `private` |
 
@@ -202,8 +202,8 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 from aiozai_sdk.generated.models import CreateCollectionRequest
 
 request = CreateCollectionRequest(
-    description="...",  # string
-    name="...",  # string
+    description="...",  # string  # required
+    name="...",  # string  # required
     thumbnail="...",  # string
     visibility="...",  # string  # required
 )

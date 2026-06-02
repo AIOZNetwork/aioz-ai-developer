@@ -21,8 +21,8 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `author_id` | `string` | No |  |
-| `cover` | `string` | No |  |
-| `description` | `string` | No |  |
+| `cover` | `string` | Yes |  |
+| `description` | `string` | Yes |  |
 | `language` | `array[string]` | No | en, vi |
 | `license` | `string` | Yes |  |
 | `name` | `string` | Yes |  |
@@ -31,7 +31,7 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 | `size_category` | `string` | No |  |
 | `tags` | `array[string]` | No | art, medical |
 | `task_categories` | `array[string]` | No | feature-extraction, text-to-video |
-| `thumbnail` | `string` | No |  |
+| `thumbnail` | `string` | Yes |  |
 | `visibility` | `string` | Yes | One of: `public`, `private` |
 
 **Responses**
@@ -123,8 +123,8 @@ from aiozai_sdk.generated.models import CreateDatasetRequest
 
 request = CreateDatasetRequest(
     author_id="...",  # string
-    cover="...",  # string
-    description="...",  # string
+    cover="...",  # string  # required
+    description="...",  # string  # required
     language="...",  # array[string]
     license="...",  # string  # required
 )

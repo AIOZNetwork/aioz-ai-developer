@@ -308,10 +308,10 @@ fmt.Printf("%+v\n", resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `balance` | `number` |  |
-| `debt` | `number` |  |
-| `earnings` | `number` |  |
-| `free_balance` | `number` |  |
+| `balance` | `string` |  |
+| `debt` | `string` |  |
+| `earnings` | `string` |  |
+| `free_balance` | `string` |  |
 
 **`models.Permission`**
 
@@ -639,10 +639,10 @@ fmt.Printf("%+v\n", resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `balance` | `number` |  |
-| `debt` | `number` |  |
-| `earnings` | `number` |  |
-| `free_balance` | `number` |  |
+| `balance` | `string` |  |
+| `debt` | `string` |  |
+| `earnings` | `string` |  |
+| `free_balance` | `string` |  |
 
 **Error Responses**
 
@@ -810,10 +810,10 @@ fmt.Printf("%+v\n", resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `balance` | `number` |  |
-| `debt` | `number` |  |
-| `earnings` | `number` |  |
-| `free_balance` | `number` |  |
+| `balance` | `string` |  |
+| `debt` | `string` |  |
+| `earnings` | `string` |  |
+| `free_balance` | `string` |  |
 
 **`models.User`**
 
@@ -912,10 +912,10 @@ fmt.Printf("%+v\n", resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `balance` | `number` |  |
-| `debt` | `number` |  |
-| `earnings` | `number` |  |
-| `free_balance` | `number` |  |
+| `balance` | `string` |  |
+| `debt` | `string` |  |
+| `earnings` | `string` |  |
+| `free_balance` | `string` |  |
 
 **`models.CommitMeta`**
 
@@ -1143,10 +1143,10 @@ fmt.Printf("%+v\n", resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `balance` | `number` |  |
-| `debt` | `number` |  |
-| `earnings` | `number` |  |
-| `free_balance` | `number` |  |
+| `balance` | `string` |  |
+| `debt` | `string` |  |
+| `earnings` | `string` |  |
+| `free_balance` | `string` |  |
 
 **`models.User`**
 
@@ -1245,10 +1245,10 @@ fmt.Printf("%+v\n", resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `balance` | `number` |  |
-| `debt` | `number` |  |
-| `earnings` | `number` |  |
-| `free_balance` | `number` |  |
+| `balance` | `string` |  |
+| `debt` | `string` |  |
+| `earnings` | `string` |  |
+| `free_balance` | `string` |  |
 
 **`models.CommitMeta`**
 
@@ -1617,10 +1617,10 @@ fmt.Printf("%+v\n", resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `balance` | `number` |  |
-| `debt` | `number` |  |
-| `earnings` | `number` |  |
-| `free_balance` | `number` |  |
+| `balance` | `string` |  |
+| `debt` | `string` |  |
+| `earnings` | `string` |  |
+| `free_balance` | `string` |  |
 
 **`models.User`**
 
@@ -1719,10 +1719,10 @@ fmt.Printf("%+v\n", resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `balance` | `number` |  |
-| `debt` | `number` |  |
-| `earnings` | `number` |  |
-| `free_balance` | `number` |  |
+| `balance` | `string` |  |
+| `debt` | `string` |  |
+| `earnings` | `string` |  |
+| `free_balance` | `string` |  |
 
 **`models.CommitMeta`**
 

@@ -93,9 +93,16 @@ print(resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `count` | `integer` |  |
-| `folders` | `map[string]any` |  |
-| `storage` | `integer` |  |
+| `folders` | `map[string]response.StorageStatistics` |  |
+| `total_files` | `integer` |  |
+| `total_size` | `integer` |  |
+
+**`response.StorageStatistics`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `total_files` | `integer` |  |
+| `total_size` | `integer` |  |
 
 **Error Responses**
 
@@ -127,9 +134,11 @@ print(resp)
 
 | Name | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
-| `page` | query | `integer` | No | Page is the page number (default: 1) (optional) |
-| `pageSize` | query | `integer` | No | PageSize is the page size (default: 10) (optional) |
-| `search` | query | `string` | No |  |
+| `folder` | path | `string` | Yes | Folder name |
+| `orgUsername` | query | `string` | No |  |
+| `page` | query | `integer` | No |  |
+| `pageSize` | query | `integer` | No |  |
+| `type` | query | `string` | No |  |
 
 **Responses**
 
@@ -145,9 +154,23 @@ print(resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `count` | `integer` |  |
-| `storage` | `integer` |  |
-| `urls` | `array[string]` |  |
+| `files` | `array[response.ObjectInfo]` |  |
+| `total` | `integer` |  |
+| `total_pages` | `integer` |  |
+
+**`response.ObjectInfo`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `created_at` | `string` |  |
+| `download_url` | `string` |  |
+| `folder` | `string` |  |
+| `id` | `string` |  |
+| `is_expired` | `boolean` |  |
+| `key` | `string` |  |
+| `mime` | `string` |  |
+| `size` | `integer` |  |
+| `status` | `boolean` |  |
 
 **Error Responses**
 
@@ -159,7 +182,7 @@ print(resp)
 **Example**
 
 ```python
-resp = client.storages.storage.api_key_storage_upload_folder_get()
+resp = client.storages.storage.api_key_storage_upload_folder_get(folder="<folder>")
 print(resp)
 ```
 

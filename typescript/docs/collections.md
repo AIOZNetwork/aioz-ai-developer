@@ -20,8 +20,8 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `name` | `string` | No |  |
+| `description` | `string` | Yes |  |
+| `name` | `string` | Yes |  |
 | `thumbnail` | `string` | No |  |
 | `visibility` | `string` | Yes | One of: `public`, `private` |
 
@@ -203,8 +203,8 @@ import { postApiKeyCollection } from '@aiozai/nodejs-client';
 
 const response = await postApiKeyCollection({
     body: {
-        description: '...',  // string
-    name: '...',  // string
+        description: '...',  // string  // required
+    name: '...',  // string  // required
     thumbnail: '...',  // string
     visibility: '...',  // string  // required
     },

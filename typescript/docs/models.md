@@ -1338,10 +1338,10 @@ console.log(response.data);
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `balance` | `number` |  |
-| `debt` | `number` |  |
-| `earnings` | `number` |  |
-| `free_balance` | `number` |  |
+| `balance` | `string` |  |
+| `debt` | `string` |  |
+| `earnings` | `string` |  |
+| `free_balance` | `string` |  |
 
 **Error Responses**
 
@@ -2971,10 +2971,10 @@ console.log(response.data);
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `balance` | `number` |  |
-| `debt` | `number` |  |
-| `earnings` | `number` |  |
-| `free_balance` | `number` |  |
+| `balance` | `string` |  |
+| `debt` | `string` |  |
+| `earnings` | `string` |  |
+| `free_balance` | `string` |  |
 
 **Error Responses**
 
@@ -3154,10 +3154,10 @@ console.log(response.data);
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `balance` | `number` |  |
-| `debt` | `number` |  |
-| `earnings` | `number` |  |
-| `free_balance` | `number` |  |
+| `balance` | `string` |  |
+| `debt` | `string` |  |
+| `earnings` | `string` |  |
+| `free_balance` | `string` |  |
 
 **Error Responses**
 

@@ -300,10 +300,10 @@ print(resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `balance` | `number` |  |
-| `debt` | `number` |  |
-| `earnings` | `number` |  |
-| `free_balance` | `number` |  |
+| `balance` | `string` |  |
+| `debt` | `string` |  |
+| `earnings` | `string` |  |
+| `free_balance` | `string` |  |
 
 **`models.Permission`**
 
@@ -621,10 +621,10 @@ print(resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `balance` | `number` |  |
-| `debt` | `number` |  |
-| `earnings` | `number` |  |
-| `free_balance` | `number` |  |
+| `balance` | `string` |  |
+| `debt` | `string` |  |
+| `earnings` | `string` |  |
+| `free_balance` | `string` |  |
 
 **Error Responses**
 
@@ -788,10 +788,10 @@ print(resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `balance` | `number` |  |
-| `debt` | `number` |  |
-| `earnings` | `number` |  |
-| `free_balance` | `number` |  |
+| `balance` | `string` |  |
+| `debt` | `string` |  |
+| `earnings` | `string` |  |
+| `free_balance` | `string` |  |
 
 **`models.User`**
 
@@ -890,10 +890,10 @@ print(resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `balance` | `number` |  |
-| `debt` | `number` |  |
-| `earnings` | `number` |  |
-| `free_balance` | `number` |  |
+| `balance` | `string` |  |
+| `debt` | `string` |  |
+| `earnings` | `string` |  |
+| `free_balance` | `string` |  |
 
 **`models.CommitMeta`**
 
@@ -1117,10 +1117,10 @@ print(resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `balance` | `number` |  |
-| `debt` | `number` |  |
-| `earnings` | `number` |  |
-| `free_balance` | `number` |  |
+| `balance` | `string` |  |
+| `debt` | `string` |  |
+| `earnings` | `string` |  |
+| `free_balance` | `string` |  |
 
 **`models.User`**
 
@@ -1219,10 +1219,10 @@ print(resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `balance` | `number` |  |
-| `debt` | `number` |  |
-| `earnings` | `number` |  |
-| `free_balance` | `number` |  |
+| `balance` | `string` |  |
+| `debt` | `string` |  |
+| `earnings` | `string` |  |
+| `free_balance` | `string` |  |
 
 **`models.CommitMeta`**
 
@@ -1579,10 +1579,10 @@ print(resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `balance` | `number` |  |
-| `debt` | `number` |  |
-| `earnings` | `number` |  |
-| `free_balance` | `number` |  |
+| `balance` | `string` |  |
+| `debt` | `string` |  |
+| `earnings` | `string` |  |
+| `free_balance` | `string` |  |
 
 **`models.User`**
 
@@ -1681,10 +1681,10 @@ print(resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `balance` | `number` |  |
-| `debt` | `number` |  |
-| `earnings` | `number` |  |
-| `free_balance` | `number` |  |
+| `balance` | `string` |  |
+| `debt` | `string` |  |
+| `earnings` | `string` |  |
+| `free_balance` | `string` |  |
 
 **`models.CommitMeta`**
 

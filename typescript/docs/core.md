@@ -30,10 +30,10 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `balance` | `number` |  |
-| `debt` | `number` |  |
-| `earnings` | `number` |  |
-| `free_balance` | `number` |  |
+| `balance` | `string` |  |
+| `debt` | `string` |  |
+| `earnings` | `string` |  |
+| `free_balance` | `string` |  |
 | `wallet_address` | `string` |  |
 
 **Error Responses**

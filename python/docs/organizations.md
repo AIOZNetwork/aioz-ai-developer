@@ -1363,7 +1363,7 @@ print(resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `amount` | `number` |  |
+| `amount` | `string` |  |
 | `created_at` | `string` |  |
 | `evm_tx_hash` | `string` |  |
 | `from_service` | `string` |  |
@@ -1551,10 +1551,10 @@ print(resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `balance` | `number` |  |
-| `debt` | `number` |  |
-| `earnings` | `number` |  |
-| `free_balance` | `number` |  |
+| `balance` | `string` |  |
+| `debt` | `string` |  |
+| `earnings` | `string` |  |
+| `free_balance` | `string` |  |
 
 **Error Responses**
 
@@ -1626,10 +1626,10 @@ print(resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `balance` | `number` |  |
-| `debt` | `number` |  |
-| `earnings` | `number` |  |
-| `free_balance` | `number` |  |
+| `balance` | `string` |  |
+| `debt` | `string` |  |
+| `earnings` | `string` |  |
+| `free_balance` | `string` |  |
 
 **Error Responses**
 
