@@ -6,9 +6,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `api_key_model_post`
+### `post_model`
 
-**`POST /api-key/model`** — Create Model By Api Key
+**`POST /api-key/model`** — Create Model
 
 **Headers**
 
@@ -77,15 +77,15 @@ request = CreateModelRequest(
     description="...",  # string
     language="...",  # array[string]
 )
-resp = client.models.model.api_key_model_post(body=request)
+resp = client.models.model.post_model(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_model_list_post`
+### `post_model_list`
 
-**`POST /api-key/model/list`** — Get Model List By Api Key
+**`POST /api-key/model/list`** — Get Model List
 
 **Headers**
 
@@ -103,6 +103,7 @@ print(resp)
 | `license` | `string` | No |  |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `asc`, `desc` |
 | `search` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `likes`, `downloads`, `created`, `created_oldest`, `modified`, `name`, `size` |
 | `tag_type` | `string` | No |  |
@@ -211,15 +212,15 @@ request = GetModelListRequest(
     license="...",  # string
     limit="...",  # integer
 )
-resp = client.models.model.api_key_model_list_post(body=request)
+resp = client.models.model.post_model_list(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_model_list_by_author_username_post`
+### `post_model_list_by_author_by_username`
 
-**`POST /api-key/model/list-by-author/{username}`** — Get Model List By User By Api Key
+**`POST /api-key/model/list-by-author/{username}`** — Get Model List By User
 
 **Headers**
 
@@ -242,6 +243,7 @@ print(resp)
 | `license` | `string` | No |  |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `asc`, `desc` |
 | `search` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `likes`, `downloads`, `created`, `created_oldest`, `modified`, `name`, `size` |
 | `tag_type` | `string` | No |  |
@@ -350,15 +352,15 @@ request = GetModelListByAuthorRequest(
     limit="...",  # integer
     offset="...",  # integer
 )
-resp = client.models.model.api_key_model_list_by_author_username_post(body=request)
+resp = client.models.model.post_model_list_by_author_by_username(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_model_matching_tags_post`
+### `post_model_matching_tags`
 
-**`POST /api-key/model/matching-tags`** — MatchingModels Tags By Api Key
+**`POST /api-key/model/matching-tags`** — MatchingModels Tags
 
 **Headers**
 
@@ -405,15 +407,15 @@ request = MatchingModelsTagsRequest(
     tag_type="...",  # string
     task="...",  # string
 )
-resp = client.models.model.api_key_model_matching_tags_post(body=request)
+resp = client.models.model.post_model_matching_tags(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_model_organization_org_get`
+### `get_model_organization_by_org`
 
-**`GET /api-key/model/organization/{org}`** — Get List Model By Org Username By Api Key
+**`GET /api-key/model/organization/{org}`** — Get List Model By Org Username
 
 **Headers**
 
@@ -524,15 +526,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.models.model.api_key_model_organization_org_get(org="<org>")
+resp = client.models.model.get_model_organization_by_org(org="<org>")
 print(resp)
 ```
 
 ---
 
-### `api_key_model_task_reviews_id_delete`
+### `delete_model_task_reviews_by_id`
 
-**`DELETE /api-key/model/task/reviews/{id}`** — Delete Task Reviews By Id By Api Key
+**`DELETE /api-key/model/task/reviews/{id}`** — Delete Task Reviews By Id
 
 **Headers**
 
@@ -565,15 +567,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.models.reviews.api_key_model_task_reviews_id_delete(id="<id>")
+resp = client.models.reviews.delete_model_task_reviews_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_model_task_id_reviews_get`
+### `get_model_task_by_id_reviews`
 
-**`GET /api-key/model/task/{id}/reviews`** — Get Task Review By Task Id By Api Key
+**`GET /api-key/model/task/{id}/reviews`** — Get Task Review By Task Id
 
 **Headers**
 
@@ -638,15 +640,15 @@ from aiozai_sdk.generated.models import GetTaskReviewByTaskIdRequest
 request = GetTaskReviewByTaskIdRequest(
     
 )
-resp = client.models.reviews.api_key_model_task_id_reviews_get(body=request)
+resp = client.models.reviews.get_model_task_by_id_reviews(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_model_training_cost_post`
+### `post_model_training_cost`
 
-**`POST /api-key/model/training/cost`** — Calculate Cost To Training Ai Model By Api Key
+**`POST /api-key/model/training/cost`** — Calculate Cost To Training Ai Model
 
 **Headers**
 
@@ -695,15 +697,15 @@ request = CalculateCostToTrainingAiModelRequest(
     dataset_id="...",  # string
     training_task_id="...",  # string
 )
-resp = client.models.training.api_key_model_training_cost_post(body=request)
+resp = client.models.training.post_model_training_cost(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_model_training_task_get`
+### `get_model_training_task`
 
-**`GET /api-key/model/training/task`** — Get List User Training Task By Api Key
+**`GET /api-key/model/training/task`** — Get List User Training Task
 
 **Headers**
 
@@ -767,15 +769,15 @@ request = GetListUserTrainingTaskRequest(
     limit="...",  # integer
     offset="...",  # integer
 )
-resp = client.models.training.api_key_model_training_task_get(body=request)
+resp = client.models.training.get_model_training_task(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_model_training_task_id_delete`
+### `delete_model_training_task_by_id`
 
-**`DELETE /api-key/model/training/task/{id}`** — Delete User Training Task By Task Id By Api Key
+**`DELETE /api-key/model/training/task/{id}`** — Delete User Training Task By Task Id
 
 **Headers**
 
@@ -808,15 +810,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.models.training.api_key_model_training_task_id_delete(id="<id>")
+resp = client.models.training.delete_model_training_task_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_model_verify_hub_task_id_get`
+### `get_model_verify_hub_task_by_id`
 
-**`GET /api-key/model/verify/hub/task/{id}`** — Get Model Versioning By Hub Task Id By Api Key
+**`GET /api-key/model/verify/hub/task/{id}`** — Get Model Versioning By Hub Task Id
 
 **Headers**
 
@@ -870,15 +872,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.models.verify.api_key_model_verify_hub_task_id_get(id="<id>")
+resp = client.models.verify.get_model_verify_hub_task_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_model_verify_support_platforms_get`
+### `get_model_verify_support_platforms`
 
-**`GET /api-key/model/verify/support/platforms`** — Get List Platforms Support By Api Key
+**`GET /api-key/model/verify/support/platforms`** — Get List Platforms Support
 
 **Headers**
 
@@ -906,15 +908,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.models.model.api_key_model_verify_support_platforms_get()
+resp = client.models.model.get_model_verify_support_platforms()
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_get`
+### `get_model_by_id`
 
-**`GET /api-key/model/{id}`** — Get Model By Api Key
+**`GET /api-key/model/{id}`** — Get Model
 
 **Headers**
 
@@ -962,15 +964,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.models.model.api_key_model_id_get(id="<id>")
+resp = client.models.model.get_model_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_put`
+### `put_model_by_id`
 
-**`PUT /api-key/model/{id}`** — Update Model By Api Key
+**`PUT /api-key/model/{id}`** — Update Model
 
 **Headers**
 
@@ -1038,15 +1040,15 @@ request = UpdateModelRequest(
     price="...",  # number
     thumbnail="...",  # string
 )
-resp = client.models.model.api_key_model_id_put(body=request)
+resp = client.models.model.put_model_by_id(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_delete`
+### `delete_model_by_id`
 
-**`DELETE /api-key/model/{id}`** — Delete Model By Api Key
+**`DELETE /api-key/model/{id}`** — Delete Model
 
 **Headers**
 
@@ -1090,15 +1092,15 @@ from aiozai_sdk.generated.models import DeleteModelRequest
 request = DeleteModelRequest(
     name="...",  # string  # required
 )
-resp = client.models.model.api_key_model_id_delete(body=request)
+resp = client.models.model.delete_model_by_id(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_api_key_get`
+### `get_model_by_id_api_key`
 
-**`GET /api-key/model/{id}/api-key`** — Get List Model ApiKey By Api Key
+**`GET /api-key/model/{id}/api-key`** — Get List Model ApiKey
 
 **Headers**
 
@@ -1155,15 +1157,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.models.model.api_key_model_id_api_key_get(id="<id>")
+resp = client.models.model.get_model_by_id_api_key(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_api_key_post`
+### `post_model_by_id_api_key`
 
-**`POST /api-key/model/{id}/api-key`** — Create Model ApiKey By Api Key
+**`POST /api-key/model/{id}/api-key`** — Create Model ApiKey
 
 **Headers**
 
@@ -1338,15 +1340,15 @@ request = CreateApiKeyRequest(
     name="...",  # string  # required
     org_username="...",  # string
 )
-resp = client.models.model.api_key_model_id_api_key_post(body=request)
+resp = client.models.model.post_model_by_id_api_key(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_download_get`
+### `get_model_by_id_download`
 
-**`GET /api-key/model/{id}/download`** — Get List Model Download By Api Key
+**`GET /api-key/model/{id}/download`** — Get List Model Download
 
 **Headers**
 
@@ -1405,13 +1407,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.models.model.api_key_model_id_download_get(id="<id>")
+resp = client.models.model.get_model_by_id_download(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_info_get`
+### `get_model_by_id_info`
 
 **`GET /api-key/model/{id}/info`** — Get Api Key Model Info
 
@@ -1458,15 +1460,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.models.model.api_key_model_id_info_get(id="<id>")
+resp = client.models.model.get_model_by_id_info(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_like_get`
+### `get_model_by_id_like`
 
-**`GET /api-key/model/{id}/like`** — Get List Model Like By Api Key
+**`GET /api-key/model/{id}/like`** — Get List Model Like
 
 **Headers**
 
@@ -1525,15 +1527,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.models.model.api_key_model_id_like_get(id="<id>")
+resp = client.models.model.get_model_by_id_like(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_metadata_put`
+### `put_model_by_id_metadata`
 
-**`PUT /api-key/model/{id}/metadata`** — Update Model Metadata By Api Key
+**`PUT /api-key/model/{id}/metadata`** — Update Model Metadata
 
 **Headers**
 
@@ -1600,15 +1602,15 @@ request = UpdateModelMetadataRequest(
     pretty_name="...",  # string
     task="...",  # string
 )
-resp = client.models.model.api_key_model_id_metadata_put(body=request)
+resp = client.models.model.put_model_by_id_metadata(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_pre_verify_post`
+### `post_model_by_id_pre_verify`
 
-**`POST /api-key/model/{id}/pre-verify`** — Check Valid Source code To Verify Ai Model By Api Key
+**`POST /api-key/model/{id}/pre-verify`** — Check Valid Source code To Verify Ai Model
 
 **Headers**
 
@@ -1661,13 +1663,13 @@ request = CheckValidToVerifyAiModelRequest(
     commit_hash="...",  # string  # required
     platforms="...",  # array[string]  # required
 )
-resp = client.models.verify.api_key_model_id_pre_verify_post(body=request)
+resp = client.models.verify.post_model_by_id_pre_verify(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_serving_get`
+### `get_model_by_id_serving`
 
 **`GET /api-key/model/{id}/serving`** — Check Model Is Serving
 
@@ -1710,15 +1712,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.models.model.api_key_model_id_serving_get(id="<id>")
+resp = client.models.model.get_model_by_id_serving(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_setting_get`
+### `get_model_by_id_setting`
 
-**`GET /api-key/model/{id}/setting`** — Get Model Setting By Model Id By Api Key
+**`GET /api-key/model/{id}/setting`** — Get Model Setting By Model Id
 
 **Headers**
 
@@ -1767,15 +1769,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.models.setting.api_key_model_id_setting_get(id="<id>")
+resp = client.models.setting.get_model_by_id_setting(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_setting_put`
+### `put_model_by_id_setting`
 
-**`PUT /api-key/model/{id}/setting`** — Update Model Setting By Api Key
+**`PUT /api-key/model/{id}/setting`** — Update Model Setting
 
 **Headers**
 
@@ -1841,13 +1843,13 @@ request = UpdateModelSettingRequest(
     sys_req_gpu_memory="...",  # integer
     sys_req_ram="...",  # integer
 )
-resp = client.models.setting.api_key_model_id_setting_put(body=request)
+resp = client.models.setting.put_model_by_id_setting(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_statistics_post`
+### `post_model_by_id_statistics`
 
 **`POST /api-key/model/{id}/statistics`** — Get Model Statistics
 
@@ -1905,13 +1907,13 @@ request = GetApiKeyStatisticsByModelIdRequest(
     from="...",  # string
     to="...",  # string
 )
-resp = client.models.model.api_key_model_id_statistics_post(body=request)
+resp = client.models.model.post_model_by_id_statistics(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_task_cost_get`
+### `get_model_by_id_task_cost`
 
 **`GET /api-key/model/{id}/task/cost`** — Get cost to compute task by model api key
 
@@ -1955,15 +1957,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.models.model.api_key_model_id_task_cost_get(id="<id>")
+resp = client.models.model.get_model_by_id_task_cost(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_task_reviews_post`
+### `post_model_by_id_task_reviews`
 
-**`POST /api-key/model/{id}/task/reviews`** — Create Task Reviews By Api Key
+**`POST /api-key/model/{id}/task/reviews`** — Create Task Reviews
 
 **Headers**
 
@@ -2034,15 +2036,15 @@ request = CreateTaskReviewsRequest(
     point="...",  # integer
     task_id="...",  # string
 )
-resp = client.models.reviews.api_key_model_id_task_reviews_post(body=request)
+resp = client.models.reviews.post_model_by_id_task_reviews(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_verify_post`
+### `post_model_by_id_verify`
 
-**`POST /api-key/model/{id}/verify`** — Verify Ai Model By Api Key
+**`POST /api-key/model/{id}/verify`** — Verify Ai Model
 
 **Headers**
 
@@ -2089,15 +2091,15 @@ request = VerifyAiModelRequest(
     commit_hash="...",  # string
     platforms="...",  # array[string]  # required
 )
-resp = client.models.verify.api_key_model_id_verify_post(body=request)
+resp = client.models.verify.post_model_by_id_verify(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_verify_cost_post`
+### `post_model_by_id_verify_cost`
 
-**`POST /api-key/model/{id}/verify/cost`** — Calculate Cost To Verify Ai Model By Api Key
+**`POST /api-key/model/{id}/verify/cost`** — Calculate Cost To Verify Ai Model
 
 **Headers**
 
@@ -2152,15 +2154,15 @@ request = CalculateCostToVerifyAiModelRequest(
     commit_hash="...",  # string  # required
     platforms="...",  # array[string]  # required
 )
-resp = client.models.verify.api_key_model_id_verify_cost_post(body=request)
+resp = client.models.verify.post_model_by_id_verify_cost(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_verify_pending_get`
+### `get_model_by_id_verify_pending`
 
-**`GET /api-key/model/{id}/verify/pending`** — Check Model Pending State By Api Key
+**`GET /api-key/model/{id}/verify/pending`** — Check Model Pending State
 
 **Headers**
 
@@ -2209,13 +2211,13 @@ from aiozai_sdk.generated.models import CheckModelPendingStateRequest
 request = CheckModelPendingStateRequest(
     
 )
-resp = client.models.verify.api_key_model_id_verify_pending_get(body=request)
+resp = client.models.verify.get_model_by_id_verify_pending(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_verify_task_get`
+### `get_model_by_id_verify_task`
 
 **`GET /api-key/model/{id}/verify/task`** — Get List Verify Model Task By Commit Hash And Status
 
@@ -2304,13 +2306,13 @@ SysRequired       map[string]interface{} `json:"sys_require"` |
 **Example**
 
 ```python
-resp = client.models.verify.api_key_model_id_verify_task_get(id="<id>")
+resp = client.models.verify.get_model_by_id_verify_task(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_versioning_get`
+### `get_model_by_id_versioning`
 
 **`GET /api-key/model/{id}/versioning`** — Get Current Model Versioning By Model Id By ApiKey
 
@@ -2390,15 +2392,15 @@ SysRequired       map[string]interface{} `json:"sys_require"` |
 **Example**
 
 ```python
-resp = client.models.versioning.api_key_model_id_versioning_get(id="<id>")
+resp = client.models.versioning.get_model_by_id_versioning(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_versioning_put`
+### `put_model_by_id_versioning`
 
-**`PUT /api-key/model/{id}/versioning`** — Change Model Versioning By Commit Hash By Api Key
+**`PUT /api-key/model/{id}/versioning`** — Change Model Versioning By Commit Hash
 
 **Headers**
 
@@ -2432,15 +2434,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.models.versioning.api_key_model_id_versioning_put(id="<id>")
+resp = client.models.versioning.put_model_by_id_versioning(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_versioning_delete`
+### `delete_model_by_id_versioning`
 
-**`DELETE /api-key/model/{id}/versioning`** — Delete Model Versioning By Commit Hash By Api Key
+**`DELETE /api-key/model/{id}/versioning`** — Delete Model Versioning By Commit Hash
 
 **Headers**
 
@@ -2474,15 +2476,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.models.versioning.api_key_model_id_versioning_delete(id="<id>")
+resp = client.models.versioning.delete_model_by_id_versioning(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_versioning_list_get`
+### `get_model_by_id_versioning_list`
 
-**`GET /api-key/model/{id}/versioning/list`** — Get Verified List Model Versioning By Api Key
+**`GET /api-key/model/{id}/versioning/list`** — Get Verified List Model Versioning
 
 **Headers**
 
@@ -2570,15 +2572,15 @@ SysRequired       map[string]interface{} `json:"sys_require"` |
 **Example**
 
 ```python
-resp = client.models.versioning.api_key_model_id_versioning_list_get(id="<id>")
+resp = client.models.versioning.get_model_by_id_versioning_list(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_model_username_name_get`
+### `get_model_by_username_by_name`
 
-**`GET /api-key/model/{username}/{name}`** — Get Model By Name By Api Key
+**`GET /api-key/model/{username}/{name}`** — Get Model By Name
 
 **Headers**
 
@@ -2627,15 +2629,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.models.model.api_key_model_username_name_get(username="<username>", name="<name>")
+resp = client.models.model.get_model_by_username_by_name(username="<username>", name="<name>")
 print(resp)
 ```
 
 ---
 
-### `api_key_package_list_post`
+### `post_package_list`
 
-**`POST /api-key/package/list`** — Get Api Package List By Api Key
+**`POST /api-key/package/list`** — Get Api Package List
 
 **Headers**
 
@@ -2696,15 +2698,15 @@ request = GetApiPackageListRequest(
     limit="...",  # integer
     offset="...",  # integer
 )
-resp = client.models.package.api_key_package_list_post(body=request)
+resp = client.models.package.post_package_list(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_user_api_key_id_get`
+### `get_user_api_key_by_id`
 
-**`GET /api-key/user/api-key/{id}`** — Get Api Key Detail By Id By Api Key
+**`GET /api-key/user/api-key/{id}`** — Get Api Key Detail By Id
 
 **Headers**
 
@@ -2752,15 +2754,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.models.api_key.api_key_user_api_key_id_get(id="<id>")
+resp = client.models.api_key.get_user_api_key_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_user_api_key_id_put`
+### `put_user_api_key_by_id`
 
-**`PUT /api-key/user/api-key/{id}`** — Update Api Key By Api Key
+**`PUT /api-key/user/api-key/{id}`** — Update Api Key
 
 **Headers**
 
@@ -2935,15 +2937,15 @@ request = UpdateApiKeyRequest(
     name="...",  # string
     org_username="...",  # string
 )
-resp = client.models.api_key.api_key_user_api_key_id_put(body=request)
+resp = client.models.api_key.put_user_api_key_by_id(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_user_api_key_id_statistics_post`
+### `post_user_api_key_by_id_statistics`
 
-**`POST /api-key/user/api-key/{id}/statistics`** — Get Api Key By Id By Api Key
+**`POST /api-key/user/api-key/{id}/statistics`** — Get Api Key By Id
 
 **Headers**
 
@@ -3116,15 +3118,15 @@ request = GetApiKeyByIdRequest(
     org_username="...",  # string
     to="...",  # string
 )
-resp = client.models.api_key.api_key_user_api_key_id_statistics_post(body=request)
+resp = client.models.api_key.post_user_api_key_by_id_statistics(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_user_playground_remaining_get`
+### `get_user_playground_remaining`
 
-**`GET /api-key/user/playground/remaining`** — Get Playground Uses Remaining By User By Api Key
+**`GET /api-key/user/playground/remaining`** — Get Playground Uses Remaining By User
 
 **Headers**
 
@@ -3166,13 +3168,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.models.playground.api_key_user_playground_remaining_get()
+resp = client.models.playground.get_user_playground_remaining()
 print(resp)
 ```
 
 ---
 
-### `public_model_list_post`
+### `post_public_model_list`
 
 **`POST /public/model/list`** — Get Public Model List
 
@@ -3186,6 +3188,7 @@ print(resp)
 | `license` | `string` | No |  |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `asc`, `desc` |
 | `search` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `likes`, `downloads`, `created`, `created_oldest`, `modified`, `name`, `size` |
 | `tag_type` | `string` | No |  |
@@ -3294,13 +3297,13 @@ request = GetModelListRequest(
     license="...",  # string
     limit="...",  # integer
 )
-resp = client.models.model.public_model_list_post(body=request)
+resp = client.models.model.post_public_model_list(input=request)
 print(resp)
 ```
 
 ---
 
-### `public_model_list_by_author_username_post`
+### `post_public_model_list_by_author_by_username`
 
 **`POST /public/model/list-by-author/{username}`** — Get Public Model List By User
 
@@ -3319,6 +3322,7 @@ print(resp)
 | `license` | `string` | No |  |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `asc`, `desc` |
 | `search` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `likes`, `downloads`, `created`, `created_oldest`, `modified`, `name`, `size` |
 | `tag_type` | `string` | No |  |
@@ -3427,13 +3431,13 @@ request = GetModelListByAuthorRequest(
     limit="...",  # integer
     offset="...",  # integer
 )
-resp = client.models.model.public_model_list_by_author_username_post(body=request)
+resp = client.models.model.post_public_model_list_by_author_by_username(input=request)
 print(resp)
 ```
 
 ---
 
-### `public_model_matching_tags_post`
+### `post_public_model_matching_tags`
 
 **`POST /public/model/matching-tags`** — Matching Public Models Tags
 
@@ -3476,13 +3480,13 @@ request = MatchingModelsTagsRequest(
     tag_type="...",  # string
     task="...",  # string
 )
-resp = client.models.model.public_model_matching_tags_post(body=request)
+resp = client.models.model.post_public_model_matching_tags(input=request)
 print(resp)
 ```
 
 ---
 
-### `public_model_metadata_get`
+### `get_public_model_metadata`
 
 **`GET /public/model/metadata`** — Get Model Metadata
 
@@ -3521,13 +3525,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.models.model.public_model_metadata_get()
+resp = client.models.model.get_public_model_metadata()
 print(resp)
 ```
 
 ---
 
-### `public_model_organization_org_get`
+### `get_public_model_organization_by_org`
 
 **`GET /public/model/organization/{org}`** — Get List Model By Org Username
 
@@ -3634,13 +3638,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.models.model.public_model_organization_org_get(org="<org>")
+resp = client.models.model.get_public_model_organization_by_org(org="<org>")
 print(resp)
 ```
 
 ---
 
-### `public_model_trending_get`
+### `get_public_model_trending`
 
 **`GET /public/model/trending`** — Get List Models Trending
 
@@ -3745,13 +3749,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.models.model.public_model_trending_get()
+resp = client.models.model.get_public_model_trending()
 print(resp)
 ```
 
 ---
 
-### `public_model_id_get`
+### `get_public_model_by_id`
 
 **`GET /public/model/{id}`** — Get public model by id
 
@@ -3795,13 +3799,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.models.model.public_model_id_get(id="<id>")
+resp = client.models.model.get_public_model_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `public_model_id_versioning_get`
+### `get_public_model_by_id_versioning`
 
 **`GET /public/model/{id}/versioning`** — Get Current Model Versioning By Model Id
 
@@ -3875,13 +3879,13 @@ SysRequired       map[string]interface{} `json:"sys_require"` |
 **Example**
 
 ```python
-resp = client.models.model.public_model_id_versioning_get(id="<id>")
+resp = client.models.model.get_public_model_by_id_versioning(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `public_model_username_name_get`
+### `get_public_model_by_username_by_name`
 
 **`GET /public/model/{username}/{name}`** — Get Public Model By Name
 
@@ -3926,7 +3930,7 @@ print(resp)
 **Example**
 
 ```python
-resp = client.models.model.public_model_username_name_get(username="<username>", name="<name>")
+resp = client.models.model.get_public_model_by_username_by_name(username="<username>", name="<name>")
 print(resp)
 ```
 

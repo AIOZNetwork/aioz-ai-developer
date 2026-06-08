@@ -6,9 +6,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `postApiKeyModel`
+### `postModel`
 
-**`POST /api-key/model`** — Create Model By Api Key
+**`POST /api-key/model`** — Create Model
 
 **Headers**
 
@@ -68,9 +68,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```typescript
-import { postApiKeyModel } from '@aiozai/nodejs-client';
+import { postModel } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyModel({
+const response = await postModel({
     body: {
         author_id: '...',  // string
     cover: '...',  // string
@@ -84,9 +84,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyModelList`
+### `postModelList`
 
-**`POST /api-key/model/list`** — Get Model List By Api Key
+**`POST /api-key/model/list`** — Get Model List
 
 **Headers**
 
@@ -104,6 +104,7 @@ console.log(response.data);
 | `license` | `string` | No |  |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `asc`, `desc` |
 | `search` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `likes`, `downloads`, `created`, `created_oldest`, `modified`, `name`, `size` |
 | `tag_type` | `string` | No |  |
@@ -203,9 +204,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyModelList } from '@aiozai/nodejs-client';
+import { postModelList } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyModelList({
+const response = await postModelList({
     body: {
         filter_by: '...',  // string
     language: '...',  // array[string]
@@ -219,9 +220,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyModelListByAuthorByUsername`
+### `postModelListByAuthorByUsername`
 
-**`POST /api-key/model/list-by-author/{username}`** — Get Model List By User By Api Key
+**`POST /api-key/model/list-by-author/{username}`** — Get Model List By User
 
 **Headers**
 
@@ -244,6 +245,7 @@ console.log(response.data);
 | `license` | `string` | No |  |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `asc`, `desc` |
 | `search` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `likes`, `downloads`, `created`, `created_oldest`, `modified`, `name`, `size` |
 | `tag_type` | `string` | No |  |
@@ -343,9 +345,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyModelListByAuthorByUsername } from '@aiozai/nodejs-client';
+import { postModelListByAuthorByUsername } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyModelListByAuthorByUsername({
+const response = await postModelListByAuthorByUsername({
     body: {
         language: '...',  // array[string]
     library: '...',  // array[string]
@@ -359,9 +361,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyModelMatchingTags`
+### `postModelMatchingTags`
 
-**`POST /api-key/model/matching-tags`** — MatchingModels Tags By Api Key
+**`POST /api-key/model/matching-tags`** — MatchingModels Tags
 
 **Headers**
 
@@ -399,9 +401,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyModelMatchingTags } from '@aiozai/nodejs-client';
+import { postModelMatchingTags } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyModelMatchingTags({
+const response = await postModelMatchingTags({
     body: {
         language: '...',  // array[string]
     library: '...',  // array[string]
@@ -415,9 +417,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyModelOrganizationByOrg`
+### `getModelOrganizationByOrg`
 
-**`GET /api-key/model/organization/{org}`** — Get List Model By Org Username By Api Key
+**`GET /api-key/model/organization/{org}`** — Get List Model By Org Username
 
 **Headers**
 
@@ -528,17 +530,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelOrganizationByOrg } from '@aiozai/nodejs-client';
+import { getModelOrganizationByOrg } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyModelOrganizationByOrg({ path: { org: '...' } });
+const response = await getModelOrganizationByOrg({ path: { org: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `deleteApiKeyModelTaskReviewsById`
+### `deleteModelTaskReviewsById`
 
-**`DELETE /api-key/model/task/reviews/{id}`** — Delete Task Reviews By Id By Api Key
+**`DELETE /api-key/model/task/reviews/{id}`** — Delete Task Reviews By Id
 
 **Headers**
 
@@ -571,17 +573,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyModelTaskReviewsById } from '@aiozai/nodejs-client';
+import { deleteModelTaskReviewsById } from '@aiozai/nodejs-client';
 
-const response = await deleteApiKeyModelTaskReviewsById({ path: { id: '...' } });
+const response = await deleteModelTaskReviewsById({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyModelTaskByIdReviews`
+### `getModelTaskByIdReviews`
 
-**`GET /api-key/model/task/{id}/reviews`** — Get Task Review By Task Id By Api Key
+**`GET /api-key/model/task/{id}/reviews`** — Get Task Review By Task Id
 
 **Headers**
 
@@ -641,9 +643,9 @@ _No fields defined._
 **Example**
 
 ```typescript
-import { getApiKeyModelTaskByIdReviews } from '@aiozai/nodejs-client';
+import { getModelTaskByIdReviews } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyModelTaskByIdReviews({
+const response = await getModelTaskByIdReviews({
     body: {
         
     },
@@ -653,9 +655,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyModelTrainingCost`
+### `postModelTrainingCost`
 
-**`POST /api-key/model/training/cost`** — Calculate Cost To Training Ai Model By Api Key
+**`POST /api-key/model/training/cost`** — Calculate Cost To Training Ai Model
 
 **Headers**
 
@@ -698,9 +700,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyModelTrainingCost } from '@aiozai/nodejs-client';
+import { postModelTrainingCost } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyModelTrainingCost({
+const response = await postModelTrainingCost({
     body: {
         dataset_id: '...',  // string
     training_task_id: '...',  // string
@@ -711,9 +713,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyModelTrainingTask`
+### `getModelTrainingTask`
 
-**`GET /api-key/model/training/task`** — Get List User Training Task By Api Key
+**`GET /api-key/model/training/task`** — Get List User Training Task
 
 **Headers**
 
@@ -771,9 +773,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelTrainingTask } from '@aiozai/nodejs-client';
+import { getModelTrainingTask } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyModelTrainingTask({
+const response = await getModelTrainingTask({
     body: {
         limit: '...',  // integer
     offset: '...',  // integer
@@ -784,9 +786,9 @@ console.log(response.data);
 
 ---
 
-### `deleteApiKeyModelTrainingTaskById`
+### `deleteModelTrainingTaskById`
 
-**`DELETE /api-key/model/training/task/{id}`** — Delete User Training Task By Task Id By Api Key
+**`DELETE /api-key/model/training/task/{id}`** — Delete User Training Task By Task Id
 
 **Headers**
 
@@ -819,17 +821,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyModelTrainingTaskById } from '@aiozai/nodejs-client';
+import { deleteModelTrainingTaskById } from '@aiozai/nodejs-client';
 
-const response = await deleteApiKeyModelTrainingTaskById({ path: { id: '...' } });
+const response = await deleteModelTrainingTaskById({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyModelVerifyHubTaskById`
+### `getModelVerifyHubTaskById`
 
-**`GET /api-key/model/verify/hub/task/{id}`** — Get Model Versioning By Hub Task Id By Api Key
+**`GET /api-key/model/verify/hub/task/{id}`** — Get Model Versioning By Hub Task Id
 
 **Headers**
 
@@ -883,17 +885,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelVerifyHubTaskById } from '@aiozai/nodejs-client';
+import { getModelVerifyHubTaskById } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyModelVerifyHubTaskById({ path: { id: '...' } });
+const response = await getModelVerifyHubTaskById({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyModelVerifySupportPlatforms`
+### `getModelVerifySupportPlatforms`
 
-**`GET /api-key/model/verify/support/platforms`** — Get List Platforms Support By Api Key
+**`GET /api-key/model/verify/support/platforms`** — Get List Platforms Support
 
 **Headers**
 
@@ -921,17 +923,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelVerifySupportPlatforms } from '@aiozai/nodejs-client';
+import { getModelVerifySupportPlatforms } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyModelVerifySupportPlatforms();
+const response = await getModelVerifySupportPlatforms();
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyModelById`
+### `getModelById`
 
-**`GET /api-key/model/{id}`** — Get Model By Api Key
+**`GET /api-key/model/{id}`** — Get Model
 
 **Headers**
 
@@ -979,17 +981,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelById } from '@aiozai/nodejs-client';
+import { getModelById } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyModelById({ path: { id: '...' } });
+const response = await getModelById({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `putApiKeyModelById`
+### `putModelById`
 
-**`PUT /api-key/model/{id}`** — Update Model By Api Key
+**`PUT /api-key/model/{id}`** — Update Model
 
 **Headers**
 
@@ -1048,9 +1050,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyModelById } from '@aiozai/nodejs-client';
+import { putModelById } from '@aiozai/nodejs-client';
 
-const response = await putApiKeyModelById({
+const response = await putModelById({
     body: {
         cover: '...',  // string
     dependency_id: '...',  // string
@@ -1064,9 +1066,9 @@ console.log(response.data);
 
 ---
 
-### `deleteApiKeyModelById`
+### `deleteModelById`
 
-**`DELETE /api-key/model/{id}`** — Delete Model By Api Key
+**`DELETE /api-key/model/{id}`** — Delete Model
 
 **Headers**
 
@@ -1105,9 +1107,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyModelById } from '@aiozai/nodejs-client';
+import { deleteModelById } from '@aiozai/nodejs-client';
 
-const response = await deleteApiKeyModelById({
+const response = await deleteModelById({
     body: {
         name: '...',  // string  // required
     },
@@ -1117,9 +1119,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyModelByIdApiKey`
+### `getModelByIdApiKey`
 
-**`GET /api-key/model/{id}/api-key`** — Get List Model ApiKey By Api Key
+**`GET /api-key/model/{id}/api-key`** — Get List Model ApiKey
 
 **Headers**
 
@@ -1176,17 +1178,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelByIdApiKey } from '@aiozai/nodejs-client';
+import { getModelByIdApiKey } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyModelByIdApiKey({ path: { id: '...' } });
+const response = await getModelByIdApiKey({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyModelByIdApiKey`
+### `postModelByIdApiKey`
 
-**`POST /api-key/model/{id}/api-key`** — Create Model ApiKey By Api Key
+**`POST /api-key/model/{id}/api-key`** — Create Model ApiKey
 
 **Headers**
 
@@ -1353,9 +1355,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyModelByIdApiKey } from '@aiozai/nodejs-client';
+import { postModelByIdApiKey } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyModelByIdApiKey({
+const response = await postModelByIdApiKey({
     body: {
         active: '...',  // boolean
     description: '...',  // string
@@ -1368,9 +1370,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyModelByIdDownload`
+### `getModelByIdDownload`
 
-**`GET /api-key/model/{id}/download`** — Get List Model Download By Api Key
+**`GET /api-key/model/{id}/download`** — Get List Model Download
 
 **Headers**
 
@@ -1429,15 +1431,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelByIdDownload } from '@aiozai/nodejs-client';
+import { getModelByIdDownload } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyModelByIdDownload({ path: { id: '...' } });
+const response = await getModelByIdDownload({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyModelByIdInfo`
+### `getModelByIdInfo`
 
 **`GET /api-key/model/{id}/info`** — Get Api Key Model Info
 
@@ -1484,17 +1486,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelByIdInfo } from '@aiozai/nodejs-client';
+import { getModelByIdInfo } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyModelByIdInfo({ path: { id: '...' } });
+const response = await getModelByIdInfo({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyModelByIdLike`
+### `getModelByIdLike`
 
-**`GET /api-key/model/{id}/like`** — Get List Model Like By Api Key
+**`GET /api-key/model/{id}/like`** — Get List Model Like
 
 **Headers**
 
@@ -1553,17 +1555,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelByIdLike } from '@aiozai/nodejs-client';
+import { getModelByIdLike } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyModelByIdLike({ path: { id: '...' } });
+const response = await getModelByIdLike({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `putApiKeyModelByIdMetadata`
+### `putModelByIdMetadata`
 
-**`PUT /api-key/model/{id}/metadata`** — Update Model Metadata By Api Key
+**`PUT /api-key/model/{id}/metadata`** — Update Model Metadata
 
 **Headers**
 
@@ -1621,9 +1623,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyModelByIdMetadata } from '@aiozai/nodejs-client';
+import { putModelByIdMetadata } from '@aiozai/nodejs-client';
 
-const response = await putApiKeyModelByIdMetadata({
+const response = await putModelByIdMetadata({
     body: {
         language: '...',  // array[string]
     library: '...',  // array[string]
@@ -1637,9 +1639,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyModelByIdPreVerify`
+### `postModelByIdPreVerify`
 
-**`POST /api-key/model/{id}/pre-verify`** — Check Valid Source code To Verify Ai Model By Api Key
+**`POST /api-key/model/{id}/pre-verify`** — Check Valid Source code To Verify Ai Model
 
 **Headers**
 
@@ -1686,9 +1688,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyModelByIdPreVerify } from '@aiozai/nodejs-client';
+import { postModelByIdPreVerify } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyModelByIdPreVerify({
+const response = await postModelByIdPreVerify({
     body: {
         commit_hash: '...',  // string  // required
     platforms: '...',  // array[string]  // required
@@ -1699,7 +1701,7 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyModelByIdServing`
+### `getModelByIdServing`
 
 **`GET /api-key/model/{id}/serving`** — Check Model Is Serving
 
@@ -1742,17 +1744,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelByIdServing } from '@aiozai/nodejs-client';
+import { getModelByIdServing } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyModelByIdServing({ path: { id: '...' } });
+const response = await getModelByIdServing({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyModelByIdSetting`
+### `getModelByIdSetting`
 
-**`GET /api-key/model/{id}/setting`** — Get Model Setting By Model Id By Api Key
+**`GET /api-key/model/{id}/setting`** — Get Model Setting By Model Id
 
 **Headers**
 
@@ -1801,17 +1803,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelByIdSetting } from '@aiozai/nodejs-client';
+import { getModelByIdSetting } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyModelByIdSetting({ path: { id: '...' } });
+const response = await getModelByIdSetting({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `putApiKeyModelByIdSetting`
+### `putModelByIdSetting`
 
-**`PUT /api-key/model/{id}/setting`** — Update Model Setting By Api Key
+**`PUT /api-key/model/{id}/setting`** — Update Model Setting
 
 **Headers**
 
@@ -1869,9 +1871,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyModelByIdSetting } from '@aiozai/nodejs-client';
+import { putModelByIdSetting } from '@aiozai/nodejs-client';
 
-const response = await putApiKeyModelByIdSetting({
+const response = await putModelByIdSetting({
     body: {
         api_price: '...',  // number
     sys_req_cpu_cores: '...',  // integer
@@ -1884,7 +1886,7 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyModelByIdStatistics`
+### `postModelByIdStatistics`
 
 **`POST /api-key/model/{id}/statistics`** — Get Model Statistics
 
@@ -1936,9 +1938,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyModelByIdStatistics } from '@aiozai/nodejs-client';
+import { postModelByIdStatistics } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyModelByIdStatistics({
+const response = await postModelByIdStatistics({
     body: {
         from: '...',  // string
     to: '...',  // string
@@ -1949,7 +1951,7 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyModelByIdTaskCost`
+### `getModelByIdTaskCost`
 
 **`GET /api-key/model/{id}/task/cost`** — Get cost to compute task by model api key
 
@@ -1993,17 +1995,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelByIdTaskCost } from '@aiozai/nodejs-client';
+import { getModelByIdTaskCost } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyModelByIdTaskCost({ path: { id: '...' } });
+const response = await getModelByIdTaskCost({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyModelByIdTaskReviews`
+### `postModelByIdTaskReviews`
 
-**`POST /api-key/model/{id}/task/reviews`** — Create Task Reviews By Api Key
+**`POST /api-key/model/{id}/task/reviews`** — Create Task Reviews
 
 **Headers**
 
@@ -2067,9 +2069,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyModelByIdTaskReviews } from '@aiozai/nodejs-client';
+import { postModelByIdTaskReviews } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyModelByIdTaskReviews({
+const response = await postModelByIdTaskReviews({
     body: {
         description: '...',  // string
     point: '...',  // integer
@@ -2081,9 +2083,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyModelByIdVerify`
+### `postModelByIdVerify`
 
-**`POST /api-key/model/{id}/verify`** — Verify Ai Model By Api Key
+**`POST /api-key/model/{id}/verify`** — Verify Ai Model
 
 **Headers**
 
@@ -2124,9 +2126,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyModelByIdVerify } from '@aiozai/nodejs-client';
+import { postModelByIdVerify } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyModelByIdVerify({
+const response = await postModelByIdVerify({
     body: {
         commit_hash: '...',  // string
     platforms: '...',  // array[string]  // required
@@ -2137,9 +2139,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyModelByIdVerifyCost`
+### `postModelByIdVerifyCost`
 
-**`POST /api-key/model/{id}/verify/cost`** — Calculate Cost To Verify Ai Model By Api Key
+**`POST /api-key/model/{id}/verify/cost`** — Calculate Cost To Verify Ai Model
 
 **Headers**
 
@@ -2188,9 +2190,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyModelByIdVerifyCost } from '@aiozai/nodejs-client';
+import { postModelByIdVerifyCost } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyModelByIdVerifyCost({
+const response = await postModelByIdVerifyCost({
     body: {
         commit_hash: '...',  // string  // required
     platforms: '...',  // array[string]  // required
@@ -2201,9 +2203,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyModelByIdVerifyPending`
+### `getModelByIdVerifyPending`
 
-**`GET /api-key/model/{id}/verify/pending`** — Check Model Pending State By Api Key
+**`GET /api-key/model/{id}/verify/pending`** — Check Model Pending State
 
 **Headers**
 
@@ -2247,9 +2249,9 @@ _No fields defined._
 **Example**
 
 ```typescript
-import { getApiKeyModelByIdVerifyPending } from '@aiozai/nodejs-client';
+import { getModelByIdVerifyPending } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyModelByIdVerifyPending({
+const response = await getModelByIdVerifyPending({
     body: {
         
     },
@@ -2259,7 +2261,7 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyModelByIdVerifyTask`
+### `getModelByIdVerifyTask`
 
 **`GET /api-key/model/{id}/verify/task`** — Get List Verify Model Task By Commit Hash And Status
 
@@ -2348,15 +2350,15 @@ SysRequired       map[string]interface{} `json:"sys_require"` |
 **Example**
 
 ```typescript
-import { getApiKeyModelByIdVerifyTask } from '@aiozai/nodejs-client';
+import { getModelByIdVerifyTask } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyModelByIdVerifyTask({ path: { id: '...' } });
+const response = await getModelByIdVerifyTask({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyModelByIdVersioning`
+### `getModelByIdVersioning`
 
 **`GET /api-key/model/{id}/versioning`** — Get Current Model Versioning By Model Id By ApiKey
 
@@ -2436,17 +2438,17 @@ SysRequired       map[string]interface{} `json:"sys_require"` |
 **Example**
 
 ```typescript
-import { getApiKeyModelByIdVersioning } from '@aiozai/nodejs-client';
+import { getModelByIdVersioning } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyModelByIdVersioning({ path: { id: '...' } });
+const response = await getModelByIdVersioning({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `putApiKeyModelByIdVersioning`
+### `putModelByIdVersioning`
 
-**`PUT /api-key/model/{id}/versioning`** — Change Model Versioning By Commit Hash By Api Key
+**`PUT /api-key/model/{id}/versioning`** — Change Model Versioning By Commit Hash
 
 **Headers**
 
@@ -2480,17 +2482,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyModelByIdVersioning } from '@aiozai/nodejs-client';
+import { putModelByIdVersioning } from '@aiozai/nodejs-client';
 
-const response = await putApiKeyModelByIdVersioning({ path: { id: '...' } });
+const response = await putModelByIdVersioning({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `deleteApiKeyModelByIdVersioning`
+### `deleteModelByIdVersioning`
 
-**`DELETE /api-key/model/{id}/versioning`** — Delete Model Versioning By Commit Hash By Api Key
+**`DELETE /api-key/model/{id}/versioning`** — Delete Model Versioning By Commit Hash
 
 **Headers**
 
@@ -2524,17 +2526,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyModelByIdVersioning } from '@aiozai/nodejs-client';
+import { deleteModelByIdVersioning } from '@aiozai/nodejs-client';
 
-const response = await deleteApiKeyModelByIdVersioning({ path: { id: '...' } });
+const response = await deleteModelByIdVersioning({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyModelByIdVersioningList`
+### `getModelByIdVersioningList`
 
-**`GET /api-key/model/{id}/versioning/list`** — Get Verified List Model Versioning By Api Key
+**`GET /api-key/model/{id}/versioning/list`** — Get Verified List Model Versioning
 
 **Headers**
 
@@ -2622,17 +2624,17 @@ SysRequired       map[string]interface{} `json:"sys_require"` |
 **Example**
 
 ```typescript
-import { getApiKeyModelByIdVersioningList } from '@aiozai/nodejs-client';
+import { getModelByIdVersioningList } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyModelByIdVersioningList({ path: { id: '...' } });
+const response = await getModelByIdVersioningList({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyModelByUsernameByName`
+### `getModelByUsernameByName`
 
-**`GET /api-key/model/{username}/{name}`** — Get Model By Name By Api Key
+**`GET /api-key/model/{username}/{name}`** — Get Model By Name
 
 **Headers**
 
@@ -2681,17 +2683,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyModelByUsernameByName } from '@aiozai/nodejs-client';
+import { getModelByUsernameByName } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyModelByUsernameByName({ path: { username: '...', name: '...' } });
+const response = await getModelByUsernameByName({ path: { username: '...', name: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyPackageList`
+### `postPackageList`
 
-**`POST /api-key/package/list`** — Get Api Package List By Api Key
+**`POST /api-key/package/list`** — Get Api Package List
 
 **Headers**
 
@@ -2746,9 +2748,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyPackageList } from '@aiozai/nodejs-client';
+import { postPackageList } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyPackageList({
+const response = await postPackageList({
     body: {
         limit: '...',  // integer
     offset: '...',  // integer
@@ -2759,9 +2761,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyUserApiKeyById`
+### `getUserApiKeyById`
 
-**`GET /api-key/user/api-key/{id}`** — Get Api Key Detail By Id By Api Key
+**`GET /api-key/user/api-key/{id}`** — Get Api Key Detail By Id
 
 **Headers**
 
@@ -2809,17 +2811,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserApiKeyById } from '@aiozai/nodejs-client';
+import { getUserApiKeyById } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyUserApiKeyById({ path: { id: '...' } });
+const response = await getUserApiKeyById({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `putApiKeyUserApiKeyById`
+### `putUserApiKeyById`
 
-**`PUT /api-key/user/api-key/{id}`** — Update Api Key By Api Key
+**`PUT /api-key/user/api-key/{id}`** — Update Api Key
 
 **Headers**
 
@@ -2986,9 +2988,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyUserApiKeyById } from '@aiozai/nodejs-client';
+import { putUserApiKeyById } from '@aiozai/nodejs-client';
 
-const response = await putApiKeyUserApiKeyById({
+const response = await putUserApiKeyById({
     body: {
         active: '...',  // boolean
     description: '...',  // string
@@ -3001,9 +3003,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyUserApiKeyByIdStatistics`
+### `postUserApiKeyByIdStatistics`
 
-**`POST /api-key/user/api-key/{id}/statistics`** — Get Api Key By Id By Api Key
+**`POST /api-key/user/api-key/{id}/statistics`** — Get Api Key By Id
 
 **Headers**
 
@@ -3169,9 +3171,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyUserApiKeyByIdStatistics } from '@aiozai/nodejs-client';
+import { postUserApiKeyByIdStatistics } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyUserApiKeyByIdStatistics({
+const response = await postUserApiKeyByIdStatistics({
     body: {
         from: '...',  // string
     org_username: '...',  // string
@@ -3183,9 +3185,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyUserPlaygroundRemaining`
+### `getUserPlaygroundRemaining`
 
-**`GET /api-key/user/playground/remaining`** — Get Playground Uses Remaining By User By Api Key
+**`GET /api-key/user/playground/remaining`** — Get Playground Uses Remaining By User
 
 **Headers**
 
@@ -3227,9 +3229,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserPlaygroundRemaining } from '@aiozai/nodejs-client';
+import { getUserPlaygroundRemaining } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyUserPlaygroundRemaining();
+const response = await getUserPlaygroundRemaining();
 console.log(response.data);
 ```
 
@@ -3249,6 +3251,7 @@ console.log(response.data);
 | `license` | `string` | No |  |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `asc`, `desc` |
 | `search` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `likes`, `downloads`, `created`, `created_oldest`, `modified`, `name`, `size` |
 | `tag_type` | `string` | No |  |
@@ -3383,6 +3386,7 @@ console.log(response.data);
 | `license` | `string` | No |  |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `asc`, `desc` |
 | `search` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `likes`, `downloads`, `created`, `created_oldest`, `modified`, `name`, `size` |
 | `tag_type` | `string` | No |  |

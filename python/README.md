@@ -16,7 +16,7 @@ from aiozai_sdk import AiozAIClient
 client = AiozAIClient(api_key="your-api-key")
 
 # Access services
-result = client.models.model.api_key_model_list(body={...})
+result = client.models.model.post_model_list(input={...})
 ```
 
 ## Error Handling
@@ -25,7 +25,7 @@ result = client.models.model.api_key_model_list(body={...})
 from aiozai_sdk import AiozAPIError
 
 try:
-    result = client.models.model.api_key_model_id_get(id="model-id")
+    result = client.models.model.get_model_by_id(id="model-id")
 except AiozAPIError as e:
     print(f"[{e.status_code}] {e.message} — {e.method} {e.endpoint}")
 ```
@@ -104,12 +104,13 @@ These types appear in error responses across all endpoints.
 | Field | Type | Description |
 | --- | --- | --- |
 | `message` | `string` | Human-readable error message |
-| `errors` | `array[string]` | Field-level validation errors |
+| `status` | `string` | fail |
 
 **`ErrorResponse`** (500 Internal Server Error)
 
 | Field | Type | Description |
 | --- | --- | --- |
 | `message` | `string` | Internal error message |
+| `status` | `string` | error |
 
 <!-- SDK_GUIDE_END -->

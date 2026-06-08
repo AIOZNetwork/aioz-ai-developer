@@ -6,9 +6,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `postApiKeyCompetition`
+### `postCompetition`
 
-**`POST /api-key/competition`** — Create a new competition By Api Key
+**`POST /api-key/competition`** — Create a new competition
 
 **Headers**
 
@@ -112,9 +112,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```typescript
-import { postApiKeyCompetition } from '@aiozai/nodejs-client';
+import { postCompetition } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyCompetition({
+const response = await postCompetition({
     body: {
         author_id: '...',  // string
     category: '...',  // string
@@ -128,9 +128,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyCompetitionList`
+### `postCompetitionList`
 
-**`POST /api-key/competition/list`** — List competitions By Api Key
+**`POST /api-key/competition/list`** — List competitions
 
 **Headers**
 
@@ -146,6 +146,7 @@ console.log(response.data);
 | `following` | `boolean` | No |  |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `desc`, `asc` |
 | `reward_type` | `string` | No | monetary,knowledge,swag,kudos |
 | `role` | `string` | No | host,participant |
 | `search` | `string` | No |  |
@@ -228,15 +229,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyCompetitionList } from '@aiozai/nodejs-client';
+import { postCompetitionList } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyCompetitionList({
+const response = await postCompetitionList({
     body: {
         category: '...',  // string
     following: '...',  // boolean
     limit: '...',  // integer
     offset: '...',  // integer
-    reward_type: '...',  // string
+    order: '...',  // string
     },
 });
 console.log(response.data);
@@ -244,9 +245,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyCompetitionPathByPath`
+### `getCompetitionPathByPath`
 
-**`GET /api-key/competition/path/{path}`** — Get competition details by path By Api Key
+**`GET /api-key/competition/path/{path}`** — Get competition details by path
 
 **Headers**
 
@@ -328,17 +329,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyCompetitionPathByPath } from '@aiozai/nodejs-client';
+import { getCompetitionPathByPath } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyCompetitionPathByPath({ path: { path: '...' } });
+const response = await getCompetitionPathByPath({ path: { path: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyCompetitionPreSubmit`
+### `postCompetitionPreSubmit`
 
-**`POST /api-key/competition/pre-submit`** — Check valid repo to submit data By Api Key
+**`POST /api-key/competition/pre-submit`** — Check valid repo to submit data
 
 **Headers**
 
@@ -372,9 +373,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyCompetitionPreSubmit } from '@aiozai/nodejs-client';
+import { postCompetitionPreSubmit } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyCompetitionPreSubmit({
+const response = await postCompetitionPreSubmit({
     body: {
         commit_hash: '...',  // string
     model_id: '...',  // string  // required
@@ -385,9 +386,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyCompetitionSubmit`
+### `postCompetitionSubmit`
 
-**`POST /api-key/competition/submit`** — Submit competition data By Api Key
+**`POST /api-key/competition/submit`** — Submit competition data
 
 **Headers**
 
@@ -449,17 +450,17 @@ SourceCodeUrl  string    `json:"source_code_url"` |
 **Example**
 
 ```typescript
-import { postApiKeyCompetitionSubmit } from '@aiozai/nodejs-client';
+import { postCompetitionSubmit } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyCompetitionSubmit();
+const response = await postCompetitionSubmit();
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyCompetitionSubmitCost`
+### `postCompetitionSubmitCost`
 
-**`POST /api-key/competition/submit/cost`** — Estimate cost to submit data By Api Key
+**`POST /api-key/competition/submit/cost`** — Estimate cost to submit data
 
 **Headers**
 
@@ -503,9 +504,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyCompetitionSubmitCost } from '@aiozai/nodejs-client';
+import { postCompetitionSubmitCost } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyCompetitionSubmitCost({
+const response = await postCompetitionSubmitCost({
     body: {
         commit_hash: '...',  // string
     competition_id: '...',  // string  // required
@@ -517,9 +518,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyCompetitionSubmitHistoryById`
+### `getCompetitionSubmitHistoryById`
 
-**`GET /api-key/competition/submit/history/{id}`** — Get submission history By Api Key
+**`GET /api-key/competition/submit/history/{id}`** — Get submission history
 
 **Headers**
 
@@ -583,17 +584,17 @@ SourceCodeUrl  string    `json:"source_code_url"` |
 **Example**
 
 ```typescript
-import { getApiKeyCompetitionSubmitHistoryById } from '@aiozai/nodejs-client';
+import { getCompetitionSubmitHistoryById } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyCompetitionSubmitHistoryById({ path: { id: '...' } });
+const response = await getCompetitionSubmitHistoryById({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyCompetitionById`
+### `getCompetitionById`
 
-**`GET /api-key/competition/{id}`** — Get competition details By Api Key
+**`GET /api-key/competition/{id}`** — Get competition details
 
 **Headers**
 
@@ -675,17 +676,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyCompetitionById } from '@aiozai/nodejs-client';
+import { getCompetitionById } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyCompetitionById({ path: { id: '...' } });
+const response = await getCompetitionById({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `putApiKeyCompetitionById`
+### `putCompetitionById`
 
-**`PUT /api-key/competition/{id}`** — Update a competition By Api Key
+**`PUT /api-key/competition/{id}`** — Update a competition
 
 **Headers**
 
@@ -794,9 +795,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyCompetitionById } from '@aiozai/nodejs-client';
+import { putCompetitionById } from '@aiozai/nodejs-client';
 
-const response = await putApiKeyCompetitionById({
+const response = await putCompetitionById({
     body: {
         category: '...',  // string
     code: '...',  // string
@@ -810,52 +811,9 @@ console.log(response.data);
 
 ---
 
-### `deleteApiKeyCompetitionById`
+### `deleteCompetitionById`
 
-**`DELETE /api-key/competition/{id}`** — Delete a competition By Api Key
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Competition Id |
-
-**Responses**
-
-**200 OK** — `response.SuccessResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { deleteApiKeyCompetitionById } from '@aiozai/nodejs-client';
-
-const response = await deleteApiKeyCompetitionById({ path: { id: '...' } });
-console.log(response.data);
-```
-
----
-
-### `postApiKeyCompetitionByIdJoin`
-
-**`POST /api-key/competition/{id}/join`** — Join a competition By Api Key
+**`DELETE /api-key/competition/{id}`** — Delete a competition
 
 **Headers**
 
@@ -888,17 +846,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyCompetitionByIdJoin } from '@aiozai/nodejs-client';
+import { deleteCompetitionById } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyCompetitionByIdJoin({ path: { id: '...' } });
+const response = await deleteCompetitionById({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyCompetitionByIdLaunch`
+### `postCompetitionByIdJoin`
 
-**`POST /api-key/competition/{id}/launch`** — Launch a competition By Api Key
+**`POST /api-key/competition/{id}/join`** — Join a competition
 
 **Headers**
 
@@ -931,17 +889,60 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyCompetitionByIdLaunch } from '@aiozai/nodejs-client';
+import { postCompetitionByIdJoin } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyCompetitionByIdLaunch({ path: { id: '...' } });
+const response = await postCompetitionByIdJoin({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyCompetitionByIdLeaderboard`
+### `postCompetitionByIdLaunch`
 
-**`GET /api-key/competition/{id}/leaderboard`** — Get competition leaderboard By Api Key
+**`POST /api-key/competition/{id}/launch`** — Launch a competition
+
+**Headers**
+
+| Header | Value | Required |
+| --- | --- | --- |
+| `x-api-key` | Your API key | Yes |
+
+**Parameters**
+
+| Name | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | `string` | Yes | Competition Id |
+
+**Responses**
+
+**200 OK** — `response.SuccessResponse`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `message` | `string` |  |
+| `status` | `string` |  |
+
+**Error Responses**
+
+| Status | Description |
+| --- | --- |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
+
+**Example**
+
+```typescript
+import { postCompetitionByIdLaunch } from '@aiozai/nodejs-client';
+
+const response = await postCompetitionByIdLaunch({ path: { id: '...' } });
+console.log(response.data);
+```
+
+---
+
+### `getCompetitionByIdLeaderboard`
+
+**`GET /api-key/competition/{id}/leaderboard`** — Get competition leaderboard
 
 **Headers**
 
@@ -1013,17 +1014,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyCompetitionByIdLeaderboard } from '@aiozai/nodejs-client';
+import { getCompetitionByIdLeaderboard } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyCompetitionByIdLeaderboard({ path: { id: '...' } });
+const response = await getCompetitionByIdLeaderboard({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyCompetitionByIdLeave`
+### `postCompetitionByIdLeave`
 
-**`POST /api-key/competition/{id}/leave`** — Leave competition By Api Key
+**`POST /api-key/competition/{id}/leave`** — Leave competition
 
 **Headers**
 
@@ -1056,17 +1057,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyCompetitionByIdLeave } from '@aiozai/nodejs-client';
+import { postCompetitionByIdLeave } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyCompetitionByIdLeave({ path: { id: '...' } });
+const response = await postCompetitionByIdLeave({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyCompetitionByIdPublicLeaderboard`
+### `getCompetitionByIdPublicLeaderboard`
 
-**`GET /api-key/competition/{id}/public/leaderboard`** — GetLeaderboardByCompetitionIdAndPhase By Api Key
+**`GET /api-key/competition/{id}/public/leaderboard`** — GetLeaderboardByCompetitionIdAndPhase
 
 **Headers**
 
@@ -1134,9 +1135,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyCompetitionByIdPublicLeaderboard } from '@aiozai/nodejs-client';
+import { getCompetitionByIdPublicLeaderboard } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyCompetitionByIdPublicLeaderboard({ path: { id: '...', phase: '...' } });
+const response = await getCompetitionByIdPublicLeaderboard({ path: { id: '...', phase: '...' } });
 console.log(response.data);
 ```
 
@@ -1154,6 +1155,7 @@ console.log(response.data);
 | `following` | `boolean` | No |  |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `desc`, `asc` |
 | `reward_type` | `string` | No | monetary,knowledge,swag,kudos |
 | `role` | `string` | No | host,participant |
 | `search` | `string` | No |  |
@@ -1230,7 +1232,8 @@ console.log(response.data);
 
 | Status | Description |
 | --- | --- |
-| 400 | Bad Request — [response.ErrorResponse](../README.md#common-response-types) |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
 
 **Example**
 
@@ -1243,7 +1246,7 @@ const response = await postPublicCompetitionList({
     following: '...',  // boolean
     limit: '...',  // integer
     offset: '...',  // integer
-    reward_type: '...',  // string
+    order: '...',  // string
     },
 });
 console.log(response.data);
@@ -1422,7 +1425,8 @@ console.log(response.data);
 
 | Status | Description |
 | --- | --- |
-| 400 | Bad Request — [response.ErrorResponse](../README.md#common-response-types) |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
 
 **Example**
 
@@ -1583,7 +1587,8 @@ console.log(response.data);
 
 | Status | Description |
 | --- | --- |
-| 400 | Bad Request — [response.ErrorResponse](../README.md#common-response-types) |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
 
 **Example**
 
@@ -1658,7 +1663,8 @@ console.log(response.data);
 
 | Status | Description |
 | --- | --- |
-| 400 | Bad Request — [response.ErrorResponse](../README.md#common-response-types) |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
 
 **Example**
 
@@ -1711,7 +1717,8 @@ console.log(response.data);
 
 | Status | Description |
 | --- | --- |
-| 400 | Bad Request — [response.ErrorResponse](../README.md#common-response-types) |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
 
 **Example**
 

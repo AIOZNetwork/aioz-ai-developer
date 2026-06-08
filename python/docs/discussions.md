@@ -6,9 +6,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `api_key_collection_id_report_post`
+### `post_collection_by_id_report`
 
-**`POST /api-key/collection/{id}/report`** — Report Collection By Api Key
+**`POST /api-key/collection/{id}/report`** — Report Collection
 
 **Headers**
 
@@ -104,15 +104,15 @@ request = ReportCollectionRequest(
     reason="...",  # string  # required
     url="...",  # string  # required
 )
-resp = client.discussions.discussion.api_key_collection_id_report_post(body=request)
+resp = client.discussions.discussion.post_collection_by_id_report(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_comments_id_report_post`
+### `post_comments_by_id_report`
 
-**`POST /api-key/comments/{id}/report`** — Report Comment By Api Key
+**`POST /api-key/comments/{id}/report`** — Report Comment
 
 **Headers**
 
@@ -208,15 +208,15 @@ request = ReportCommentRequest(
     reason="...",  # string  # required
     url="...",  # string  # required
 )
-resp = client.discussions.discussion.api_key_comments_id_report_post(body=request)
+resp = client.discussions.discussion.post_comments_by_id_report(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_discussion_competition_id_get`
+### `get_discussion_competition_by_id`
 
-**`GET /api-key/discussion/competition/{id}`** — Get competition discussion list By Api Key
+**`GET /api-key/discussion/competition/{id}`** — Get competition discussion list
 
 **Headers**
 
@@ -311,15 +311,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.discussions.discussion.api_key_discussion_competition_id_get(id="<id>")
+resp = client.discussions.discussion.get_discussion_competition_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_discussion_competition_id_post`
+### `post_discussion_competition_by_id`
 
-**`POST /api-key/discussion/competition/{id}`** — Create competition discussion By Api Key
+**`POST /api-key/discussion/competition/{id}`** — Create competition discussion
 
 **Headers**
 
@@ -415,15 +415,15 @@ request = CreateCompetitionDiscussionRequest(
     content="...",  # string  # required
     title="...",  # string  # required
 )
-resp = client.discussions.discussion.api_key_discussion_competition_id_post(body=request)
+resp = client.discussions.discussion.post_discussion_competition_by_id(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_discussion_dataset_id_get`
+### `get_discussion_dataset_by_id`
 
-**`GET /api-key/discussion/dataset/{id}`** — Get dataset discussion list By Api Key
+**`GET /api-key/discussion/dataset/{id}`** — Get dataset discussion list
 
 **Headers**
 
@@ -516,15 +516,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.discussions.discussion.api_key_discussion_dataset_id_get(id="<id>")
+resp = client.discussions.discussion.get_discussion_dataset_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_discussion_dataset_id_post`
+### `post_discussion_dataset_by_id`
 
-**`POST /api-key/discussion/dataset/{id}`** — Create dataset discussion By Api Key
+**`POST /api-key/discussion/dataset/{id}`** — Create dataset discussion
 
 **Headers**
 
@@ -620,15 +620,15 @@ request = CreateDatasetDiscussionRequest(
     content="...",  # string  # required
     title="...",  # string  # required
 )
-resp = client.discussions.discussion.api_key_discussion_dataset_id_post(body=request)
+resp = client.discussions.discussion.post_discussion_dataset_by_id(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_discussion_model_id_get`
+### `get_discussion_model_by_id`
 
-**`GET /api-key/discussion/model/{id}`** — Get model discussion list By Api Key
+**`GET /api-key/discussion/model/{id}`** — Get model discussion list
 
 **Headers**
 
@@ -721,15 +721,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.discussions.discussion.api_key_discussion_model_id_get(id="<id>")
+resp = client.discussions.discussion.get_discussion_model_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_discussion_model_id_post`
+### `post_discussion_model_by_id`
 
-**`POST /api-key/discussion/model/{id}`** — Create model discussion By Api Key
+**`POST /api-key/discussion/model/{id}`** — Create model discussion
 
 **Headers**
 
@@ -825,15 +825,15 @@ request = CreateModelDiscussionRequest(
     content="...",  # string  # required
     title="...",  # string  # required
 )
-resp = client.discussions.discussion.api_key_discussion_model_id_post(body=request)
+resp = client.discussions.discussion.post_discussion_model_by_id(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_discussion_id_put`
+### `put_discussion_by_id`
 
-**`PUT /api-key/discussion/{id}`** — Update discussion By Api Key
+**`PUT /api-key/discussion/{id}`** — Update discussion
 
 **Headers**
 
@@ -931,15 +931,15 @@ request = UpdateDiscussionRequest(
     is_closed="...",  # boolean
     title="...",  # string
 )
-resp = client.discussions.discussion.api_key_discussion_id_put(body=request)
+resp = client.discussions.discussion.put_discussion_by_id(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_discussion_id_delete`
+### `delete_discussion_by_id`
 
-**`DELETE /api-key/discussion/{id}`** — Delete discussion By Api Key
+**`DELETE /api-key/discussion/{id}`** — Delete discussion
 
 **Headers**
 
@@ -1022,15 +1022,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.discussions.discussion.api_key_discussion_id_delete(id="<id>")
+resp = client.discussions.discussion.delete_discussion_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_discussion_id_report_post`
+### `post_discussion_by_id_report`
 
-**`POST /api-key/discussion/{id}/report`** — Report Discussion By Api Key
+**`POST /api-key/discussion/{id}/report`** — Report Discussion
 
 **Headers**
 
@@ -1126,13 +1126,13 @@ request = ReportDiscussionRequest(
     reason="...",  # string  # required
     url="...",  # string  # required
 )
-resp = client.discussions.discussion.api_key_discussion_id_report_post(body=request)
+resp = client.discussions.discussion.post_discussion_by_id_report(input=request)
 print(resp)
 ```
 
 ---
 
-### `public_discussion_competition_id_get`
+### `get_public_discussion_competition_by_id`
 
 **`GET /public/discussion/competition/{id}`** — Get public competition discussion list
 
@@ -1223,13 +1223,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.discussions.discussion.public_discussion_competition_id_get(id="<id>")
+resp = client.discussions.discussion.get_public_discussion_competition_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `public_discussion_dataset_id_get`
+### `get_public_discussion_dataset_by_id`
 
 **`GET /public/discussion/dataset/{id}`** — Get dataset discussion list
 
@@ -1318,13 +1318,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.discussions.discussion.public_discussion_dataset_id_get(id="<id>")
+resp = client.discussions.discussion.get_public_discussion_dataset_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `public_discussion_model_id_get`
+### `get_public_discussion_model_by_id`
 
 **`GET /public/discussion/model/{id}`** — Get model discussion list
 
@@ -1413,13 +1413,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.discussions.discussion.public_discussion_model_id_get(id="<id>")
+resp = client.discussions.discussion.get_public_discussion_model_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `public_discussion_id_get`
+### `get_public_discussion_by_id`
 
 **`GET /public/discussion/{id}`** — Get discussion detail
 
@@ -1498,13 +1498,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.discussions.discussion.public_discussion_id_get(id="<id>")
+resp = client.discussions.discussion.get_public_discussion_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `public_discussion_id_comments_get`
+### `get_public_discussion_by_id_comments`
 
 **`GET /public/discussion/{id}/comments`** — Get a list of comments
 
@@ -1609,7 +1609,7 @@ print(resp)
 **Example**
 
 ```python
-resp = client.discussions.discussion.public_discussion_id_comments_get(id="<id>")
+resp = client.discussions.discussion.get_public_discussion_by_id_comments(id="<id>")
 print(resp)
 ```
 

@@ -23,13 +23,13 @@ import { createAiozAIClient, services } from '@aiozai/nodejs-client'
 const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY })
 
 // List models
-const models = await services.models.postApiKeyModelList({
+const models = await services.models.postModelList({
   client: rawClient,
   body: { page: 1, limit: 10 },
 })
 
 // Get a specific model
-const model = await services.models.getApiKeyModelById({
+const model = await services.models.getModelById({
   client: rawClient,
   path: { id: 'your-model-id' },
 })
@@ -41,7 +41,7 @@ const model = await services.models.getApiKeyModelById({
 import { AiozApiError } from '@aiozai/nodejs-client'
 
 try {
-  const result = await services.models.getApiKeyModelById({
+  const result = await services.models.getModelById({
     client: rawClient,
     path: { id: 'nonexistent' },
   })
@@ -121,12 +121,13 @@ These types appear in error responses across all endpoints.
 | Field | Type | Description |
 | --- | --- | --- |
 | `message` | `string` | Human-readable error message |
-| `errors` | `array[string]` | Field-level validation errors |
+| `status` | `string` | fail |
 
 **`ErrorResponse`** (500 Internal Server Error)
 
 | Field | Type | Description |
 | --- | --- | --- |
 | `message` | `string` | Internal error message |
+| `status` | `string` | error |
 
 <!-- SDK_GUIDE_END -->

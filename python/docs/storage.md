@@ -6,9 +6,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `api_key_storage_upload_create_presigned_url_post`
+### `post_storage_upload_create_presigned_url`
 
-**`POST /api-key/storage/upload/create-presigned-url`** — Create Presigned Url By Api Key
+**`POST /api-key/storage/upload/create-presigned-url`** — Create Presigned Url
 
 **Headers**
 
@@ -49,7 +49,8 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 | Status | Description |
 | --- | --- |
-| 400 | Bad Request — [response.ErrorResponse](../README.md#common-response-types) |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
 
 **Example**
 
@@ -63,15 +64,15 @@ request = CreatePresignedUrlRequest(
     org_username="...",  # string
     size="...",  # integer  # required
 )
-resp = client.storages.storage.api_key_storage_upload_create_presigned_url_post(body=request)
+resp = client.storages.storage.post_storage_upload_create_presigned_url(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_storage_upload_statistics_get`
+### `get_storage_upload_statistics`
 
-**`GET /api-key/storage/upload/statistics`** — Get user upload statistics by api key
+**`GET /api-key/storage/upload/statistics`** — Get user upload statistics
 
 **Headers**
 
@@ -114,15 +115,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.storages.storage.api_key_storage_upload_statistics_get()
+resp = client.storages.storage.get_storage_upload_statistics()
 print(resp)
 ```
 
 ---
 
-### `api_key_storage_upload_folder_get`
+### `get_storage_upload_by_folder`
 
-**`GET /api-key/storage/upload/{folder}`** — Get user uploads by folder by api key
+**`GET /api-key/storage/upload/{folder}`** — Get user uploads by folder
 
 **Headers**
 
@@ -182,15 +183,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.storages.storage.api_key_storage_upload_folder_get(folder="<folder>")
+resp = client.storages.storage.get_storage_upload_by_folder(folder="<folder>")
 print(resp)
 ```
 
 ---
 
-### `api_key_storage_w3s_url_delete`
+### `delete_storage_w3s_url`
 
-**`DELETE /api-key/storage/w3s/url`** — Delete Url By Api Key
+**`DELETE /api-key/storage/w3s/url`** — Delete Url
 
 **Headers**
 
@@ -206,11 +207,19 @@ print(resp)
 
 **Responses**
 
+**200 OK** — `response.SuccessResponse`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `message` | `string` |  |
+| `status` | `string` |  |
+
 **Error Responses**
 
 | Status | Description |
 | --- | --- |
-| 400 | Bad Request — [response.ErrorResponse](../README.md#common-response-types) |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
 
 **Example**
 
@@ -220,7 +229,7 @@ from aiozai_sdk.generated.models import DeleteUrlRequest
 request = DeleteUrlRequest(
     url="...",  # string  # required
 )
-resp = client.storages.storage.api_key_storage_w3s_url_delete(body=request)
+resp = client.storages.storage.delete_storage_w3s_url(input=request)
 print(resp)
 ```
 

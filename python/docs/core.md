@@ -6,7 +6,7 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `api_key_balance_get`
+### `get_balance`
 
 **`GET /api-key/balance`** — Get Api Key Balance
 
@@ -46,15 +46,15 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```python
-resp = client.api-keys.api-key.api_key_balance_get()
+resp = client.api-keys.api-key.get_balance()
 print(resp)
 ```
 
 ---
 
-### `api_key_comments_id_put`
+### `put_comments_by_id`
 
-**`PUT /api-key/comments/{id}`** — Update comment By Api Key
+**`PUT /api-key/comments/{id}`** — Update comment
 
 **Headers**
 
@@ -166,15 +166,15 @@ request = UpdateCommentRequest(
     content="...",  # string
     tag_usernames="...",  # array[string]
 )
-resp = client.commentss.comments.api_key_comments_id_put(body=request)
+resp = client.commentss.comments.put_comments_by_id(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_comments_id_delete`
+### `delete_comments_by_id`
 
-**`DELETE /api-key/comments/{id}`** — Delete comment By Api Key
+**`DELETE /api-key/comments/{id}`** — Delete comment
 
 **Headers**
 
@@ -273,15 +273,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.commentss.comments.api_key_comments_id_delete(id="<id>")
+resp = client.commentss.comments.delete_comments_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_dataset_id_like_put`
+### `put_dataset_by_id_like`
 
-**`PUT /api-key/dataset/{id}/like`** — Like dataset By Api Key
+**`PUT /api-key/dataset/{id}/like`** — Like dataset
 
 **Headers**
 
@@ -314,15 +314,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.reactions.reaction.api_key_dataset_id_like_put(id="<id>")
+resp = client.reactions.reaction.put_dataset_by_id_like(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_dependency_lib_request_post`
+### `post_dependency_lib_request`
 
-**`POST /api-key/dependency/lib-request`** — Create Dependency Package Request By Api Key
+**`POST /api-key/dependency/lib-request`** — Create Dependency Package Request
 
 **Headers**
 
@@ -364,15 +364,15 @@ request = CreateDependencyLibRequest(
     reason="...",  # string
     version="...",  # string
 )
-resp = client.dependencys.dependency.api_key_dependency_lib_request_post(body=request)
+resp = client.dependencys.dependency.post_dependency_lib_request(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_dependency_list_post`
+### `post_dependency_list`
 
-**`POST /api-key/dependency/list`** — Get Dependency List By Api Key
+**`POST /api-key/dependency/list`** — Get Dependency List
 
 **Headers**
 
@@ -427,15 +427,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.dependencys.dependency.api_key_dependency_list_post()
+resp = client.dependencys.dependency.post_dependency_list()
 print(resp)
 ```
 
 ---
 
-### `api_key_dependency_id_get`
+### `get_dependency_by_id`
 
-**`GET /api-key/dependency/{id}`** — Get Dependency By Api Key
+**`GET /api-key/dependency/{id}`** — Get Dependency
 
 **Headers**
 
@@ -482,15 +482,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.dependencys.dependency.api_key_dependency_id_get(id="<id>")
+resp = client.dependencys.dependency.get_dependency_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_discussion_id_comments_get`
+### `get_discussion_by_id_comments`
 
-**`GET /api-key/discussion/{id}/comments`** — Get comment list By Api Key
+**`GET /api-key/discussion/{id}/comments`** — Get comment list
 
 **Headers**
 
@@ -599,15 +599,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.commentss.comments.api_key_discussion_id_comments_get(id="<id>")
+resp = client.commentss.comments.get_discussion_by_id_comments(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_discussion_id_comments_post`
+### `post_discussion_by_id_comments`
 
-**`POST /api-key/discussion/{id}/comments`** — Create comment By Api Key
+**`POST /api-key/discussion/{id}/comments`** — Create comment
 
 **Headers**
 
@@ -719,15 +719,15 @@ request = CreateCommentRequest(
     content="...",  # string
     tag_usernames="...",  # array[string]
 )
-resp = client.commentss.comments.api_key_discussion_id_comments_post(body=request)
+resp = client.commentss.comments.post_discussion_by_id_comments(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_items_id_react_put`
+### `put_items_by_id_react`
 
-**`PUT /api-key/items/{id}/react`** — React item By Api Key
+**`PUT /api-key/items/{id}/react`** — React item
 
 **Headers**
 
@@ -773,15 +773,15 @@ request = ReactItemRequest(
     itemName="...",  # string
     reactName="...",  # string
 )
-resp = client.reactions.reaction.api_key_items_id_react_put(body=request)
+resp = client.reactions.reaction.put_items_by_id_react(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_like_put`
+### `put_model_by_id_like`
 
-**`PUT /api-key/model/{id}/like`** — Like model By Api Key
+**`PUT /api-key/model/{id}/like`** — Like model
 
 **Headers**
 
@@ -814,15 +814,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.reactions.reaction.api_key_model_id_like_put(id="<id>")
+resp = client.reactions.reaction.put_model_by_id_like(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_model_id_task_post`
+### `post_model_by_id_task`
 
-**`POST /api-key/model/{id}/task`** — Distribute Task v2 (Api-Key)
+**`POST /api-key/model/{id}/task`** — Distribute Task v2
 
 **Headers**
 
@@ -865,15 +865,15 @@ from aiozai_sdk.generated.models import DistributeTaskWithApiKeyRequest
 request = DistributeTaskWithApiKeyRequest(
     
 )
-resp = client.api-keys.api-key.api_key_model_id_task_post(body=request)
+resp = client.api-keys.api-key.post_model_by_id_task(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_offer_invite_post`
+### `post_offer_invite`
 
-**`POST /api-key/offer/invite`** — Create invite to join organization By Api Key
+**`POST /api-key/offer/invite`** — Create invite to join organization
 
 **Headers**
 
@@ -909,15 +909,15 @@ request = MakeInviteOfferRequest(
     role="...",  # string  # required
     username="...",  # string  # required
 )
-resp = client.offers.offer.api_key_offer_invite_post(body=request)
+resp = client.offers.offer.post_offer_invite(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_offer_join_post`
+### `post_offer_join`
 
-**`POST /api-key/offer/join`** — Request to join organization By Api Key
+**`POST /api-key/offer/join`** — Request to join organization
 
 **Headers**
 
@@ -975,15 +975,15 @@ from aiozai_sdk.generated.models import MakeJoinOfferRequest
 request = MakeJoinOfferRequest(
     join_id="...",  # string  # required
 )
-resp = client.offers.offer.api_key_offer_join_post(body=request)
+resp = client.offers.offer.post_offer_join(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_offer_offer_id_accept_put`
+### `put_offer_by_offer_id_accept`
 
-**`PUT /api-key/offer/{offer_id}/accept`** — Accept offer By Api Key
+**`PUT /api-key/offer/{offer_id}/accept`** — Accept offer
 
 **Headers**
 
@@ -1016,15 +1016,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.offers.offer.api_key_offer_offer_id_accept_put(offer_id="<offer_id>")
+resp = client.offers.offer.put_offer_by_offer_id_accept(offer_id="<offer_id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_offer_offer_id_deny_put`
+### `put_offer_by_offer_id_deny`
 
-**`PUT /api-key/offer/{offer_id}/deny`** — Deny offer By Api Key
+**`PUT /api-key/offer/{offer_id}/deny`** — Deny offer
 
 **Headers**
 
@@ -1057,15 +1057,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.offers.offer.api_key_offer_offer_id_deny_put(offer_id="<offer_id>")
+resp = client.offers.offer.put_offer_by_offer_id_deny(offer_id="<offer_id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_offer_offer_id_resend_get`
+### `get_offer_by_offer_id_resend`
 
-**`GET /api-key/offer/{offer_id}/resend`** — Resend offer By Api Key
+**`GET /api-key/offer/{offer_id}/resend`** — Resend offer
 
 **Headers**
 
@@ -1098,15 +1098,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.offers.offer.api_key_offer_offer_id_resend_get(offer_id="<offer_id>")
+resp = client.offers.offer.get_offer_by_offer_id_resend(offer_id="<offer_id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_offer_offer_id_revoke_delete`
+### `delete_offer_by_offer_id_revoke`
 
-**`DELETE /api-key/offer/{offer_id}/revoke`** — Revoke offer By Api Key
+**`DELETE /api-key/offer/{offer_id}/revoke`** — Revoke offer
 
 **Headers**
 
@@ -1139,15 +1139,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.offers.offer.api_key_offer_offer_id_revoke_delete(offer_id="<offer_id>")
+resp = client.offers.offer.delete_offer_by_offer_id_revoke(offer_id="<offer_id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_package_api_buy_post`
+### `post_package_api_buy`
 
-**`POST /api-key/package/api/buy`** — Buy Api Key Package By Api Key
+**`POST /api-key/package/api/buy`** — Buy Api Key Package
 
 **Headers**
 
@@ -1203,15 +1203,15 @@ request = BuyApiKeyPackageRequest(
     model_id="...",  # string
     quantity_uses="...",  # integer
 )
-resp = client.packages.package.api_key_package_api_buy_post(body=request)
+resp = client.packages.package.post_package_api_buy(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_package_buy_cost_post`
+### `post_package_buy_cost`
 
-**`POST /api-key/package/buy/cost`** — Calculate Cost To Buy Package By Api Key
+**`POST /api-key/package/buy/cost`** — Calculate Cost To Buy Package
 
 **Headers**
 
@@ -1260,15 +1260,15 @@ request = BuyPlaygroundPackageRequest(
     model_id="...",  # string
     quantity_uses="...",  # integer
 )
-resp = client.packages.package.api_key_package_buy_cost_post(body=request)
+resp = client.packages.package.post_package_buy_cost(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_package_master_buy_cost_post`
+### `post_package_master_buy_cost`
 
-**`POST /api-key/package/master/buy/cost`** — Calculate Cost To Buy Master Package By Api Key
+**`POST /api-key/package/master/buy/cost`** — Calculate Cost To Buy Master Package
 
 **Headers**
 
@@ -1315,15 +1315,15 @@ from aiozai_sdk.generated.models import BuyPlaygroundMasterPackageRequest
 request = BuyPlaygroundMasterPackageRequest(
     quantity_uses="...",  # integer
 )
-resp = client.packages.package.api_key_package_master_buy_cost_post(body=request)
+resp = client.packages.package.post_package_master_buy_cost(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_package_playground_buy_post`
+### `post_package_playground_buy`
 
-**`POST /api-key/package/playground/buy`** — Unlock Playground Package By Api Key
+**`POST /api-key/package/playground/buy`** — Unlock Playground Package
 
 **Headers**
 
@@ -1377,15 +1377,15 @@ request = BuyPlaygroundPackageRequest(
     model_id="...",  # string
     quantity_uses="...",  # integer
 )
-resp = client.packages.package.api_key_package_playground_buy_post(body=request)
+resp = client.packages.package.post_package_playground_buy(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_package_id_get`
+### `get_package_by_id`
 
-**`GET /api-key/package/{id}`** — Get Api Package By Api Key
+**`GET /api-key/package/{id}`** — Get Api Package
 
 **Headers**
 
@@ -1432,13 +1432,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.packages.package.api_key_package_id_get(id="<id>")
+resp = client.packages.package.get_package_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_permission_get`
+### `get_permission`
 
 **`GET /api-key/permission`** — Get Api Key Permission
 
@@ -1483,15 +1483,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.api-keys.api-key.api_key_permission_get()
+resp = client.api-keys.api-key.get_permission()
 print(resp)
 ```
 
 ---
 
-### `api_key_platform_task_dataset_id_training_get`
+### `get_platform_task_dataset_by_id_training`
 
-**`GET /api-key/platform/task/dataset/{id}/training`** — Get List Platform Task By DatasetId And UserId By Api Key
+**`GET /api-key/platform/task/dataset/{id}/training`** — Get List Platform Task By DatasetId And UserId
 
 **Headers**
 
@@ -1548,15 +1548,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.platforms.task.api_key_platform_task_dataset_id_training_get(id="<id>")
+resp = client.platforms.task.get_platform_task_dataset_by_id_training(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_platform_task_model_id_verify_get`
+### `get_platform_task_model_by_id_verify`
 
-**`GET /api-key/platform/task/model/{id}/verify`** — Get List Platform Task By ModelId And UserId By Api Key
+**`GET /api-key/platform/task/model/{id}/verify`** — Get List Platform Task By ModelId And UserId
 
 **Headers**
 
@@ -1613,15 +1613,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.platforms.task.api_key_platform_task_model_id_verify_get(id="<id>")
+resp = client.platforms.task.get_platform_task_model_by_id_verify(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_platform_task_id_get`
+### `get_platform_task_by_id`
 
-**`GET /api-key/platform/task/{id}`** — Get Platform Task By Id By Api Key
+**`GET /api-key/platform/task/{id}`** — Get Platform Task By Id
 
 **Headers**
 
@@ -1669,15 +1669,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.platforms.task.api_key_platform_task_id_get(id="<id>")
+resp = client.platforms.task.get_platform_task_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_search_get`
+### `get_search`
 
-**`GET /api-key/search`** — Multiple Search By Api Key
+**`GET /api-key/search`** — Multiple Search
 
 **Headers**
 
@@ -1707,11 +1707,257 @@ print(resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `competition` | `array[object]` |  |
-| `dataset` | `array[object]` |  |
-| `model` | `array[object]` |  |
-| `organization` | `array[object]` |  |
-| `user` | `array[object]` |  |
+| `competition` | `response.CompetitionListData` |  |
+| `dataset` | `response.DatasetListData` |  |
+| `model` | `response.ModelListData` |  |
+| `organization` | `response.OrganizationListData` |  |
+| `user` | `response.UserListData` |  |
+
+**`response.CompetitionListData`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `records` | `array[models.Competition]` |  |
+| `total` | `integer` |  |
+
+**`models.Competition`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `author_id` | `string` |  |
+| `category` | `string` |  |
+| `code` | `string` |  |
+| `cover` | `string` |  |
+| `created_at` | `string` |  |
+| `data` | `string` |  |
+| `description` | `string` |  |
+| `end_date` | `string` |  |
+| `final_result_mode` | `string` |  |
+| `id` | `string` |  |
+| `joined` | `boolean` |  |
+| `launched` | `boolean` |  |
+| `max_daily_private_submissions` | `integer` |  |
+| `overview` | `string` |  |
+| `owner` | `models.Owner` |  |
+| `participants` | `integer` |  |
+| `path` | `string` |  |
+| `permission` | `map[string]any` |  |
+| `private_leaderboard_release_date` | `string` |  |
+| `private_submissions_remaining` | `integer` |  |
+| `prize_distribution_method` | `string` |  |
+| `registration_deadline` | `string` |  |
+| `reward_type` | `string` |  |
+| `rules` | `string` |  |
+| `start_date` | `string` |  |
+| `submission_deadline` | `string` |  |
+| `submissions` | `integer` |  |
+| `tags` | `array[string]` |  |
+| `thumbnail` | `string` |  |
+| `time_zone_config` | `map[string]any` |  |
+| `title` | `string` |  |
+| `total_prize_pool` | `number` |  |
+| `updated_at` | `string` |  |
+| `user_id` | `string` |  |
+| `visibility` | `string` |  |
+
+**`models.Owner`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `id` | `string` |  |
+| `username` | `string` |  |
+
+**`response.DatasetListData`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `records` | `array[models.Dataset]` |  |
+| `total` | `integer` |  |
+
+**`models.Dataset`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `author_avatar` | `string` |  |
+| `author_id` | `string` |  |
+| `cover` | `string` |  |
+| `create_by` | `string` |  |
+| `created_at` | `string` |  |
+| `description` | `string` |  |
+| `discussions_count` | `integer` |  |
+| `downloads_count` | `integer` |  |
+| `id` | `string` |  |
+| `is_liked_by_user` | `boolean` |  |
+| `is_official` | `boolean` |  |
+| `is_released` | `boolean` |  |
+| `is_verified` | `boolean` |  |
+| `likes_count` | `integer` |  |
+| `metadata` | `models.DatasetMetadata` |  |
+| `name` | `string` |  |
+| `price` | `number` |  |
+| `reacted` | `models.Reaction` |  |
+| `reactions_statistics` | `array[models.ReactionStats]` |  |
+| `thumbnail` | `string` |  |
+| `updated_at` | `string` |  |
+| `username` | `string` |  |
+| `visibility` | `string` |  |
+
+**`models.DatasetMetadata`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `dataset_id` | `string` |  |
+| `id` | `string` |  |
+| `language` | `array[string]` | en, vi |
+| `license` | `string` |  |
+| `pretty_name` | `string` |  |
+| `size_category` | `string` |  |
+| `tags` | `array[string]` | art |
+| `task_categories` | `array[string]` | text-to-image |
+
+**`models.Reaction`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `created_at` | `string` |  |
+| `name` | `string` |  |
+| `owner` | `models.Owner` |  |
+| `updated_at` | `string` |  |
+
+**`models.Owner`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `id` | `string` |  |
+| `username` | `string` |  |
+
+**`models.ReactionStats`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `count` | `integer` |  |
+| `name` | `string` |  |
+
+**`response.ModelListData`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `records` | `array[models.Model]` |  |
+| `total` | `integer` |  |
+
+**`models.Model`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `author_avatar` | `string` |  |
+| `author_id` | `string` |  |
+| `commit_hash` | `string` |  |
+| `cover` | `string` |  |
+| `create_by` | `string` |  |
+| `created_at` | `string` |  |
+| `dependency_id` | `string` |  |
+| `description` | `string` |  |
+| `discussions_count` | `integer` |  |
+| `downloads_count` | `integer` |  |
+| `id` | `string` |  |
+| `is_liked_by_user` | `boolean` |  |
+| `is_official` | `boolean` |  |
+| `is_released` | `boolean` |  |
+| `is_verified` | `boolean` |  |
+| `likes_count` | `integer` |  |
+| `model_metadata` | `models.ModelMetadata` |  |
+| `name` | `string` |  |
+| `playground_count` | `integer` |  |
+| `price` | `number` |  |
+| `reacted` | `models.Reaction` |  |
+| `reactions_statistics` | `array[models.ReactionStats]` |  |
+| `task_reviews_count` | `integer` |  |
+| `task_reviews_point` | `number` |  |
+| `thumbnail` | `string` |  |
+| `updated_at` | `string` |  |
+| `username` | `string` |  |
+| `visibility` | `string` |  |
+
+**`models.ModelMetadata`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
+| `license` | `string` |  |
+| `model_id` | `string` |  |
+| `pretty_name` | `string` |  |
+| `task` | `string` |  |
+
+**`models.Reaction`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `created_at` | `string` |  |
+| `name` | `string` |  |
+| `owner` | `models.Owner` |  |
+| `updated_at` | `string` |  |
+
+**`models.Owner`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `id` | `string` |  |
+| `username` | `string` |  |
+
+**`models.ReactionStats`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `count` | `integer` |  |
+| `name` | `string` |  |
+
+**`response.OrganizationListData`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `records` | `array[models.OrganizationInfo]` |  |
+| `total` | `integer` |  |
+
+**`models.OrganizationInfo`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `full_name` | `string` |  |
+| `id` | `string` |  |
+| `org_type` | `string` |  |
+| `permission` | `map[string]any` |  |
+| `type` | `string` |  |
+| `username` | `string` |  |
+| `verified` | `boolean` |  |
+| `visibility` | `string` |  |
+
+**`response.UserListData`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `records` | `array[models.UserInfo]` |  |
+| `total` | `integer` |  |
+
+**`models.UserInfo`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `bio` | `string` |  |
+| `fullname` | `string` |  |
+| `github_link` | `string` |  |
+| `home_page` | `string` |  |
+| `id` | `string` |  |
+| `interests` | `string` |  |
+| `twitter_link` | `string` |  |
+| `twitter_name` | `string` |  |
+| `type` | `string` |  |
+| `username` | `string` |  |
+| `visibility` | `string` |  |
 
 **Error Responses**
 
@@ -1723,13 +1969,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.searchs.search.api_key_search_get()
+resp = client.searchs.search.get_search()
 print(resp)
 ```
 
 ---
 
-### `api_key_statistics_post`
+### `post_statistics`
 
 **`POST /api-key/statistics`** — Get Api Key Statistics
 
@@ -1781,15 +2027,15 @@ request = GetApiKeyStatisticsByModelIdRequest(
     from="...",  # string
     to="...",  # string
 )
-resp = client.api-keys.api-key.api_key_statistics_post(body=request)
+resp = client.api-keys.api-key.post_statistics(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_task_post`
+### `post_task`
 
-**`POST /api-key/task`** — Distribute Task (Api-Key)
+**`POST /api-key/task`** — Distribute Task
 
 **Headers**
 
@@ -1832,13 +2078,13 @@ request = DistributeTaskRequest(
     input_params="...",  # map[string]any
     model_id="...",  # string
 )
-resp = client.api-keys.api-key.api_key_task_post(body=request)
+resp = client.api-keys.api-key.post_task(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_task_histories_get`
+### `get_task_histories`
 
 **`GET /api-key/task/histories`** — Get Tasks Histories
 
@@ -1905,15 +2151,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.api-keys.api-key.api_key_task_histories_get()
+resp = client.api-keys.api-key.get_task_histories()
 print(resp)
 ```
 
 ---
 
-### `api_key_task_id_cancel_delete`
+### `delete_task_by_id_cancel`
 
-**`DELETE /api-key/task/{id}/cancel`** — Cancel Task By Api Key
+**`DELETE /api-key/task/{id}/cancel`** — Cancel Task
 
 **Headers**
 
@@ -1946,13 +2192,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.api-keys.api-key.api_key_task_id_cancel_delete(id="<id>")
+resp = client.api-keys.api-key.delete_task_by_id_cancel(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_task_id_detail_get`
+### `get_task_by_id_detail`
 
 **`GET /api-key/task/{id}/detail`** — Get Api Key Log By TaskId
 
@@ -2011,15 +2257,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.api-keys.api-key.api_key_task_id_detail_get(id="<id>")
+resp = client.api-keys.api-key.get_task_by_id_detail(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_training_task_id_get`
+### `get_training_task_by_id`
 
-**`GET /api-key/training-task/{id}`** — Get Training Task By Api Key
+**`GET /api-key/training-task/{id}`** — Get Training Task
 
 **Headers**
 
@@ -2065,15 +2311,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.trainings.task.api_key_training_task_id_get(id="<id>")
+resp = client.trainings.task.get_training_task_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_training_task_list_get`
+### `get_training_task_list`
 
-**`GET /api-key/training/task/list`** — Get Training Task List By Api Key
+**`GET /api-key/training/task/list`** — Get Training Task List
 
 **Headers**
 
@@ -2127,7 +2373,7 @@ print(resp)
 **Example**
 
 ```python
-resp = client.trainings.task.api_key_training_task_list_get()
+resp = client.trainings.task.get_training_task_list()
 print(resp)
 ```
 

@@ -6,9 +6,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `api_key_notification_get`
+### `get_notification`
 
-**`GET /api-key/notification`** — Get all notifications By Api Key
+**`GET /api-key/notification`** — Get all notifications
 
 **Headers**
 
@@ -65,15 +65,15 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```python
-resp = client.notifications.notification.api_key_notification_get()
+resp = client.notifications.notification.get_notification()
 print(resp)
 ```
 
 ---
 
-### `api_key_notification_delete`
+### `delete_notification`
 
-**`DELETE /api-key/notification`** — Delete all notifications By Api Key
+**`DELETE /api-key/notification`** — Delete all notifications
 
 **Headers**
 
@@ -106,15 +106,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.notifications.notification.api_key_notification_delete()
+resp = client.notifications.notification.delete_notification()
 print(resp)
 ```
 
 ---
 
-### `api_key_notification_list_put`
+### `put_notification_list`
 
-**`PUT /api-key/notification/list`** — Mark list notification By Api Key
+**`PUT /api-key/notification/list`** — Mark list notification
 
 **Headers**
 
@@ -154,15 +154,15 @@ request = UpdateListNotificationStatusByIdsRequest(
     ids="...",  # array[string]  # required
     status="...",  # string  # required
 )
-resp = client.notifications.notification.api_key_notification_list_put(body=request)
+resp = client.notifications.notification.put_notification_list(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_notification_list_delete`
+### `delete_notification_list`
 
-**`DELETE /api-key/notification/list`** — DeleteNotificationByIds By Api Key
+**`DELETE /api-key/notification/list`** — DeleteNotificationByIds
 
 **Headers**
 
@@ -200,15 +200,15 @@ from aiozai_sdk.generated.models import DeleteNotificationByIdsRequest
 request = DeleteNotificationByIdsRequest(
     ids="...",  # array[string]  # required
 )
-resp = client.notifications.notification.api_key_notification_list_delete(body=request)
+resp = client.notifications.notification.delete_notification_list(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_notification_statistics_get`
+### `get_notification_statistics`
 
-**`GET /api-key/notification/statistics`** — GetNotifyStatisticsByUserId By Api Key
+**`GET /api-key/notification/statistics`** — GetNotifyStatisticsByUserId
 
 **Headers**
 
@@ -243,15 +243,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.notifications.notification.api_key_notification_statistics_get()
+resp = client.notifications.notification.get_notification_statistics()
 print(resp)
 ```
 
 ---
 
-### `api_key_notification_id_put`
+### `put_notification_by_id`
 
-**`PUT /api-key/notification/{id}`** — Update notification by id By Api Key
+**`PUT /api-key/notification/{id}`** — Update notification by id
 
 **Headers**
 
@@ -296,15 +296,15 @@ from aiozai_sdk.generated.models import UpdateNotificationByIdRequest
 request = UpdateNotificationByIdRequest(
     status="...",  # string  # required
 )
-resp = client.notifications.notification.api_key_notification_id_put(body=request)
+resp = client.notifications.notification.put_notification_by_id(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_notification_id_delete`
+### `delete_notification_by_id`
 
-**`DELETE /api-key/notification/{id}`** — Delete notification by id By Api Key
+**`DELETE /api-key/notification/{id}`** — Delete notification by id
 
 **Headers**
 
@@ -337,7 +337,7 @@ print(resp)
 **Example**
 
 ```python
-resp = client.notifications.notification.api_key_notification_id_delete(id="<id>")
+resp = client.notifications.notification.delete_notification_by_id(id="<id>")
 print(resp)
 ```
 

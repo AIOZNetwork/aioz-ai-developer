@@ -6,9 +6,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `postApiKeyOrganization`
+### `postOrganization`
 
-**`POST /api-key/organization`** — Create new organization By Api Key
+**`POST /api-key/organization`** — Create new organization
 
 **Headers**
 
@@ -44,9 +44,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```typescript
-import { postApiKeyOrganization } from '@aiozai/nodejs-client';
+import { postOrganization } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyOrganization({
+const response = await postOrganization({
     body: {
         avatar: '...',  // string
     bio: '...',  // string
@@ -60,9 +60,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyOrganizationList`
+### `getOrganizationList`
 
-**`GET /api-key/organization/list`** — Get organizations By Api Key
+**`GET /api-key/organization/list`** — Get organizations
 
 **Headers**
 
@@ -120,17 +120,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyOrganizationList } from '@aiozai/nodejs-client';
+import { getOrganizationList } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyOrganizationList();
+const response = await getOrganizationList();
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyOrganizationByOrg`
+### `getOrganizationByOrg`
 
-**`GET /api-key/organization/{org}`** — Get organization By Api Key
+**`GET /api-key/organization/{org}`** — Get organization
 
 **Headers**
 
@@ -178,17 +178,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyOrganizationByOrg } from '@aiozai/nodejs-client';
+import { getOrganizationByOrg } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyOrganizationByOrg({ path: { org: '...' } });
+const response = await getOrganizationByOrg({ path: { org: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `deleteApiKeyOrganizationByOrg`
+### `deleteOrganizationByOrg`
 
-**`DELETE /api-key/organization/{org}`** — Delete organization By Api Key
+**`DELETE /api-key/organization/{org}`** — Delete organization
 
 **Headers**
 
@@ -221,17 +221,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyOrganizationByOrg } from '@aiozai/nodejs-client';
+import { deleteOrganizationByOrg } from '@aiozai/nodejs-client';
 
-const response = await deleteApiKeyOrganizationByOrg({ path: { org: '...' } });
+const response = await deleteOrganizationByOrg({ path: { org: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `patchApiKeyOrganizationByOrgInfo`
+### `patchOrganizationByOrgInfo`
 
-**`PATCH /api-key/organization/{org}/info`** — Update organization's info By Api Key
+**`PATCH /api-key/organization/{org}/info`** — Update organization's info
 
 **Headers**
 
@@ -295,9 +295,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { patchApiKeyOrganizationByOrgInfo } from '@aiozai/nodejs-client';
+import { patchOrganizationByOrgInfo } from '@aiozai/nodejs-client';
 
-const response = await patchApiKeyOrganizationByOrgInfo({
+const response = await patchOrganizationByOrgInfo({
     body: {
         avatar: '...',  // string
     bio: '...',  // string
@@ -311,9 +311,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyOrganizationByOrgIsMember`
+### `getOrganizationByOrgIsMember`
 
-**`GET /api-key/organization/{org}/is-member`** — Check if user is member of organization By Api Key
+**`GET /api-key/organization/{org}/is-member`** — Check if user is member of organization
 
 **Headers**
 
@@ -354,17 +354,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyOrganizationByOrgIsMember } from '@aiozai/nodejs-client';
+import { getOrganizationByOrgIsMember } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyOrganizationByOrgIsMember({ path: { org: '...' } });
+const response = await getOrganizationByOrgIsMember({ path: { org: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `deleteApiKeyOrganizationByOrgLeave`
+### `deleteOrganizationByOrgLeave`
 
-**`DELETE /api-key/organization/{org}/leave`** — Leave Organization By Api Key
+**`DELETE /api-key/organization/{org}/leave`** — Leave Organization
 
 **Headers**
 
@@ -397,17 +397,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyOrganizationByOrgLeave } from '@aiozai/nodejs-client';
+import { deleteOrganizationByOrgLeave } from '@aiozai/nodejs-client';
 
-const response = await deleteApiKeyOrganizationByOrgLeave({ path: { org: '...' } });
+const response = await deleteOrganizationByOrgLeave({ path: { org: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyOrganizationByOrgMembers`
+### `getOrganizationByOrgMembers`
 
-**`GET /api-key/organization/{org}/members`** — Get organization's members By Api Key
+**`GET /api-key/organization/{org}/members`** — Get organization's members
 
 **Headers**
 
@@ -538,17 +538,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyOrganizationByOrgMembers } from '@aiozai/nodejs-client';
+import { getOrganizationByOrgMembers } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyOrganizationByOrgMembers({ path: { org: '...' } });
+const response = await getOrganizationByOrgMembers({ path: { org: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyOrganizationByOrgOffers`
+### `getOrganizationByOrgOffers`
 
-**`GET /api-key/organization/{org}/offers`** — Get organization's offers By Api Key
+**`GET /api-key/organization/{org}/offers`** — Get organization's offers
 
 **Headers**
 
@@ -605,17 +605,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyOrganizationByOrgOffers } from '@aiozai/nodejs-client';
+import { getOrganizationByOrgOffers } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyOrganizationByOrgOffers({ path: { org: '...' } });
+const response = await getOrganizationByOrgOffers({ path: { org: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyOrganizationByOrgPermission`
+### `getOrganizationByOrgPermission`
 
-**`GET /api-key/organization/{org}/permission`** — Get user organization permission By Api Key
+**`GET /api-key/organization/{org}/permission`** — Get user organization permission
 
 **Headers**
 
@@ -668,9 +668,9 @@ _No fields defined._
 **Example**
 
 ```typescript
-import { getApiKeyOrganizationByOrgPermission } from '@aiozai/nodejs-client';
+import { getOrganizationByOrgPermission } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyOrganizationByOrgPermission({
+const response = await getOrganizationByOrgPermission({
     body: {
         
     },
@@ -680,9 +680,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyOrganizationByOrgSetting`
+### `getOrganizationByOrgSetting`
 
-**`GET /api-key/organization/{org}/setting`** — Get organization's setting By Api Key
+**`GET /api-key/organization/{org}/setting`** — Get organization's setting
 
 **Headers**
 
@@ -728,17 +728,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyOrganizationByOrgSetting } from '@aiozai/nodejs-client';
+import { getOrganizationByOrgSetting } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyOrganizationByOrgSetting({ path: { org: '...' } });
+const response = await getOrganizationByOrgSetting({ path: { org: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `patchApiKeyOrganizationByOrgSetting`
+### `patchOrganizationByOrgSetting`
 
-**`PATCH /api-key/organization/{org}/setting`** — Update organization's join settings By Api Key
+**`PATCH /api-key/organization/{org}/setting`** — Update organization's join settings
 
 **Headers**
 
@@ -795,9 +795,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { patchApiKeyOrganizationByOrgSetting } from '@aiozai/nodejs-client';
+import { patchOrganizationByOrgSetting } from '@aiozai/nodejs-client';
 
-const response = await patchApiKeyOrganizationByOrgSetting({
+const response = await patchOrganizationByOrgSetting({
     body: {
         allow_join_by_link: '...',  // boolean  // required
     allow_request_to_join: '...',  // boolean  // required
@@ -810,9 +810,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyOrganizationByOrgStatisticsEarnings`
+### `postOrganizationByOrgStatisticsEarnings`
 
-**`POST /api-key/organization/{org}/statistics/earnings`** — Get Organzition Earnings Statistics By Owner By Api Key
+**`POST /api-key/organization/{org}/statistics/earnings`** — Get Organzition Earnings Statistics By Owner
 
 **Headers**
 
@@ -867,9 +867,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyOrganizationByOrgStatisticsEarnings } from '@aiozai/nodejs-client';
+import { postOrganizationByOrgStatisticsEarnings } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyOrganizationByOrgStatisticsEarnings({
+const response = await postOrganizationByOrgStatisticsEarnings({
     body: {
         from: '...',  // string
     to: '...',  // string
@@ -880,9 +880,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyOrganizationByOrgStatisticsSpendingCost`
+### `postOrganizationByOrgStatisticsSpendingCost`
 
-**`POST /api-key/organization/{org}/statistics/spending-cost`** — Get Organzition Spending Cost Statistics By Owner By Api Key
+**`POST /api-key/organization/{org}/statistics/spending-cost`** — Get Organzition Spending Cost Statistics By Owner
 
 **Headers**
 
@@ -941,9 +941,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyOrganizationByOrgStatisticsSpendingCost } from '@aiozai/nodejs-client';
+import { postOrganizationByOrgStatisticsSpendingCost } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyOrganizationByOrgStatisticsSpendingCost({
+const response = await postOrganizationByOrgStatisticsSpendingCost({
     body: {
         from: '...',  // string
     to: '...',  // string
@@ -954,9 +954,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyOrganizationByOrgWalletDepositHistory`
+### `getOrganizationByOrgWalletDepositHistory`
 
-**`GET /api-key/organization/{org}/wallet/deposit/history`** — Get List Org Deposit History By Owner By Api Key
+**`GET /api-key/organization/{org}/wallet/deposit/history`** — Get List Org Deposit History By Owner
 
 **Headers**
 
@@ -1019,9 +1019,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyOrganizationByOrgWalletDepositHistory } from '@aiozai/nodejs-client';
+import { getOrganizationByOrgWalletDepositHistory } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyOrganizationByOrgWalletDepositHistory({
+const response = await getOrganizationByOrgWalletDepositHistory({
     body: {
         limit: '...',  // integer
     offset: '...',  // integer
@@ -1032,9 +1032,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyOrganizationByOrgWalletTransactionAnalytics`
+### `postOrganizationByOrgWalletTransactionAnalytics`
 
-**`POST /api-key/organization/{org}/wallet/transaction/analytics`** — Get Org Transaction Analytics By Owner By Api Key
+**`POST /api-key/organization/{org}/wallet/transaction/analytics`** — Get Org Transaction Analytics By Owner
 
 **Headers**
 
@@ -1106,9 +1106,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyOrganizationByOrgWalletTransactionAnalytics } from '@aiozai/nodejs-client';
+import { postOrganizationByOrgWalletTransactionAnalytics } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyOrganizationByOrgWalletTransactionAnalytics({
+const response = await postOrganizationByOrgWalletTransactionAnalytics({
     body: {
         from: '...',  // string
     to: '...',  // string
@@ -1119,9 +1119,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyOrganizationByOrgWalletTransactionHistory`
+### `getOrganizationByOrgWalletTransactionHistory`
 
-**`GET /api-key/organization/{org}/wallet/transaction/history`** — Get List Org Transaction History By Owner By Api Key
+**`GET /api-key/organization/{org}/wallet/transaction/history`** — Get List Org Transaction History By Owner
 
 **Headers**
 
@@ -1134,14 +1134,9 @@ console.log(response.data);
 | Name | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `org` | path | `string` | Yes | organization's username |
-
-**Request Body** — `request.GetListOrgTransactionHistoryByOwnerRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `limit` | `integer` | No |  |
-| `offset` | `integer` | No |  |
-| `type` | `string` | No |  |
+| `limit` | query | `integer` | No |  |
+| `offset` | query | `integer` | No |  |
+| `type` | query | `string` | No |  |
 
 **Responses**
 
@@ -1189,23 +1184,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyOrganizationByOrgWalletTransactionHistory } from '@aiozai/nodejs-client';
+import { getOrganizationByOrgWalletTransactionHistory } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyOrganizationByOrgWalletTransactionHistory({
-    body: {
-        limit: '...',  // integer
-    offset: '...',  // integer
-    type: '...',  // string
-    },
-});
+const response = await getOrganizationByOrgWalletTransactionHistory({ path: { org: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyOrganizationByOrgWalletTransactionRecent`
+### `postOrganizationByOrgWalletTransactionRecent`
 
-**`POST /api-key/organization/{org}/wallet/transaction/recent`** — Get List Org Recent Transaction By Owner By Api Key
+**`POST /api-key/organization/{org}/wallet/transaction/recent`** — Get List Org Recent Transaction By Owner
 
 **Headers**
 
@@ -1275,9 +1264,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyOrganizationByOrgWalletTransactionRecent } from '@aiozai/nodejs-client';
+import { postOrganizationByOrgWalletTransactionRecent } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyOrganizationByOrgWalletTransactionRecent({
+const response = await postOrganizationByOrgWalletTransactionRecent({
     body: {
         from: '...',  // string
     limit: '...',  // integer
@@ -1291,9 +1280,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyOrganizationByOrgWalletWithdrawEarnings`
+### `postOrganizationByOrgWalletWithdrawEarnings`
 
-**`POST /api-key/organization/{org}/wallet/withdraw/earnings`** — Withdraw Org Earnings By Owner By Api Key
+**`POST /api-key/organization/{org}/wallet/withdraw/earnings`** — Withdraw Org Earnings By Owner
 
 **Headers**
 
@@ -1333,9 +1322,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyOrganizationByOrgWalletWithdrawEarnings } from '@aiozai/nodejs-client';
+import { postOrganizationByOrgWalletWithdrawEarnings } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyOrganizationByOrgWalletWithdrawEarnings({
+const response = await postOrganizationByOrgWalletWithdrawEarnings({
     body: {
         amount: '...',  // string  // required
     to_wallet: '...',  // string  // required
@@ -1346,9 +1335,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyOrganizationByOrgWalletWithdrawHistory`
+### `getOrganizationByOrgWalletWithdrawHistory`
 
-**`GET /api-key/organization/{org}/wallet/withdraw/history`** — Get list org withdrawal history by owner By Api Key
+**`GET /api-key/organization/{org}/wallet/withdraw/history`** — Get list org withdrawal history by owner
 
 **Headers**
 
@@ -1409,9 +1398,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyOrganizationByOrgWalletWithdrawHistory } from '@aiozai/nodejs-client';
+import { getOrganizationByOrgWalletWithdrawHistory } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyOrganizationByOrgWalletWithdrawHistory({
+const response = await getOrganizationByOrgWalletWithdrawHistory({
     body: {
         limit: '...',  // integer
     offset: '...',  // integer
@@ -1422,9 +1411,9 @@ console.log(response.data);
 
 ---
 
-### `deleteApiKeyOrganizationByOrgByMember`
+### `deleteOrganizationByOrgByMember`
 
-**`DELETE /api-key/organization/{org}/{member}`** — Delete organization's member By Api Key
+**`DELETE /api-key/organization/{org}/{member}`** — Delete organization's member
 
 **Headers**
 
@@ -1458,17 +1447,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyOrganizationByOrgByMember } from '@aiozai/nodejs-client';
+import { deleteOrganizationByOrgByMember } from '@aiozai/nodejs-client';
 
-const response = await deleteApiKeyOrganizationByOrgByMember({ path: { org: '...', member: '...' } });
+const response = await deleteOrganizationByOrgByMember({ path: { org: '...', member: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `patchApiKeyOrganizationByOrgByMember`
+### `patchOrganizationByOrgByMember`
 
-**`PATCH /api-key/organization/{org}/{member}`** — Change member's role By Api Key
+**`PATCH /api-key/organization/{org}/{member}`** — Change member's role
 
 **Headers**
 
@@ -1507,9 +1496,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { patchApiKeyOrganizationByOrgByMember } from '@aiozai/nodejs-client';
+import { patchOrganizationByOrgByMember } from '@aiozai/nodejs-client';
 
-const response = await patchApiKeyOrganizationByOrgByMember({
+const response = await patchOrganizationByOrgByMember({
     body: {
         role: '...',  // string  // required
     },
@@ -1527,9 +1516,10 @@ console.log(response.data);
 
 | Name | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
+| `keyword` | query | `string` | No |  |
 | `limit` | query | `integer` | No |  |
 | `offset` | query | `integer` | No |  |
-| `sort` | query | `string` | No |  |
+| `type` | query | `string` | No |  |
 
 **Responses**
 

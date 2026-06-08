@@ -6,9 +6,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `api_key_competition_post`
+### `post_competition`
 
-**`POST /api-key/competition`** — Create a new competition By Api Key
+**`POST /api-key/competition`** — Create a new competition
 
 **Headers**
 
@@ -121,15 +121,15 @@ request = CreateCompetitionRequest(
     cover="...",  # string
     data="...",  # string
 )
-resp = client.competitions.competition.api_key_competition_post(body=request)
+resp = client.competitions.competition.post_competition(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_competition_list_post`
+### `post_competition_list`
 
-**`POST /api-key/competition/list`** — List competitions By Api Key
+**`POST /api-key/competition/list`** — List competitions
 
 **Headers**
 
@@ -145,6 +145,7 @@ print(resp)
 | `following` | `boolean` | No |  |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `desc`, `asc` |
 | `reward_type` | `string` | No | monetary,knowledge,swag,kudos |
 | `role` | `string` | No | host,participant |
 | `search` | `string` | No |  |
@@ -234,17 +235,17 @@ request = GetCompetitionListRequest(
     following="...",  # boolean
     limit="...",  # integer
     offset="...",  # integer
-    reward_type="...",  # string
+    order="...",  # string
 )
-resp = client.competitions.competition.api_key_competition_list_post(body=request)
+resp = client.competitions.competition.post_competition_list(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_competition_path_path_get`
+### `get_competition_path_by_path`
 
-**`GET /api-key/competition/path/{path}`** — Get competition details by path By Api Key
+**`GET /api-key/competition/path/{path}`** — Get competition details by path
 
 **Headers**
 
@@ -326,15 +327,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.competitions.competition.api_key_competition_path_path_get(path="<path>")
+resp = client.competitions.competition.get_competition_path_by_path(path="<path>")
 print(resp)
 ```
 
 ---
 
-### `api_key_competition_pre_submit_post`
+### `post_competition_pre_submit`
 
-**`POST /api-key/competition/pre-submit`** — Check valid repo to submit data By Api Key
+**`POST /api-key/competition/pre-submit`** — Check valid repo to submit data
 
 **Headers**
 
@@ -374,15 +375,15 @@ request = CheckValidRepoToEvaluateModelRequest(
     commit_hash="...",  # string
     model_id="...",  # string  # required
 )
-resp = client.competitions.competition.api_key_competition_pre_submit_post(body=request)
+resp = client.competitions.competition.post_competition_pre_submit(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_competition_submit_post`
+### `post_competition_submit`
 
-**`POST /api-key/competition/submit`** — Submit competition data By Api Key
+**`POST /api-key/competition/submit`** — Submit competition data
 
 **Headers**
 
@@ -444,15 +445,15 @@ SourceCodeUrl  string    `json:"source_code_url"` |
 **Example**
 
 ```python
-resp = client.competitions.competition.api_key_competition_submit_post()
+resp = client.competitions.competition.post_competition_submit()
 print(resp)
 ```
 
 ---
 
-### `api_key_competition_submit_cost_post`
+### `post_competition_submit_cost`
 
-**`POST /api-key/competition/submit/cost`** — Estimate cost to submit data By Api Key
+**`POST /api-key/competition/submit/cost`** — Estimate cost to submit data
 
 **Headers**
 
@@ -503,15 +504,15 @@ request = EstimateCostToEvaluateModelRequest(
     competition_id="...",  # string  # required
     model_id="...",  # string  # required
 )
-resp = client.competitions.competition.api_key_competition_submit_cost_post(body=request)
+resp = client.competitions.competition.post_competition_submit_cost(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_competition_submit_history_id_get`
+### `get_competition_submit_history_by_id`
 
-**`GET /api-key/competition/submit/history/{id}`** — Get submission history By Api Key
+**`GET /api-key/competition/submit/history/{id}`** — Get submission history
 
 **Headers**
 
@@ -575,15 +576,15 @@ SourceCodeUrl  string    `json:"source_code_url"` |
 **Example**
 
 ```python
-resp = client.competitions.competition.api_key_competition_submit_history_id_get(id="<id>")
+resp = client.competitions.competition.get_competition_submit_history_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_competition_id_get`
+### `get_competition_by_id`
 
-**`GET /api-key/competition/{id}`** — Get competition details By Api Key
+**`GET /api-key/competition/{id}`** — Get competition details
 
 **Headers**
 
@@ -665,15 +666,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.competitions.competition.api_key_competition_id_get(id="<id>")
+resp = client.competitions.competition.get_competition_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_competition_id_put`
+### `put_competition_by_id`
 
-**`PUT /api-key/competition/{id}`** — Update a competition By Api Key
+**`PUT /api-key/competition/{id}`** — Update a competition
 
 **Headers**
 
@@ -791,15 +792,15 @@ request = UpdateCompetitionRequest(
     data="...",  # string
     description="...",  # string
 )
-resp = client.competitions.competition.api_key_competition_id_put(body=request)
+resp = client.competitions.competition.put_competition_by_id(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_competition_id_delete`
+### `delete_competition_by_id`
 
-**`DELETE /api-key/competition/{id}`** — Delete a competition By Api Key
+**`DELETE /api-key/competition/{id}`** — Delete a competition
 
 **Headers**
 
@@ -832,15 +833,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.competitions.competition.api_key_competition_id_delete(id="<id>")
+resp = client.competitions.competition.delete_competition_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_competition_id_join_post`
+### `post_competition_by_id_join`
 
-**`POST /api-key/competition/{id}/join`** — Join a competition By Api Key
+**`POST /api-key/competition/{id}/join`** — Join a competition
 
 **Headers**
 
@@ -873,15 +874,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.competitions.competition.api_key_competition_id_join_post(id="<id>")
+resp = client.competitions.competition.post_competition_by_id_join(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_competition_id_launch_post`
+### `post_competition_by_id_launch`
 
-**`POST /api-key/competition/{id}/launch`** — Launch a competition By Api Key
+**`POST /api-key/competition/{id}/launch`** — Launch a competition
 
 **Headers**
 
@@ -914,15 +915,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.competitions.competition.api_key_competition_id_launch_post(id="<id>")
+resp = client.competitions.competition.post_competition_by_id_launch(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_competition_id_leaderboard_get`
+### `get_competition_by_id_leaderboard`
 
-**`GET /api-key/competition/{id}/leaderboard`** — Get competition leaderboard By Api Key
+**`GET /api-key/competition/{id}/leaderboard`** — Get competition leaderboard
 
 **Headers**
 
@@ -994,15 +995,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.competitions.leaderboard.api_key_competition_id_leaderboard_get(id="<id>")
+resp = client.competitions.leaderboard.get_competition_by_id_leaderboard(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_competition_id_leave_post`
+### `post_competition_by_id_leave`
 
-**`POST /api-key/competition/{id}/leave`** — Leave competition By Api Key
+**`POST /api-key/competition/{id}/leave`** — Leave competition
 
 **Headers**
 
@@ -1035,15 +1036,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.competitions.competition.api_key_competition_id_leave_post(id="<id>")
+resp = client.competitions.competition.post_competition_by_id_leave(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_competition_id_public_leaderboard_get`
+### `get_competition_by_id_public_leaderboard`
 
-**`GET /api-key/competition/{id}/public/leaderboard`** — GetLeaderboardByCompetitionIdAndPhase By Api Key
+**`GET /api-key/competition/{id}/public/leaderboard`** — GetLeaderboardByCompetitionIdAndPhase
 
 **Headers**
 
@@ -1111,13 +1112,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.competitions.leaderboard.api_key_competition_id_public_leaderboard_get(id="<id>", phase="<phase>")
+resp = client.competitions.leaderboard.get_competition_by_id_public_leaderboard(id="<id>", phase="<phase>")
 print(resp)
 ```
 
 ---
 
-### `public_competition_list_post`
+### `post_public_competition_list`
 
 **`POST /public/competition/list`** — List competitions
 
@@ -1129,6 +1130,7 @@ print(resp)
 | `following` | `boolean` | No |  |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `desc`, `asc` |
 | `reward_type` | `string` | No | monetary,knowledge,swag,kudos |
 | `role` | `string` | No | host,participant |
 | `search` | `string` | No |  |
@@ -1205,7 +1207,8 @@ print(resp)
 
 | Status | Description |
 | --- | --- |
-| 400 | Bad Request — [response.ErrorResponse](../README.md#common-response-types) |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
 
 **Example**
 
@@ -1217,15 +1220,15 @@ request = GetCompetitionListRequest(
     following="...",  # boolean
     limit="...",  # integer
     offset="...",  # integer
-    reward_type="...",  # string
+    order="...",  # string
 )
-resp = client.competitions.competition.public_competition_list_post(body=request)
+resp = client.competitions.competition.post_public_competition_list(input=request)
 print(resp)
 ```
 
 ---
 
-### `public_competition_metadata_get`
+### `get_public_competition_metadata`
 
 **`GET /public/competition/metadata`** — Get Competition Metadata
 
@@ -1264,13 +1267,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.competitions.competition.public_competition_metadata_get()
+resp = client.competitions.competition.get_public_competition_metadata()
 print(resp)
 ```
 
 ---
 
-### `public_competition_path_path_get`
+### `get_public_competition_path_by_path`
 
 **`GET /public/competition/path/{path}`** — Get competition details by path
 
@@ -1348,13 +1351,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.competitions.competition.public_competition_path_path_get(path="<path>")
+resp = client.competitions.competition.get_public_competition_path_by_path(path="<path>")
 print(resp)
 ```
 
 ---
 
-### `public_competition_timeline_id_get`
+### `get_public_competition_timeline_by_id`
 
 **`GET /public/competition/timeline/{id}`** — Get timeline by ID
 
@@ -1392,18 +1395,19 @@ print(resp)
 
 | Status | Description |
 | --- | --- |
-| 400 | Bad Request — [response.ErrorResponse](../README.md#common-response-types) |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
 
 **Example**
 
 ```python
-resp = client.competitions.competition.public_competition_timeline_id_get(id="<id>")
+resp = client.competitions.competition.get_public_competition_timeline_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `public_competition_id_get`
+### `get_public_competition_by_id`
 
 **`GET /public/competition/{id}`** — Get competition details
 
@@ -1481,13 +1485,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.competitions.competition.public_competition_id_get(id="<id>")
+resp = client.competitions.competition.get_public_competition_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `public_competition_id_leaderboard_get`
+### `get_public_competition_by_id_leaderboard`
 
 **`GET /public/competition/{id}/leaderboard`** — Get competition leaderboard
 
@@ -1549,18 +1553,19 @@ print(resp)
 
 | Status | Description |
 | --- | --- |
-| 400 | Bad Request — [response.ErrorResponse](../README.md#common-response-types) |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
 
 **Example**
 
 ```python
-resp = client.competitions.competition.public_competition_id_leaderboard_get(id="<id>")
+resp = client.competitions.competition.get_public_competition_by_id_leaderboard(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `public_competition_id_public_leaderboard_get`
+### `get_public_competition_by_id_public_leaderboard`
 
 **`GET /public/competition/{id}/public/leaderboard`** — GetLeaderboardByCompetitionIdAndPhase
 
@@ -1622,18 +1627,19 @@ print(resp)
 
 | Status | Description |
 | --- | --- |
-| 400 | Bad Request — [response.ErrorResponse](../README.md#common-response-types) |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
 
 **Example**
 
 ```python
-resp = client.competitions.competition.public_competition_id_public_leaderboard_get(id="<id>")
+resp = client.competitions.competition.get_public_competition_by_id_public_leaderboard(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `public_competition_id_timelines_get`
+### `get_public_competition_by_id_timelines`
 
 **`GET /public/competition/{id}/timelines`** — Get public list of timelines by competition ID
 
@@ -1673,12 +1679,13 @@ print(resp)
 
 | Status | Description |
 | --- | --- |
-| 400 | Bad Request — [response.ErrorResponse](../README.md#common-response-types) |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
 
 **Example**
 
 ```python
-resp = client.competitions.competition.public_competition_id_timelines_get(id="<id>")
+resp = client.competitions.competition.get_public_competition_by_id_timelines(id="<id>")
 print(resp)
 ```
 

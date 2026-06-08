@@ -6,9 +6,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `postApiKeyDataset`
+### `postDataset`
 
-**`POST /api-key/dataset`** — Create dataset By Api Key
+**`POST /api-key/dataset`** — Create dataset
 
 **Headers**
 
@@ -119,9 +119,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```typescript
-import { postApiKeyDataset } from '@aiozai/nodejs-client';
+import { postDataset } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyDataset({
+const response = await postDataset({
     body: {
         author_id: '...',  // string
     cover: '...',  // string  // required
@@ -135,9 +135,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyDatasetList`
+### `postDatasetList`
 
-**`POST /api-key/dataset/list`** — Get dataset list By Api Key
+**`POST /api-key/dataset/list`** — Get dataset list
 
 **Headers**
 
@@ -154,6 +154,7 @@ console.log(response.data);
 | `license` | `string` | No |  |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `desc`, `asc` |
 | `search` | `string` | No |  |
 | `size_category` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `likes`, `downloads`, `created`, `created_oldest`, `modified` |
@@ -253,9 +254,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyDatasetList } from '@aiozai/nodejs-client';
+import { postDatasetList } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyDatasetList({
+const response = await postDatasetList({
     body: {
         filter_by: '...',  // string
     language: '...',  // array[string]
@@ -269,9 +270,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyDatasetListByAuthorByUsername`
+### `postDatasetListByAuthorByUsername`
 
-**`POST /api-key/dataset/list-by-author/{username}`** — Get dataset list by user By Api Key
+**`POST /api-key/dataset/list-by-author/{username}`** — Get dataset list by user
 
 **Headers**
 
@@ -293,6 +294,7 @@ console.log(response.data);
 | `license` | `string` | No |  |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `desc`, `asc` |
 | `search` | `string` | No |  |
 | `size_category` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `likes`, `downloads`, `created`, `created_oldest`, `modified` |
@@ -392,15 +394,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyDatasetListByAuthorByUsername } from '@aiozai/nodejs-client';
+import { postDatasetListByAuthorByUsername } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyDatasetListByAuthorByUsername({
+const response = await postDatasetListByAuthorByUsername({
     body: {
         language: '...',  // array[string]
     license: '...',  // string
     limit: '...',  // integer
     offset: '...',  // integer
-    search: '...',  // string
+    order: '...',  // string
     },
 });
 console.log(response.data);
@@ -408,9 +410,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyDatasetMatchingTags`
+### `postDatasetMatchingTags`
 
-**`POST /api-key/dataset/matching-tags`** — Get matching datasets tags By Api Key
+**`POST /api-key/dataset/matching-tags`** — Get matching datasets tags
 
 **Headers**
 
@@ -449,9 +451,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyDatasetMatchingTags } from '@aiozai/nodejs-client';
+import { postDatasetMatchingTags } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyDatasetMatchingTags({
+const response = await postDatasetMatchingTags({
     body: {
         language: '...',  // array[string]
     license: '...',  // string
@@ -465,9 +467,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyDatasetOrganizationByOrg`
+### `getDatasetOrganizationByOrg`
 
-**`GET /api-key/dataset/organization/{org}`** — Get List Dataset By Org Username By Api Key
+**`GET /api-key/dataset/organization/{org}`** — Get List Dataset By Org Username
 
 **Headers**
 
@@ -482,6 +484,7 @@ console.log(response.data);
 | `org` | path | `string` | Yes | Org's username |
 | `limit` | query | `integer` | No |  |
 | `offset` | query | `integer` | No |  |
+| `order` | query | `string` | No |  |
 | `sort` | query | `string` | No |  |
 
 **Responses**
@@ -576,17 +579,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyDatasetOrganizationByOrg } from '@aiozai/nodejs-client';
+import { getDatasetOrganizationByOrg } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyDatasetOrganizationByOrg({ path: { org: '...' } });
+const response = await getDatasetOrganizationByOrg({ path: { org: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyDatasetById`
+### `getDatasetById`
 
-**`GET /api-key/dataset/{id}`** — Get dataset by id By Api Key
+**`GET /api-key/dataset/{id}`** — Get dataset by id
 
 **Headers**
 
@@ -685,17 +688,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyDatasetById } from '@aiozai/nodejs-client';
+import { getDatasetById } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyDatasetById({ path: { id: '...' } });
+const response = await getDatasetById({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `putApiKeyDatasetById`
+### `putDatasetById`
 
-**`PUT /api-key/dataset/{id}`** — Update Dataset By Api Key
+**`PUT /api-key/dataset/{id}`** — Update Dataset
 
 **Headers**
 
@@ -804,9 +807,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyDatasetById } from '@aiozai/nodejs-client';
+import { putDatasetById } from '@aiozai/nodejs-client';
 
-const response = await putApiKeyDatasetById({
+const response = await putDatasetById({
     body: {
         cover: '...',  // string
     description: '...',  // string
@@ -820,9 +823,9 @@ console.log(response.data);
 
 ---
 
-### `deleteApiKeyDatasetById`
+### `deleteDatasetById`
 
-**`DELETE /api-key/dataset/{id}`** — Delete dataset By Api Key
+**`DELETE /api-key/dataset/{id}`** — Delete dataset
 
 **Headers**
 
@@ -927,9 +930,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyDatasetById } from '@aiozai/nodejs-client';
+import { deleteDatasetById } from '@aiozai/nodejs-client';
 
-const response = await deleteApiKeyDatasetById({
+const response = await deleteDatasetById({
     body: {
         repository_name: '...',  // string
     },
@@ -939,9 +942,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyDatasetByIdDownload`
+### `getDatasetByIdDownload`
 
-**`GET /api-key/dataset/{id}/download`** — Get List Dataset Download By Api Key
+**`GET /api-key/dataset/{id}/download`** — Get List Dataset Download
 
 **Headers**
 
@@ -1000,17 +1003,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyDatasetByIdDownload } from '@aiozai/nodejs-client';
+import { getDatasetByIdDownload } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyDatasetByIdDownload({ path: { id: '...' } });
+const response = await getDatasetByIdDownload({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyDatasetByIdLike`
+### `getDatasetByIdLike`
 
-**`GET /api-key/dataset/{id}/like`** — Get List Dataset Like By Api Key
+**`GET /api-key/dataset/{id}/like`** — Get List Dataset Like
 
 **Headers**
 
@@ -1069,17 +1072,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyDatasetByIdLike } from '@aiozai/nodejs-client';
+import { getDatasetByIdLike } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyDatasetByIdLike({ path: { id: '...' } });
+const response = await getDatasetByIdLike({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `putApiKeyDatasetByIdMetadata`
+### `putDatasetByIdMetadata`
 
-**`PUT /api-key/dataset/{id}/metadata`** — Update dataset's metadata By Api Key
+**`PUT /api-key/dataset/{id}/metadata`** — Update dataset's metadata
 
 **Headers**
 
@@ -1137,9 +1140,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyDatasetByIdMetadata } from '@aiozai/nodejs-client';
+import { putDatasetByIdMetadata } from '@aiozai/nodejs-client';
 
-const response = await putApiKeyDatasetByIdMetadata({
+const response = await putDatasetByIdMetadata({
     body: {
         language: '...',  // array[string]
     license: '...',  // string
@@ -1153,9 +1156,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyDatasetByUsernameByName`
+### `getDatasetByUsernameByName`
 
-**`GET /api-key/dataset/{username}/{name}`** — Get dataset by name By Api Key
+**`GET /api-key/dataset/{username}/{name}`** — Get dataset by name
 
 **Headers**
 
@@ -1255,9 +1258,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyDatasetByUsernameByName } from '@aiozai/nodejs-client';
+import { getDatasetByUsernameByName } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyDatasetByUsernameByName({ path: { username: '...', name: '...' } });
+const response = await getDatasetByUsernameByName({ path: { username: '...', name: '...' } });
 console.log(response.data);
 ```
 
@@ -1276,6 +1279,7 @@ console.log(response.data);
 | `license` | `string` | No |  |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `desc`, `asc` |
 | `search` | `string` | No |  |
 | `size_category` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `likes`, `downloads`, `created`, `created_oldest`, `modified` |
@@ -1409,6 +1413,7 @@ console.log(response.data);
 | `license` | `string` | No |  |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `desc`, `asc` |
 | `search` | `string` | No |  |
 | `size_category` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `likes`, `downloads`, `created`, `created_oldest`, `modified` |
@@ -1516,7 +1521,7 @@ const response = await postPublicDatasetListByAuthorByUsername({
     license: '...',  // string
     limit: '...',  // integer
     offset: '...',  // integer
-    search: '...',  // string
+    order: '...',  // string
     },
 });
 console.log(response.data);
@@ -1625,6 +1630,7 @@ console.log(response.data);
 | `org` | path | `string` | Yes | Org's username |
 | `limit` | query | `integer` | No |  |
 | `offset` | query | `integer` | No |  |
+| `order` | query | `string` | No |  |
 | `sort` | query | `string` | No |  |
 
 **Responses**

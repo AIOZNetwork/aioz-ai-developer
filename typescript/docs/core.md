@@ -6,7 +6,7 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `getApiKeyBalance`
+### `getBalance`
 
 **`GET /api-key/balance`** — Get Api Key Balance
 
@@ -46,17 +46,17 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```typescript
-import { getApiKeyBalance } from '@aiozai/nodejs-client';
+import { getBalance } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyBalance();
+const response = await getBalance();
 console.log(response.data);
 ```
 
 ---
 
-### `putApiKeyCommentsById`
+### `putCommentsById`
 
-**`PUT /api-key/comments/{id}`** — Update comment By Api Key
+**`PUT /api-key/comments/{id}`** — Update comment
 
 **Headers**
 
@@ -162,9 +162,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyCommentsById } from '@aiozai/nodejs-client';
+import { putCommentsById } from '@aiozai/nodejs-client';
 
-const response = await putApiKeyCommentsById({
+const response = await putCommentsById({
     body: {
         content: '...',  // string
     tag_usernames: '...',  // array[string]
@@ -175,9 +175,9 @@ console.log(response.data);
 
 ---
 
-### `deleteApiKeyCommentsById`
+### `deleteCommentsById`
 
-**`DELETE /api-key/comments/{id}`** — Delete comment By Api Key
+**`DELETE /api-key/comments/{id}`** — Delete comment
 
 **Headers**
 
@@ -276,17 +276,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyCommentsById } from '@aiozai/nodejs-client';
+import { deleteCommentsById } from '@aiozai/nodejs-client';
 
-const response = await deleteApiKeyCommentsById({ path: { id: '...' } });
+const response = await deleteCommentsById({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `putApiKeyDatasetByIdLike`
+### `putDatasetByIdLike`
 
-**`PUT /api-key/dataset/{id}/like`** — Like dataset By Api Key
+**`PUT /api-key/dataset/{id}/like`** — Like dataset
 
 **Headers**
 
@@ -319,17 +319,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyDatasetByIdLike } from '@aiozai/nodejs-client';
+import { putDatasetByIdLike } from '@aiozai/nodejs-client';
 
-const response = await putApiKeyDatasetByIdLike({ path: { id: '...' } });
+const response = await putDatasetByIdLike({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyDependencyLibRequest`
+### `postDependencyLibRequest`
 
-**`POST /api-key/dependency/lib-request`** — Create Dependency Package Request By Api Key
+**`POST /api-key/dependency/lib-request`** — Create Dependency Package Request
 
 **Headers**
 
@@ -364,9 +364,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyDependencyLibRequest } from '@aiozai/nodejs-client';
+import { postDependencyLibRequest } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyDependencyLibRequest({
+const response = await postDependencyLibRequest({
     body: {
         package_name: '...',  // string
     reason: '...',  // string
@@ -378,9 +378,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyDependencyList`
+### `postDependencyList`
 
-**`POST /api-key/dependency/list`** — Get Dependency List By Api Key
+**`POST /api-key/dependency/list`** — Get Dependency List
 
 **Headers**
 
@@ -435,17 +435,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyDependencyList } from '@aiozai/nodejs-client';
+import { postDependencyList } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyDependencyList();
+const response = await postDependencyList();
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyDependencyById`
+### `getDependencyById`
 
-**`GET /api-key/dependency/{id}`** — Get Dependency By Api Key
+**`GET /api-key/dependency/{id}`** — Get Dependency
 
 **Headers**
 
@@ -492,17 +492,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyDependencyById } from '@aiozai/nodejs-client';
+import { getDependencyById } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyDependencyById({ path: { id: '...' } });
+const response = await getDependencyById({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyDiscussionByIdComments`
+### `getDiscussionByIdComments`
 
-**`GET /api-key/discussion/{id}/comments`** — Get comment list By Api Key
+**`GET /api-key/discussion/{id}/comments`** — Get comment list
 
 **Headers**
 
@@ -611,17 +611,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyDiscussionByIdComments } from '@aiozai/nodejs-client';
+import { getDiscussionByIdComments } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyDiscussionByIdComments({ path: { id: '...' } });
+const response = await getDiscussionByIdComments({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyDiscussionByIdComments`
+### `postDiscussionByIdComments`
 
-**`POST /api-key/discussion/{id}/comments`** — Create comment By Api Key
+**`POST /api-key/discussion/{id}/comments`** — Create comment
 
 **Headers**
 
@@ -727,9 +727,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyDiscussionByIdComments } from '@aiozai/nodejs-client';
+import { postDiscussionByIdComments } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyDiscussionByIdComments({
+const response = await postDiscussionByIdComments({
     body: {
         content: '...',  // string
     tag_usernames: '...',  // array[string]
@@ -740,9 +740,9 @@ console.log(response.data);
 
 ---
 
-### `putApiKeyItemsByIdReact`
+### `putItemsByIdReact`
 
-**`PUT /api-key/items/{id}/react`** — React item By Api Key
+**`PUT /api-key/items/{id}/react`** — React item
 
 **Headers**
 
@@ -782,9 +782,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyItemsByIdReact } from '@aiozai/nodejs-client';
+import { putItemsByIdReact } from '@aiozai/nodejs-client';
 
-const response = await putApiKeyItemsByIdReact({
+const response = await putItemsByIdReact({
     body: {
         itemName: '...',  // string
     reactName: '...',  // string
@@ -795,9 +795,9 @@ console.log(response.data);
 
 ---
 
-### `putApiKeyModelByIdLike`
+### `putModelByIdLike`
 
-**`PUT /api-key/model/{id}/like`** — Like model By Api Key
+**`PUT /api-key/model/{id}/like`** — Like model
 
 **Headers**
 
@@ -830,17 +830,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyModelByIdLike } from '@aiozai/nodejs-client';
+import { putModelByIdLike } from '@aiozai/nodejs-client';
 
-const response = await putApiKeyModelByIdLike({ path: { id: '...' } });
+const response = await putModelByIdLike({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyModelByIdTask`
+### `postModelByIdTask`
 
-**`POST /api-key/model/{id}/task`** — Distribute Task v2 (Api-Key)
+**`POST /api-key/model/{id}/task`** — Distribute Task v2
 
 **Headers**
 
@@ -878,9 +878,9 @@ _No fields defined._
 **Example**
 
 ```typescript
-import { postApiKeyModelByIdTask } from '@aiozai/nodejs-client';
+import { postModelByIdTask } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyModelByIdTask({
+const response = await postModelByIdTask({
     body: {
         
     },
@@ -890,9 +890,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyOfferInvite`
+### `postOfferInvite`
 
-**`POST /api-key/offer/invite`** — Create invite to join organization By Api Key
+**`POST /api-key/offer/invite`** — Create invite to join organization
 
 **Headers**
 
@@ -921,9 +921,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyOfferInvite } from '@aiozai/nodejs-client';
+import { postOfferInvite } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyOfferInvite({
+const response = await postOfferInvite({
     body: {
         org_username: '...',  // string  // required
     role: '...',  // string  // required
@@ -935,9 +935,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyOfferJoin`
+### `postOfferJoin`
 
-**`POST /api-key/offer/join`** — Request to join organization By Api Key
+**`POST /api-key/offer/join`** — Request to join organization
 
 **Headers**
 
@@ -990,9 +990,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyOfferJoin } from '@aiozai/nodejs-client';
+import { postOfferJoin } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyOfferJoin({
+const response = await postOfferJoin({
     body: {
         join_id: '...',  // string  // required
     },
@@ -1002,52 +1002,9 @@ console.log(response.data);
 
 ---
 
-### `putApiKeyOfferByOffer_idAccept`
+### `putOfferByOfferIdAccept`
 
-**`PUT /api-key/offer/{offer_id}/accept`** — Accept offer By Api Key
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `offer_id` | path | `string` | Yes | offer_id |
-
-**Responses**
-
-**200 OK** — `response.SuccessResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { putApiKeyOfferByOffer_idAccept } from '@aiozai/nodejs-client';
-
-const response = await putApiKeyOfferByOffer_idAccept({ path: { offer_id: '...' } });
-console.log(response.data);
-```
-
----
-
-### `putApiKeyOfferByOffer_idDeny`
-
-**`PUT /api-key/offer/{offer_id}/deny`** — Deny offer By Api Key
+**`PUT /api-key/offer/{offer_id}/accept`** — Accept offer
 
 **Headers**
 
@@ -1080,17 +1037,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyOfferByOffer_idDeny } from '@aiozai/nodejs-client';
+import { putOfferByOfferIdAccept } from '@aiozai/nodejs-client';
 
-const response = await putApiKeyOfferByOffer_idDeny({ path: { offer_id: '...' } });
+const response = await putOfferByOfferIdAccept({ path: { offer_id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyOfferByOffer_idResend`
+### `putOfferByOfferIdDeny`
 
-**`GET /api-key/offer/{offer_id}/resend`** — Resend offer By Api Key
+**`PUT /api-key/offer/{offer_id}/deny`** — Deny offer
 
 **Headers**
 
@@ -1123,17 +1080,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyOfferByOffer_idResend } from '@aiozai/nodejs-client';
+import { putOfferByOfferIdDeny } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyOfferByOffer_idResend({ path: { offer_id: '...' } });
+const response = await putOfferByOfferIdDeny({ path: { offer_id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `deleteApiKeyOfferByOffer_idRevoke`
+### `getOfferByOfferIdResend`
 
-**`DELETE /api-key/offer/{offer_id}/revoke`** — Revoke offer By Api Key
+**`GET /api-key/offer/{offer_id}/resend`** — Resend offer
 
 **Headers**
 
@@ -1166,17 +1123,60 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyOfferByOffer_idRevoke } from '@aiozai/nodejs-client';
+import { getOfferByOfferIdResend } from '@aiozai/nodejs-client';
 
-const response = await deleteApiKeyOfferByOffer_idRevoke({ path: { offer_id: '...' } });
+const response = await getOfferByOfferIdResend({ path: { offer_id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyPackageApiBuy`
+### `deleteOfferByOfferIdRevoke`
 
-**`POST /api-key/package/api/buy`** — Buy Api Key Package By Api Key
+**`DELETE /api-key/offer/{offer_id}/revoke`** — Revoke offer
+
+**Headers**
+
+| Header | Value | Required |
+| --- | --- | --- |
+| `x-api-key` | Your API key | Yes |
+
+**Parameters**
+
+| Name | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `offer_id` | path | `string` | Yes | offer_id |
+
+**Responses**
+
+**200 OK** — `response.SuccessResponse`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `message` | `string` |  |
+| `status` | `string` |  |
+
+**Error Responses**
+
+| Status | Description |
+| --- | --- |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
+
+**Example**
+
+```typescript
+import { deleteOfferByOfferIdRevoke } from '@aiozai/nodejs-client';
+
+const response = await deleteOfferByOfferIdRevoke({ path: { offer_id: '...' } });
+console.log(response.data);
+```
+
+---
+
+### `postPackageApiBuy`
+
+**`POST /api-key/package/api/buy`** — Buy Api Key Package
 
 **Headers**
 
@@ -1225,9 +1225,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyPackageApiBuy } from '@aiozai/nodejs-client';
+import { postPackageApiBuy } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyPackageApiBuy({
+const response = await postPackageApiBuy({
     body: {
         api_key_id: '...',  // string
     model_id: '...',  // string
@@ -1239,9 +1239,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyPackageBuyCost`
+### `postPackageBuyCost`
 
-**`POST /api-key/package/buy/cost`** — Calculate Cost To Buy Package By Api Key
+**`POST /api-key/package/buy/cost`** — Calculate Cost To Buy Package
 
 **Headers**
 
@@ -1284,9 +1284,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyPackageBuyCost } from '@aiozai/nodejs-client';
+import { postPackageBuyCost } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyPackageBuyCost({
+const response = await postPackageBuyCost({
     body: {
         model_id: '...',  // string
     quantity_uses: '...',  // integer
@@ -1297,9 +1297,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyPackageMasterBuyCost`
+### `postPackageMasterBuyCost`
 
-**`POST /api-key/package/master/buy/cost`** — Calculate Cost To Buy Master Package By Api Key
+**`POST /api-key/package/master/buy/cost`** — Calculate Cost To Buy Master Package
 
 **Headers**
 
@@ -1341,9 +1341,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyPackageMasterBuyCost } from '@aiozai/nodejs-client';
+import { postPackageMasterBuyCost } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyPackageMasterBuyCost({
+const response = await postPackageMasterBuyCost({
     body: {
         quantity_uses: '...',  // integer
     },
@@ -1353,9 +1353,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyPackagePlaygroundBuy`
+### `postPackagePlaygroundBuy`
 
-**`POST /api-key/package/playground/buy`** — Unlock Playground Package By Api Key
+**`POST /api-key/package/playground/buy`** — Unlock Playground Package
 
 **Headers**
 
@@ -1403,9 +1403,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyPackagePlaygroundBuy } from '@aiozai/nodejs-client';
+import { postPackagePlaygroundBuy } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyPackagePlaygroundBuy({
+const response = await postPackagePlaygroundBuy({
     body: {
         model_id: '...',  // string
     quantity_uses: '...',  // integer
@@ -1416,9 +1416,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyPackageById`
+### `getPackageById`
 
-**`GET /api-key/package/{id}`** — Get Api Package By Api Key
+**`GET /api-key/package/{id}`** — Get Api Package
 
 **Headers**
 
@@ -1465,15 +1465,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyPackageById } from '@aiozai/nodejs-client';
+import { getPackageById } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyPackageById({ path: { id: '...' } });
+const response = await getPackageById({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyPermission`
+### `getPermission`
 
 **`GET /api-key/permission`** — Get Api Key Permission
 
@@ -1518,17 +1518,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyPermission } from '@aiozai/nodejs-client';
+import { getPermission } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyPermission();
+const response = await getPermission();
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyPlatformTaskDatasetByIdTraining`
+### `getPlatformTaskDatasetByIdTraining`
 
-**`GET /api-key/platform/task/dataset/{id}/training`** — Get List Platform Task By DatasetId And UserId By Api Key
+**`GET /api-key/platform/task/dataset/{id}/training`** — Get List Platform Task By DatasetId And UserId
 
 **Headers**
 
@@ -1585,17 +1585,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyPlatformTaskDatasetByIdTraining } from '@aiozai/nodejs-client';
+import { getPlatformTaskDatasetByIdTraining } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyPlatformTaskDatasetByIdTraining({ path: { id: '...' } });
+const response = await getPlatformTaskDatasetByIdTraining({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyPlatformTaskModelByIdVerify`
+### `getPlatformTaskModelByIdVerify`
 
-**`GET /api-key/platform/task/model/{id}/verify`** — Get List Platform Task By ModelId And UserId By Api Key
+**`GET /api-key/platform/task/model/{id}/verify`** — Get List Platform Task By ModelId And UserId
 
 **Headers**
 
@@ -1652,17 +1652,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyPlatformTaskModelByIdVerify } from '@aiozai/nodejs-client';
+import { getPlatformTaskModelByIdVerify } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyPlatformTaskModelByIdVerify({ path: { id: '...' } });
+const response = await getPlatformTaskModelByIdVerify({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyPlatformTaskById`
+### `getPlatformTaskById`
 
-**`GET /api-key/platform/task/{id}`** — Get Platform Task By Id By Api Key
+**`GET /api-key/platform/task/{id}`** — Get Platform Task By Id
 
 **Headers**
 
@@ -1710,17 +1710,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyPlatformTaskById } from '@aiozai/nodejs-client';
+import { getPlatformTaskById } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyPlatformTaskById({ path: { id: '...' } });
+const response = await getPlatformTaskById({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeySearch`
+### `getSearch`
 
-**`GET /api-key/search`** — Multiple Search By Api Key
+**`GET /api-key/search`** — Multiple Search
 
 **Headers**
 
@@ -1750,11 +1750,257 @@ console.log(response.data);
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `competition` | `array[object]` |  |
-| `dataset` | `array[object]` |  |
-| `model` | `array[object]` |  |
-| `organization` | `array[object]` |  |
-| `user` | `array[object]` |  |
+| `competition` | `response.CompetitionListData` |  |
+| `dataset` | `response.DatasetListData` |  |
+| `model` | `response.ModelListData` |  |
+| `organization` | `response.OrganizationListData` |  |
+| `user` | `response.UserListData` |  |
+
+**`response.CompetitionListData`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `records` | `array[models.Competition]` |  |
+| `total` | `integer` |  |
+
+**`models.Competition`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `author_id` | `string` |  |
+| `category` | `string` |  |
+| `code` | `string` |  |
+| `cover` | `string` |  |
+| `created_at` | `string` |  |
+| `data` | `string` |  |
+| `description` | `string` |  |
+| `end_date` | `string` |  |
+| `final_result_mode` | `string` |  |
+| `id` | `string` |  |
+| `joined` | `boolean` |  |
+| `launched` | `boolean` |  |
+| `max_daily_private_submissions` | `integer` |  |
+| `overview` | `string` |  |
+| `owner` | `models.Owner` |  |
+| `participants` | `integer` |  |
+| `path` | `string` |  |
+| `permission` | `map[string]any` |  |
+| `private_leaderboard_release_date` | `string` |  |
+| `private_submissions_remaining` | `integer` |  |
+| `prize_distribution_method` | `string` |  |
+| `registration_deadline` | `string` |  |
+| `reward_type` | `string` |  |
+| `rules` | `string` |  |
+| `start_date` | `string` |  |
+| `submission_deadline` | `string` |  |
+| `submissions` | `integer` |  |
+| `tags` | `array[string]` |  |
+| `thumbnail` | `string` |  |
+| `time_zone_config` | `map[string]any` |  |
+| `title` | `string` |  |
+| `total_prize_pool` | `number` |  |
+| `updated_at` | `string` |  |
+| `user_id` | `string` |  |
+| `visibility` | `string` |  |
+
+**`models.Owner`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `id` | `string` |  |
+| `username` | `string` |  |
+
+**`response.DatasetListData`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `records` | `array[models.Dataset]` |  |
+| `total` | `integer` |  |
+
+**`models.Dataset`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `author_avatar` | `string` |  |
+| `author_id` | `string` |  |
+| `cover` | `string` |  |
+| `create_by` | `string` |  |
+| `created_at` | `string` |  |
+| `description` | `string` |  |
+| `discussions_count` | `integer` |  |
+| `downloads_count` | `integer` |  |
+| `id` | `string` |  |
+| `is_liked_by_user` | `boolean` |  |
+| `is_official` | `boolean` |  |
+| `is_released` | `boolean` |  |
+| `is_verified` | `boolean` |  |
+| `likes_count` | `integer` |  |
+| `metadata` | `models.DatasetMetadata` |  |
+| `name` | `string` |  |
+| `price` | `number` |  |
+| `reacted` | `models.Reaction` |  |
+| `reactions_statistics` | `array[models.ReactionStats]` |  |
+| `thumbnail` | `string` |  |
+| `updated_at` | `string` |  |
+| `username` | `string` |  |
+| `visibility` | `string` |  |
+
+**`models.DatasetMetadata`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `dataset_id` | `string` |  |
+| `id` | `string` |  |
+| `language` | `array[string]` | en, vi |
+| `license` | `string` |  |
+| `pretty_name` | `string` |  |
+| `size_category` | `string` |  |
+| `tags` | `array[string]` | art |
+| `task_categories` | `array[string]` | text-to-image |
+
+**`models.Reaction`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `created_at` | `string` |  |
+| `name` | `string` |  |
+| `owner` | `models.Owner` |  |
+| `updated_at` | `string` |  |
+
+**`models.Owner`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `id` | `string` |  |
+| `username` | `string` |  |
+
+**`models.ReactionStats`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `count` | `integer` |  |
+| `name` | `string` |  |
+
+**`response.ModelListData`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `records` | `array[models.Model]` |  |
+| `total` | `integer` |  |
+
+**`models.Model`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `author_avatar` | `string` |  |
+| `author_id` | `string` |  |
+| `commit_hash` | `string` |  |
+| `cover` | `string` |  |
+| `create_by` | `string` |  |
+| `created_at` | `string` |  |
+| `dependency_id` | `string` |  |
+| `description` | `string` |  |
+| `discussions_count` | `integer` |  |
+| `downloads_count` | `integer` |  |
+| `id` | `string` |  |
+| `is_liked_by_user` | `boolean` |  |
+| `is_official` | `boolean` |  |
+| `is_released` | `boolean` |  |
+| `is_verified` | `boolean` |  |
+| `likes_count` | `integer` |  |
+| `model_metadata` | `models.ModelMetadata` |  |
+| `name` | `string` |  |
+| `playground_count` | `integer` |  |
+| `price` | `number` |  |
+| `reacted` | `models.Reaction` |  |
+| `reactions_statistics` | `array[models.ReactionStats]` |  |
+| `task_reviews_count` | `integer` |  |
+| `task_reviews_point` | `number` |  |
+| `thumbnail` | `string` |  |
+| `updated_at` | `string` |  |
+| `username` | `string` |  |
+| `visibility` | `string` |  |
+
+**`models.ModelMetadata`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
+| `license` | `string` |  |
+| `model_id` | `string` |  |
+| `pretty_name` | `string` |  |
+| `task` | `string` |  |
+
+**`models.Reaction`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `created_at` | `string` |  |
+| `name` | `string` |  |
+| `owner` | `models.Owner` |  |
+| `updated_at` | `string` |  |
+
+**`models.Owner`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `id` | `string` |  |
+| `username` | `string` |  |
+
+**`models.ReactionStats`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `count` | `integer` |  |
+| `name` | `string` |  |
+
+**`response.OrganizationListData`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `records` | `array[models.OrganizationInfo]` |  |
+| `total` | `integer` |  |
+
+**`models.OrganizationInfo`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `full_name` | `string` |  |
+| `id` | `string` |  |
+| `org_type` | `string` |  |
+| `permission` | `map[string]any` |  |
+| `type` | `string` |  |
+| `username` | `string` |  |
+| `verified` | `boolean` |  |
+| `visibility` | `string` |  |
+
+**`response.UserListData`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `records` | `array[models.UserInfo]` |  |
+| `total` | `integer` |  |
+
+**`models.UserInfo`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `bio` | `string` |  |
+| `fullname` | `string` |  |
+| `github_link` | `string` |  |
+| `home_page` | `string` |  |
+| `id` | `string` |  |
+| `interests` | `string` |  |
+| `twitter_link` | `string` |  |
+| `twitter_name` | `string` |  |
+| `type` | `string` |  |
+| `username` | `string` |  |
+| `visibility` | `string` |  |
 
 **Error Responses**
 
@@ -1766,15 +2012,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeySearch } from '@aiozai/nodejs-client';
+import { getSearch } from '@aiozai/nodejs-client';
 
-const response = await getApiKeySearch();
+const response = await getSearch();
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyStatistics`
+### `postStatistics`
 
 **`POST /api-key/statistics`** — Get Api Key Statistics
 
@@ -1820,9 +2066,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyStatistics } from '@aiozai/nodejs-client';
+import { postStatistics } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyStatistics({
+const response = await postStatistics({
     body: {
         from: '...',  // string
     to: '...',  // string
@@ -1833,9 +2079,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyTask`
+### `postTask`
 
-**`POST /api-key/task`** — Distribute Task (Api-Key)
+**`POST /api-key/task`** — Distribute Task
 
 **Headers**
 
@@ -1871,9 +2117,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyTask } from '@aiozai/nodejs-client';
+import { postTask } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyTask({
+const response = await postTask({
     body: {
         files: '...',  // array[object]
     input_params: '...',  // map[string]any
@@ -1885,7 +2131,7 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyTaskHistories`
+### `getTaskHistories`
 
 **`GET /api-key/task/histories`** — Get Tasks Histories
 
@@ -1952,17 +2198,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyTaskHistories } from '@aiozai/nodejs-client';
+import { getTaskHistories } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyTaskHistories();
+const response = await getTaskHistories();
 console.log(response.data);
 ```
 
 ---
 
-### `deleteApiKeyTaskByIdCancel`
+### `deleteTaskByIdCancel`
 
-**`DELETE /api-key/task/{id}/cancel`** — Cancel Task By Api Key
+**`DELETE /api-key/task/{id}/cancel`** — Cancel Task
 
 **Headers**
 
@@ -1995,15 +2241,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyTaskByIdCancel } from '@aiozai/nodejs-client';
+import { deleteTaskByIdCancel } from '@aiozai/nodejs-client';
 
-const response = await deleteApiKeyTaskByIdCancel({ path: { id: '...' } });
+const response = await deleteTaskByIdCancel({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyTaskByIdDetail`
+### `getTaskByIdDetail`
 
 **`GET /api-key/task/{id}/detail`** — Get Api Key Log By TaskId
 
@@ -2062,17 +2308,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyTaskByIdDetail } from '@aiozai/nodejs-client';
+import { getTaskByIdDetail } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyTaskByIdDetail({ path: { id: '...' } });
+const response = await getTaskByIdDetail({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyTrainingTaskById`
+### `getTrainingTaskById`
 
-**`GET /api-key/training-task/{id}`** — Get Training Task By Api Key
+**`GET /api-key/training-task/{id}`** — Get Training Task
 
 **Headers**
 
@@ -2118,17 +2364,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyTrainingTaskById } from '@aiozai/nodejs-client';
+import { getTrainingTaskById } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyTrainingTaskById({ path: { id: '...' } });
+const response = await getTrainingTaskById({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyTrainingTaskList`
+### `getTrainingTaskList`
 
-**`GET /api-key/training/task/list`** — Get Training Task List By Api Key
+**`GET /api-key/training/task/list`** — Get Training Task List
 
 **Headers**
 
@@ -2182,9 +2428,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyTrainingTaskList } from '@aiozai/nodejs-client';
+import { getTrainingTaskList } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyTrainingTaskList();
+const response = await getTrainingTaskList();
 console.log(response.data);
 ```
 

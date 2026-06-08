@@ -6,9 +6,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `deleteApiKeyUser`
+### `deleteUser`
 
-**`DELETE /api-key/user`** — Delete user's account By Api Key
+**`DELETE /api-key/user`** — Delete user's account
 
 **Headers**
 
@@ -35,17 +35,17 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```typescript
-import { deleteApiKeyUser } from '@aiozai/nodejs-client';
+import { deleteUser } from '@aiozai/nodejs-client';
 
-const response = await deleteApiKeyUser();
+const response = await deleteUser();
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyUserApiKey`
+### `postUserApiKey`
 
-**`POST /api-key/user/api-key`** — Create ApiKey By Api Key
+**`POST /api-key/user/api-key`** — Create ApiKey
 
 **Headers**
 
@@ -206,9 +206,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyUserApiKey } from '@aiozai/nodejs-client';
+import { postUserApiKey } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyUserApiKey({
+const response = await postUserApiKey({
     body: {
         active: '...',  // boolean
     description: '...',  // string
@@ -221,9 +221,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyUserChallengeByWalletaddress`
+### `getUserChallengeByWalletaddress`
 
-**`GET /api-key/user/challenge/{walletAddress}`** — Get link wallet address challenge By Api Key
+**`GET /api-key/user/challenge/{walletAddress}`** — Get link wallet address challenge
 
 **Headers**
 
@@ -263,17 +263,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserChallengeByWalletaddress } from '@aiozai/nodejs-client';
+import { getUserChallengeByWalletaddress } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyUserChallengeByWalletaddress({ path: { walletAddress: '...' } });
+const response = await getUserChallengeByWalletaddress({ path: { walletAddress: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `patchApiKeyUserChangePassword`
+### `patchUserChangePassword`
 
-**`PATCH /api-key/user/change-password`** — Change user's password By Api Key
+**`PATCH /api-key/user/change-password`** — Change user's password
 
 **Headers**
 
@@ -307,9 +307,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { patchApiKeyUserChangePassword } from '@aiozai/nodejs-client';
+import { patchUserChangePassword } from '@aiozai/nodejs-client';
 
-const response = await patchApiKeyUserChangePassword({
+const response = await patchUserChangePassword({
     body: {
         new_password: '...',  // string  // required
     old_password: '...',  // string  // required
@@ -320,9 +320,9 @@ console.log(response.data);
 
 ---
 
-### `putApiKeyUserFollowById`
+### `putUserFollowById`
 
-**`PUT /api-key/user/follow/{id}`** — Follow/Unfollow user By Api Key
+**`PUT /api-key/user/follow/{id}`** — Follow/Unfollow user
 
 **Headers**
 
@@ -355,17 +355,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyUserFollowById } from '@aiozai/nodejs-client';
+import { putUserFollowById } from '@aiozai/nodejs-client';
 
-const response = await putApiKeyUserFollowById({ path: { id: '...' } });
+const response = await putUserFollowById({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyUserLinkEmail`
+### `postUserLinkEmail`
 
-**`POST /api-key/user/link-email`** — Verify link email code By Api Key
+**`POST /api-key/user/link-email`** — Verify link email code
 
 **Headers**
 
@@ -399,9 +399,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyUserLinkEmail } from '@aiozai/nodejs-client';
+import { postUserLinkEmail } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyUserLinkEmail({
+const response = await postUserLinkEmail({
     body: {
         code: '...',  // string  // required
     email: '...',  // string  // required
@@ -412,9 +412,9 @@ console.log(response.data);
 
 ---
 
-### `patchApiKeyUserLinkEmailByEmail`
+### `patchUserLinkEmailByEmail`
 
-**`PATCH /api-key/user/link-email/{email}`** — Get link email code By Api Key
+**`PATCH /api-key/user/link-email/{email}`** — Get link email code
 
 **Headers**
 
@@ -455,9 +455,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { patchApiKeyUserLinkEmailByEmail } from '@aiozai/nodejs-client';
+import { patchUserLinkEmailByEmail } from '@aiozai/nodejs-client';
 
-const response = await patchApiKeyUserLinkEmailByEmail({
+const response = await patchUserLinkEmailByEmail({
     body: {
         email: '...',  // string
     password: '...',  // string
@@ -469,9 +469,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyUserLinkWallet`
+### `postUserLinkWallet`
 
-**`POST /api-key/user/link-wallet`** — Verify link wallet address signature By Api Key
+**`POST /api-key/user/link-wallet`** — Verify link wallet address signature
 
 **Headers**
 
@@ -505,9 +505,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyUserLinkWallet } from '@aiozai/nodejs-client';
+import { postUserLinkWallet } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyUserLinkWallet({
+const response = await postUserLinkWallet({
     body: {
         signature: '...',  // string  // required
     wallet_address: '...',  // string  // required
@@ -518,9 +518,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyUserMe`
+### `getUserMe`
 
-**`GET /api-key/user/me`** — Get user's info By Api Key
+**`GET /api-key/user/me`** — Get user's info
 
 **Headers**
 
@@ -656,17 +656,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserMe } from '@aiozai/nodejs-client';
+import { getUserMe } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyUserMe();
+const response = await getUserMe();
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyUserOffers`
+### `getUserOffers`
 
-**`GET /api-key/user/offers`** — Get user's offers By Api Key
+**`GET /api-key/user/offers`** — Get user's offers
 
 **Headers**
 
@@ -702,17 +702,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserOffers } from '@aiozai/nodejs-client';
+import { getUserOffers } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyUserOffers();
+const response = await getUserOffers();
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyUserOrgUsernames`
+### `getUserOrgUsernames`
 
-**`GET /api-key/user/org-usernames`** — Get user's organization usernames By Api Key
+**`GET /api-key/user/org-usernames`** — Get user's organization usernames
 
 **Headers**
 
@@ -762,17 +762,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserOrgUsernames } from '@aiozai/nodejs-client';
+import { getUserOrgUsernames } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyUserOrgUsernames();
+const response = await getUserOrgUsernames();
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyUserPermissionSearch`
+### `getUserPermissionSearch`
 
-**`GET /api-key/user/permission/search`** — Search Users By Api Key
+**`GET /api-key/user/permission/search`** — Search Users
 
 **Headers**
 
@@ -832,17 +832,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserPermissionSearch } from '@aiozai/nodejs-client';
+import { getUserPermissionSearch } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyUserPermissionSearch();
+const response = await getUserPermissionSearch();
 console.log(response.data);
 ```
 
 ---
 
-### `patchApiKeyUserProfile`
+### `patchUserProfile`
 
-**`PATCH /api-key/user/profile`** — Update user's profile By Api Key
+**`PATCH /api-key/user/profile`** — Update user's profile
 
 **Headers**
 
@@ -883,9 +883,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { patchApiKeyUserProfile } from '@aiozai/nodejs-client';
+import { patchUserProfile } from '@aiozai/nodejs-client';
 
-const response = await patchApiKeyUserProfile({
+const response = await patchUserProfile({
     body: {
         avatar: '...',  // string
     bio: '...',  // string
@@ -899,9 +899,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyUserPublicKey`
+### `getUserPublicKey`
 
-**`GET /api-key/user/public-key`** — Get source control public keys By Api Key
+**`GET /api-key/user/public-key`** — Get source control public keys
 
 **Headers**
 
@@ -946,17 +946,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserPublicKey } from '@aiozai/nodejs-client';
+import { getUserPublicKey } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyUserPublicKey();
+const response = await getUserPublicKey();
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyUserPublicKey`
+### `postUserPublicKey`
 
-**`POST /api-key/user/public-key`** — Create source control public key By Api Key
+**`POST /api-key/user/public-key`** — Create source control public key
 
 **Headers**
 
@@ -991,9 +991,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyUserPublicKey } from '@aiozai/nodejs-client';
+import { postUserPublicKey } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyUserPublicKey({
+const response = await postUserPublicKey({
     body: {
         key: '...',  // string  // required
     read_only: '...',  // boolean
@@ -1005,9 +1005,9 @@ console.log(response.data);
 
 ---
 
-### `deleteApiKeyUserPublicKeyByKeyid`
+### `deleteUserPublicKeyByKeyid`
 
-**`DELETE /api-key/user/public-key/{keyId}`** — Delete source control public key By Api Key
+**`DELETE /api-key/user/public-key/{keyId}`** — Delete source control public key
 
 **Headers**
 
@@ -1034,22 +1034,23 @@ console.log(response.data);
 
 | Status | Description |
 | --- | --- |
-| 400 | Bad Request — [response.ErrorResponse](../README.md#common-response-types) |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
 
 **Example**
 
 ```typescript
-import { deleteApiKeyUserPublicKeyByKeyid } from '@aiozai/nodejs-client';
+import { deleteUserPublicKeyByKeyid } from '@aiozai/nodejs-client';
 
-const response = await deleteApiKeyUserPublicKeyByKeyid({ path: { keyId: '...' } });
+const response = await deleteUserPublicKeyByKeyid({ path: { keyId: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyUserStatisticsEarnings`
+### `postUserStatisticsEarnings`
 
-**`POST /api-key/user/statistics/earnings`** — Get User Earnings Statistics By Api Key
+**`POST /api-key/user/statistics/earnings`** — Get User Earnings Statistics
 
 **Headers**
 
@@ -1098,9 +1099,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyUserStatisticsEarnings } from '@aiozai/nodejs-client';
+import { postUserStatisticsEarnings } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyUserStatisticsEarnings({
+const response = await postUserStatisticsEarnings({
     body: {
         from: '...',  // string
     to: '...',  // string
@@ -1111,9 +1112,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyUserStatisticsSpendingCost`
+### `postUserStatisticsSpendingCost`
 
-**`POST /api-key/user/statistics/spending-cost`** — Get User Spending Cost Statitics By Api Key
+**`POST /api-key/user/statistics/spending-cost`** — Get User Spending Cost Statitics
 
 **Headers**
 
@@ -1166,9 +1167,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyUserStatisticsSpendingCost } from '@aiozai/nodejs-client';
+import { postUserStatisticsSpendingCost } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyUserStatisticsSpendingCost({
+const response = await postUserStatisticsSpendingCost({
     body: {
         from: '...',  // string
     to: '...',  // string
@@ -1179,9 +1180,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyUserVoucherClaim`
+### `postUserVoucherClaim`
 
-**`POST /api-key/user/voucher/claim`** — User Claim Free Balance By Voucher By Api Key
+**`POST /api-key/user/voucher/claim`** — User Claim Free Balance By Voucher
 
 **Headers**
 
@@ -1214,9 +1215,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyUserVoucherClaim } from '@aiozai/nodejs-client';
+import { postUserVoucherClaim } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyUserVoucherClaim({
+const response = await postUserVoucherClaim({
     body: {
         voucher_code: '...',  // string  // required
     },
@@ -1226,9 +1227,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyUserWalletDepositHistory`
+### `getUserWalletDepositHistory`
 
-**`GET /api-key/user/wallet/deposit/history`** — Get List User Deposit History By Api Key
+**`GET /api-key/user/wallet/deposit/history`** — Get List User Deposit History
 
 **Headers**
 
@@ -1285,17 +1286,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserWalletDepositHistory } from '@aiozai/nodejs-client';
+import { getUserWalletDepositHistory } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyUserWalletDepositHistory();
+const response = await getUserWalletDepositHistory();
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyUserWalletTransactionAnalytics`
+### `postUserWalletTransactionAnalytics`
 
-**`POST /api-key/user/wallet/transaction/analytics`** — Get User Transaction Analytics By Api Key
+**`POST /api-key/user/wallet/transaction/analytics`** — Get User Transaction Analytics
 
 **Headers**
 
@@ -1361,9 +1362,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyUserWalletTransactionAnalytics } from '@aiozai/nodejs-client';
+import { postUserWalletTransactionAnalytics } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyUserWalletTransactionAnalytics({
+const response = await postUserWalletTransactionAnalytics({
     body: {
         from: '...',  // string
     to: '...',  // string
@@ -1374,9 +1375,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyUserWalletTransactionHistory`
+### `getUserWalletTransactionHistory`
 
-**`GET /api-key/user/wallet/transaction/history`** — Get List Transaction History By User By Api Key
+**`GET /api-key/user/wallet/transaction/history`** — Get List Transaction History By User
 
 **Headers**
 
@@ -1438,17 +1439,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserWalletTransactionHistory } from '@aiozai/nodejs-client';
+import { getUserWalletTransactionHistory } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyUserWalletTransactionHistory();
+const response = await getUserWalletTransactionHistory();
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyUserWalletTransactionRecent`
+### `postUserWalletTransactionRecent`
 
-**`POST /api-key/user/wallet/transaction/recent`** — Get List Recent Transaction By User By Api Key
+**`POST /api-key/user/wallet/transaction/recent`** — Get List Recent Transaction By User
 
 **Headers**
 
@@ -1512,9 +1513,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyUserWalletTransactionRecent } from '@aiozai/nodejs-client';
+import { postUserWalletTransactionRecent } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyUserWalletTransactionRecent({
+const response = await postUserWalletTransactionRecent({
     body: {
         from: '...',  // string
     limit: '...',  // integer
@@ -1528,9 +1529,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyUserWalletWithdrawHistory`
+### `getUserWalletWithdrawHistory`
 
-**`GET /api-key/user/wallet/withdraw/history`** — Get List User Withdrawal History By Api Key
+**`GET /api-key/user/wallet/withdraw/history`** — Get List User Withdrawal History
 
 **Headers**
 
@@ -1585,17 +1586,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserWalletWithdrawHistory } from '@aiozai/nodejs-client';
+import { getUserWalletWithdrawHistory } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyUserWalletWithdrawHistory();
+const response = await getUserWalletWithdrawHistory();
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyUserByUsername`
+### `getUserByUsername`
 
-**`GET /api-key/user/{username}`** — Get user's info By Api Key
+**`GET /api-key/user/{username}`** — Get user's info
 
 **Headers**
 
@@ -1723,9 +1724,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyUserByUsername } from '@aiozai/nodejs-client';
+import { getUserByUsername } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyUserByUsername({ path: { username: '...' } });
+const response = await getUserByUsername({ path: { username: '...' } });
 console.log(response.data);
 ```
 

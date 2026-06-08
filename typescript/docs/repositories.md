@@ -6,7 +6,7 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `getApiKeyRepositoryModelCommitByCommit_shaHistory`
+### `getRepositoryModelCommitByCommitShaHistory`
 
 **`GET /api-key/repository/model/commit/{commit_sha}/history`** — Get Checked Commit By Id (model) by api-key
 
@@ -63,15 +63,15 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```typescript
-import { getApiKeyRepositoryModelCommitByCommit_shaHistory } from '@aiozai/nodejs-client';
+import { getRepositoryModelCommitByCommitShaHistory } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyRepositoryModelCommitByCommit_shaHistory({ path: { commit_sha: '...' } });
+const response = await getRepositoryModelCommitByCommitShaHistory({ path: { commit_sha: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyRepositoryModelByIdCommitHistory`
+### `getRepositoryModelByIdCommitHistory`
 
 **`GET /api-key/repository/model/{id}/commit/history`** — Get List Checked Commit (model) by api-key
 
@@ -130,15 +130,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyRepositoryModelByIdCommitHistory } from '@aiozai/nodejs-client';
+import { getRepositoryModelByIdCommitHistory } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyRepositoryModelByIdCommitHistory({ path: { id: '...' } });
+const response = await getRepositoryModelByIdCommitHistory({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyRepositoryByOwnerusernameByRepositoryname`
+### `getRepositoryByOwnerusernameByRepositoryname`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}`** — Get repository by name by api-key
 
@@ -327,15 +327,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyRepositoryByOwnerusernameByRepositoryname } from '@aiozai/nodejs-client';
+import { getRepositoryByOwnerusernameByRepositoryname } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyRepositoryByOwnerusernameByRepositoryname({ path: { ownerUsername: '...', repositoryName: '...' } });
+const response = await getRepositoryByOwnerusernameByRepositoryname({ path: { ownerUsername: '...', repositoryName: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyRepositoryByOwnerusernameByRepositorynameBranches`
+### `getRepositoryByOwnerusernameByRepositorynameBranches`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}/branches`** — Get repository branches by repository name by api-key
 
@@ -424,15 +424,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyRepositoryByOwnerusernameByRepositorynameBranches } from '@aiozai/nodejs-client';
+import { getRepositoryByOwnerusernameByRepositorynameBranches } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyRepositoryByOwnerusernameByRepositorynameBranches({ path: { ownerUsername: '...', repositoryName: '...' } });
+const response = await getRepositoryByOwnerusernameByRepositorynameBranches({ path: { ownerUsername: '...', repositoryName: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyRepositoryByOwnerusernameByRepositorynameBuy`
+### `postRepositoryByOwnerusernameByRepositorynameBuy`
 
 **`POST /api-key/repository/{ownerUsername}/{repositoryName}/buy`** — Unlock Repository By User by api-key
 
@@ -483,9 +483,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyRepositoryByOwnerusernameByRepositorynameBuy } from '@aiozai/nodejs-client';
+import { postRepositoryByOwnerusernameByRepositorynameBuy } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyRepositoryByOwnerusernameByRepositorynameBuy({
+const response = await postRepositoryByOwnerusernameByRepositorynameBuy({
     body: {
         ref: '...',  // string
     repoType: '...',  // string
@@ -497,7 +497,7 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyRepositoryByOwnerusernameByRepositorynameCollaborators`
+### `getRepositoryByOwnerusernameByRepositorynameCollaborators`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}/collaborators`** — Get repository collaborators by repository name by api-key
 
@@ -645,15 +645,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyRepositoryByOwnerusernameByRepositorynameCollaborators } from '@aiozai/nodejs-client';
+import { getRepositoryByOwnerusernameByRepositorynameCollaborators } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyRepositoryByOwnerusernameByRepositorynameCollaborators({ path: { ownerUsername: '...', repositoryName: '...' } });
+const response = await getRepositoryByOwnerusernameByRepositorynameCollaborators({ path: { ownerUsername: '...', repositoryName: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyRepositoryByOwnerusernameByRepositorynameCommit`
+### `getRepositoryByOwnerusernameByRepositorynameCommit`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}/commit`** — Get repository single commit by repository name and commit sha by api-key
 
@@ -973,17 +973,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyRepositoryByOwnerusernameByRepositorynameCommit } from '@aiozai/nodejs-client';
+import { getRepositoryByOwnerusernameByRepositorynameCommit } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyRepositoryByOwnerusernameByRepositorynameCommit({ path: { ownerUsername: '...', repositoryName: '...' } });
+const response = await getRepositoryByOwnerusernameByRepositorynameCommit({ path: { ownerUsername: '...', repositoryName: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyRepositoryByOwnerusernameByRepositorynameCommitHistory`
+### `getRepositoryByOwnerusernameByRepositorynameCommitHistory`
 
-**`GET /api-key/repository/{ownerUsername}/{repositoryName}/commit/history`** — Get commit history by repository name and branch name by api key
+**`GET /api-key/repository/{ownerUsername}/{repositoryName}/commit/history`** — Get commit history by repository name and branch name
 
 **Headers**
 
@@ -1304,15 +1304,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyRepositoryByOwnerusernameByRepositorynameCommitHistory } from '@aiozai/nodejs-client';
+import { getRepositoryByOwnerusernameByRepositorynameCommitHistory } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyRepositoryByOwnerusernameByRepositorynameCommitHistory({ path: { ownerUsername: '...', repositoryName: '...' } });
+const response = await getRepositoryByOwnerusernameByRepositorynameCommitHistory({ path: { ownerUsername: '...', repositoryName: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyRepositoryByOwnerusernameByRepositorynameCommitTree`
+### `getRepositoryByOwnerusernameByRepositorynameCommitTree`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}/commit/tree`** — Get commit tree by repository name and commit sha by api-key
 
@@ -1379,15 +1379,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyRepositoryByOwnerusernameByRepositorynameCommitTree } from '@aiozai/nodejs-client';
+import { getRepositoryByOwnerusernameByRepositorynameCommitTree } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyRepositoryByOwnerusernameByRepositorynameCommitTree({ path: { ownerUsername: '...', repositoryName: '...' } });
+const response = await getRepositoryByOwnerusernameByRepositorynameCommitTree({ path: { ownerUsername: '...', repositoryName: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyRepositoryByOwnerusernameByRepositorynameContent`
+### `getRepositoryByOwnerusernameByRepositorynameContent`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}/content`** — Get file content by api-key
 
@@ -1426,15 +1426,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyRepositoryByOwnerusernameByRepositorynameContent } from '@aiozai/nodejs-client';
+import { getRepositoryByOwnerusernameByRepositorynameContent } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyRepositoryByOwnerusernameByRepositorynameContent({ path: { ownerUsername: '...', repositoryName: '...' } });
+const response = await getRepositoryByOwnerusernameByRepositorynameContent({ path: { ownerUsername: '...', repositoryName: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `putApiKeyRepositoryByOwnerusernameByRepositorynameContent`
+### `putRepositoryByOwnerusernameByRepositorynameContent`
 
 **`PUT /api-key/repository/{ownerUsername}/{repositoryName}/content`** — Modify repository content by api-key
 
@@ -1772,9 +1772,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyRepositoryByOwnerusernameByRepositorynameContent } from '@aiozai/nodejs-client';
+import { putRepositoryByOwnerusernameByRepositorynameContent } from '@aiozai/nodejs-client';
 
-const response = await putApiKeyRepositoryByOwnerusernameByRepositorynameContent({
+const response = await putRepositoryByOwnerusernameByRepositorynameContent({
     body: {
         branch_name: '...',  // string
     email: '...',  // string
@@ -1788,7 +1788,7 @@ console.log(response.data);
 
 ---
 
-### `deleteApiKeyRepositoryByOwnerusernameByRepositorynameContent`
+### `deleteRepositoryByOwnerusernameByRepositorynameContent`
 
 **`DELETE /api-key/repository/{ownerUsername}/{repositoryName}/content`** — Delete single repository content by api-key
 
@@ -1893,9 +1893,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyRepositoryByOwnerusernameByRepositorynameContent } from '@aiozai/nodejs-client';
+import { deleteRepositoryByOwnerusernameByRepositorynameContent } from '@aiozai/nodejs-client';
 
-const response = await deleteApiKeyRepositoryByOwnerusernameByRepositorynameContent({
+const response = await deleteRepositoryByOwnerusernameByRepositorynameContent({
     body: {
         branch_name: '...',  // string  // required
     message: '...',  // string  // required
@@ -1909,7 +1909,7 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyRepositoryByOwnerusernameByRepositorynameContentMetadata`
+### `getRepositoryByOwnerusernameByRepositorynameContentMetadata`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}/content/metadata`** — Get repository content metadata by repository name, branch name and path by api-key
 
@@ -1986,15 +1986,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyRepositoryByOwnerusernameByRepositorynameContentMetadata } from '@aiozai/nodejs-client';
+import { getRepositoryByOwnerusernameByRepositorynameContentMetadata } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyRepositoryByOwnerusernameByRepositorynameContentMetadata({ path: { ownerUsername: '...', repositoryName: '...' } });
+const response = await getRepositoryByOwnerusernameByRepositorynameContentMetadata({ path: { ownerUsername: '...', repositoryName: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyRepositoryByOwnerusernameByRepositorynameContentPlayground`
+### `getRepositoryByOwnerusernameByRepositorynameContentPlayground`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}/content/playground`** — Get playground file content (model only) by api-key
 
@@ -2030,15 +2030,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyRepositoryByOwnerusernameByRepositorynameContentPlayground } from '@aiozai/nodejs-client';
+import { getRepositoryByOwnerusernameByRepositorynameContentPlayground } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyRepositoryByOwnerusernameByRepositorynameContentPlayground({ path: { ownerUsername: '...', repositoryName: '...' } });
+const response = await getRepositoryByOwnerusernameByRepositorynameContentPlayground({ path: { ownerUsername: '...', repositoryName: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyRepositoryByOwnerusernameByRepositorynameContentPreDownload`
+### `getRepositoryByOwnerusernameByRepositorynameContentPreDownload`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}/content/pre-download`** — Calculate Cost To Download Repo Content by api-key
 
@@ -2086,15 +2086,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyRepositoryByOwnerusernameByRepositorynameContentPreDownload } from '@aiozai/nodejs-client';
+import { getRepositoryByOwnerusernameByRepositorynameContentPreDownload } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyRepositoryByOwnerusernameByRepositorynameContentPreDownload({ path: { ownerUsername: '...', repositoryName: '...' } });
+const response = await getRepositoryByOwnerusernameByRepositorynameContentPreDownload({ path: { ownerUsername: '...', repositoryName: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyRepositoryByOwnerusernameByRepositorynameContentReadme`
+### `getRepositoryByOwnerusernameByRepositorynameContentReadme`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}/content/readme`** — Get readme file content by api-key
 
@@ -2133,15 +2133,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyRepositoryByOwnerusernameByRepositorynameContentReadme } from '@aiozai/nodejs-client';
+import { getRepositoryByOwnerusernameByRepositorynameContentReadme } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyRepositoryByOwnerusernameByRepositorynameContentReadme({ path: { ownerUsername: '...', repositoryName: '...' } });
+const response = await getRepositoryByOwnerusernameByRepositorynameContentReadme({ path: { ownerUsername: '...', repositoryName: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyRepositoryByOwnerusernameByRepositorynameDownload`
+### `getRepositoryByOwnerusernameByRepositorynameDownload`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}/download`** — Download repository zip by api-key
 
@@ -2180,15 +2180,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyRepositoryByOwnerusernameByRepositorynameDownload } from '@aiozai/nodejs-client';
+import { getRepositoryByOwnerusernameByRepositorynameDownload } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyRepositoryByOwnerusernameByRepositorynameDownload({ path: { ownerUsername: '...', repositoryName: '...' } });
+const response = await getRepositoryByOwnerusernameByRepositorynameDownload({ path: { ownerUsername: '...', repositoryName: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyRepositoryByOwnerusernameByRepositorynamePreDownload`
+### `getRepositoryByOwnerusernameByRepositorynamePreDownload`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}/pre-download`** — Check Available Free Download Repo Zip by api-key
 
@@ -2227,9 +2227,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyRepositoryByOwnerusernameByRepositorynamePreDownload } from '@aiozai/nodejs-client';
+import { getRepositoryByOwnerusernameByRepositorynamePreDownload } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyRepositoryByOwnerusernameByRepositorynamePreDownload({ path: { ownerUsername: '...', repositoryName: '...' } });
+const response = await getRepositoryByOwnerusernameByRepositorynamePreDownload({ path: { ownerUsername: '...', repositoryName: '...' } });
 console.log(response.data);
 ```
 

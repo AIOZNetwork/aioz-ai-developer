@@ -6,9 +6,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `postApiKeyCollection`
+### `postCollection`
 
-**`POST /api-key/collection`** — Create Collection By Api Key
+**`POST /api-key/collection`** — Create Collection
 
 **Headers**
 
@@ -199,9 +199,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```typescript
-import { postApiKeyCollection } from '@aiozai/nodejs-client';
+import { postCollection } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyCollection({
+const response = await postCollection({
     body: {
         description: '...',  // string  // required
     name: '...',  // string  // required
@@ -214,9 +214,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyCollectionList`
+### `postCollectionList`
 
-**`POST /api-key/collection/list`** — Get List Collection By Api Key
+**`POST /api-key/collection/list`** — Get List Collection
 
 **Headers**
 
@@ -231,6 +231,7 @@ console.log(response.data);
 | `filter` | `string` | No | One of: `public`, `community`, `author` |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `desc`, `asc` |
 | `search` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `votes`, `updated`, `oldest` |
 
@@ -415,15 +416,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyCollectionList } from '@aiozai/nodejs-client';
+import { postCollectionList } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyCollectionList({
+const response = await postCollectionList({
     body: {
         filter: '...',  // string
     limit: '...',  // integer
     offset: '...',  // integer
+    order: '...',  // string
     search: '...',  // string
-    sort: '...',  // string
     },
 });
 console.log(response.data);
@@ -431,9 +432,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyCollectionById`
+### `getCollectionById`
 
-**`GET /api-key/collection/{id}`** — Get Collection By Id By Api Key
+**`GET /api-key/collection/{id}`** — Get Collection By Id
 
 **Headers**
 
@@ -621,17 +622,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyCollectionById } from '@aiozai/nodejs-client';
+import { getCollectionById } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyCollectionById({ path: { id: '...' } });
+const response = await getCollectionById({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `putApiKeyCollectionById`
+### `putCollectionById`
 
-**`PUT /api-key/collection/{id}`** — Update Collection By Api Key
+**`PUT /api-key/collection/{id}`** — Update Collection
 
 **Headers**
 
@@ -828,9 +829,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyCollectionById } from '@aiozai/nodejs-client';
+import { putCollectionById } from '@aiozai/nodejs-client';
 
-const response = await putApiKeyCollectionById({
+const response = await putCollectionById({
     body: {
         description: '...',  // string
     name: '...',  // string
@@ -843,9 +844,9 @@ console.log(response.data);
 
 ---
 
-### `deleteApiKeyCollectionById`
+### `deleteCollectionById`
 
-**`DELETE /api-key/collection/{id}`** — Delete Collection By Api Key
+**`DELETE /api-key/collection/{id}`** — Delete Collection
 
 **Headers**
 
@@ -1033,17 +1034,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyCollectionById } from '@aiozai/nodejs-client';
+import { deleteCollectionById } from '@aiozai/nodejs-client';
 
-const response = await deleteApiKeyCollectionById({ path: { id: '...' } });
+const response = await deleteCollectionById({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyCollectionByIdItem`
+### `postCollectionByIdItem`
 
-**`POST /api-key/collection/{id}/item`** — Add Item To Collection By Api Key
+**`POST /api-key/collection/{id}/item`** — Add Item To Collection
 
 **Headers**
 
@@ -1238,9 +1239,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyCollectionByIdItem } from '@aiozai/nodejs-client';
+import { postCollectionByIdItem } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyCollectionByIdItem({
+const response = await postCollectionByIdItem({
     body: {
         item_id: '...',  // string
     type: '...',  // string  // required
@@ -1251,9 +1252,9 @@ console.log(response.data);
 
 ---
 
-### `deleteApiKeyCollectionByIdItem`
+### `deleteCollectionByIdItem`
 
-**`DELETE /api-key/collection/{id}/item`** — Remove Item From Collection By Api Key
+**`DELETE /api-key/collection/{id}/item`** — Remove Item From Collection
 
 **Headers**
 
@@ -1448,9 +1449,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyCollectionByIdItem } from '@aiozai/nodejs-client';
+import { deleteCollectionByIdItem } from '@aiozai/nodejs-client';
 
-const response = await deleteApiKeyCollectionByIdItem({
+const response = await deleteCollectionByIdItem({
     body: {
         item_id: '...',  // string  // required
     type: '...',  // string  // required
@@ -1461,9 +1462,9 @@ console.log(response.data);
 
 ---
 
-### `putApiKeyCollectionByIdVote`
+### `putCollectionByIdVote`
 
-**`PUT /api-key/collection/{id}/vote`** — Vote Collection By Api Key
+**`PUT /api-key/collection/{id}/vote`** — Vote Collection
 
 **Headers**
 
@@ -1651,17 +1652,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyCollectionByIdVote } from '@aiozai/nodejs-client';
+import { putCollectionByIdVote } from '@aiozai/nodejs-client';
 
-const response = await putApiKeyCollectionByIdVote({ path: { id: '...' } });
+const response = await putCollectionByIdVote({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyCollectionByUsernameList`
+### `postCollectionByUsernameList`
 
-**`POST /api-key/collection/{username}/list`** — Get Collection List By Username By Api Key
+**`POST /api-key/collection/{username}/list`** — Get Collection List By Username
 
 **Headers**
 
@@ -1681,6 +1682,7 @@ console.log(response.data);
 | --- | --- | --- | --- |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `desc`, `asc` |
 | `search` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `votes`, `updated`, `oldest` |
 
@@ -1865,12 +1867,13 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyCollectionByUsernameList } from '@aiozai/nodejs-client';
+import { postCollectionByUsernameList } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyCollectionByUsernameList({
+const response = await postCollectionByUsernameList({
     body: {
         limit: '...',  // integer
     offset: '...',  // integer
+    order: '...',  // string
     search: '...',  // string
     sort: '...',  // string
     },
@@ -1891,6 +1894,7 @@ console.log(response.data);
 | `filter` | `string` | No | One of: `public`, `community`, `author` |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `desc`, `asc` |
 | `search` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `votes`, `updated`, `oldest` |
 
@@ -2082,8 +2086,8 @@ const response = await postPublicCollectionList({
         filter: '...',  // string
     limit: '...',  // integer
     offset: '...',  // integer
+    order: '...',  // string
     search: '...',  // string
-    sort: '...',  // string
     },
 });
 console.log(response.data);
@@ -2299,6 +2303,7 @@ console.log(response.data);
 | --- | --- | --- | --- |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `desc`, `asc` |
 | `search` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `votes`, `updated`, `oldest` |
 
@@ -2489,6 +2494,7 @@ const response = await postPublicCollectionByUsernameList({
     body: {
         limit: '...',  // integer
     offset: '...',  // integer
+    order: '...',  // string
     search: '...',  // string
     sort: '...',  // string
     },

@@ -6,9 +6,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `api_key_dataset_post`
+### `post_dataset`
 
-**`POST /api-key/dataset`** — Create dataset By Api Key
+**`POST /api-key/dataset`** — Create dataset
 
 **Headers**
 
@@ -128,15 +128,15 @@ request = CreateDatasetRequest(
     language="...",  # array[string]
     license="...",  # string  # required
 )
-resp = client.datasets.dataset.api_key_dataset_post(body=request)
+resp = client.datasets.dataset.post_dataset(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_dataset_list_post`
+### `post_dataset_list`
 
-**`POST /api-key/dataset/list`** — Get dataset list By Api Key
+**`POST /api-key/dataset/list`** — Get dataset list
 
 **Headers**
 
@@ -153,6 +153,7 @@ print(resp)
 | `license` | `string` | No |  |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `desc`, `asc` |
 | `search` | `string` | No |  |
 | `size_category` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `likes`, `downloads`, `created`, `created_oldest`, `modified` |
@@ -261,15 +262,15 @@ request = GetDatasetListRequest(
     limit="...",  # integer
     offset="...",  # integer
 )
-resp = client.datasets.dataset.api_key_dataset_list_post(body=request)
+resp = client.datasets.dataset.post_dataset_list(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_dataset_list_by_author_username_post`
+### `post_dataset_list_by_author_by_username`
 
-**`POST /api-key/dataset/list-by-author/{username}`** — Get dataset list by user By Api Key
+**`POST /api-key/dataset/list-by-author/{username}`** — Get dataset list by user
 
 **Headers**
 
@@ -291,6 +292,7 @@ print(resp)
 | `license` | `string` | No |  |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `desc`, `asc` |
 | `search` | `string` | No |  |
 | `size_category` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `likes`, `downloads`, `created`, `created_oldest`, `modified` |
@@ -397,17 +399,17 @@ request = GetDatasetListByAuthorRequest(
     license="...",  # string
     limit="...",  # integer
     offset="...",  # integer
-    search="...",  # string
+    order="...",  # string
 )
-resp = client.datasets.dataset.api_key_dataset_list_by_author_username_post(body=request)
+resp = client.datasets.dataset.post_dataset_list_by_author_by_username(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_dataset_matching_tags_post`
+### `post_dataset_matching_tags`
 
-**`POST /api-key/dataset/matching-tags`** — Get matching datasets tags By Api Key
+**`POST /api-key/dataset/matching-tags`** — Get matching datasets tags
 
 **Headers**
 
@@ -455,15 +457,15 @@ request = MatchingDatasetsTagsRequest(
     tag_type="...",  # string
     tags="...",  # array[string]
 )
-resp = client.datasets.dataset.api_key_dataset_matching_tags_post(body=request)
+resp = client.datasets.dataset.post_dataset_matching_tags(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_dataset_organization_org_get`
+### `get_dataset_organization_by_org`
 
-**`GET /api-key/dataset/organization/{org}`** — Get List Dataset By Org Username By Api Key
+**`GET /api-key/dataset/organization/{org}`** — Get List Dataset By Org Username
 
 **Headers**
 
@@ -478,6 +480,7 @@ print(resp)
 | `org` | path | `string` | Yes | Org's username |
 | `limit` | query | `integer` | No |  |
 | `offset` | query | `integer` | No |  |
+| `order` | query | `string` | No |  |
 | `sort` | query | `string` | No |  |
 
 **Responses**
@@ -572,15 +575,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.datasets.dataset.api_key_dataset_organization_org_get(org="<org>")
+resp = client.datasets.dataset.get_dataset_organization_by_org(org="<org>")
 print(resp)
 ```
 
 ---
 
-### `api_key_dataset_id_get`
+### `get_dataset_by_id`
 
-**`GET /api-key/dataset/{id}`** — Get dataset by id By Api Key
+**`GET /api-key/dataset/{id}`** — Get dataset by id
 
 **Headers**
 
@@ -679,15 +682,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.datasets.dataset.api_key_dataset_id_get(id="<id>")
+resp = client.datasets.dataset.get_dataset_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_dataset_id_put`
+### `put_dataset_by_id`
 
-**`PUT /api-key/dataset/{id}`** — Update Dataset By Api Key
+**`PUT /api-key/dataset/{id}`** — Update Dataset
 
 **Headers**
 
@@ -805,15 +808,15 @@ request = UpdateDatasetRequest(
     thumbnail="...",  # string
     visibility="...",  # string
 )
-resp = client.datasets.dataset.api_key_dataset_id_put(body=request)
+resp = client.datasets.dataset.put_dataset_by_id(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_dataset_id_delete`
+### `delete_dataset_by_id`
 
-**`DELETE /api-key/dataset/{id}`** — Delete dataset By Api Key
+**`DELETE /api-key/dataset/{id}`** — Delete dataset
 
 **Headers**
 
@@ -923,15 +926,15 @@ from aiozai_sdk.generated.models import DeleteDatasetRequest
 request = DeleteDatasetRequest(
     repository_name="...",  # string
 )
-resp = client.datasets.dataset.api_key_dataset_id_delete(body=request)
+resp = client.datasets.dataset.delete_dataset_by_id(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_dataset_id_download_get`
+### `get_dataset_by_id_download`
 
-**`GET /api-key/dataset/{id}/download`** — Get List Dataset Download By Api Key
+**`GET /api-key/dataset/{id}/download`** — Get List Dataset Download
 
 **Headers**
 
@@ -990,15 +993,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.datasets.dataset.api_key_dataset_id_download_get(id="<id>")
+resp = client.datasets.dataset.get_dataset_by_id_download(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_dataset_id_like_get`
+### `get_dataset_by_id_like`
 
-**`GET /api-key/dataset/{id}/like`** — Get List Dataset Like By Api Key
+**`GET /api-key/dataset/{id}/like`** — Get List Dataset Like
 
 **Headers**
 
@@ -1057,15 +1060,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.datasets.dataset.api_key_dataset_id_like_get(id="<id>")
+resp = client.datasets.dataset.get_dataset_by_id_like(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_dataset_id_metadata_put`
+### `put_dataset_by_id_metadata`
 
-**`PUT /api-key/dataset/{id}/metadata`** — Update dataset's metadata By Api Key
+**`PUT /api-key/dataset/{id}/metadata`** — Update dataset's metadata
 
 **Headers**
 
@@ -1132,15 +1135,15 @@ request = UpdateDatasetMetadataRequest(
     size_category="...",  # string
     tags="...",  # array[string]
 )
-resp = client.datasets.dataset.api_key_dataset_id_metadata_put(body=request)
+resp = client.datasets.dataset.put_dataset_by_id_metadata(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_dataset_username_name_get`
+### `get_dataset_by_username_by_name`
 
-**`GET /api-key/dataset/{username}/{name}`** — Get dataset by name By Api Key
+**`GET /api-key/dataset/{username}/{name}`** — Get dataset by name
 
 **Headers**
 
@@ -1240,13 +1243,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.datasets.dataset.api_key_dataset_username_name_get(username="<username>", name="<name>")
+resp = client.datasets.dataset.get_dataset_by_username_by_name(username="<username>", name="<name>")
 print(resp)
 ```
 
 ---
 
-### `public_dataset_list_post`
+### `post_public_dataset_list`
 
 **`POST /public/dataset/list`** — GetPublicDatasetList
 
@@ -1259,6 +1262,7 @@ print(resp)
 | `license` | `string` | No |  |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `desc`, `asc` |
 | `search` | `string` | No |  |
 | `size_category` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `likes`, `downloads`, `created`, `created_oldest`, `modified` |
@@ -1367,13 +1371,13 @@ request = GetDatasetListRequest(
     limit="...",  # integer
     offset="...",  # integer
 )
-resp = client.datasets.dataset.public_dataset_list_post(body=request)
+resp = client.datasets.dataset.post_public_dataset_list(input=request)
 print(resp)
 ```
 
 ---
 
-### `public_dataset_list_by_author_username_post`
+### `post_public_dataset_list_by_author_by_username`
 
 **`POST /public/dataset/list-by-author/{username}`** — Get public dataset list by user
 
@@ -1391,6 +1395,7 @@ print(resp)
 | `license` | `string` | No |  |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `desc`, `asc` |
 | `search` | `string` | No |  |
 | `size_category` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `likes`, `downloads`, `created`, `created_oldest`, `modified` |
@@ -1497,15 +1502,15 @@ request = GetDatasetListByAuthorRequest(
     license="...",  # string
     limit="...",  # integer
     offset="...",  # integer
-    search="...",  # string
+    order="...",  # string
 )
-resp = client.datasets.dataset.public_dataset_list_by_author_username_post(body=request)
+resp = client.datasets.dataset.post_public_dataset_list_by_author_by_username(input=request)
 print(resp)
 ```
 
 ---
 
-### `public_dataset_matching_tags_post`
+### `post_public_dataset_matching_tags`
 
 **`POST /public/dataset/matching-tags`** — Get matching public datasets tags
 
@@ -1541,13 +1546,13 @@ request = MatchingDatasetsTagsRequest(
     tag_type="...",  # string
     tags="...",  # array[string]
 )
-resp = client.datasets.dataset.public_dataset_matching_tags_post(body=request)
+resp = client.datasets.dataset.post_public_dataset_matching_tags(input=request)
 print(resp)
 ```
 
 ---
 
-### `public_dataset_metadata_get`
+### `get_public_dataset_metadata`
 
 **`GET /public/dataset/metadata`** — Get Dataset Metadata
 
@@ -1586,13 +1591,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.datasets.dataset.public_dataset_metadata_get()
+resp = client.datasets.dataset.get_public_dataset_metadata()
 print(resp)
 ```
 
 ---
 
-### `public_dataset_organization_org_get`
+### `get_public_dataset_organization_by_org`
 
 **`GET /public/dataset/organization/{org}`** — Get List Dataset By Org Username
 
@@ -1603,6 +1608,7 @@ print(resp)
 | `org` | path | `string` | Yes | Org's username |
 | `limit` | query | `integer` | No |  |
 | `offset` | query | `integer` | No |  |
+| `order` | query | `string` | No |  |
 | `sort` | query | `string` | No |  |
 
 **Responses**
@@ -1697,13 +1703,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.datasets.dataset.public_dataset_organization_org_get(org="<org>")
+resp = client.datasets.dataset.get_public_dataset_organization_by_org(org="<org>")
 print(resp)
 ```
 
 ---
 
-### `public_dataset_trending_get`
+### `get_public_dataset_trending`
 
 **`GET /public/dataset/trending`** — Get List Datasets Trending
 
@@ -1806,13 +1812,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.datasets.dataset.public_dataset_trending_get()
+resp = client.datasets.dataset.get_public_dataset_trending()
 print(resp)
 ```
 
 ---
 
-### `public_dataset_id_get`
+### `get_public_dataset_by_id`
 
 **`GET /public/dataset/{id}`** — Get public dataset by id
 
@@ -1907,13 +1913,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.datasets.dataset.public_dataset_id_get(id="<id>")
+resp = client.datasets.dataset.get_public_dataset_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `public_dataset_username_name_get`
+### `get_public_dataset_by_username_by_name`
 
 **`GET /public/dataset/{username}/{name}`** — Get public dataset by name
 
@@ -2009,7 +2015,7 @@ print(resp)
 **Example**
 
 ```python
-resp = client.datasets.dataset.public_dataset_username_name_get(username="<username>", name="<name>")
+resp = client.datasets.dataset.get_public_dataset_by_username_by_name(username="<username>", name="<name>")
 print(resp)
 ```
 

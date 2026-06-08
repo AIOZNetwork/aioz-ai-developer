@@ -12,23 +12,13 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 **Responses**
 
-**200 OK** — `response.ContentConfigResponse`
+**200 OK** — `response.TermsAndPrivacyResponse`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `models.ContentConfig` |  |
+| `data` | `array[object]` |  |
 | `message` | `string` |  |
 | `status` | `string` |  |
-
-**`models.ContentConfig`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `id` | `string` |  |
-| `key` | `string` |  |
-| `updated_at` | `string` |  |
-| `value` | `string` |  |
 
 **Error Responses**
 
@@ -166,22 +156,27 @@ console.log(response.data);
 
 **Responses**
 
-**200 OK** — `response.MetadataResponse`
+**200 OK** — `response.GetListMetadataResponse`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `models.Metadata` |  |
+| `data` | `array[models.MetadataListByType]` |  |
 | `message` | `string` |  |
 | `status` | `string` |  |
 
-**`models.Metadata`**
+**`models.MetadataListByType`**
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `category` | `string` |  |
+| `items` | `array[models.LiteMetadata]` |  |
+| `type` | `string` |  |
+
+**`models.LiteMetadata`**
+
+| Field | Type | Description |
+| --- | --- | --- |
 | `id` | `string` |  |
 | `label` | `string` |  |
-| `type` | `string` |  |
 
 **Error Responses**
 
@@ -266,11 +261,257 @@ console.log(response.data);
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `competition` | `array[object]` |  |
-| `dataset` | `array[object]` |  |
-| `model` | `array[object]` |  |
-| `organization` | `array[object]` |  |
-| `user` | `array[object]` |  |
+| `competition` | `response.CompetitionListData` |  |
+| `dataset` | `response.DatasetListData` |  |
+| `model` | `response.ModelListData` |  |
+| `organization` | `response.OrganizationListData` |  |
+| `user` | `response.UserListData` |  |
+
+**`response.CompetitionListData`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `records` | `array[models.Competition]` |  |
+| `total` | `integer` |  |
+
+**`models.Competition`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `author_id` | `string` |  |
+| `category` | `string` |  |
+| `code` | `string` |  |
+| `cover` | `string` |  |
+| `created_at` | `string` |  |
+| `data` | `string` |  |
+| `description` | `string` |  |
+| `end_date` | `string` |  |
+| `final_result_mode` | `string` |  |
+| `id` | `string` |  |
+| `joined` | `boolean` |  |
+| `launched` | `boolean` |  |
+| `max_daily_private_submissions` | `integer` |  |
+| `overview` | `string` |  |
+| `owner` | `models.Owner` |  |
+| `participants` | `integer` |  |
+| `path` | `string` |  |
+| `permission` | `map[string]any` |  |
+| `private_leaderboard_release_date` | `string` |  |
+| `private_submissions_remaining` | `integer` |  |
+| `prize_distribution_method` | `string` |  |
+| `registration_deadline` | `string` |  |
+| `reward_type` | `string` |  |
+| `rules` | `string` |  |
+| `start_date` | `string` |  |
+| `submission_deadline` | `string` |  |
+| `submissions` | `integer` |  |
+| `tags` | `array[string]` |  |
+| `thumbnail` | `string` |  |
+| `time_zone_config` | `map[string]any` |  |
+| `title` | `string` |  |
+| `total_prize_pool` | `number` |  |
+| `updated_at` | `string` |  |
+| `user_id` | `string` |  |
+| `visibility` | `string` |  |
+
+**`models.Owner`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `id` | `string` |  |
+| `username` | `string` |  |
+
+**`response.DatasetListData`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `records` | `array[models.Dataset]` |  |
+| `total` | `integer` |  |
+
+**`models.Dataset`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `author_avatar` | `string` |  |
+| `author_id` | `string` |  |
+| `cover` | `string` |  |
+| `create_by` | `string` |  |
+| `created_at` | `string` |  |
+| `description` | `string` |  |
+| `discussions_count` | `integer` |  |
+| `downloads_count` | `integer` |  |
+| `id` | `string` |  |
+| `is_liked_by_user` | `boolean` |  |
+| `is_official` | `boolean` |  |
+| `is_released` | `boolean` |  |
+| `is_verified` | `boolean` |  |
+| `likes_count` | `integer` |  |
+| `metadata` | `models.DatasetMetadata` |  |
+| `name` | `string` |  |
+| `price` | `number` |  |
+| `reacted` | `models.Reaction` |  |
+| `reactions_statistics` | `array[models.ReactionStats]` |  |
+| `thumbnail` | `string` |  |
+| `updated_at` | `string` |  |
+| `username` | `string` |  |
+| `visibility` | `string` |  |
+
+**`models.DatasetMetadata`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `dataset_id` | `string` |  |
+| `id` | `string` |  |
+| `language` | `array[string]` | en, vi |
+| `license` | `string` |  |
+| `pretty_name` | `string` |  |
+| `size_category` | `string` |  |
+| `tags` | `array[string]` | art |
+| `task_categories` | `array[string]` | text-to-image |
+
+**`models.Reaction`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `created_at` | `string` |  |
+| `name` | `string` |  |
+| `owner` | `models.Owner` |  |
+| `updated_at` | `string` |  |
+
+**`models.Owner`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `id` | `string` |  |
+| `username` | `string` |  |
+
+**`models.ReactionStats`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `count` | `integer` |  |
+| `name` | `string` |  |
+
+**`response.ModelListData`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `records` | `array[models.Model]` |  |
+| `total` | `integer` |  |
+
+**`models.Model`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `author_avatar` | `string` |  |
+| `author_id` | `string` |  |
+| `commit_hash` | `string` |  |
+| `cover` | `string` |  |
+| `create_by` | `string` |  |
+| `created_at` | `string` |  |
+| `dependency_id` | `string` |  |
+| `description` | `string` |  |
+| `discussions_count` | `integer` |  |
+| `downloads_count` | `integer` |  |
+| `id` | `string` |  |
+| `is_liked_by_user` | `boolean` |  |
+| `is_official` | `boolean` |  |
+| `is_released` | `boolean` |  |
+| `is_verified` | `boolean` |  |
+| `likes_count` | `integer` |  |
+| `model_metadata` | `models.ModelMetadata` |  |
+| `name` | `string` |  |
+| `playground_count` | `integer` |  |
+| `price` | `number` |  |
+| `reacted` | `models.Reaction` |  |
+| `reactions_statistics` | `array[models.ReactionStats]` |  |
+| `task_reviews_count` | `integer` |  |
+| `task_reviews_point` | `number` |  |
+| `thumbnail` | `string` |  |
+| `updated_at` | `string` |  |
+| `username` | `string` |  |
+| `visibility` | `string` |  |
+
+**`models.ModelMetadata`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
+| `license` | `string` |  |
+| `model_id` | `string` |  |
+| `pretty_name` | `string` |  |
+| `task` | `string` |  |
+
+**`models.Reaction`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `created_at` | `string` |  |
+| `name` | `string` |  |
+| `owner` | `models.Owner` |  |
+| `updated_at` | `string` |  |
+
+**`models.Owner`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `id` | `string` |  |
+| `username` | `string` |  |
+
+**`models.ReactionStats`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `count` | `integer` |  |
+| `name` | `string` |  |
+
+**`response.OrganizationListData`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `records` | `array[models.OrganizationInfo]` |  |
+| `total` | `integer` |  |
+
+**`models.OrganizationInfo`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `full_name` | `string` |  |
+| `id` | `string` |  |
+| `org_type` | `string` |  |
+| `permission` | `map[string]any` |  |
+| `type` | `string` |  |
+| `username` | `string` |  |
+| `verified` | `boolean` |  |
+| `visibility` | `string` |  |
+
+**`response.UserListData`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `records` | `array[models.UserInfo]` |  |
+| `total` | `integer` |  |
+
+**`models.UserInfo`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `bio` | `string` |  |
+| `fullname` | `string` |  |
+| `github_link` | `string` |  |
+| `home_page` | `string` |  |
+| `id` | `string` |  |
+| `interests` | `string` |  |
+| `twitter_link` | `string` |  |
+| `twitter_name` | `string` |  |
+| `type` | `string` |  |
+| `username` | `string` |  |
+| `visibility` | `string` |  |
 
 **Error Responses**
 

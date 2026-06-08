@@ -6,9 +6,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `postApiKeyStorageUploadCreatePresignedUrl`
+### `postStorageUploadCreatePresignedUrl`
 
-**`POST /api-key/storage/upload/create-presigned-url`** — Create Presigned Url By Api Key
+**`POST /api-key/storage/upload/create-presigned-url`** — Create Presigned Url
 
 **Headers**
 
@@ -49,14 +49,15 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 | Status | Description |
 | --- | --- |
-| 400 | Bad Request — [response.ErrorResponse](../README.md#common-response-types) |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
 
 **Example**
 
 ```typescript
-import { postApiKeyStorageUploadCreatePresignedUrl } from '@aiozai/nodejs-client';
+import { postStorageUploadCreatePresignedUrl } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyStorageUploadCreatePresignedUrl({
+const response = await postStorageUploadCreatePresignedUrl({
     body: {
         folder: '...',  // string  // required
     mime: '...',  // string  // required
@@ -70,9 +71,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyStorageUploadStatistics`
+### `getStorageUploadStatistics`
 
-**`GET /api-key/storage/upload/statistics`** — Get user upload statistics by api key
+**`GET /api-key/storage/upload/statistics`** — Get user upload statistics
 
 **Headers**
 
@@ -115,17 +116,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyStorageUploadStatistics } from '@aiozai/nodejs-client';
+import { getStorageUploadStatistics } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyStorageUploadStatistics();
+const response = await getStorageUploadStatistics();
 console.log(response.data);
 ```
 
 ---
 
-### `getApiKeyStorageUploadByFolder`
+### `getStorageUploadByFolder`
 
-**`GET /api-key/storage/upload/{folder}`** — Get user uploads by folder by api key
+**`GET /api-key/storage/upload/{folder}`** — Get user uploads by folder
 
 **Headers**
 
@@ -185,17 +186,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyStorageUploadByFolder } from '@aiozai/nodejs-client';
+import { getStorageUploadByFolder } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyStorageUploadByFolder({ path: { folder: '...' } });
+const response = await getStorageUploadByFolder({ path: { folder: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `deleteApiKeyStorageW3sUrl`
+### `deleteStorageW3sUrl`
 
-**`DELETE /api-key/storage/w3s/url`** — Delete Url By Api Key
+**`DELETE /api-key/storage/w3s/url`** — Delete Url
 
 **Headers**
 
@@ -211,18 +212,26 @@ console.log(response.data);
 
 **Responses**
 
+**200 OK** — `response.SuccessResponse`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `message` | `string` |  |
+| `status` | `string` |  |
+
 **Error Responses**
 
 | Status | Description |
 | --- | --- |
-| 400 | Bad Request — [response.ErrorResponse](../README.md#common-response-types) |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
 
 **Example**
 
 ```typescript
-import { deleteApiKeyStorageW3sUrl } from '@aiozai/nodejs-client';
+import { deleteStorageW3sUrl } from '@aiozai/nodejs-client';
 
-const response = await deleteApiKeyStorageW3sUrl({
+const response = await deleteStorageW3sUrl({
     body: {
         url: '...',  // string  // required
     },

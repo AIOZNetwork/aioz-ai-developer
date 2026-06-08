@@ -6,9 +6,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `postApiKeyCollectionByIdReport`
+### `postCollectionByIdReport`
 
-**`POST /api-key/collection/{id}/report`** — Report Collection By Api Key
+**`POST /api-key/collection/{id}/report`** — Report Collection
 
 **Headers**
 
@@ -98,9 +98,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```typescript
-import { postApiKeyCollectionByIdReport } from '@aiozai/nodejs-client';
+import { postCollectionByIdReport } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyCollectionByIdReport({
+const response = await postCollectionByIdReport({
     body: {
         reason: '...',  // string  // required
     url: '...',  // string  // required
@@ -111,9 +111,9 @@ console.log(response.data);
 
 ---
 
-### `postApiKeyCommentsByIdReport`
+### `postCommentsByIdReport`
 
-**`POST /api-key/comments/{id}/report`** — Report Comment By Api Key
+**`POST /api-key/comments/{id}/report`** — Report Comment
 
 **Headers**
 
@@ -203,9 +203,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyCommentsByIdReport } from '@aiozai/nodejs-client';
+import { postCommentsByIdReport } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyCommentsByIdReport({
+const response = await postCommentsByIdReport({
     body: {
         reason: '...',  // string  // required
     url: '...',  // string  // required
@@ -216,9 +216,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyDiscussionCompetitionById`
+### `getDiscussionCompetitionById`
 
-**`GET /api-key/discussion/competition/{id}`** — Get competition discussion list By Api Key
+**`GET /api-key/discussion/competition/{id}`** — Get competition discussion list
 
 **Headers**
 
@@ -313,17 +313,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyDiscussionCompetitionById } from '@aiozai/nodejs-client';
+import { getDiscussionCompetitionById } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyDiscussionCompetitionById({ path: { id: '...' } });
+const response = await getDiscussionCompetitionById({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyDiscussionCompetitionById`
+### `postDiscussionCompetitionById`
 
-**`POST /api-key/discussion/competition/{id}`** — Create competition discussion By Api Key
+**`POST /api-key/discussion/competition/{id}`** — Create competition discussion
 
 **Headers**
 
@@ -413,9 +413,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyDiscussionCompetitionById } from '@aiozai/nodejs-client';
+import { postDiscussionCompetitionById } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyDiscussionCompetitionById({
+const response = await postDiscussionCompetitionById({
     body: {
         content: '...',  // string  // required
     title: '...',  // string  // required
@@ -426,9 +426,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyDiscussionDatasetById`
+### `getDiscussionDatasetById`
 
-**`GET /api-key/discussion/dataset/{id}`** — Get dataset discussion list By Api Key
+**`GET /api-key/discussion/dataset/{id}`** — Get dataset discussion list
 
 **Headers**
 
@@ -521,17 +521,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyDiscussionDatasetById } from '@aiozai/nodejs-client';
+import { getDiscussionDatasetById } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyDiscussionDatasetById({ path: { id: '...' } });
+const response = await getDiscussionDatasetById({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyDiscussionDatasetById`
+### `postDiscussionDatasetById`
 
-**`POST /api-key/discussion/dataset/{id}`** — Create dataset discussion By Api Key
+**`POST /api-key/discussion/dataset/{id}`** — Create dataset discussion
 
 **Headers**
 
@@ -621,9 +621,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyDiscussionDatasetById } from '@aiozai/nodejs-client';
+import { postDiscussionDatasetById } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyDiscussionDatasetById({
+const response = await postDiscussionDatasetById({
     body: {
         content: '...',  // string  // required
     title: '...',  // string  // required
@@ -634,9 +634,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyDiscussionModelById`
+### `getDiscussionModelById`
 
-**`GET /api-key/discussion/model/{id}`** — Get model discussion list By Api Key
+**`GET /api-key/discussion/model/{id}`** — Get model discussion list
 
 **Headers**
 
@@ -729,17 +729,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyDiscussionModelById } from '@aiozai/nodejs-client';
+import { getDiscussionModelById } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyDiscussionModelById({ path: { id: '...' } });
+const response = await getDiscussionModelById({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyDiscussionModelById`
+### `postDiscussionModelById`
 
-**`POST /api-key/discussion/model/{id}`** — Create model discussion By Api Key
+**`POST /api-key/discussion/model/{id}`** — Create model discussion
 
 **Headers**
 
@@ -829,9 +829,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyDiscussionModelById } from '@aiozai/nodejs-client';
+import { postDiscussionModelById } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyDiscussionModelById({
+const response = await postDiscussionModelById({
     body: {
         content: '...',  // string  // required
     title: '...',  // string  // required
@@ -842,9 +842,9 @@ console.log(response.data);
 
 ---
 
-### `putApiKeyDiscussionById`
+### `putDiscussionById`
 
-**`PUT /api-key/discussion/{id}`** — Update discussion By Api Key
+**`PUT /api-key/discussion/{id}`** — Update discussion
 
 **Headers**
 
@@ -935,9 +935,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyDiscussionById } from '@aiozai/nodejs-client';
+import { putDiscussionById } from '@aiozai/nodejs-client';
 
-const response = await putApiKeyDiscussionById({
+const response = await putDiscussionById({
     body: {
         content: '...',  // string
     is_closed: '...',  // boolean
@@ -949,9 +949,9 @@ console.log(response.data);
 
 ---
 
-### `deleteApiKeyDiscussionById`
+### `deleteDiscussionById`
 
-**`DELETE /api-key/discussion/{id}`** — Delete discussion By Api Key
+**`DELETE /api-key/discussion/{id}`** — Delete discussion
 
 **Headers**
 
@@ -1034,17 +1034,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyDiscussionById } from '@aiozai/nodejs-client';
+import { deleteDiscussionById } from '@aiozai/nodejs-client';
 
-const response = await deleteApiKeyDiscussionById({ path: { id: '...' } });
+const response = await deleteDiscussionById({ path: { id: '...' } });
 console.log(response.data);
 ```
 
 ---
 
-### `postApiKeyDiscussionByIdReport`
+### `postDiscussionByIdReport`
 
-**`POST /api-key/discussion/{id}/report`** — Report Discussion By Api Key
+**`POST /api-key/discussion/{id}/report`** — Report Discussion
 
 **Headers**
 
@@ -1134,9 +1134,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postApiKeyDiscussionByIdReport } from '@aiozai/nodejs-client';
+import { postDiscussionByIdReport } from '@aiozai/nodejs-client';
 
-const response = await postApiKeyDiscussionByIdReport({
+const response = await postDiscussionByIdReport({
     body: {
         reason: '...',  // string  // required
     url: '...',  // string  // required

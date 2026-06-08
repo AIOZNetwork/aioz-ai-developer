@@ -6,7 +6,7 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `api_key_repository_model_commit_commit_sha_history_get`
+### `get_repository_model_commit_by_commit_sha_history`
 
 **`GET /api-key/repository/model/commit/{commit_sha}/history`** — Get Checked Commit By Id (model) by api-key
 
@@ -63,13 +63,13 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```python
-resp = client.repositorys.repository.api_key_repository_model_commit_commit_sha_history_get(commit_sha="<commit_sha>")
+resp = client.repositorys.repository.get_repository_model_commit_by_commit_sha_history(commit_sha="<commit_sha>")
 print(resp)
 ```
 
 ---
 
-### `api_key_repository_model_id_commit_history_get`
+### `get_repository_model_by_id_commit_history`
 
 **`GET /api-key/repository/model/{id}/commit/history`** — Get List Checked Commit (model) by api-key
 
@@ -128,13 +128,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.repositorys.repository.api_key_repository_model_id_commit_history_get(id="<id>")
+resp = client.repositorys.repository.get_repository_model_by_id_commit_history(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_repository_ownerUsername_repositoryName_get`
+### `get_repository_by_ownerusername_by_repositoryname`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}`** — Get repository by name by api-key
 
@@ -323,13 +323,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.repositorys.repository.api_key_repository_ownerUsername_repositoryName_get(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
+resp = client.repositorys.repository.get_repository_by_ownerusername_by_repositoryname(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
 print(resp)
 ```
 
 ---
 
-### `api_key_repository_ownerUsername_repositoryName_branches_get`
+### `get_repository_by_ownerusername_by_repositoryname_branches`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}/branches`** — Get repository branches by repository name by api-key
 
@@ -418,13 +418,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.repositorys.repository.api_key_repository_ownerUsername_repositoryName_branches_get(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
+resp = client.repositorys.repository.get_repository_by_ownerusername_by_repositoryname_branches(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
 print(resp)
 ```
 
 ---
 
-### `api_key_repository_ownerUsername_repositoryName_buy_post`
+### `post_repository_by_ownerusername_by_repositoryname_buy`
 
 **`POST /api-key/repository/{ownerUsername}/{repositoryName}/buy`** — Unlock Repository By User by api-key
 
@@ -482,13 +482,13 @@ request = DownloadRepoZipRequest(
     repoType="...",  # string
     zipType="...",  # string
 )
-resp = client.repositorys.repository.api_key_repository_ownerUsername_repositoryName_buy_post(body=request)
+resp = client.repositorys.repository.post_repository_by_ownerusername_by_repositoryname_buy(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_repository_ownerUsername_repositoryName_collaborators_get`
+### `get_repository_by_ownerusername_by_repositoryname_collaborators`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}/collaborators`** — Get repository collaborators by repository name by api-key
 
@@ -636,13 +636,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.repositorys.repository.api_key_repository_ownerUsername_repositoryName_collaborators_get(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
+resp = client.repositorys.repository.get_repository_by_ownerusername_by_repositoryname_collaborators(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
 print(resp)
 ```
 
 ---
 
-### `api_key_repository_ownerUsername_repositoryName_commit_get`
+### `get_repository_by_ownerusername_by_repositoryname_commit`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}/commit`** — Get repository single commit by repository name and commit sha by api-key
 
@@ -962,15 +962,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.repositorys.repository.api_key_repository_ownerUsername_repositoryName_commit_get(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
+resp = client.repositorys.repository.get_repository_by_ownerusername_by_repositoryname_commit(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
 print(resp)
 ```
 
 ---
 
-### `api_key_repository_ownerUsername_repositoryName_commit_history_get`
+### `get_repository_by_ownerusername_by_repositoryname_commit_history`
 
-**`GET /api-key/repository/{ownerUsername}/{repositoryName}/commit/history`** — Get commit history by repository name and branch name by api key
+**`GET /api-key/repository/{ownerUsername}/{repositoryName}/commit/history`** — Get commit history by repository name and branch name
 
 **Headers**
 
@@ -1291,13 +1291,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.repositorys.repository.api_key_repository_ownerUsername_repositoryName_commit_history_get(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
+resp = client.repositorys.repository.get_repository_by_ownerusername_by_repositoryname_commit_history(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
 print(resp)
 ```
 
 ---
 
-### `api_key_repository_ownerUsername_repositoryName_commit_tree_get`
+### `get_repository_by_ownerusername_by_repositoryname_commit_tree`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}/commit/tree`** — Get commit tree by repository name and commit sha by api-key
 
@@ -1364,13 +1364,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.repositorys.repository.api_key_repository_ownerUsername_repositoryName_commit_tree_get(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
+resp = client.repositorys.repository.get_repository_by_ownerusername_by_repositoryname_commit_tree(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
 print(resp)
 ```
 
 ---
 
-### `api_key_repository_ownerUsername_repositoryName_content_get`
+### `get_repository_by_ownerusername_by_repositoryname_content`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}/content`** — Get file content by api-key
 
@@ -1409,13 +1409,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.repositorys.repository.api_key_repository_ownerUsername_repositoryName_content_get(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
+resp = client.repositorys.repository.get_repository_by_ownerusername_by_repositoryname_content(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
 print(resp)
 ```
 
 ---
 
-### `api_key_repository_ownerUsername_repositoryName_content_put`
+### `put_repository_by_ownerusername_by_repositoryname_content`
 
 **`PUT /api-key/repository/{ownerUsername}/{repositoryName}/content`** — Modify repository content by api-key
 
@@ -1762,13 +1762,13 @@ request = CreateRepositoryContentRequest(
     message="...",  # string
     new_branch_name="...",  # string
 )
-resp = client.repositorys.repository.api_key_repository_ownerUsername_repositoryName_content_put(body=request)
+resp = client.repositorys.repository.put_repository_by_ownerusername_by_repositoryname_content(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_repository_ownerUsername_repositoryName_content_delete`
+### `delete_repository_by_ownerusername_by_repositoryname_content`
 
 **`DELETE /api-key/repository/{ownerUsername}/{repositoryName}/content`** — Delete single repository content by api-key
 
@@ -1882,13 +1882,13 @@ request = DeleteRepositoryContentRequest(
     path="...",  # string
     sha="...",  # string  # required
 )
-resp = client.repositorys.repository.api_key_repository_ownerUsername_repositoryName_content_delete(body=request)
+resp = client.repositorys.repository.delete_repository_by_ownerusername_by_repositoryname_content(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_repository_ownerUsername_repositoryName_content_metadata_get`
+### `get_repository_by_ownerusername_by_repositoryname_content_metadata`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}/content/metadata`** — Get repository content metadata by repository name, branch name and path by api-key
 
@@ -1965,13 +1965,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.repositorys.repository.api_key_repository_ownerUsername_repositoryName_content_metadata_get(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
+resp = client.repositorys.repository.get_repository_by_ownerusername_by_repositoryname_content_metadata(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
 print(resp)
 ```
 
 ---
 
-### `api_key_repository_ownerUsername_repositoryName_content_playground_get`
+### `get_repository_by_ownerusername_by_repositoryname_content_playground`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}/content/playground`** — Get playground file content (model only) by api-key
 
@@ -2007,13 +2007,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.repositorys.repository.api_key_repository_ownerUsername_repositoryName_content_playground_get(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
+resp = client.repositorys.repository.get_repository_by_ownerusername_by_repositoryname_content_playground(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
 print(resp)
 ```
 
 ---
 
-### `api_key_repository_ownerUsername_repositoryName_content_pre_download_get`
+### `get_repository_by_ownerusername_by_repositoryname_content_pre_download`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}/content/pre-download`** — Calculate Cost To Download Repo Content by api-key
 
@@ -2061,13 +2061,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.repositorys.repository.api_key_repository_ownerUsername_repositoryName_content_pre_download_get(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
+resp = client.repositorys.repository.get_repository_by_ownerusername_by_repositoryname_content_pre_download(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
 print(resp)
 ```
 
 ---
 
-### `api_key_repository_ownerUsername_repositoryName_content_readme_get`
+### `get_repository_by_ownerusername_by_repositoryname_content_readme`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}/content/readme`** — Get readme file content by api-key
 
@@ -2106,13 +2106,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.repositorys.repository.api_key_repository_ownerUsername_repositoryName_content_readme_get(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
+resp = client.repositorys.repository.get_repository_by_ownerusername_by_repositoryname_content_readme(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
 print(resp)
 ```
 
 ---
 
-### `api_key_repository_ownerUsername_repositoryName_download_get`
+### `get_repository_by_ownerusername_by_repositoryname_download`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}/download`** — Download repository zip by api-key
 
@@ -2151,13 +2151,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.repositorys.repository.api_key_repository_ownerUsername_repositoryName_download_get(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
+resp = client.repositorys.repository.get_repository_by_ownerusername_by_repositoryname_download(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
 print(resp)
 ```
 
 ---
 
-### `api_key_repository_ownerUsername_repositoryName_pre_download_get`
+### `get_repository_by_ownerusername_by_repositoryname_pre_download`
 
 **`GET /api-key/repository/{ownerUsername}/{repositoryName}/pre-download`** — Check Available Free Download Repo Zip by api-key
 
@@ -2196,7 +2196,7 @@ print(resp)
 **Example**
 
 ```python
-resp = client.repositorys.repository.api_key_repository_ownerUsername_repositoryName_pre_download_get(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
+resp = client.repositorys.repository.get_repository_by_ownerusername_by_repositoryname_pre_download(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
 print(resp)
 ```
 

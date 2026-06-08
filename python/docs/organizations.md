@@ -6,9 +6,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `api_key_organization_post`
+### `post_organization`
 
-**`POST /api-key/organization`** — Create new organization By Api Key
+**`POST /api-key/organization`** — Create new organization
 
 **Headers**
 
@@ -53,15 +53,15 @@ request = CreateOrganizationRequest(
     github_name="...",  # string
     home_page="...",  # string
 )
-resp = client.organizations.organization.api_key_organization_post(body=request)
+resp = client.organizations.organization.post_organization(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_organization_list_get`
+### `get_organization_list`
 
-**`GET /api-key/organization/list`** — Get organizations By Api Key
+**`GET /api-key/organization/list`** — Get organizations
 
 **Headers**
 
@@ -119,15 +119,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.organizations.organization.api_key_organization_list_get()
+resp = client.organizations.organization.get_organization_list()
 print(resp)
 ```
 
 ---
 
-### `api_key_organization_org_get`
+### `get_organization_by_org`
 
-**`GET /api-key/organization/{org}`** — Get organization By Api Key
+**`GET /api-key/organization/{org}`** — Get organization
 
 **Headers**
 
@@ -175,15 +175,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.organizations.organization.api_key_organization_org_get(org="<org>")
+resp = client.organizations.organization.get_organization_by_org(org="<org>")
 print(resp)
 ```
 
 ---
 
-### `api_key_organization_org_delete`
+### `delete_organization_by_org`
 
-**`DELETE /api-key/organization/{org}`** — Delete organization By Api Key
+**`DELETE /api-key/organization/{org}`** — Delete organization
 
 **Headers**
 
@@ -216,15 +216,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.organizations.organization.api_key_organization_org_delete(org="<org>")
+resp = client.organizations.organization.delete_organization_by_org(org="<org>")
 print(resp)
 ```
 
 ---
 
-### `api_key_organization_org_info_patch`
+### `patch_organization_by_org_info`
 
-**`PATCH /api-key/organization/{org}/info`** — Update organization's info By Api Key
+**`PATCH /api-key/organization/{org}/info`** — Update organization's info
 
 **Headers**
 
@@ -297,15 +297,15 @@ request = UpdateOrganizationInfoRequest(
     github_link="...",  # string
     github_name="...",  # string
 )
-resp = client.organizations.organization.api_key_organization_org_info_patch(body=request)
+resp = client.organizations.organization.patch_organization_by_org_info(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_organization_org_is_member_get`
+### `get_organization_by_org_is_member`
 
-**`GET /api-key/organization/{org}/is-member`** — Check if user is member of organization By Api Key
+**`GET /api-key/organization/{org}/is-member`** — Check if user is member of organization
 
 **Headers**
 
@@ -346,15 +346,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.organizations.organization.api_key_organization_org_is_member_get(org="<org>")
+resp = client.organizations.organization.get_organization_by_org_is_member(org="<org>")
 print(resp)
 ```
 
 ---
 
-### `api_key_organization_org_leave_delete`
+### `delete_organization_by_org_leave`
 
-**`DELETE /api-key/organization/{org}/leave`** — Leave Organization By Api Key
+**`DELETE /api-key/organization/{org}/leave`** — Leave Organization
 
 **Headers**
 
@@ -387,15 +387,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.organizations.organization.api_key_organization_org_leave_delete(org="<org>")
+resp = client.organizations.organization.delete_organization_by_org_leave(org="<org>")
 print(resp)
 ```
 
 ---
 
-### `api_key_organization_org_members_get`
+### `get_organization_by_org_members`
 
-**`GET /api-key/organization/{org}/members`** — Get organization's members By Api Key
+**`GET /api-key/organization/{org}/members`** — Get organization's members
 
 **Headers**
 
@@ -526,15 +526,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.organizations.organization.api_key_organization_org_members_get(org="<org>")
+resp = client.organizations.organization.get_organization_by_org_members(org="<org>")
 print(resp)
 ```
 
 ---
 
-### `api_key_organization_org_offers_get`
+### `get_organization_by_org_offers`
 
-**`GET /api-key/organization/{org}/offers`** — Get organization's offers By Api Key
+**`GET /api-key/organization/{org}/offers`** — Get organization's offers
 
 **Headers**
 
@@ -591,15 +591,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.organizations.organization.api_key_organization_org_offers_get(org="<org>")
+resp = client.organizations.organization.get_organization_by_org_offers(org="<org>")
 print(resp)
 ```
 
 ---
 
-### `api_key_organization_org_permission_get`
+### `get_organization_by_org_permission`
 
-**`GET /api-key/organization/{org}/permission`** — Get user organization permission By Api Key
+**`GET /api-key/organization/{org}/permission`** — Get user organization permission
 
 **Headers**
 
@@ -657,15 +657,15 @@ from aiozai_sdk.generated.models import GetUserOrganizationPermissionRequest
 request = GetUserOrganizationPermissionRequest(
     
 )
-resp = client.organizations.organization.api_key_organization_org_permission_get(body=request)
+resp = client.organizations.organization.get_organization_by_org_permission(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_organization_org_setting_get`
+### `get_organization_by_org_setting`
 
-**`GET /api-key/organization/{org}/setting`** — Get organization's setting By Api Key
+**`GET /api-key/organization/{org}/setting`** — Get organization's setting
 
 **Headers**
 
@@ -711,15 +711,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.organizations.organization.api_key_organization_org_setting_get(org="<org>")
+resp = client.organizations.organization.get_organization_by_org_setting(org="<org>")
 print(resp)
 ```
 
 ---
 
-### `api_key_organization_org_setting_patch`
+### `patch_organization_by_org_setting`
 
-**`PATCH /api-key/organization/{org}/setting`** — Update organization's join settings By Api Key
+**`PATCH /api-key/organization/{org}/setting`** — Update organization's join settings
 
 **Headers**
 
@@ -784,15 +784,15 @@ request = UpdateJoinSettingsRequest(
     auto_approve_join_request="...",  # boolean  # required
     default_role="...",  # string  # required
 )
-resp = client.organizations.organization.api_key_organization_org_setting_patch(body=request)
+resp = client.organizations.organization.patch_organization_by_org_setting(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_organization_org_statistics_earnings_post`
+### `post_organization_by_org_statistics_earnings`
 
-**`POST /api-key/organization/{org}/statistics/earnings`** — Get Organzition Earnings Statistics By Owner By Api Key
+**`POST /api-key/organization/{org}/statistics/earnings`** — Get Organzition Earnings Statistics By Owner
 
 **Headers**
 
@@ -853,15 +853,15 @@ request = GetTransactionAnalyticsRequest(
     from="...",  # string
     to="...",  # string
 )
-resp = client.organizations.wallet.api_key_organization_org_statistics_earnings_post(body=request)
+resp = client.organizations.wallet.post_organization_by_org_statistics_earnings(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_organization_org_statistics_spending_cost_post`
+### `post_organization_by_org_statistics_spending_cost`
 
-**`POST /api-key/organization/{org}/statistics/spending-cost`** — Get Organzition Spending Cost Statistics By Owner By Api Key
+**`POST /api-key/organization/{org}/statistics/spending-cost`** — Get Organzition Spending Cost Statistics By Owner
 
 **Headers**
 
@@ -926,15 +926,15 @@ request = GetOrganizationSpendingCostStatisticsRequest(
     from="...",  # string
     to="...",  # string
 )
-resp = client.organizations.wallet.api_key_organization_org_statistics_spending_cost_post(body=request)
+resp = client.organizations.wallet.post_organization_by_org_statistics_spending_cost(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_organization_org_wallet_deposit_history_get`
+### `get_organization_by_org_wallet_deposit_history`
 
-**`GET /api-key/organization/{org}/wallet/deposit/history`** — Get List Org Deposit History By Owner By Api Key
+**`GET /api-key/organization/{org}/wallet/deposit/history`** — Get List Org Deposit History By Owner
 
 **Headers**
 
@@ -1003,15 +1003,15 @@ request = GetListOrgDepositHistoryByOwnerRequest(
     limit="...",  # integer
     offset="...",  # integer
 )
-resp = client.organizations.wallet.api_key_organization_org_wallet_deposit_history_get(body=request)
+resp = client.organizations.wallet.get_organization_by_org_wallet_deposit_history(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_organization_org_wallet_transaction_analytics_post`
+### `post_organization_by_org_wallet_transaction_analytics`
 
-**`POST /api-key/organization/{org}/wallet/transaction/analytics`** — Get Org Transaction Analytics By Owner By Api Key
+**`POST /api-key/organization/{org}/wallet/transaction/analytics`** — Get Org Transaction Analytics By Owner
 
 **Headers**
 
@@ -1089,15 +1089,15 @@ request = GetOrgTransactionAnalyticsByOwnerRequest(
     from="...",  # string
     to="...",  # string
 )
-resp = client.organizations.wallet.api_key_organization_org_wallet_transaction_analytics_post(body=request)
+resp = client.organizations.wallet.post_organization_by_org_wallet_transaction_analytics(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_organization_org_wallet_transaction_history_get`
+### `get_organization_by_org_wallet_transaction_history`
 
-**`GET /api-key/organization/{org}/wallet/transaction/history`** — Get List Org Transaction History By Owner By Api Key
+**`GET /api-key/organization/{org}/wallet/transaction/history`** — Get List Org Transaction History By Owner
 
 **Headers**
 
@@ -1110,14 +1110,9 @@ print(resp)
 | Name | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `org` | path | `string` | Yes | organization's username |
-
-**Request Body** — `request.GetListOrgTransactionHistoryByOwnerRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `limit` | `integer` | No |  |
-| `offset` | `integer` | No |  |
-| `type` | `string` | No |  |
+| `limit` | query | `integer` | No |  |
+| `offset` | query | `integer` | No |  |
+| `type` | query | `string` | No |  |
 
 **Responses**
 
@@ -1165,22 +1160,15 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import GetListOrgTransactionHistoryByOwnerRequest
-
-request = GetListOrgTransactionHistoryByOwnerRequest(
-    limit="...",  # integer
-    offset="...",  # integer
-    type="...",  # string
-)
-resp = client.organizations.wallet.api_key_organization_org_wallet_transaction_history_get(body=request)
+resp = client.organizations.wallet.get_organization_by_org_wallet_transaction_history(org="<org>")
 print(resp)
 ```
 
 ---
 
-### `api_key_organization_org_wallet_transaction_recent_post`
+### `post_organization_by_org_wallet_transaction_recent`
 
-**`POST /api-key/organization/{org}/wallet/transaction/recent`** — Get List Org Recent Transaction By Owner By Api Key
+**`POST /api-key/organization/{org}/wallet/transaction/recent`** — Get List Org Recent Transaction By Owner
 
 **Headers**
 
@@ -1259,15 +1247,15 @@ request = GetListOrgRecentTransactionByOwnerRequest(
     to="...",  # string
     type="...",  # string
 )
-resp = client.organizations.wallet.api_key_organization_org_wallet_transaction_recent_post(body=request)
+resp = client.organizations.wallet.post_organization_by_org_wallet_transaction_recent(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_organization_org_wallet_withdraw_earnings_post`
+### `post_organization_by_org_wallet_withdraw_earnings`
 
-**`POST /api-key/organization/{org}/wallet/withdraw/earnings`** — Withdraw Org Earnings By Owner By Api Key
+**`POST /api-key/organization/{org}/wallet/withdraw/earnings`** — Withdraw Org Earnings By Owner
 
 **Headers**
 
@@ -1313,15 +1301,15 @@ request = WithdrawOrgEarningsByOwnerRequest(
     amount="...",  # string  # required
     to_wallet="...",  # string  # required
 )
-resp = client.organizations.wallet.api_key_organization_org_wallet_withdraw_earnings_post(body=request)
+resp = client.organizations.wallet.post_organization_by_org_wallet_withdraw_earnings(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_organization_org_wallet_withdraw_history_get`
+### `get_organization_by_org_wallet_withdraw_history`
 
-**`GET /api-key/organization/{org}/wallet/withdraw/history`** — Get list org withdrawal history by owner By Api Key
+**`GET /api-key/organization/{org}/wallet/withdraw/history`** — Get list org withdrawal history by owner
 
 **Headers**
 
@@ -1388,15 +1376,15 @@ request = GetListOrgWithdrawalHistoryByOwnerRequest(
     limit="...",  # integer
     offset="...",  # integer
 )
-resp = client.organizations.wallet.api_key_organization_org_wallet_withdraw_history_get(body=request)
+resp = client.organizations.wallet.get_organization_by_org_wallet_withdraw_history(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_organization_org_member_delete`
+### `delete_organization_by_org_by_member`
 
-**`DELETE /api-key/organization/{org}/{member}`** — Delete organization's member By Api Key
+**`DELETE /api-key/organization/{org}/{member}`** — Delete organization's member
 
 **Headers**
 
@@ -1430,15 +1418,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.organizations.organization.api_key_organization_org_member_delete(org="<org>", member="<member>")
+resp = client.organizations.organization.delete_organization_by_org_by_member(org="<org>", member="<member>")
 print(resp)
 ```
 
 ---
 
-### `api_key_organization_org_member_patch`
+### `patch_organization_by_org_by_member`
 
-**`PATCH /api-key/organization/{org}/{member}`** — Change member's role By Api Key
+**`PATCH /api-key/organization/{org}/{member}`** — Change member's role
 
 **Headers**
 
@@ -1482,13 +1470,13 @@ from aiozai_sdk.generated.models import ChangeMemberRoleRequest
 request = ChangeMemberRoleRequest(
     role="...",  # string  # required
 )
-resp = client.organizations.organization.api_key_organization_org_member_patch(body=request)
+resp = client.organizations.organization.patch_organization_by_org_by_member(input=request)
 print(resp)
 ```
 
 ---
 
-### `public_organization_get`
+### `get_public_organization`
 
 **`GET /public/organization`** — Get public organizations
 
@@ -1496,9 +1484,10 @@ print(resp)
 
 | Name | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
+| `keyword` | query | `string` | No |  |
 | `limit` | query | `integer` | No |  |
 | `offset` | query | `integer` | No |  |
-| `sort` | query | `string` | No |  |
+| `type` | query | `string` | No |  |
 
 **Responses**
 
@@ -1566,13 +1555,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.organizations.organization.public_organization_get()
+resp = client.organizations.organization.get_public_organization()
 print(resp)
 ```
 
 ---
 
-### `public_organization_org_get`
+### `get_public_organization_by_org`
 
 **`GET /public/organization/{org}`** — Get organization detail
 
@@ -1641,13 +1630,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.organizations.organization.public_organization_org_get(org="<org>")
+resp = client.organizations.organization.get_public_organization_by_org(org="<org>")
 print(resp)
 ```
 
 ---
 
-### `public_organization_org_members_get`
+### `get_public_organization_by_org_members`
 
 **`GET /public/organization/{org}/members`** — Get pulic organization's members
 
@@ -1774,7 +1763,7 @@ print(resp)
 **Example**
 
 ```python
-resp = client.organizations.organization.public_organization_org_members_get(org="<org>")
+resp = client.organizations.organization.get_public_organization_by_org_members(org="<org>")
 print(resp)
 ```
 

@@ -6,9 +6,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `api_key_user_delete`
+### `delete_user`
 
-**`DELETE /api-key/user`** — Delete user's account By Api Key
+**`DELETE /api-key/user`** — Delete user's account
 
 **Headers**
 
@@ -35,15 +35,15 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```python
-resp = client.users.user.api_key_user_delete()
+resp = client.users.user.delete_user()
 print(resp)
 ```
 
 ---
 
-### `api_key_user_api_key_post`
+### `post_user_api_key`
 
-**`POST /api-key/user/api-key`** — Create ApiKey By Api Key
+**`POST /api-key/user/api-key`** — Create ApiKey
 
 **Headers**
 
@@ -212,15 +212,15 @@ request = CreateApiKeyRequest(
     name="...",  # string  # required
     org_username="...",  # string
 )
-resp = client.users.user.api_key_user_api_key_post(body=request)
+resp = client.users.user.post_user_api_key(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_user_challenge_walletAddress_get`
+### `get_user_challenge_by_walletaddress`
 
-**`GET /api-key/user/challenge/{walletAddress}`** — Get link wallet address challenge By Api Key
+**`GET /api-key/user/challenge/{walletAddress}`** — Get link wallet address challenge
 
 **Headers**
 
@@ -260,15 +260,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.users.user.api_key_user_challenge_walletAddress_get(walletAddress="<walletAddress>")
+resp = client.users.user.get_user_challenge_by_walletaddress(walletAddress="<walletAddress>")
 print(resp)
 ```
 
 ---
 
-### `api_key_user_change_password_patch`
+### `patch_user_change_password`
 
-**`PATCH /api-key/user/change-password`** — Change user's password By Api Key
+**`PATCH /api-key/user/change-password`** — Change user's password
 
 **Headers**
 
@@ -308,15 +308,15 @@ request = ChangeUserPasswordRequest(
     new_password="...",  # string  # required
     old_password="...",  # string  # required
 )
-resp = client.users.user.api_key_user_change_password_patch(body=request)
+resp = client.users.user.patch_user_change_password(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_user_follow_id_put`
+### `put_user_follow_by_id`
 
-**`PUT /api-key/user/follow/{id}`** — Follow/Unfollow user By Api Key
+**`PUT /api-key/user/follow/{id}`** — Follow/Unfollow user
 
 **Headers**
 
@@ -349,15 +349,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.users.user.api_key_user_follow_id_put(id="<id>")
+resp = client.users.user.put_user_follow_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_user_link_email_post`
+### `post_user_link_email`
 
-**`POST /api-key/user/link-email`** — Verify link email code By Api Key
+**`POST /api-key/user/link-email`** — Verify link email code
 
 **Headers**
 
@@ -397,15 +397,15 @@ request = VerifyLinkEmailCodeRequest(
     code="...",  # string  # required
     email="...",  # string  # required
 )
-resp = client.users.user.api_key_user_link_email_post(body=request)
+resp = client.users.user.post_user_link_email(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_user_link_email_email_patch`
+### `patch_user_link_email_by_email`
 
-**`PATCH /api-key/user/link-email/{email}`** — Get link email code By Api Key
+**`PATCH /api-key/user/link-email/{email}`** — Get link email code
 
 **Headers**
 
@@ -453,15 +453,15 @@ request = GetLinkEmailCodeRequest(
     password="...",  # string
     username="...",  # string  # required
 )
-resp = client.users.user.api_key_user_link_email_email_patch(body=request)
+resp = client.users.user.patch_user_link_email_by_email(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_user_link_wallet_post`
+### `post_user_link_wallet`
 
-**`POST /api-key/user/link-wallet`** — Verify link wallet address signature By Api Key
+**`POST /api-key/user/link-wallet`** — Verify link wallet address signature
 
 **Headers**
 
@@ -501,15 +501,15 @@ request = VerifyLinkWalletAddressSignatureRequest(
     signature="...",  # string  # required
     wallet_address="...",  # string  # required
 )
-resp = client.users.user.api_key_user_link_wallet_post(body=request)
+resp = client.users.user.post_user_link_wallet(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_user_me_get`
+### `get_user_me`
 
-**`GET /api-key/user/me`** — Get user's info By Api Key
+**`GET /api-key/user/me`** — Get user's info
 
 **Headers**
 
@@ -645,15 +645,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.users.user.api_key_user_me_get()
+resp = client.users.user.get_user_me()
 print(resp)
 ```
 
 ---
 
-### `api_key_user_offers_get`
+### `get_user_offers`
 
-**`GET /api-key/user/offers`** — Get user's offers By Api Key
+**`GET /api-key/user/offers`** — Get user's offers
 
 **Headers**
 
@@ -689,15 +689,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.users.user.api_key_user_offers_get()
+resp = client.users.user.get_user_offers()
 print(resp)
 ```
 
 ---
 
-### `api_key_user_org_usernames_get`
+### `get_user_org_usernames`
 
-**`GET /api-key/user/org-usernames`** — Get user's organization usernames By Api Key
+**`GET /api-key/user/org-usernames`** — Get user's organization usernames
 
 **Headers**
 
@@ -747,15 +747,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.users.user.api_key_user_org_usernames_get()
+resp = client.users.user.get_user_org_usernames()
 print(resp)
 ```
 
 ---
 
-### `api_key_user_permission_search_get`
+### `get_user_permission_search`
 
-**`GET /api-key/user/permission/search`** — Search Users By Api Key
+**`GET /api-key/user/permission/search`** — Search Users
 
 **Headers**
 
@@ -815,15 +815,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.users.user.api_key_user_permission_search_get()
+resp = client.users.user.get_user_permission_search()
 print(resp)
 ```
 
 ---
 
-### `api_key_user_profile_patch`
+### `patch_user_profile`
 
-**`PATCH /api-key/user/profile`** — Update user's profile By Api Key
+**`PATCH /api-key/user/profile`** — Update user's profile
 
 **Headers**
 
@@ -873,15 +873,15 @@ request = UpdateUserProfileRequest(
     github_link="...",  # string
     github_name="...",  # string
 )
-resp = client.users.user.api_key_user_profile_patch(body=request)
+resp = client.users.user.patch_user_profile(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_user_public_key_get`
+### `get_user_public_key`
 
-**`GET /api-key/user/public-key`** — Get source control public keys By Api Key
+**`GET /api-key/user/public-key`** — Get source control public keys
 
 **Headers**
 
@@ -926,15 +926,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.users.public_key.api_key_user_public_key_get()
+resp = client.users.public_key.get_user_public_key()
 print(resp)
 ```
 
 ---
 
-### `api_key_user_public_key_post`
+### `post_user_public_key`
 
-**`POST /api-key/user/public-key`** — Create source control public key By Api Key
+**`POST /api-key/user/public-key`** — Create source control public key
 
 **Headers**
 
@@ -976,15 +976,15 @@ request = CreatePublicKeyRequest(
     read_only="...",  # boolean
     title="...",  # string  # required
 )
-resp = client.users.public_key.api_key_user_public_key_post(body=request)
+resp = client.users.public_key.post_user_public_key(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_user_public_key_keyId_delete`
+### `delete_user_public_key_by_keyid`
 
-**`DELETE /api-key/user/public-key/{keyId}`** — Delete source control public key By Api Key
+**`DELETE /api-key/user/public-key/{keyId}`** — Delete source control public key
 
 **Headers**
 
@@ -1011,20 +1011,21 @@ print(resp)
 
 | Status | Description |
 | --- | --- |
-| 400 | Bad Request — [response.ErrorResponse](../README.md#common-response-types) |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
 
 **Example**
 
 ```python
-resp = client.users.public_key.api_key_user_public_key_keyId_delete(keyId="<keyId>")
+resp = client.users.public_key.delete_user_public_key_by_keyid(keyId="<keyId>")
 print(resp)
 ```
 
 ---
 
-### `api_key_user_statistics_earnings_post`
+### `post_user_statistics_earnings`
 
-**`POST /api-key/user/statistics/earnings`** — Get User Earnings Statistics By Api Key
+**`POST /api-key/user/statistics/earnings`** — Get User Earnings Statistics
 
 **Headers**
 
@@ -1079,15 +1080,15 @@ request = GetTransactionAnalyticsRequest(
     from="...",  # string
     to="...",  # string
 )
-resp = client.users.wallet.api_key_user_statistics_earnings_post(body=request)
+resp = client.users.wallet.post_user_statistics_earnings(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_user_statistics_spending_cost_post`
+### `post_user_statistics_spending_cost`
 
-**`POST /api-key/user/statistics/spending-cost`** — Get User Spending Cost Statitics By Api Key
+**`POST /api-key/user/statistics/spending-cost`** — Get User Spending Cost Statitics
 
 **Headers**
 
@@ -1146,15 +1147,15 @@ request = GetUserSpendingCostStatisticsRequest(
     from="...",  # string
     to="...",  # string
 )
-resp = client.users.wallet.api_key_user_statistics_spending_cost_post(body=request)
+resp = client.users.wallet.post_user_statistics_spending_cost(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_user_voucher_claim_post`
+### `post_user_voucher_claim`
 
-**`POST /api-key/user/voucher/claim`** — User Claim Free Balance By Voucher By Api Key
+**`POST /api-key/user/voucher/claim`** — User Claim Free Balance By Voucher
 
 **Headers**
 
@@ -1192,15 +1193,15 @@ from aiozai_sdk.generated.models import UserClaimFreeBalanceByVoucherRequest
 request = UserClaimFreeBalanceByVoucherRequest(
     voucher_code="...",  # string  # required
 )
-resp = client.users.voucher.api_key_user_voucher_claim_post(body=request)
+resp = client.users.voucher.post_user_voucher_claim(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_user_wallet_deposit_history_get`
+### `get_user_wallet_deposit_history`
 
-**`GET /api-key/user/wallet/deposit/history`** — Get List User Deposit History By Api Key
+**`GET /api-key/user/wallet/deposit/history`** — Get List User Deposit History
 
 **Headers**
 
@@ -1257,15 +1258,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.users.wallet.api_key_user_wallet_deposit_history_get()
+resp = client.users.wallet.get_user_wallet_deposit_history()
 print(resp)
 ```
 
 ---
 
-### `api_key_user_wallet_transaction_analytics_post`
+### `post_user_wallet_transaction_analytics`
 
-**`POST /api-key/user/wallet/transaction/analytics`** — Get User Transaction Analytics By Api Key
+**`POST /api-key/user/wallet/transaction/analytics`** — Get User Transaction Analytics
 
 **Headers**
 
@@ -1337,15 +1338,15 @@ request = GetUserTransactionAnalyticsRequest(
     from="...",  # string
     to="...",  # string
 )
-resp = client.users.wallet.api_key_user_wallet_transaction_analytics_post(body=request)
+resp = client.users.wallet.post_user_wallet_transaction_analytics(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_user_wallet_transaction_history_get`
+### `get_user_wallet_transaction_history`
 
-**`GET /api-key/user/wallet/transaction/history`** — Get List Transaction History By User By Api Key
+**`GET /api-key/user/wallet/transaction/history`** — Get List Transaction History By User
 
 **Headers**
 
@@ -1407,15 +1408,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.users.wallet.api_key_user_wallet_transaction_history_get()
+resp = client.users.wallet.get_user_wallet_transaction_history()
 print(resp)
 ```
 
 ---
 
-### `api_key_user_wallet_transaction_recent_post`
+### `post_user_wallet_transaction_recent`
 
-**`POST /api-key/user/wallet/transaction/recent`** — Get List Recent Transaction By User By Api Key
+**`POST /api-key/user/wallet/transaction/recent`** — Get List Recent Transaction By User
 
 **Headers**
 
@@ -1488,15 +1489,15 @@ request = GetListRecentTransactionByUserRequest(
     to="...",  # string
     type="...",  # string
 )
-resp = client.users.wallet.api_key_user_wallet_transaction_recent_post(body=request)
+resp = client.users.wallet.post_user_wallet_transaction_recent(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_user_wallet_withdraw_history_get`
+### `get_user_wallet_withdraw_history`
 
-**`GET /api-key/user/wallet/withdraw/history`** — Get List User Withdrawal History By Api Key
+**`GET /api-key/user/wallet/withdraw/history`** — Get List User Withdrawal History
 
 **Headers**
 
@@ -1551,15 +1552,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.users.wallet.api_key_user_wallet_withdraw_history_get()
+resp = client.users.wallet.get_user_wallet_withdraw_history()
 print(resp)
 ```
 
 ---
 
-### `api_key_user_username_get`
+### `get_user_by_username`
 
-**`GET /api-key/user/{username}`** — Get user's info By Api Key
+**`GET /api-key/user/{username}`** — Get user's info
 
 **Headers**
 
@@ -1687,7 +1688,7 @@ print(resp)
 **Example**
 
 ```python
-resp = client.users.user.api_key_user_username_get(username="<username>")
+resp = client.users.user.get_user_by_username(username="<username>")
 print(resp)
 ```
 

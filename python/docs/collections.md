@@ -6,9 +6,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `api_key_collection_post`
+### `post_collection`
 
-**`POST /api-key/collection`** — Create Collection By Api Key
+**`POST /api-key/collection`** — Create Collection
 
 **Headers**
 
@@ -207,15 +207,15 @@ request = CreateCollectionRequest(
     thumbnail="...",  # string
     visibility="...",  # string  # required
 )
-resp = client.collections.collection.api_key_collection_post(body=request)
+resp = client.collections.collection.post_collection(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_collection_list_post`
+### `post_collection_list`
 
-**`POST /api-key/collection/list`** — Get List Collection By Api Key
+**`POST /api-key/collection/list`** — Get List Collection
 
 **Headers**
 
@@ -230,6 +230,7 @@ print(resp)
 | `filter` | `string` | No | One of: `public`, `community`, `author` |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `desc`, `asc` |
 | `search` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `votes`, `updated`, `oldest` |
 
@@ -420,18 +421,18 @@ request = GetListCollectionRequest(
     filter="...",  # string
     limit="...",  # integer
     offset="...",  # integer
+    order="...",  # string
     search="...",  # string
-    sort="...",  # string
 )
-resp = client.collections.collection.api_key_collection_list_post(body=request)
+resp = client.collections.collection.post_collection_list(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_collection_id_get`
+### `get_collection_by_id`
 
-**`GET /api-key/collection/{id}`** — Get Collection By Id By Api Key
+**`GET /api-key/collection/{id}`** — Get Collection By Id
 
 **Headers**
 
@@ -619,15 +620,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.collections.collection.api_key_collection_id_get(id="<id>")
+resp = client.collections.collection.get_collection_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_collection_id_put`
+### `put_collection_by_id`
 
-**`PUT /api-key/collection/{id}`** — Update Collection By Api Key
+**`PUT /api-key/collection/{id}`** — Update Collection
 
 **Headers**
 
@@ -832,15 +833,15 @@ request = UpdateCollectionRequest(
     thumbnail="...",  # string
     visibility="...",  # string
 )
-resp = client.collections.collection.api_key_collection_id_put(body=request)
+resp = client.collections.collection.put_collection_by_id(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_collection_id_delete`
+### `delete_collection_by_id`
 
-**`DELETE /api-key/collection/{id}`** — Delete Collection By Api Key
+**`DELETE /api-key/collection/{id}`** — Delete Collection
 
 **Headers**
 
@@ -1028,15 +1029,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.collections.collection.api_key_collection_id_delete(id="<id>")
+resp = client.collections.collection.delete_collection_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_collection_id_item_post`
+### `post_collection_by_id_item`
 
-**`POST /api-key/collection/{id}/item`** — Add Item To Collection By Api Key
+**`POST /api-key/collection/{id}/item`** — Add Item To Collection
 
 **Headers**
 
@@ -1237,15 +1238,15 @@ request = AddItemToCollectionRequest(
     item_id="...",  # string
     type="...",  # string  # required
 )
-resp = client.collections.collection.api_key_collection_id_item_post(body=request)
+resp = client.collections.collection.post_collection_by_id_item(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_collection_id_item_delete`
+### `delete_collection_by_id_item`
 
-**`DELETE /api-key/collection/{id}/item`** — Remove Item From Collection By Api Key
+**`DELETE /api-key/collection/{id}/item`** — Remove Item From Collection
 
 **Headers**
 
@@ -1446,15 +1447,15 @@ request = RemoveItemFromCollectionRequest(
     item_id="...",  # string  # required
     type="...",  # string  # required
 )
-resp = client.collections.collection.api_key_collection_id_item_delete(body=request)
+resp = client.collections.collection.delete_collection_by_id_item(input=request)
 print(resp)
 ```
 
 ---
 
-### `api_key_collection_id_vote_put`
+### `put_collection_by_id_vote`
 
-**`PUT /api-key/collection/{id}/vote`** — Vote Collection By Api Key
+**`PUT /api-key/collection/{id}/vote`** — Vote Collection
 
 **Headers**
 
@@ -1642,15 +1643,15 @@ print(resp)
 **Example**
 
 ```python
-resp = client.collections.collection.api_key_collection_id_vote_put(id="<id>")
+resp = client.collections.collection.put_collection_by_id_vote(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `api_key_collection_username_list_post`
+### `post_collection_by_username_list`
 
-**`POST /api-key/collection/{username}/list`** — Get Collection List By Username By Api Key
+**`POST /api-key/collection/{username}/list`** — Get Collection List By Username
 
 **Headers**
 
@@ -1670,6 +1671,7 @@ print(resp)
 | --- | --- | --- | --- |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `desc`, `asc` |
 | `search` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `votes`, `updated`, `oldest` |
 
@@ -1859,16 +1861,17 @@ from aiozai_sdk.generated.models import GetListCollectionByUsernameRequest
 request = GetListCollectionByUsernameRequest(
     limit="...",  # integer
     offset="...",  # integer
+    order="...",  # string
     search="...",  # string
     sort="...",  # string
 )
-resp = client.collections.collection.api_key_collection_username_list_post(body=request)
+resp = client.collections.collection.post_collection_by_username_list(input=request)
 print(resp)
 ```
 
 ---
 
-### `public_collection_list_post`
+### `post_public_collection_list`
 
 **`POST /public/collection/list`** — Get List Public Collection
 
@@ -1879,6 +1882,7 @@ print(resp)
 | `filter` | `string` | No | One of: `public`, `community`, `author` |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `desc`, `asc` |
 | `search` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `votes`, `updated`, `oldest` |
 
@@ -2069,16 +2073,16 @@ request = GetListCollectionRequest(
     filter="...",  # string
     limit="...",  # integer
     offset="...",  # integer
+    order="...",  # string
     search="...",  # string
-    sort="...",  # string
 )
-resp = client.collections.collection.public_collection_list_post(body=request)
+resp = client.collections.collection.post_public_collection_list(input=request)
 print(resp)
 ```
 
 ---
 
-### `public_collection_id_get`
+### `get_public_collection_by_id`
 
 **`GET /public/collection/{id}`** — Get Public Collection By Id
 
@@ -2262,13 +2266,13 @@ print(resp)
 **Example**
 
 ```python
-resp = client.collections.collection.public_collection_id_get(id="<id>")
+resp = client.collections.collection.get_public_collection_by_id(id="<id>")
 print(resp)
 ```
 
 ---
 
-### `public_collection_username_list_post`
+### `post_public_collection_by_username_list`
 
 **`POST /public/collection/{username}/list`** — Get List Public Collections By Username
 
@@ -2284,6 +2288,7 @@ print(resp)
 | --- | --- | --- | --- |
 | `limit` | `integer` | No |  |
 | `offset` | `integer` | No |  |
+| `order` | `string` | No | One of: `desc`, `asc` |
 | `search` | `string` | No |  |
 | `sort` | `string` | No | One of: `trending`, `votes`, `updated`, `oldest` |
 
@@ -2473,10 +2478,11 @@ from aiozai_sdk.generated.models import GetListCollectionByUsernameRequest
 request = GetListCollectionByUsernameRequest(
     limit="...",  # integer
     offset="...",  # integer
+    order="...",  # string
     search="...",  # string
     sort="...",  # string
 )
-resp = client.collections.collection.public_collection_username_list_post(body=request)
+resp = client.collections.collection.post_public_collection_by_username_list(input=request)
 print(resp)
 ```
 

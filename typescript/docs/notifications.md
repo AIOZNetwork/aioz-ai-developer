@@ -6,9 +6,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `getApiKeyNotification`
+### `getNotification`
 
-**`GET /api-key/notification`** — Get all notifications By Api Key
+**`GET /api-key/notification`** — Get all notifications
 
 **Headers**
 
@@ -65,17 +65,17 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```typescript
-import { getApiKeyNotification } from '@aiozai/nodejs-client';
+import { getNotification } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyNotification();
+const response = await getNotification();
 console.log(response.data);
 ```
 
 ---
 
-### `deleteApiKeyNotification`
+### `deleteNotification`
 
-**`DELETE /api-key/notification`** — Delete all notifications By Api Key
+**`DELETE /api-key/notification`** — Delete all notifications
 
 **Headers**
 
@@ -108,17 +108,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyNotification } from '@aiozai/nodejs-client';
+import { deleteNotification } from '@aiozai/nodejs-client';
 
-const response = await deleteApiKeyNotification();
+const response = await deleteNotification();
 console.log(response.data);
 ```
 
 ---
 
-### `putApiKeyNotificationList`
+### `putNotificationList`
 
-**`PUT /api-key/notification/list`** — Mark list notification By Api Key
+**`PUT /api-key/notification/list`** — Mark list notification
 
 **Headers**
 
@@ -152,9 +152,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyNotificationList } from '@aiozai/nodejs-client';
+import { putNotificationList } from '@aiozai/nodejs-client';
 
-const response = await putApiKeyNotificationList({
+const response = await putNotificationList({
     body: {
         ids: '...',  // array[string]  // required
     status: '...',  // string  // required
@@ -165,9 +165,9 @@ console.log(response.data);
 
 ---
 
-### `deleteApiKeyNotificationList`
+### `deleteNotificationList`
 
-**`DELETE /api-key/notification/list`** — DeleteNotificationByIds By Api Key
+**`DELETE /api-key/notification/list`** — DeleteNotificationByIds
 
 **Headers**
 
@@ -200,9 +200,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyNotificationList } from '@aiozai/nodejs-client';
+import { deleteNotificationList } from '@aiozai/nodejs-client';
 
-const response = await deleteApiKeyNotificationList({
+const response = await deleteNotificationList({
     body: {
         ids: '...',  // array[string]  // required
     },
@@ -212,9 +212,9 @@ console.log(response.data);
 
 ---
 
-### `getApiKeyNotificationStatistics`
+### `getNotificationStatistics`
 
-**`GET /api-key/notification/statistics`** — GetNotifyStatisticsByUserId By Api Key
+**`GET /api-key/notification/statistics`** — GetNotifyStatisticsByUserId
 
 **Headers**
 
@@ -249,17 +249,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getApiKeyNotificationStatistics } from '@aiozai/nodejs-client';
+import { getNotificationStatistics } from '@aiozai/nodejs-client';
 
-const response = await getApiKeyNotificationStatistics();
+const response = await getNotificationStatistics();
 console.log(response.data);
 ```
 
 ---
 
-### `putApiKeyNotificationById`
+### `putNotificationById`
 
-**`PUT /api-key/notification/{id}`** — Update notification by id By Api Key
+**`PUT /api-key/notification/{id}`** — Update notification by id
 
 **Headers**
 
@@ -299,9 +299,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putApiKeyNotificationById } from '@aiozai/nodejs-client';
+import { putNotificationById } from '@aiozai/nodejs-client';
 
-const response = await putApiKeyNotificationById({
+const response = await putNotificationById({
     body: {
         status: '...',  // string  // required
     },
@@ -311,9 +311,9 @@ console.log(response.data);
 
 ---
 
-### `deleteApiKeyNotificationById`
+### `deleteNotificationById`
 
-**`DELETE /api-key/notification/{id}`** — Delete notification by id By Api Key
+**`DELETE /api-key/notification/{id}`** — Delete notification by id
 
 **Headers**
 
@@ -346,9 +346,9 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteApiKeyNotificationById } from '@aiozai/nodejs-client';
+import { deleteNotificationById } from '@aiozai/nodejs-client';
 
-const response = await deleteApiKeyNotificationById({ path: { id: '...' } });
+const response = await deleteNotificationById({ path: { id: '...' } });
 console.log(response.data);
 ```
 

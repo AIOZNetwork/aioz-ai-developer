@@ -114,7 +114,7 @@ from aiozai_sdk import AiozAIClient
 client = AiozAIClient(api_key=os.environ["AIOZ_AI_API_KEY"])
 
 # List models
-result = client.models.model.api_key_model_list(body={})
+result = client.models.model.post_model_list(input={})
 ```
 
 **Configuration** — override the base URL, timeout, and retry policy:
@@ -136,7 +136,7 @@ client = AiozAIClient(
 from aiozai_sdk import AiozAPIError
 
 try:
-    result = client.models.model.api_key_model_id_get(id="model-id")
+    result = client.models.model.get_model_by_id(id="model-id")
 except AiozAPIError as e:
     print(f"[{e.status_code}] {e.message} — {e.method} {e.endpoint}")
 ```
@@ -155,7 +155,7 @@ import { createAiozAIClient, services } from '@aiozai/nodejs-client'
 const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY })
 
 // List models
-const models = await services.models.postApiKeyModelList({
+const models = await services.models.postModelList({
   client: rawClient,
   body: { page: 1, limit: 10 },
 })
@@ -178,7 +178,7 @@ const { rawClient } = createAiozAIClient({
 import { AiozApiError } from '@aiozai/nodejs-client'
 
 try {
-  const result = await services.models.getApiKeyModelById({
+  const result = await services.models.getModelById({
     client: rawClient,
     path: { id: 'nonexistent' },
   })
