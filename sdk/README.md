@@ -14,7 +14,7 @@ Official client SDKs for the [AIOZ AI](https://aiozai.network) API — auto-gene
 
 All SDKs share the same design:
 
-- **218+ API endpoints** and **578+ typed models**, generated from the same OpenAPI source
+- **API endpoints** and **typed models**, generated from the same OpenAPI source
 - API key configured once at client creation — no per-request plumbing
 - Automatic retry with exponential backoff for transient failures
 - Configurable timeouts for standard and upload operations

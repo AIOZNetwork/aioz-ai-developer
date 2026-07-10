@@ -6,114 +6,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `postCollectionByIdReport`
+### `putCommentsById`
 
-**`POST /api-key/collection/{id}/report`** — Report Collection
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Collection's id |
-
-**Request Body** — `request.ReportCollectionRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `reason` | `string` | Yes |  |
-| `url` | `string` | Yes |  |
-
-**Responses**
-
-**200 OK** — `response.DiscussionResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `models.LiteDiscussion` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`models.LiteDiscussion`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `comments_count` | `integer` |  |
-| `content` | `string` |  |
-| `created_at` | `string` |  |
-| `id` | `string` |  |
-| `is_closed` | `boolean` |  |
-| `owner` | `models.Owner` |  |
-| `reacted` | `models.Reaction` |  |
-| `reactions_statistics` | `array[models.ReactionStats]` |  |
-| `reacts_count` | `integer` |  |
-| `title` | `string` |  |
-| `updated_at` | `string` |  |
-| `violated` | `boolean` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.Reaction`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `name` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `updated_at` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.ReactionStats`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `count` | `integer` |  |
-| `name` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { postCollectionByIdReport } from '@aiozai/nodejs-client';
-
-const response = await postCollectionByIdReport({
-    body: {
-        reason: '...',  // string  // required
-    url: '...',  // string  // required
-    },
-});
-console.log(response.data);
-```
-
----
-
-### `postCommentsByIdReport`
-
-**`POST /api-key/comments/{id}/report`** — Report Comment
+**`PUT /api-key/comments/{id}`** — Update comment
 
 **Headers**
 
@@ -127,39 +22,55 @@ console.log(response.data);
 | --- | --- | --- | --- | --- |
 | `id` | path | `string` | Yes | Comment's id |
 
-**Request Body** — `request.ReportCommentRequest`
+**Request Body** — `request.UpdateCommentRequest`
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `reason` | `string` | Yes |  |
-| `url` | `string` | Yes |  |
+| `content` | `string` | No |  |
+| `tag_usernames` | `array[string]` | No |  |
 
 **Responses**
 
-**200 OK** — `response.DiscussionResponse`
+**200 OK** — `response.CommentResponse`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `models.LiteDiscussion` |  |
+| `data` | `models.Comment` |  |
 | `message` | `string` |  |
 | `status` | `string` |  |
 
-**`models.LiteDiscussion`**
+**`models.Comment`**
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `comments_count` | `integer` |  |
 | `content` | `string` |  |
 | `created_at` | `string` |  |
 | `id` | `string` |  |
-| `is_closed` | `boolean` |  |
 | `owner` | `models.Owner` |  |
 | `reacted` | `models.Reaction` |  |
+| `reactions` | `array[models.Reaction]` |  |
 | `reactions_statistics` | `array[models.ReactionStats]` |  |
 | `reacts_count` | `integer` |  |
-| `title` | `string` |  |
+| `tag_usernames` | `array[string]` |  |
 | `updated_at` | `string` |  |
 | `violated` | `boolean` |  |
+
+**`models.Owner`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `id` | `string` |  |
+| `username` | `string` |  |
+
+**`models.Reaction`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `created_at` | `string` |  |
+| `name` | `string` |  |
+| `owner` | `models.Owner` |  |
+| `updated_at` | `string` |  |
 
 **`models.Owner`**
 
@@ -203,13 +114,64 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postCommentsByIdReport } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await postCommentsByIdReport({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.discussions.putCommentsById({
+    client: rawClient,
     body: {
-        reason: '...',  // string  // required
-    url: '...',  // string  // required
+        content: '...',  // string
+        tag_usernames: '...',  // array[string]
     },
+});
+console.log(response.data);
+```
+
+---
+
+### `putDatasetByIdLike`
+
+**`PUT /api-key/dataset/{id}/like`** — Like dataset
+
+**Headers**
+
+| Header | Value | Required |
+| --- | --- | --- |
+| `x-api-key` | Your API key | Yes |
+
+**Parameters**
+
+| Name | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | `string` | Yes | Dataset's id |
+
+**Responses**
+
+**200 OK** — `response.SuccessResponse`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `message` | `string` |  |
+| `status` | `string` |  |
+
+**Error Responses**
+
+| Status | Description |
+| --- | --- |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
+
+**Example**
+
+```typescript
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
+
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.discussions.putDatasetByIdLike({
+    client: rawClient,
+    path: { id: '...' },
 });
 console.log(response.data);
 ```
@@ -313,9 +275,14 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getDiscussionCompetitionById } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await getDiscussionCompetitionById({ path: { id: '...' } });
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.discussions.getDiscussionCompetitionById({
+    client: rawClient,
+    path: { id: '...' },
+});
 console.log(response.data);
 ```
 
@@ -413,12 +380,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postDiscussionCompetitionById } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await postDiscussionCompetitionById({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.discussions.postDiscussionCompetitionById({
+    client: rawClient,
     body: {
         content: '...',  // string  // required
-    title: '...',  // string  // required
+        title: '...',  // string  // required
     },
 });
 console.log(response.data);
@@ -521,9 +491,14 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getDiscussionDatasetById } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await getDiscussionDatasetById({ path: { id: '...' } });
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.discussions.getDiscussionDatasetById({
+    client: rawClient,
+    path: { id: '...' },
+});
 console.log(response.data);
 ```
 
@@ -621,12 +596,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postDiscussionDatasetById } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await postDiscussionDatasetById({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.discussions.postDiscussionDatasetById({
+    client: rawClient,
     body: {
         content: '...',  // string  // required
-    title: '...',  // string  // required
+        title: '...',  // string  // required
     },
 });
 console.log(response.data);
@@ -729,9 +707,14 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getDiscussionModelById } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await getDiscussionModelById({ path: { id: '...' } });
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.discussions.getDiscussionModelById({
+    client: rawClient,
+    path: { id: '...' },
+});
 console.log(response.data);
 ```
 
@@ -829,12 +812,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postDiscussionModelById } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await postDiscussionModelById({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.discussions.postDiscussionModelById({
+    client: rawClient,
     body: {
         content: '...',  // string  // required
-    title: '...',  // string  // required
+        title: '...',  // string  // required
     },
 });
 console.log(response.data);
@@ -935,13 +921,16 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putDiscussionById } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await putDiscussionById({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.discussions.putDiscussionById({
+    client: rawClient,
     body: {
         content: '...',  // string
-    is_closed: '...',  // boolean
-    title: '...',  // string
+        is_closed: '...',  // boolean
+        title: '...',  // string
     },
 });
 console.log(response.data);
@@ -949,587 +938,15 @@ console.log(response.data);
 
 ---
 
-### `deleteDiscussionById`
+### `getDiscussionByIdComments`
 
-**`DELETE /api-key/discussion/{id}`** — Delete discussion
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Discussion's id |
-
-**Responses**
-
-**200 OK** — `response.DiscussionResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `models.LiteDiscussion` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`models.LiteDiscussion`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `comments_count` | `integer` |  |
-| `content` | `string` |  |
-| `created_at` | `string` |  |
-| `id` | `string` |  |
-| `is_closed` | `boolean` |  |
-| `owner` | `models.Owner` |  |
-| `reacted` | `models.Reaction` |  |
-| `reactions_statistics` | `array[models.ReactionStats]` |  |
-| `reacts_count` | `integer` |  |
-| `title` | `string` |  |
-| `updated_at` | `string` |  |
-| `violated` | `boolean` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.Reaction`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `name` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `updated_at` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.ReactionStats`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `count` | `integer` |  |
-| `name` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { deleteDiscussionById } from '@aiozai/nodejs-client';
-
-const response = await deleteDiscussionById({ path: { id: '...' } });
-console.log(response.data);
-```
-
----
-
-### `postDiscussionByIdReport`
-
-**`POST /api-key/discussion/{id}/report`** — Report Discussion
+**`GET /api-key/discussion/{id}/comments`** — Get comment list
 
 **Headers**
 
 | Header | Value | Required |
 | --- | --- | --- |
 | `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Discussion's id |
-
-**Request Body** — `request.ReportDiscussionRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `reason` | `string` | Yes |  |
-| `url` | `string` | Yes |  |
-
-**Responses**
-
-**200 OK** — `response.DiscussionResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `models.LiteDiscussion` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`models.LiteDiscussion`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `comments_count` | `integer` |  |
-| `content` | `string` |  |
-| `created_at` | `string` |  |
-| `id` | `string` |  |
-| `is_closed` | `boolean` |  |
-| `owner` | `models.Owner` |  |
-| `reacted` | `models.Reaction` |  |
-| `reactions_statistics` | `array[models.ReactionStats]` |  |
-| `reacts_count` | `integer` |  |
-| `title` | `string` |  |
-| `updated_at` | `string` |  |
-| `violated` | `boolean` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.Reaction`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `name` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `updated_at` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.ReactionStats`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `count` | `integer` |  |
-| `name` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { postDiscussionByIdReport } from '@aiozai/nodejs-client';
-
-const response = await postDiscussionByIdReport({
-    body: {
-        reason: '...',  // string  // required
-    url: '...',  // string  // required
-    },
-});
-console.log(response.data);
-```
-
----
-
-### `getPublicDiscussionCompetitionById`
-
-**`GET /public/discussion/competition/{id}`** — Get public competition discussion list
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Competition's id |
-| `filter` | query | `string` | No |  |
-| `limit` | query | `integer` | No |  |
-| `offset` | query | `integer` | No |  |
-| `search` | query | `string` | No |  |
-| `sort` | query | `string` | No |  |
-
-**Responses**
-
-**200 OK** — `response.DiscussionListResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.DiscussionListData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.DiscussionListData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `records` | `array[models.LiteDiscussion]` |  |
-| `total` | `integer` |  |
-
-**`models.LiteDiscussion`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `comments_count` | `integer` |  |
-| `content` | `string` |  |
-| `created_at` | `string` |  |
-| `id` | `string` |  |
-| `is_closed` | `boolean` |  |
-| `owner` | `models.Owner` |  |
-| `reacted` | `models.Reaction` |  |
-| `reactions_statistics` | `array[models.ReactionStats]` |  |
-| `reacts_count` | `integer` |  |
-| `title` | `string` |  |
-| `updated_at` | `string` |  |
-| `violated` | `boolean` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.Reaction`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `name` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `updated_at` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.ReactionStats`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `count` | `integer` |  |
-| `name` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getPublicDiscussionCompetitionById } from '@aiozai/nodejs-client';
-
-const response = await getPublicDiscussionCompetitionById({ path: { id: '...' } });
-console.log(response.data);
-```
-
----
-
-### `getPublicDiscussionDatasetById`
-
-**`GET /public/discussion/dataset/{id}`** — Get dataset discussion list
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Dataset's id |
-| `limit` | query | `integer` | No |  |
-| `offset` | query | `integer` | No |  |
-| `sort` | query | `string` | No |  |
-
-**Responses**
-
-**200 OK** — `response.DiscussionListResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.DiscussionListData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.DiscussionListData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `records` | `array[models.LiteDiscussion]` |  |
-| `total` | `integer` |  |
-
-**`models.LiteDiscussion`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `comments_count` | `integer` |  |
-| `content` | `string` |  |
-| `created_at` | `string` |  |
-| `id` | `string` |  |
-| `is_closed` | `boolean` |  |
-| `owner` | `models.Owner` |  |
-| `reacted` | `models.Reaction` |  |
-| `reactions_statistics` | `array[models.ReactionStats]` |  |
-| `reacts_count` | `integer` |  |
-| `title` | `string` |  |
-| `updated_at` | `string` |  |
-| `violated` | `boolean` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.Reaction`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `name` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `updated_at` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.ReactionStats`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `count` | `integer` |  |
-| `name` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getPublicDiscussionDatasetById } from '@aiozai/nodejs-client';
-
-const response = await getPublicDiscussionDatasetById({ path: { id: '...' } });
-console.log(response.data);
-```
-
----
-
-### `getPublicDiscussionModelById`
-
-**`GET /public/discussion/model/{id}`** — Get model discussion list
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Model's id |
-| `limit` | query | `integer` | No |  |
-| `offset` | query | `integer` | No |  |
-| `sort` | query | `string` | No |  |
-
-**Responses**
-
-**200 OK** — `response.DiscussionListResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.DiscussionListData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.DiscussionListData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `records` | `array[models.LiteDiscussion]` |  |
-| `total` | `integer` |  |
-
-**`models.LiteDiscussion`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `comments_count` | `integer` |  |
-| `content` | `string` |  |
-| `created_at` | `string` |  |
-| `id` | `string` |  |
-| `is_closed` | `boolean` |  |
-| `owner` | `models.Owner` |  |
-| `reacted` | `models.Reaction` |  |
-| `reactions_statistics` | `array[models.ReactionStats]` |  |
-| `reacts_count` | `integer` |  |
-| `title` | `string` |  |
-| `updated_at` | `string` |  |
-| `violated` | `boolean` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.Reaction`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `name` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `updated_at` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.ReactionStats`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `count` | `integer` |  |
-| `name` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getPublicDiscussionModelById } from '@aiozai/nodejs-client';
-
-const response = await getPublicDiscussionModelById({ path: { id: '...' } });
-console.log(response.data);
-```
-
----
-
-### `getPublicDiscussionById`
-
-**`GET /public/discussion/{id}`** — Get discussion detail
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Discussion's id |
-
-**Responses**
-
-**200 OK** — `response.DiscussionResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `models.LiteDiscussion` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`models.LiteDiscussion`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `comments_count` | `integer` |  |
-| `content` | `string` |  |
-| `created_at` | `string` |  |
-| `id` | `string` |  |
-| `is_closed` | `boolean` |  |
-| `owner` | `models.Owner` |  |
-| `reacted` | `models.Reaction` |  |
-| `reactions_statistics` | `array[models.ReactionStats]` |  |
-| `reacts_count` | `integer` |  |
-| `title` | `string` |  |
-| `updated_at` | `string` |  |
-| `violated` | `boolean` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.Reaction`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `name` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `updated_at` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.ReactionStats`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `count` | `integer` |  |
-| `name` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getPublicDiscussionById } from '@aiozai/nodejs-client';
-
-const response = await getPublicDiscussionById({ path: { id: '...' } });
-console.log(response.data);
-```
-
----
-
-### `getPublicDiscussionByIdComments`
-
-**`GET /public/discussion/{id}/comments`** — Get a list of comments
 
 **Parameters**
 
@@ -1632,9 +1049,244 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getPublicDiscussionByIdComments } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await getPublicDiscussionByIdComments({ path: { id: '...' } });
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.discussions.getDiscussionByIdComments({
+    client: rawClient,
+    path: { id: '...' },
+});
+console.log(response.data);
+```
+
+---
+
+### `postDiscussionByIdComments`
+
+**`POST /api-key/discussion/{id}/comments`** — Create comment
+
+**Headers**
+
+| Header | Value | Required |
+| --- | --- | --- |
+| `x-api-key` | Your API key | Yes |
+
+**Parameters**
+
+| Name | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | `string` | Yes | Discussion's id |
+
+**Request Body** — `request.CreateCommentRequest`
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `content` | `string` | No |  |
+| `tag_usernames` | `array[string]` | No |  |
+
+**Responses**
+
+**200 OK** — `response.CommentResponse`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `data` | `models.Comment` |  |
+| `message` | `string` |  |
+| `status` | `string` |  |
+
+**`models.Comment`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `content` | `string` |  |
+| `created_at` | `string` |  |
+| `id` | `string` |  |
+| `owner` | `models.Owner` |  |
+| `reacted` | `models.Reaction` |  |
+| `reactions` | `array[models.Reaction]` |  |
+| `reactions_statistics` | `array[models.ReactionStats]` |  |
+| `reacts_count` | `integer` |  |
+| `tag_usernames` | `array[string]` |  |
+| `updated_at` | `string` |  |
+| `violated` | `boolean` |  |
+
+**`models.Owner`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `id` | `string` |  |
+| `username` | `string` |  |
+
+**`models.Reaction`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `created_at` | `string` |  |
+| `name` | `string` |  |
+| `owner` | `models.Owner` |  |
+| `updated_at` | `string` |  |
+
+**`models.Owner`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `id` | `string` |  |
+| `username` | `string` |  |
+
+**`models.Reaction`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `created_at` | `string` |  |
+| `name` | `string` |  |
+| `owner` | `models.Owner` |  |
+| `updated_at` | `string` |  |
+
+**`models.Owner`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `id` | `string` |  |
+| `username` | `string` |  |
+
+**`models.ReactionStats`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `count` | `integer` |  |
+| `name` | `string` |  |
+
+**Error Responses**
+
+| Status | Description |
+| --- | --- |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
+
+**Example**
+
+```typescript
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
+
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.discussions.postDiscussionByIdComments({
+    client: rawClient,
+    body: {
+        content: '...',  // string
+        tag_usernames: '...',  // array[string]
+    },
+});
+console.log(response.data);
+```
+
+---
+
+### `putItemsByIdReact`
+
+**`PUT /api-key/items/{id}/react`** — React item
+
+**Headers**
+
+| Header | Value | Required |
+| --- | --- | --- |
+| `x-api-key` | Your API key | Yes |
+
+**Parameters**
+
+| Name | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | `string` | Yes | Item's id |
+
+**Request Body** — `request.ReactItemRequest`
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `itemName` | `string` | No |  |
+| `reactName` | `string` | No |  |
+
+**Responses**
+
+**200 OK** — `response.SuccessResponse`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `message` | `string` |  |
+| `status` | `string` |  |
+
+**Error Responses**
+
+| Status | Description |
+| --- | --- |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
+
+**Example**
+
+```typescript
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
+
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.discussions.putItemsByIdReact({
+    client: rawClient,
+    body: {
+        itemName: '...',  // string
+        reactName: '...',  // string
+    },
+});
+console.log(response.data);
+```
+
+---
+
+### `putModelByIdLike`
+
+**`PUT /api-key/model/{id}/like`** — Like model
+
+**Headers**
+
+| Header | Value | Required |
+| --- | --- | --- |
+| `x-api-key` | Your API key | Yes |
+
+**Parameters**
+
+| Name | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | `string` | Yes | Model's id |
+
+**Responses**
+
+**200 OK** — `response.SuccessResponse`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `message` | `string` |  |
+| `status` | `string` |  |
+
+**Error Responses**
+
+| Status | Description |
+| --- | --- |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
+
+**Example**
+
+```typescript
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
+
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.discussions.putModelByIdLike({
+    client: rawClient,
+    path: { id: '...' },
+});
 console.log(response.data);
 ```
 

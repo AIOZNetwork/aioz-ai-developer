@@ -55,15 +55,18 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```typescript
-import { postStorageUploadCreatePresignedUrl } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await postStorageUploadCreatePresignedUrl({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.storage.postStorageUploadCreatePresignedUrl({
+    client: rawClient,
     body: {
         folder: '...',  // string  // required
-    mime: '...',  // string  // required
-    name: '...',  // string  // required
-    org_username: '...',  // string
-    size: '...',  // integer  // required
+        mime: '...',  // string  // required
+        name: '...',  // string  // required
+        org_username: '...',  // string
+        size: '...',  // integer  // required
     },
 });
 console.log(response.data);
@@ -116,9 +119,11 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getStorageUploadStatistics } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await getStorageUploadStatistics();
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.storage.getStorageUploadStatistics({ client: rawClient });
 console.log(response.data);
 ```
 
@@ -186,9 +191,14 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getStorageUploadByFolder } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await getStorageUploadByFolder({ path: { folder: '...' } });
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.storage.getStorageUploadByFolder({
+    client: rawClient,
+    path: { folder: '...' },
+});
 console.log(response.data);
 ```
 
@@ -229,9 +239,12 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { deleteStorageW3sUrl } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await deleteStorageW3sUrl({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.storage.deleteStorageW3sUrl({
+    client: rawClient,
     body: {
         url: '...',  // string  // required
     },
