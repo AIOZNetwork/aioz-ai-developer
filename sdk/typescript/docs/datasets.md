@@ -119,15 +119,18 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```typescript
-import { postDataset } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await postDataset({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.datasets.postDataset({
+    client: rawClient,
     body: {
         author_id: '...',  // string
-    cover: '...',  // string  // required
-    description: '...',  // string  // required
-    language: '...',  // array[string]
-    license: '...',  // string  // required
+        cover: '...',  // string  // required
+        description: '...',  // string  // required
+        language: '...',  // array[string]
+        license: '...',  // string  // required
     },
 });
 console.log(response.data);
@@ -254,15 +257,18 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postDatasetList } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await postDatasetList({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.datasets.postDatasetList({
+    client: rawClient,
     body: {
         filter_by: '...',  // string
-    language: '...',  // array[string]
-    license: '...',  // string
-    limit: '...',  // integer
-    offset: '...',  // integer
+        language: '...',  // array[string]
+        license: '...',  // string
+        limit: '...',  // integer
+        offset: '...',  // integer
     },
 });
 console.log(response.data);
@@ -394,15 +400,18 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postDatasetListByAuthorByUsername } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await postDatasetListByAuthorByUsername({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.datasets.postDatasetListByAuthorByUsername({
+    client: rawClient,
     body: {
         language: '...',  // array[string]
-    license: '...',  // string
-    limit: '...',  // integer
-    offset: '...',  // integer
-    order: '...',  // string
+        license: '...',  // string
+        limit: '...',  // integer
+        offset: '...',  // integer
+        order: '...',  // string
     },
 });
 console.log(response.data);
@@ -451,15 +460,18 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postDatasetMatchingTags } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await postDatasetMatchingTags({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.datasets.postDatasetMatchingTags({
+    client: rawClient,
     body: {
         language: '...',  // array[string]
-    license: '...',  // string
-    size_category: '...',  // string
-    tag_type: '...',  // string
-    tags: '...',  // array[string]
+        license: '...',  // string
+        size_category: '...',  // string
+        tag_type: '...',  // string
+        tags: '...',  // array[string]
     },
 });
 console.log(response.data);
@@ -579,9 +591,14 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getDatasetOrganizationByOrg } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await getDatasetOrganizationByOrg({ path: { org: '...' } });
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.datasets.getDatasetOrganizationByOrg({
+    client: rawClient,
+    path: { org: '...' },
+});
 console.log(response.data);
 ```
 
@@ -688,9 +705,14 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getDatasetById } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await getDatasetById({ path: { id: '...' } });
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.datasets.getDatasetById({
+    client: rawClient,
+    path: { id: '...' },
+});
 console.log(response.data);
 ```
 
@@ -807,274 +829,20 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putDatasetById } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await putDatasetById({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.datasets.putDatasetById({
+    client: rawClient,
     body: {
         cover: '...',  // string
-    description: '...',  // string
-    price: '...',  // number
-    thumbnail: '...',  // string
-    visibility: '...',  // string
+        description: '...',  // string
+        price: '...',  // number
+        thumbnail: '...',  // string
+        visibility: '...',  // string
     },
 });
-console.log(response.data);
-```
-
----
-
-### `deleteDatasetById`
-
-**`DELETE /api-key/dataset/{id}`** — Delete dataset
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Dataset's id |
-
-**Request Body** — `request.DeleteDatasetRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `repository_name` | `string` | No |  |
-
-**Responses**
-
-**200 OK** — `response.DatasetResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `models.Dataset` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`models.Dataset`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `author_avatar` | `string` |  |
-| `author_id` | `string` |  |
-| `cover` | `string` |  |
-| `create_by` | `string` |  |
-| `created_at` | `string` |  |
-| `description` | `string` |  |
-| `discussions_count` | `integer` |  |
-| `downloads_count` | `integer` |  |
-| `id` | `string` |  |
-| `is_liked_by_user` | `boolean` |  |
-| `is_official` | `boolean` |  |
-| `is_released` | `boolean` |  |
-| `is_verified` | `boolean` |  |
-| `likes_count` | `integer` |  |
-| `metadata` | `models.DatasetMetadata` |  |
-| `name` | `string` |  |
-| `price` | `number` |  |
-| `reacted` | `models.Reaction` |  |
-| `reactions_statistics` | `array[models.ReactionStats]` |  |
-| `thumbnail` | `string` |  |
-| `updated_at` | `string` |  |
-| `username` | `string` |  |
-| `visibility` | `string` |  |
-
-**`models.DatasetMetadata`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `dataset_id` | `string` |  |
-| `id` | `string` |  |
-| `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
-| `pretty_name` | `string` |  |
-| `size_category` | `string` |  |
-| `tags` | `array[string]` | art |
-| `task_categories` | `array[string]` | text-to-image |
-
-**`models.Reaction`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `name` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `updated_at` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.ReactionStats`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `count` | `integer` |  |
-| `name` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { deleteDatasetById } from '@aiozai/nodejs-client';
-
-const response = await deleteDatasetById({
-    body: {
-        repository_name: '...',  // string
-    },
-});
-console.log(response.data);
-```
-
----
-
-### `getDatasetByIdDownload`
-
-**`GET /api-key/dataset/{id}/download`** — Get List Dataset Download
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Dataset's id |
-| `limit` | query | `integer` | No |  |
-| `offset` | query | `integer` | No |  |
-
-**Responses**
-
-**200 OK** — `response.DownloadDatasetListResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.DownloadDatasetListData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.DownloadDatasetListData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `records` | `array[models.LiteDownloadDataset]` |  |
-| `total` | `integer` |  |
-
-**`models.LiteDownloadDataset`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `id` | `string` |  |
-| `owner` | `models.Owner` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getDatasetByIdDownload } from '@aiozai/nodejs-client';
-
-const response = await getDatasetByIdDownload({ path: { id: '...' } });
-console.log(response.data);
-```
-
----
-
-### `getDatasetByIdLike`
-
-**`GET /api-key/dataset/{id}/like`** — Get List Dataset Like
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Dataset's id |
-| `limit` | query | `integer` | No |  |
-| `offset` | query | `integer` | No |  |
-
-**Responses**
-
-**200 OK** — `response.LikeDatasetListResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.LikeDatasetListData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.LikeDatasetListData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `records` | `array[models.LiteLikeDataset]` |  |
-| `total` | `integer` |  |
-
-**`models.LiteLikeDataset`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `id` | `string` |  |
-| `owner` | `models.Owner` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getDatasetByIdLike } from '@aiozai/nodejs-client';
-
-const response = await getDatasetByIdLike({ path: { id: '...' } });
 console.log(response.data);
 ```
 
@@ -1140,15 +908,18 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { putDatasetByIdMetadata } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await putDatasetByIdMetadata({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.datasets.putDatasetByIdMetadata({
+    client: rawClient,
     body: {
         language: '...',  // array[string]
-    license: '...',  // string
-    pretty_name: '...',  // string
-    size_category: '...',  // string
-    tags: '...',  // array[string]
+        license: '...',  // string
+        pretty_name: '...',  // string
+        size_category: '...',  // string
+        tags: '...',  // array[string]
     },
 });
 console.log(response.data);
@@ -1258,794 +1029,14 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getDatasetByUsernameByName } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await getDatasetByUsernameByName({ path: { username: '...', name: '...' } });
-console.log(response.data);
-```
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
 
----
-
-### `postPublicDatasetList`
-
-**`POST /public/dataset/list`** — GetPublicDatasetList
-
-**Request Body** — `request.GetDatasetListRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `filter_by` | `string` | No | One of: `public`, `community`, `author`, `official`, `permission` |
-| `language` | `array[string]` | No |  |
-| `license` | `string` | No |  |
-| `limit` | `integer` | No |  |
-| `offset` | `integer` | No |  |
-| `order` | `string` | No | One of: `desc`, `asc` |
-| `search` | `string` | No |  |
-| `size_category` | `string` | No |  |
-| `sort` | `string` | No | One of: `trending`, `likes`, `downloads`, `created`, `created_oldest`, `modified` |
-| `tag_type` | `string` | No |  |
-| `tags` | `array[string]` | No |  |
-| `task_categories` | `array[string]` | No |  |
-
-**Responses**
-
-**200 OK** — `response.DatasetListResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.DatasetListData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.DatasetListData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `records` | `array[models.Dataset]` |  |
-| `total` | `integer` |  |
-
-**`models.Dataset`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `author_avatar` | `string` |  |
-| `author_id` | `string` |  |
-| `cover` | `string` |  |
-| `create_by` | `string` |  |
-| `created_at` | `string` |  |
-| `description` | `string` |  |
-| `discussions_count` | `integer` |  |
-| `downloads_count` | `integer` |  |
-| `id` | `string` |  |
-| `is_liked_by_user` | `boolean` |  |
-| `is_official` | `boolean` |  |
-| `is_released` | `boolean` |  |
-| `is_verified` | `boolean` |  |
-| `likes_count` | `integer` |  |
-| `metadata` | `models.DatasetMetadata` |  |
-| `name` | `string` |  |
-| `price` | `number` |  |
-| `reacted` | `models.Reaction` |  |
-| `reactions_statistics` | `array[models.ReactionStats]` |  |
-| `thumbnail` | `string` |  |
-| `updated_at` | `string` |  |
-| `username` | `string` |  |
-| `visibility` | `string` |  |
-
-**`models.DatasetMetadata`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `dataset_id` | `string` |  |
-| `id` | `string` |  |
-| `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
-| `pretty_name` | `string` |  |
-| `size_category` | `string` |  |
-| `tags` | `array[string]` | art |
-| `task_categories` | `array[string]` | text-to-image |
-
-**`models.Reaction`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `name` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `updated_at` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.ReactionStats`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `count` | `integer` |  |
-| `name` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { postPublicDatasetList } from '@aiozai/nodejs-client';
-
-const response = await postPublicDatasetList({
-    body: {
-        filter_by: '...',  // string
-    language: '...',  // array[string]
-    license: '...',  // string
-    limit: '...',  // integer
-    offset: '...',  // integer
-    },
+const response = await services.datasets.getDatasetByUsernameByName({
+    client: rawClient,
+    path: { username: '...', name: '...' },
 });
-console.log(response.data);
-```
-
----
-
-### `postPublicDatasetListByAuthorByUsername`
-
-**`POST /public/dataset/list-by-author/{username}`** — Get public dataset list by user
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `username` | path | `string` | Yes | Username |
-
-**Request Body** — `request.GetDatasetListByAuthorRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `language` | `array[string]` | No |  |
-| `license` | `string` | No |  |
-| `limit` | `integer` | No |  |
-| `offset` | `integer` | No |  |
-| `order` | `string` | No | One of: `desc`, `asc` |
-| `search` | `string` | No |  |
-| `size_category` | `string` | No |  |
-| `sort` | `string` | No | One of: `trending`, `likes`, `downloads`, `created`, `created_oldest`, `modified` |
-| `tag_type` | `string` | No |  |
-| `tags` | `array[string]` | No |  |
-| `task_categories` | `array[string]` | No |  |
-
-**Responses**
-
-**200 OK** — `response.DatasetListResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.DatasetListData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.DatasetListData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `records` | `array[models.Dataset]` |  |
-| `total` | `integer` |  |
-
-**`models.Dataset`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `author_avatar` | `string` |  |
-| `author_id` | `string` |  |
-| `cover` | `string` |  |
-| `create_by` | `string` |  |
-| `created_at` | `string` |  |
-| `description` | `string` |  |
-| `discussions_count` | `integer` |  |
-| `downloads_count` | `integer` |  |
-| `id` | `string` |  |
-| `is_liked_by_user` | `boolean` |  |
-| `is_official` | `boolean` |  |
-| `is_released` | `boolean` |  |
-| `is_verified` | `boolean` |  |
-| `likes_count` | `integer` |  |
-| `metadata` | `models.DatasetMetadata` |  |
-| `name` | `string` |  |
-| `price` | `number` |  |
-| `reacted` | `models.Reaction` |  |
-| `reactions_statistics` | `array[models.ReactionStats]` |  |
-| `thumbnail` | `string` |  |
-| `updated_at` | `string` |  |
-| `username` | `string` |  |
-| `visibility` | `string` |  |
-
-**`models.DatasetMetadata`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `dataset_id` | `string` |  |
-| `id` | `string` |  |
-| `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
-| `pretty_name` | `string` |  |
-| `size_category` | `string` |  |
-| `tags` | `array[string]` | art |
-| `task_categories` | `array[string]` | text-to-image |
-
-**`models.Reaction`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `name` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `updated_at` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.ReactionStats`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `count` | `integer` |  |
-| `name` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { postPublicDatasetListByAuthorByUsername } from '@aiozai/nodejs-client';
-
-const response = await postPublicDatasetListByAuthorByUsername({
-    body: {
-        language: '...',  // array[string]
-    license: '...',  // string
-    limit: '...',  // integer
-    offset: '...',  // integer
-    order: '...',  // string
-    },
-});
-console.log(response.data);
-```
-
----
-
-### `postPublicDatasetMatchingTags`
-
-**`POST /public/dataset/matching-tags`** — Get matching public datasets tags
-
-**Request Body** — `request.MatchingDatasetsTagsRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `language` | `array[string]` | No |  |
-| `license` | `string` | No |  |
-| `size_category` | `string` | No |  |
-| `tag_type` | `string` | No |  |
-| `tags` | `array[string]` | No |  |
-| `task_categories` | `array[string]` | No |  |
-
-**Responses**
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request |
-| 500 | Internal Server Error |
-
-**Example**
-
-```typescript
-import { postPublicDatasetMatchingTags } from '@aiozai/nodejs-client';
-
-const response = await postPublicDatasetMatchingTags({
-    body: {
-        language: '...',  // array[string]
-    license: '...',  // string
-    size_category: '...',  // string
-    tag_type: '...',  // string
-    tags: '...',  // array[string]
-    },
-});
-console.log(response.data);
-```
-
----
-
-### `getPublicDatasetMetadata`
-
-**`GET /public/dataset/metadata`** — Get Dataset Metadata
-
-**Responses**
-
-**200 OK** — `response.MetadataListResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.MetadataListData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.MetadataListData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `records` | `array[models.Metadata]` |  |
-
-**`models.Metadata`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `category` | `string` |  |
-| `id` | `string` |  |
-| `label` | `string` |  |
-| `type` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getPublicDatasetMetadata } from '@aiozai/nodejs-client';
-
-const response = await getPublicDatasetMetadata();
-console.log(response.data);
-```
-
----
-
-### `getPublicDatasetOrganizationByOrg`
-
-**`GET /public/dataset/organization/{org}`** — Get List Dataset By Org Username
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `org` | path | `string` | Yes | Org's username |
-| `limit` | query | `integer` | No |  |
-| `offset` | query | `integer` | No |  |
-| `order` | query | `string` | No |  |
-| `sort` | query | `string` | No |  |
-
-**Responses**
-
-**200 OK** — `response.DatasetListResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.DatasetListData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.DatasetListData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `records` | `array[models.Dataset]` |  |
-| `total` | `integer` |  |
-
-**`models.Dataset`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `author_avatar` | `string` |  |
-| `author_id` | `string` |  |
-| `cover` | `string` |  |
-| `create_by` | `string` |  |
-| `created_at` | `string` |  |
-| `description` | `string` |  |
-| `discussions_count` | `integer` |  |
-| `downloads_count` | `integer` |  |
-| `id` | `string` |  |
-| `is_liked_by_user` | `boolean` |  |
-| `is_official` | `boolean` |  |
-| `is_released` | `boolean` |  |
-| `is_verified` | `boolean` |  |
-| `likes_count` | `integer` |  |
-| `metadata` | `models.DatasetMetadata` |  |
-| `name` | `string` |  |
-| `price` | `number` |  |
-| `reacted` | `models.Reaction` |  |
-| `reactions_statistics` | `array[models.ReactionStats]` |  |
-| `thumbnail` | `string` |  |
-| `updated_at` | `string` |  |
-| `username` | `string` |  |
-| `visibility` | `string` |  |
-
-**`models.DatasetMetadata`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `dataset_id` | `string` |  |
-| `id` | `string` |  |
-| `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
-| `pretty_name` | `string` |  |
-| `size_category` | `string` |  |
-| `tags` | `array[string]` | art |
-| `task_categories` | `array[string]` | text-to-image |
-
-**`models.Reaction`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `name` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `updated_at` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.ReactionStats`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `count` | `integer` |  |
-| `name` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getPublicDatasetOrganizationByOrg } from '@aiozai/nodejs-client';
-
-const response = await getPublicDatasetOrganizationByOrg({ path: { org: '...' } });
-console.log(response.data);
-```
-
----
-
-### `getPublicDatasetTrending`
-
-**`GET /public/dataset/trending`** — Get List Datasets Trending
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `limit` | query | `integer` | No |  |
-| `offset` | query | `integer` | No |  |
-
-**Responses**
-
-**200 OK** — `response.DatasetListResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.DatasetListData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.DatasetListData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `records` | `array[models.Dataset]` |  |
-| `total` | `integer` |  |
-
-**`models.Dataset`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `author_avatar` | `string` |  |
-| `author_id` | `string` |  |
-| `cover` | `string` |  |
-| `create_by` | `string` |  |
-| `created_at` | `string` |  |
-| `description` | `string` |  |
-| `discussions_count` | `integer` |  |
-| `downloads_count` | `integer` |  |
-| `id` | `string` |  |
-| `is_liked_by_user` | `boolean` |  |
-| `is_official` | `boolean` |  |
-| `is_released` | `boolean` |  |
-| `is_verified` | `boolean` |  |
-| `likes_count` | `integer` |  |
-| `metadata` | `models.DatasetMetadata` |  |
-| `name` | `string` |  |
-| `price` | `number` |  |
-| `reacted` | `models.Reaction` |  |
-| `reactions_statistics` | `array[models.ReactionStats]` |  |
-| `thumbnail` | `string` |  |
-| `updated_at` | `string` |  |
-| `username` | `string` |  |
-| `visibility` | `string` |  |
-
-**`models.DatasetMetadata`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `dataset_id` | `string` |  |
-| `id` | `string` |  |
-| `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
-| `pretty_name` | `string` |  |
-| `size_category` | `string` |  |
-| `tags` | `array[string]` | art |
-| `task_categories` | `array[string]` | text-to-image |
-
-**`models.Reaction`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `name` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `updated_at` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.ReactionStats`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `count` | `integer` |  |
-| `name` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getPublicDatasetTrending } from '@aiozai/nodejs-client';
-
-const response = await getPublicDatasetTrending();
-console.log(response.data);
-```
-
----
-
-### `getPublicDatasetById`
-
-**`GET /public/dataset/{id}`** — Get public dataset by id
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Dataset's id |
-
-**Responses**
-
-**200 OK** — `response.DatasetResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `models.Dataset` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`models.Dataset`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `author_avatar` | `string` |  |
-| `author_id` | `string` |  |
-| `cover` | `string` |  |
-| `create_by` | `string` |  |
-| `created_at` | `string` |  |
-| `description` | `string` |  |
-| `discussions_count` | `integer` |  |
-| `downloads_count` | `integer` |  |
-| `id` | `string` |  |
-| `is_liked_by_user` | `boolean` |  |
-| `is_official` | `boolean` |  |
-| `is_released` | `boolean` |  |
-| `is_verified` | `boolean` |  |
-| `likes_count` | `integer` |  |
-| `metadata` | `models.DatasetMetadata` |  |
-| `name` | `string` |  |
-| `price` | `number` |  |
-| `reacted` | `models.Reaction` |  |
-| `reactions_statistics` | `array[models.ReactionStats]` |  |
-| `thumbnail` | `string` |  |
-| `updated_at` | `string` |  |
-| `username` | `string` |  |
-| `visibility` | `string` |  |
-
-**`models.DatasetMetadata`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `dataset_id` | `string` |  |
-| `id` | `string` |  |
-| `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
-| `pretty_name` | `string` |  |
-| `size_category` | `string` |  |
-| `tags` | `array[string]` | art |
-| `task_categories` | `array[string]` | text-to-image |
-
-**`models.Reaction`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `name` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `updated_at` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.ReactionStats`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `count` | `integer` |  |
-| `name` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getPublicDatasetById } from '@aiozai/nodejs-client';
-
-const response = await getPublicDatasetById({ path: { id: '...' } });
-console.log(response.data);
-```
-
----
-
-### `getPublicDatasetByUsernameByName`
-
-**`GET /public/dataset/{username}/{name}`** — Get public dataset by name
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `username` | path | `string` | Yes | Dataset's username |
-| `name` | path | `string` | Yes | Dataset's name |
-
-**Responses**
-
-**200 OK** — `response.DatasetResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `models.Dataset` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`models.Dataset`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `author_avatar` | `string` |  |
-| `author_id` | `string` |  |
-| `cover` | `string` |  |
-| `create_by` | `string` |  |
-| `created_at` | `string` |  |
-| `description` | `string` |  |
-| `discussions_count` | `integer` |  |
-| `downloads_count` | `integer` |  |
-| `id` | `string` |  |
-| `is_liked_by_user` | `boolean` |  |
-| `is_official` | `boolean` |  |
-| `is_released` | `boolean` |  |
-| `is_verified` | `boolean` |  |
-| `likes_count` | `integer` |  |
-| `metadata` | `models.DatasetMetadata` |  |
-| `name` | `string` |  |
-| `price` | `number` |  |
-| `reacted` | `models.Reaction` |  |
-| `reactions_statistics` | `array[models.ReactionStats]` |  |
-| `thumbnail` | `string` |  |
-| `updated_at` | `string` |  |
-| `username` | `string` |  |
-| `visibility` | `string` |  |
-
-**`models.DatasetMetadata`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `dataset_id` | `string` |  |
-| `id` | `string` |  |
-| `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
-| `pretty_name` | `string` |  |
-| `size_category` | `string` |  |
-| `tags` | `array[string]` | art |
-| `task_categories` | `array[string]` | text-to-image |
-
-**`models.Reaction`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `name` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `updated_at` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.ReactionStats`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `count` | `integer` |  |
-| `name` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getPublicDatasetByUsernameByName } from '@aiozai/nodejs-client';
-
-const response = await getPublicDatasetByUsernameByName({ path: { username: '...', name: '...' } });
 console.log(response.data);
 ```
 

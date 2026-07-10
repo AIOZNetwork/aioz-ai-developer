@@ -6,113 +6,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `post_collection_by_id_report`
+### `put_comments_by_id`
 
-**`POST /api-key/collection/{id}/report`** — Report Collection
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Collection's id |
-
-**Request Body** — `request.ReportCollectionRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `reason` | `string` | Yes |  |
-| `url` | `string` | Yes |  |
-
-**Responses**
-
-**200 OK** — `response.DiscussionResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `models.LiteDiscussion` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`models.LiteDiscussion`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `comments_count` | `integer` |  |
-| `content` | `string` |  |
-| `created_at` | `string` |  |
-| `id` | `string` |  |
-| `is_closed` | `boolean` |  |
-| `owner` | `models.Owner` |  |
-| `reacted` | `models.Reaction` |  |
-| `reactions_statistics` | `array[models.ReactionStats]` |  |
-| `reacts_count` | `integer` |  |
-| `title` | `string` |  |
-| `updated_at` | `string` |  |
-| `violated` | `boolean` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.Reaction`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `name` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `updated_at` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.ReactionStats`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `count` | `integer` |  |
-| `name` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```python
-from aiozai_sdk.generated.models import ReportCollectionRequest
-
-request = ReportCollectionRequest(
-    reason="...",  # string  # required
-    url="...",  # string  # required
-)
-resp = client.discussions.discussion.post_collection_by_id_report(input=request)
-print(resp)
-```
-
----
-
-### `post_comments_by_id_report`
-
-**`POST /api-key/comments/{id}/report`** — Report Comment
+**`PUT /api-key/comments/{id}`** — Update comment
 
 **Headers**
 
@@ -126,39 +22,55 @@ print(resp)
 | --- | --- | --- | --- | --- |
 | `id` | path | `string` | Yes | Comment's id |
 
-**Request Body** — `request.ReportCommentRequest`
+**Request Body** — `request.UpdateCommentRequest`
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `reason` | `string` | Yes |  |
-| `url` | `string` | Yes |  |
+| `content` | `string` | No |  |
+| `tag_usernames` | `array[string]` | No |  |
 
 **Responses**
 
-**200 OK** — `response.DiscussionResponse`
+**200 OK** — `response.CommentResponse`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `models.LiteDiscussion` |  |
+| `data` | `models.Comment` |  |
 | `message` | `string` |  |
 | `status` | `string` |  |
 
-**`models.LiteDiscussion`**
+**`models.Comment`**
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `comments_count` | `integer` |  |
 | `content` | `string` |  |
 | `created_at` | `string` |  |
 | `id` | `string` |  |
-| `is_closed` | `boolean` |  |
 | `owner` | `models.Owner` |  |
 | `reacted` | `models.Reaction` |  |
+| `reactions` | `array[models.Reaction]` |  |
 | `reactions_statistics` | `array[models.ReactionStats]` |  |
 | `reacts_count` | `integer` |  |
-| `title` | `string` |  |
+| `tag_usernames` | `array[string]` |  |
 | `updated_at` | `string` |  |
 | `violated` | `boolean` |  |
+
+**`models.Owner`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `id` | `string` |  |
+| `username` | `string` |  |
+
+**`models.Reaction`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `created_at` | `string` |  |
+| `name` | `string` |  |
+| `owner` | `models.Owner` |  |
+| `updated_at` | `string` |  |
 
 **`models.Owner`**
 
@@ -202,13 +114,54 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import ReportCommentRequest
+from aiozai_sdk.generated.models import UpdateCommentRequest
 
-request = ReportCommentRequest(
-    reason="...",  # string  # required
-    url="...",  # string  # required
+request = UpdateCommentRequest(
+    content="...",  # string
+    tag_usernames="...",  # array[string]
 )
-resp = client.discussions.discussion.post_comments_by_id_report(input=request)
+resp = client.discussions.comment.put_comments_by_id(input=request)
+print(resp)
+```
+
+---
+
+### `put_dataset_by_id_like`
+
+**`PUT /api-key/dataset/{id}/like`** — Like dataset
+
+**Headers**
+
+| Header | Value | Required |
+| --- | --- | --- |
+| `x-api-key` | Your API key | Yes |
+
+**Parameters**
+
+| Name | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | `string` | Yes | Dataset's id |
+
+**Responses**
+
+**200 OK** — `response.SuccessResponse`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `message` | `string` |  |
+| `status` | `string` |  |
+
+**Error Responses**
+
+| Status | Description |
+| --- | --- |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
+
+**Example**
+
+```python
+resp = client.discussions.reaction.put_dataset_by_id_like(id="<id>")
 print(resp)
 ```
 
@@ -937,576 +890,15 @@ print(resp)
 
 ---
 
-### `delete_discussion_by_id`
+### `get_discussion_by_id_comments`
 
-**`DELETE /api-key/discussion/{id}`** — Delete discussion
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Discussion's id |
-
-**Responses**
-
-**200 OK** — `response.DiscussionResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `models.LiteDiscussion` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`models.LiteDiscussion`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `comments_count` | `integer` |  |
-| `content` | `string` |  |
-| `created_at` | `string` |  |
-| `id` | `string` |  |
-| `is_closed` | `boolean` |  |
-| `owner` | `models.Owner` |  |
-| `reacted` | `models.Reaction` |  |
-| `reactions_statistics` | `array[models.ReactionStats]` |  |
-| `reacts_count` | `integer` |  |
-| `title` | `string` |  |
-| `updated_at` | `string` |  |
-| `violated` | `boolean` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.Reaction`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `name` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `updated_at` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.ReactionStats`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `count` | `integer` |  |
-| `name` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```python
-resp = client.discussions.discussion.delete_discussion_by_id(id="<id>")
-print(resp)
-```
-
----
-
-### `post_discussion_by_id_report`
-
-**`POST /api-key/discussion/{id}/report`** — Report Discussion
+**`GET /api-key/discussion/{id}/comments`** — Get comment list
 
 **Headers**
 
 | Header | Value | Required |
 | --- | --- | --- |
 | `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Discussion's id |
-
-**Request Body** — `request.ReportDiscussionRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `reason` | `string` | Yes |  |
-| `url` | `string` | Yes |  |
-
-**Responses**
-
-**200 OK** — `response.DiscussionResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `models.LiteDiscussion` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`models.LiteDiscussion`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `comments_count` | `integer` |  |
-| `content` | `string` |  |
-| `created_at` | `string` |  |
-| `id` | `string` |  |
-| `is_closed` | `boolean` |  |
-| `owner` | `models.Owner` |  |
-| `reacted` | `models.Reaction` |  |
-| `reactions_statistics` | `array[models.ReactionStats]` |  |
-| `reacts_count` | `integer` |  |
-| `title` | `string` |  |
-| `updated_at` | `string` |  |
-| `violated` | `boolean` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.Reaction`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `name` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `updated_at` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.ReactionStats`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `count` | `integer` |  |
-| `name` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```python
-from aiozai_sdk.generated.models import ReportDiscussionRequest
-
-request = ReportDiscussionRequest(
-    reason="...",  # string  # required
-    url="...",  # string  # required
-)
-resp = client.discussions.discussion.post_discussion_by_id_report(input=request)
-print(resp)
-```
-
----
-
-### `get_public_discussion_competition_by_id`
-
-**`GET /public/discussion/competition/{id}`** — Get public competition discussion list
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Competition's id |
-| `filter` | query | `string` | No |  |
-| `limit` | query | `integer` | No |  |
-| `offset` | query | `integer` | No |  |
-| `search` | query | `string` | No |  |
-| `sort` | query | `string` | No |  |
-
-**Responses**
-
-**200 OK** — `response.DiscussionListResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.DiscussionListData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.DiscussionListData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `records` | `array[models.LiteDiscussion]` |  |
-| `total` | `integer` |  |
-
-**`models.LiteDiscussion`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `comments_count` | `integer` |  |
-| `content` | `string` |  |
-| `created_at` | `string` |  |
-| `id` | `string` |  |
-| `is_closed` | `boolean` |  |
-| `owner` | `models.Owner` |  |
-| `reacted` | `models.Reaction` |  |
-| `reactions_statistics` | `array[models.ReactionStats]` |  |
-| `reacts_count` | `integer` |  |
-| `title` | `string` |  |
-| `updated_at` | `string` |  |
-| `violated` | `boolean` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.Reaction`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `name` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `updated_at` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.ReactionStats`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `count` | `integer` |  |
-| `name` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```python
-resp = client.discussions.discussion.get_public_discussion_competition_by_id(id="<id>")
-print(resp)
-```
-
----
-
-### `get_public_discussion_dataset_by_id`
-
-**`GET /public/discussion/dataset/{id}`** — Get dataset discussion list
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Dataset's id |
-| `limit` | query | `integer` | No |  |
-| `offset` | query | `integer` | No |  |
-| `sort` | query | `string` | No |  |
-
-**Responses**
-
-**200 OK** — `response.DiscussionListResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.DiscussionListData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.DiscussionListData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `records` | `array[models.LiteDiscussion]` |  |
-| `total` | `integer` |  |
-
-**`models.LiteDiscussion`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `comments_count` | `integer` |  |
-| `content` | `string` |  |
-| `created_at` | `string` |  |
-| `id` | `string` |  |
-| `is_closed` | `boolean` |  |
-| `owner` | `models.Owner` |  |
-| `reacted` | `models.Reaction` |  |
-| `reactions_statistics` | `array[models.ReactionStats]` |  |
-| `reacts_count` | `integer` |  |
-| `title` | `string` |  |
-| `updated_at` | `string` |  |
-| `violated` | `boolean` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.Reaction`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `name` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `updated_at` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.ReactionStats`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `count` | `integer` |  |
-| `name` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```python
-resp = client.discussions.discussion.get_public_discussion_dataset_by_id(id="<id>")
-print(resp)
-```
-
----
-
-### `get_public_discussion_model_by_id`
-
-**`GET /public/discussion/model/{id}`** — Get model discussion list
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Model's id |
-| `limit` | query | `integer` | No |  |
-| `offset` | query | `integer` | No |  |
-| `sort` | query | `string` | No |  |
-
-**Responses**
-
-**200 OK** — `response.DiscussionListResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.DiscussionListData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.DiscussionListData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `records` | `array[models.LiteDiscussion]` |  |
-| `total` | `integer` |  |
-
-**`models.LiteDiscussion`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `comments_count` | `integer` |  |
-| `content` | `string` |  |
-| `created_at` | `string` |  |
-| `id` | `string` |  |
-| `is_closed` | `boolean` |  |
-| `owner` | `models.Owner` |  |
-| `reacted` | `models.Reaction` |  |
-| `reactions_statistics` | `array[models.ReactionStats]` |  |
-| `reacts_count` | `integer` |  |
-| `title` | `string` |  |
-| `updated_at` | `string` |  |
-| `violated` | `boolean` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.Reaction`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `name` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `updated_at` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.ReactionStats`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `count` | `integer` |  |
-| `name` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```python
-resp = client.discussions.discussion.get_public_discussion_model_by_id(id="<id>")
-print(resp)
-```
-
----
-
-### `get_public_discussion_by_id`
-
-**`GET /public/discussion/{id}`** — Get discussion detail
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Discussion's id |
-
-**Responses**
-
-**200 OK** — `response.DiscussionResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `models.LiteDiscussion` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`models.LiteDiscussion`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `comments_count` | `integer` |  |
-| `content` | `string` |  |
-| `created_at` | `string` |  |
-| `id` | `string` |  |
-| `is_closed` | `boolean` |  |
-| `owner` | `models.Owner` |  |
-| `reacted` | `models.Reaction` |  |
-| `reactions_statistics` | `array[models.ReactionStats]` |  |
-| `reacts_count` | `integer` |  |
-| `title` | `string` |  |
-| `updated_at` | `string` |  |
-| `violated` | `boolean` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.Reaction`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `name` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `updated_at` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.ReactionStats`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `count` | `integer` |  |
-| `name` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```python
-resp = client.discussions.discussion.get_public_discussion_by_id(id="<id>")
-print(resp)
-```
-
----
-
-### `get_public_discussion_by_id_comments`
-
-**`GET /public/discussion/{id}/comments`** — Get a list of comments
 
 **Parameters**
 
@@ -1609,7 +1001,222 @@ print(resp)
 **Example**
 
 ```python
-resp = client.discussions.discussion.get_public_discussion_by_id_comments(id="<id>")
+resp = client.discussions.comment.get_discussion_by_id_comments(id="<id>")
+print(resp)
+```
+
+---
+
+### `post_discussion_by_id_comments`
+
+**`POST /api-key/discussion/{id}/comments`** — Create comment
+
+**Headers**
+
+| Header | Value | Required |
+| --- | --- | --- |
+| `x-api-key` | Your API key | Yes |
+
+**Parameters**
+
+| Name | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | `string` | Yes | Discussion's id |
+
+**Request Body** — `request.CreateCommentRequest`
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `content` | `string` | No |  |
+| `tag_usernames` | `array[string]` | No |  |
+
+**Responses**
+
+**200 OK** — `response.CommentResponse`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `data` | `models.Comment` |  |
+| `message` | `string` |  |
+| `status` | `string` |  |
+
+**`models.Comment`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `content` | `string` |  |
+| `created_at` | `string` |  |
+| `id` | `string` |  |
+| `owner` | `models.Owner` |  |
+| `reacted` | `models.Reaction` |  |
+| `reactions` | `array[models.Reaction]` |  |
+| `reactions_statistics` | `array[models.ReactionStats]` |  |
+| `reacts_count` | `integer` |  |
+| `tag_usernames` | `array[string]` |  |
+| `updated_at` | `string` |  |
+| `violated` | `boolean` |  |
+
+**`models.Owner`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `id` | `string` |  |
+| `username` | `string` |  |
+
+**`models.Reaction`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `created_at` | `string` |  |
+| `name` | `string` |  |
+| `owner` | `models.Owner` |  |
+| `updated_at` | `string` |  |
+
+**`models.Owner`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `id` | `string` |  |
+| `username` | `string` |  |
+
+**`models.Reaction`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `created_at` | `string` |  |
+| `name` | `string` |  |
+| `owner` | `models.Owner` |  |
+| `updated_at` | `string` |  |
+
+**`models.Owner`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `id` | `string` |  |
+| `username` | `string` |  |
+
+**`models.ReactionStats`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `count` | `integer` |  |
+| `name` | `string` |  |
+
+**Error Responses**
+
+| Status | Description |
+| --- | --- |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
+
+**Example**
+
+```python
+from aiozai_sdk.generated.models import CreateCommentRequest
+
+request = CreateCommentRequest(
+    content="...",  # string
+    tag_usernames="...",  # array[string]
+)
+resp = client.discussions.comment.post_discussion_by_id_comments(input=request)
+print(resp)
+```
+
+---
+
+### `put_items_by_id_react`
+
+**`PUT /api-key/items/{id}/react`** — React item
+
+**Headers**
+
+| Header | Value | Required |
+| --- | --- | --- |
+| `x-api-key` | Your API key | Yes |
+
+**Parameters**
+
+| Name | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | `string` | Yes | Item's id |
+
+**Request Body** — `request.ReactItemRequest`
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `itemName` | `string` | No |  |
+| `reactName` | `string` | No |  |
+
+**Responses**
+
+**200 OK** — `response.SuccessResponse`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `message` | `string` |  |
+| `status` | `string` |  |
+
+**Error Responses**
+
+| Status | Description |
+| --- | --- |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
+
+**Example**
+
+```python
+from aiozai_sdk.generated.models import ReactItemRequest
+
+request = ReactItemRequest(
+    itemName="...",  # string
+    reactName="...",  # string
+)
+resp = client.discussions.reaction.put_items_by_id_react(input=request)
+print(resp)
+```
+
+---
+
+### `put_model_by_id_like`
+
+**`PUT /api-key/model/{id}/like`** — Like model
+
+**Headers**
+
+| Header | Value | Required |
+| --- | --- | --- |
+| `x-api-key` | Your API key | Yes |
+
+**Parameters**
+
+| Name | Location | Type | Required | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | `string` | Yes | Model's id |
+
+**Responses**
+
+**200 OK** — `response.SuccessResponse`
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `message` | `string` |  |
+| `status` | `string` |  |
+
+**Error Responses**
+
+| Status | Description |
+| --- | --- |
+| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
+| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
+
+**Example**
+
+```python
+resp = client.discussions.reaction.put_model_by_id_like(id="<id>")
 print(resp)
 ```
 

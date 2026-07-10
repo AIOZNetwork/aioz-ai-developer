@@ -47,18 +47,18 @@ client = AiozAIClient(
 
 | Service | Access | Description | Reference |
 | --- | --- | --- | --- |
-| Models | `client.models` | AI model management | [docs/models.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/models.md) |
-| Datasets | `client.datasets` | Dataset management | [docs/datasets.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/datasets.md) |
-| Competitions | `client.competitions` | Competitions & submissions | [docs/competitions.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/competitions.md) |
-| Collections | `client.collections` | Curated collections | [docs/collections.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/collections.md) |
-| Discussions | `client.discussions` | Discussions & comments | [docs/discussions.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/discussions.md) |
-| Notifications | `client.notifications` | Notification system | [docs/notifications.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/notifications.md) |
-| Organizations | `client.organizations` | Organization management | [docs/organizations.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/organizations.md) |
-| Repositories | `client.repositories` | Repository operations | [docs/repositories.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/repositories.md) |
-| Storage | `client.storage` | Storage & uploads | [docs/storage.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/storage.md) |
-| Users | `client.users` | User management | [docs/users.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/users.md) |
-| Core | `client.core` | Core endpoints, search, offers | [docs/core.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/core.md) |
-| Public | `client.public` | Public endpoints (no auth) | [docs/public.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/python/docs/public.md) |
+| Collections | `client.collections` | Collection management | [docs/collections.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/python/docs/collections.md) |
+| Competitions | `client.competitions` | Competitions & submissions | [docs/competitions.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/python/docs/competitions.md) |
+| Core | `client.core` | Core endpoints | [docs/core.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/python/docs/core.md) |
+| Datasets | `client.datasets` | Dataset management | [docs/datasets.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/python/docs/datasets.md) |
+| Discussions | `client.discussions` | Discussions & comments | [docs/discussions.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/python/docs/discussions.md) |
+| Models | `client.models` | Model management | [docs/models.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/python/docs/models.md) |
+| Organizations | `client.organizations` | Organization management | [docs/organizations.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/python/docs/organizations.md) |
+| Public | `client.public` | Public endpoints (no auth) | [docs/public.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/python/docs/public.md) |
+| Repositories | `client.repositories` | Repository operations | [docs/repositories.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/python/docs/repositories.md) |
+| Storage | `client.storage` | Storage & uploads | [docs/storage.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/python/docs/storage.md) |
+| Tasks | `client.Tasks()` | Task management | [docs/tasks.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/python/docs/tasks.md) |
+| Users | `client.users` | User management | [docs/users.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/python/docs/users.md) |
 
 ## Requirements
 
@@ -77,8 +77,6 @@ Apache 2.0
 
 ## SDK Usage Guide
 
-> Auto-generated from `swagger/sdk.json` — do not edit this section manually.
-> Re-generate with `make guide` from the repo root.
 
 ### Authentication Setup
 

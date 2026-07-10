@@ -6,128 +6,6 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 ---
 
-### `postCompetition`
-
-**`POST /api-key/competition`** — Create a new competition
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Request Body** — `request.CreateCompetitionRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `author_id` | `string` | No |  |
-| `category` | `string` | No | featured,research,getting-started,playground,community,analytics,simulations |
-| `code` | `string` | No |  |
-| `cover` | `string` | No |  |
-| `data` | `string` | No |  |
-| `description` | `string` | No |  |
-| `end_date` | `string` | No | 2025-01-01 12:00:00 |
-| `final_result_mode` | `string` | No | auto,manual |
-| `max_daily_private_submissions` | `integer` | No |  |
-| `overview` | `string` | No |  |
-| `private_leaderboard_release_date` | `string` | No | 2025-01-01 12:00:00 |
-| `prize_distribution_method` | `string` | No | manual,smart_contract. One of: `manual`, `smart_contract` |
-| `registration_deadline` | `string` | No | 2025-01-01 12:00:00 |
-| `reward_type` | `string` | No | monetary,knowledge,swag,kudos |
-| `rules` | `string` | No |  |
-| `start_date` | `string` | No | 2025-01-01 12:00:00 |
-| `submission_deadline` | `string` | No | 2025-01-01 12:00:00 |
-| `tags` | `array[string]` | No |  |
-| `thumbnail` | `string` | No |  |
-| `time_zone_config` | `map[string]any` | No |  |
-| `title` | `string` | Yes |  |
-| `total_prize_pool` | `number` | No |  |
-| `visibility` | `string` | No |  |
-
-**Responses**
-
-**200 OK** — `response.CompetitionResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `models.Competition` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`models.Competition`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `author_id` | `string` |  |
-| `category` | `string` |  |
-| `code` | `string` |  |
-| `cover` | `string` |  |
-| `created_at` | `string` |  |
-| `data` | `string` |  |
-| `description` | `string` |  |
-| `end_date` | `string` |  |
-| `final_result_mode` | `string` |  |
-| `id` | `string` |  |
-| `joined` | `boolean` |  |
-| `launched` | `boolean` |  |
-| `max_daily_private_submissions` | `integer` |  |
-| `overview` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `participants` | `integer` |  |
-| `path` | `string` |  |
-| `permission` | `map[string]any` |  |
-| `private_leaderboard_release_date` | `string` |  |
-| `private_submissions_remaining` | `integer` |  |
-| `prize_distribution_method` | `string` |  |
-| `registration_deadline` | `string` |  |
-| `reward_type` | `string` |  |
-| `rules` | `string` |  |
-| `start_date` | `string` |  |
-| `submission_deadline` | `string` |  |
-| `submissions` | `integer` |  |
-| `tags` | `array[string]` |  |
-| `thumbnail` | `string` |  |
-| `time_zone_config` | `map[string]any` |  |
-| `title` | `string` |  |
-| `total_prize_pool` | `number` |  |
-| `updated_at` | `string` |  |
-| `user_id` | `string` |  |
-| `visibility` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { postCompetition } from '@aiozai/nodejs-client';
-
-const response = await postCompetition({
-    body: {
-        author_id: '...',  // string
-    category: '...',  // string
-    code: '...',  // string
-    cover: '...',  // string
-    data: '...',  // string
-    },
-});
-console.log(response.data);
-```
-
----
-
 ### `postCompetitionList`
 
 **`POST /api-key/competition/list`** — List competitions
@@ -229,15 +107,18 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postCompetitionList } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await postCompetitionList({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.competitions.postCompetitionList({
+    client: rawClient,
     body: {
         category: '...',  // string
-    following: '...',  // boolean
-    limit: '...',  // integer
-    offset: '...',  // integer
-    order: '...',  // string
+        following: '...',  // boolean
+        limit: '...',  // integer
+        offset: '...',  // integer
+        order: '...',  // string
     },
 });
 console.log(response.data);
@@ -329,9 +210,14 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getCompetitionPathByPath } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await getCompetitionPathByPath({ path: { path: '...' } });
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.competitions.getCompetitionPathByPath({
+    client: rawClient,
+    path: { path: '...' },
+});
 console.log(response.data);
 ```
 
@@ -373,12 +259,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postCompetitionPreSubmit } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await postCompetitionPreSubmit({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.competitions.postCompetitionPreSubmit({
+    client: rawClient,
     body: {
         commit_hash: '...',  // string
-    model_id: '...',  // string  // required
+        model_id: '...',  // string  // required
     },
 });
 console.log(response.data);
@@ -450,9 +339,11 @@ SourceCodeUrl  string    `json:"source_code_url"` |
 **Example**
 
 ```typescript
-import { postCompetitionSubmit } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await postCompetitionSubmit();
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.competitions.postCompetitionSubmit({ client: rawClient });
 console.log(response.data);
 ```
 
@@ -504,13 +395,16 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postCompetitionSubmitCost } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await postCompetitionSubmitCost({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.competitions.postCompetitionSubmitCost({
+    client: rawClient,
     body: {
         commit_hash: '...',  // string
-    competition_id: '...',  // string  // required
-    model_id: '...',  // string  // required
+        competition_id: '...',  // string  // required
+        model_id: '...',  // string  // required
     },
 });
 console.log(response.data);
@@ -584,9 +478,14 @@ SourceCodeUrl  string    `json:"source_code_url"` |
 **Example**
 
 ```typescript
-import { getCompetitionSubmitHistoryById } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await getCompetitionSubmitHistoryById({ path: { id: '...' } });
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.competitions.getCompetitionSubmitHistoryById({
+    client: rawClient,
+    path: { id: '...' },
+});
 console.log(response.data);
 ```
 
@@ -676,179 +575,14 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getCompetitionById } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await getCompetitionById({ path: { id: '...' } });
-console.log(response.data);
-```
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
 
----
-
-### `putCompetitionById`
-
-**`PUT /api-key/competition/{id}`** — Update a competition
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Competition Id |
-
-**Request Body** — `request.UpdateCompetitionRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `category` | `string` | No | featured,research,getting-started,playground,community,analytics,simulations |
-| `code` | `string` | No |  |
-| `cover` | `string` | No |  |
-| `data` | `string` | No |  |
-| `description` | `string` | No |  |
-| `end_date` | `string` | No | 2025-01-01 12:00:00 |
-| `final_result_mode` | `string` | No | auto,manual |
-| `max_daily_private_submissions` | `integer` | No |  |
-| `overview` | `string` | No |  |
-| `private_leaderboard_release_date` | `string` | No | 2025-01-01 12:00:00 |
-| `prize_distribution_method` | `string` | No | manual,smart_contract. One of: `manual`, `smart_contract` |
-| `registration_deadline` | `string` | No | 2025-01-01 12:00:00 |
-| `reward_type` | `string` | No | monetary,knowledge,swag,kudos |
-| `rules` | `string` | No |  |
-| `start_date` | `string` | No | 2025-01-01 12:00:00 |
-| `submission_deadline` | `string` | No | 2025-01-01 12:00:00 |
-| `tags` | `array[string]` | No |  |
-| `thumbnail` | `string` | No |  |
-| `time_zone_config` | `map[string]any` | No |  |
-| `title` | `string` | No |  |
-| `total_prize_pool` | `number` | No |  |
-| `visibility` | `string` | No |  |
-
-**Responses**
-
-**200 OK** — `response.CompetitionResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `models.Competition` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`models.Competition`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `author_id` | `string` |  |
-| `category` | `string` |  |
-| `code` | `string` |  |
-| `cover` | `string` |  |
-| `created_at` | `string` |  |
-| `data` | `string` |  |
-| `description` | `string` |  |
-| `end_date` | `string` |  |
-| `final_result_mode` | `string` |  |
-| `id` | `string` |  |
-| `joined` | `boolean` |  |
-| `launched` | `boolean` |  |
-| `max_daily_private_submissions` | `integer` |  |
-| `overview` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `participants` | `integer` |  |
-| `path` | `string` |  |
-| `permission` | `map[string]any` |  |
-| `private_leaderboard_release_date` | `string` |  |
-| `private_submissions_remaining` | `integer` |  |
-| `prize_distribution_method` | `string` |  |
-| `registration_deadline` | `string` |  |
-| `reward_type` | `string` |  |
-| `rules` | `string` |  |
-| `start_date` | `string` |  |
-| `submission_deadline` | `string` |  |
-| `submissions` | `integer` |  |
-| `tags` | `array[string]` |  |
-| `thumbnail` | `string` |  |
-| `time_zone_config` | `map[string]any` |  |
-| `title` | `string` |  |
-| `total_prize_pool` | `number` |  |
-| `updated_at` | `string` |  |
-| `user_id` | `string` |  |
-| `visibility` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { putCompetitionById } from '@aiozai/nodejs-client';
-
-const response = await putCompetitionById({
-    body: {
-        category: '...',  // string
-    code: '...',  // string
-    cover: '...',  // string
-    data: '...',  // string
-    description: '...',  // string
-    },
+const response = await services.competitions.getCompetitionById({
+    client: rawClient,
+    path: { id: '...' },
 });
-console.log(response.data);
-```
-
----
-
-### `deleteCompetitionById`
-
-**`DELETE /api-key/competition/{id}`** — Delete a competition
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Competition Id |
-
-**Responses**
-
-**200 OK** — `response.SuccessResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { deleteCompetitionById } from '@aiozai/nodejs-client';
-
-const response = await deleteCompetitionById({ path: { id: '...' } });
 console.log(response.data);
 ```
 
@@ -889,52 +623,14 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postCompetitionByIdJoin } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await postCompetitionByIdJoin({ path: { id: '...' } });
-console.log(response.data);
-```
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
 
----
-
-### `postCompetitionByIdLaunch`
-
-**`POST /api-key/competition/{id}/launch`** — Launch a competition
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Competition Id |
-
-**Responses**
-
-**200 OK** — `response.SuccessResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { postCompetitionByIdLaunch } from '@aiozai/nodejs-client';
-
-const response = await postCompetitionByIdLaunch({ path: { id: '...' } });
+const response = await services.competitions.postCompetitionByIdJoin({
+    client: rawClient,
+    path: { id: '...' },
+});
 console.log(response.data);
 ```
 
@@ -1014,52 +710,14 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getCompetitionByIdLeaderboard } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await getCompetitionByIdLeaderboard({ path: { id: '...' } });
-console.log(response.data);
-```
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
 
----
-
-### `postCompetitionByIdLeave`
-
-**`POST /api-key/competition/{id}/leave`** — Leave competition
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Competition Id |
-
-**Responses**
-
-**200 OK** — `response.SuccessResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { postCompetitionByIdLeave } from '@aiozai/nodejs-client';
-
-const response = await postCompetitionByIdLeave({ path: { id: '...' } });
+const response = await services.competitions.getCompetitionByIdLeaderboard({
+    client: rawClient,
+    path: { id: '...' },
+});
 console.log(response.data);
 ```
 
@@ -1135,597 +793,14 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getCompetitionByIdPublicLeaderboard } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await getCompetitionByIdPublicLeaderboard({ path: { id: '...', phase: '...' } });
-console.log(response.data);
-```
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
 
----
-
-### `postPublicCompetitionList`
-
-**`POST /public/competition/list`** — List competitions
-
-**Request Body** — `request.GetCompetitionListRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `category` | `string` | No | featured,research,getting-started,playground,community,analytics,simulations |
-| `following` | `boolean` | No |  |
-| `limit` | `integer` | No |  |
-| `offset` | `integer` | No |  |
-| `order` | `string` | No | One of: `desc`, `asc` |
-| `reward_type` | `string` | No | monetary,knowledge,swag,kudos |
-| `role` | `string` | No | host,participant |
-| `search` | `string` | No |  |
-| `sort_by` | `string` | No | reward,created_at,created_oldest,hotness,total_team,closing_soon,recently_completed. One of: `reward`, `created_at`, `created_oldest`, `hotness`, `total_team`, `closing_soon`, `recently_completed` |
-| `status` | `string` | No | active,completed,entered,spotlight |
-| `tags` | `array[string]` | No |  |
-
-**Responses**
-
-**200 OK** — `response.CompetitionListResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.CompetitionListData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.CompetitionListData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `records` | `array[models.Competition]` |  |
-| `total` | `integer` |  |
-
-**`models.Competition`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `author_id` | `string` |  |
-| `category` | `string` |  |
-| `code` | `string` |  |
-| `cover` | `string` |  |
-| `created_at` | `string` |  |
-| `data` | `string` |  |
-| `description` | `string` |  |
-| `end_date` | `string` |  |
-| `final_result_mode` | `string` |  |
-| `id` | `string` |  |
-| `joined` | `boolean` |  |
-| `launched` | `boolean` |  |
-| `max_daily_private_submissions` | `integer` |  |
-| `overview` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `participants` | `integer` |  |
-| `path` | `string` |  |
-| `permission` | `map[string]any` |  |
-| `private_leaderboard_release_date` | `string` |  |
-| `private_submissions_remaining` | `integer` |  |
-| `prize_distribution_method` | `string` |  |
-| `registration_deadline` | `string` |  |
-| `reward_type` | `string` |  |
-| `rules` | `string` |  |
-| `start_date` | `string` |  |
-| `submission_deadline` | `string` |  |
-| `submissions` | `integer` |  |
-| `tags` | `array[string]` |  |
-| `thumbnail` | `string` |  |
-| `time_zone_config` | `map[string]any` |  |
-| `title` | `string` |  |
-| `total_prize_pool` | `number` |  |
-| `updated_at` | `string` |  |
-| `user_id` | `string` |  |
-| `visibility` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { postPublicCompetitionList } from '@aiozai/nodejs-client';
-
-const response = await postPublicCompetitionList({
-    body: {
-        category: '...',  // string
-    following: '...',  // boolean
-    limit: '...',  // integer
-    offset: '...',  // integer
-    order: '...',  // string
-    },
+const response = await services.competitions.getCompetitionByIdPublicLeaderboard({
+    client: rawClient,
+    path: { id: '...', phase: '...' },
 });
-console.log(response.data);
-```
-
----
-
-### `getPublicCompetitionMetadata`
-
-**`GET /public/competition/metadata`** — Get Competition Metadata
-
-**Responses**
-
-**200 OK** — `response.MetadataListResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.MetadataListData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.MetadataListData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `records` | `array[models.Metadata]` |  |
-
-**`models.Metadata`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `category` | `string` |  |
-| `id` | `string` |  |
-| `label` | `string` |  |
-| `type` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getPublicCompetitionMetadata } from '@aiozai/nodejs-client';
-
-const response = await getPublicCompetitionMetadata();
-console.log(response.data);
-```
-
----
-
-### `getPublicCompetitionPathByPath`
-
-**`GET /public/competition/path/{path}`** — Get competition details by path
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `path` | path | `string` | Yes | Competition Path |
-
-**Responses**
-
-**200 OK** — `response.CompetitionResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `models.Competition` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`models.Competition`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `author_id` | `string` |  |
-| `category` | `string` |  |
-| `code` | `string` |  |
-| `cover` | `string` |  |
-| `created_at` | `string` |  |
-| `data` | `string` |  |
-| `description` | `string` |  |
-| `end_date` | `string` |  |
-| `final_result_mode` | `string` |  |
-| `id` | `string` |  |
-| `joined` | `boolean` |  |
-| `launched` | `boolean` |  |
-| `max_daily_private_submissions` | `integer` |  |
-| `overview` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `participants` | `integer` |  |
-| `path` | `string` |  |
-| `permission` | `map[string]any` |  |
-| `private_leaderboard_release_date` | `string` |  |
-| `private_submissions_remaining` | `integer` |  |
-| `prize_distribution_method` | `string` |  |
-| `registration_deadline` | `string` |  |
-| `reward_type` | `string` |  |
-| `rules` | `string` |  |
-| `start_date` | `string` |  |
-| `submission_deadline` | `string` |  |
-| `submissions` | `integer` |  |
-| `tags` | `array[string]` |  |
-| `thumbnail` | `string` |  |
-| `time_zone_config` | `map[string]any` |  |
-| `title` | `string` |  |
-| `total_prize_pool` | `number` |  |
-| `updated_at` | `string` |  |
-| `user_id` | `string` |  |
-| `visibility` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getPublicCompetitionPathByPath } from '@aiozai/nodejs-client';
-
-const response = await getPublicCompetitionPathByPath({ path: { path: '...' } });
-console.log(response.data);
-```
-
----
-
-### `getPublicCompetitionTimelineById`
-
-**`GET /public/competition/timeline/{id}`** — Get timeline by ID
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Timeline ID |
-
-**Responses**
-
-**200 OK** — `response.TimelineResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `models.Timeline` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`models.Timeline`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `competition_id` | `string` |  |
-| `created_at` | `string` |  |
-| `description` | `string` |  |
-| `end_date` | `string` |  |
-| `id` | `string` |  |
-| `name` | `string` |  |
-| `start_date` | `string` |  |
-| `updated_at` | `string` |  |
-| `weight` | `number` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getPublicCompetitionTimelineById } from '@aiozai/nodejs-client';
-
-const response = await getPublicCompetitionTimelineById({ path: { id: '...' } });
-console.log(response.data);
-```
-
----
-
-### `getPublicCompetitionById`
-
-**`GET /public/competition/{id}`** — Get competition details
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Competition Id |
-
-**Responses**
-
-**200 OK** — `response.CompetitionResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `models.Competition` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`models.Competition`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `author_id` | `string` |  |
-| `category` | `string` |  |
-| `code` | `string` |  |
-| `cover` | `string` |  |
-| `created_at` | `string` |  |
-| `data` | `string` |  |
-| `description` | `string` |  |
-| `end_date` | `string` |  |
-| `final_result_mode` | `string` |  |
-| `id` | `string` |  |
-| `joined` | `boolean` |  |
-| `launched` | `boolean` |  |
-| `max_daily_private_submissions` | `integer` |  |
-| `overview` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `participants` | `integer` |  |
-| `path` | `string` |  |
-| `permission` | `map[string]any` |  |
-| `private_leaderboard_release_date` | `string` |  |
-| `private_submissions_remaining` | `integer` |  |
-| `prize_distribution_method` | `string` |  |
-| `registration_deadline` | `string` |  |
-| `reward_type` | `string` |  |
-| `rules` | `string` |  |
-| `start_date` | `string` |  |
-| `submission_deadline` | `string` |  |
-| `submissions` | `integer` |  |
-| `tags` | `array[string]` |  |
-| `thumbnail` | `string` |  |
-| `time_zone_config` | `map[string]any` |  |
-| `title` | `string` |  |
-| `total_prize_pool` | `number` |  |
-| `updated_at` | `string` |  |
-| `user_id` | `string` |  |
-| `visibility` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getPublicCompetitionById } from '@aiozai/nodejs-client';
-
-const response = await getPublicCompetitionById({ path: { id: '...' } });
-console.log(response.data);
-```
-
----
-
-### `getPublicCompetitionByIdLeaderboard`
-
-**`GET /public/competition/{id}/leaderboard`** — Get competition leaderboard
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Competition Id |
-| `limit` | query | `integer` | No |  |
-| `offset` | query | `integer` | No |  |
-| `search` | query | `string` | No |  |
-| `sort` | query | `string` | No |  |
-| `type` | query | `string` | No |  |
-
-**Responses**
-
-**200 OK** — `response.LeaderboardListResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.LeaderboardListData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.LeaderboardListData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `records` | `array[models.Leaderboard]` |  |
-| `total` | `integer` |  |
-
-**`models.Leaderboard`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `current_rank` | `integer` |  |
-| `entries` | `integer` |  |
-| `id` | `string` |  |
-| `is_violated` | `boolean` |  |
-| `medal_name` | `string` |  |
-| `owner` | `object` | CompetitionId uuid.UUID `json:"competition_id"` |
-| `prize_amount` | `number` |  |
-| `rank_change` | `integer` |  |
-| `score` | `number` |  |
-| `updated_at` | `string` |  |
-| `user_info` | `models.UserInfoData` |  |
-
-**`models.UserInfoData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `email` | `string` |  |
-| `username` | `string` |  |
-| `wallet_address` | `string` |  |
-| `wallet_connection` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getPublicCompetitionByIdLeaderboard } from '@aiozai/nodejs-client';
-
-const response = await getPublicCompetitionByIdLeaderboard({ path: { id: '...' } });
-console.log(response.data);
-```
-
----
-
-### `getPublicCompetitionByIdPublicLeaderboard`
-
-**`GET /public/competition/{id}/public/leaderboard`** — GetLeaderboardByCompetitionIdAndPhase
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Competition Id |
-| `limit` | query | `integer` | No |  |
-| `offset` | query | `integer` | No |  |
-| `phaseName` | query | `string` | No |  |
-| `search` | query | `string` | No |  |
-| `sort` | query | `string` | No |  |
-
-**Responses**
-
-**200 OK** — `response.LeaderboardListResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.LeaderboardListData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.LeaderboardListData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `records` | `array[models.Leaderboard]` |  |
-| `total` | `integer` |  |
-
-**`models.Leaderboard`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `current_rank` | `integer` |  |
-| `entries` | `integer` |  |
-| `id` | `string` |  |
-| `is_violated` | `boolean` |  |
-| `medal_name` | `string` |  |
-| `owner` | `object` | CompetitionId uuid.UUID `json:"competition_id"` |
-| `prize_amount` | `number` |  |
-| `rank_change` | `integer` |  |
-| `score` | `number` |  |
-| `updated_at` | `string` |  |
-| `user_info` | `models.UserInfoData` |  |
-
-**`models.UserInfoData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `email` | `string` |  |
-| `username` | `string` |  |
-| `wallet_address` | `string` |  |
-| `wallet_connection` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getPublicCompetitionByIdPublicLeaderboard } from '@aiozai/nodejs-client';
-
-const response = await getPublicCompetitionByIdPublicLeaderboard({ path: { id: '...' } });
-console.log(response.data);
-```
-
----
-
-### `getPublicCompetitionByIdTimelines`
-
-**`GET /public/competition/{id}/timelines`** — Get public list of timelines by competition ID
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | Competition ID |
-| `limit` | query | `integer` | No |  |
-| `offset` | query | `integer` | No |  |
-
-**Responses**
-
-**200 OK** — `response.ListTimelinesResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `array[models.Timeline]` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`models.Timeline`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `competition_id` | `string` |  |
-| `created_at` | `string` |  |
-| `description` | `string` |  |
-| `end_date` | `string` |  |
-| `id` | `string` |  |
-| `name` | `string` |  |
-| `start_date` | `string` |  |
-| `updated_at` | `string` |  |
-| `weight` | `number` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getPublicCompetitionByIdTimelines } from '@aiozai/nodejs-client';
-
-const response = await getPublicCompetitionByIdTimelines({ path: { id: '...' } });
 console.log(response.data);
 ```
 

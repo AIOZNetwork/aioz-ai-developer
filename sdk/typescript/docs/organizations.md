@@ -1,62 +1,8 @@
 # Organizations — TypeScript SDK
 
-> Organization management — teams, members, and wallets. Requires: `x-api-key` header.
+> Organization management — teams, members, and payment. Requires: `x-api-key` header.
 
 Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](../README.md)
-
----
-
-### `postOrganization`
-
-**`POST /api-key/organization`** — Create new organization
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Request Body** — `request.CreateOrganizationRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `avatar` | `string` | No | Avatar is the avatar of the organization (optional) |
-| `bio` | `string` | No | Bio is the full name of the organization (optional) |
-| `full_name` | `string` | No | FullName is the full name of the organization (optional) |
-| `github_name` | `string` | No | GithubName is the github name of the organization (optional) |
-| `home_page` | `string` | No | HomePage is the home page of the organization (optional) |
-| `interests` | `string` | No | Interests is the list of interests of the organization (optional) |
-| `twitter_name` | `string` | No | TwitterName is the twitter name of the organization (optional) |
-| `type` | `string` | Yes | Type is the type of the organization (allow: company, university, classroom, non_profit, community) (required). One of: `company`, `university`, `classroom`, `non_profit`, `community` |
-| `username` | `string` | Yes | Username is the username of the organization (required) |
-| `visibility` | `string` | No | One of: `public`, `private` |
-
-**Responses**
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 201 | Created |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { postOrganization } from '@aiozai/nodejs-client';
-
-const response = await postOrganization({
-    body: {
-        avatar: '...',  // string
-    bio: '...',  // string
-    full_name: '...',  // string
-    github_name: '...',  // string
-    home_page: '...',  // string
-    },
-});
-console.log(response.data);
-```
 
 ---
 
@@ -120,9 +66,11 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getOrganizationList } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await getOrganizationList();
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.organizations.getOrganizationList({ client: rawClient });
 console.log(response.data);
 ```
 
@@ -178,52 +126,14 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getOrganizationByOrg } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await getOrganizationByOrg({ path: { org: '...' } });
-console.log(response.data);
-```
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
 
----
-
-### `deleteOrganizationByOrg`
-
-**`DELETE /api-key/organization/{org}`** — Delete organization
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `org` | path | `string` | Yes | organization's username |
-
-**Responses**
-
-**200 OK** — `response.SuccessResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { deleteOrganizationByOrg } from '@aiozai/nodejs-client';
-
-const response = await deleteOrganizationByOrg({ path: { org: '...' } });
+const response = await services.organizations.getOrganizationByOrg({
+    client: rawClient,
+    path: { org: '...' },
+});
 console.log(response.data);
 ```
 
@@ -295,111 +205,20 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { patchOrganizationByOrgInfo } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await patchOrganizationByOrgInfo({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.organizations.patchOrganizationByOrgInfo({
+    client: rawClient,
     body: {
         avatar: '...',  // string
-    bio: '...',  // string
-    full_name: '...',  // string
-    github_link: '...',  // string
-    github_name: '...',  // string
+        bio: '...',  // string
+        full_name: '...',  // string
+        github_link: '...',  // string
+        github_name: '...',  // string
     },
 });
-console.log(response.data);
-```
-
----
-
-### `getOrganizationByOrgIsMember`
-
-**`GET /api-key/organization/{org}/is-member`** — Check if user is member of organization
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `username` | query | `string` | Yes | data |
-| `org` | path | `string` | Yes | organization's username |
-
-**Responses**
-
-**200 OK** — `response.CheckUsernameExistResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.CheckUsernameExistData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.CheckUsernameExistData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `existed` | `boolean` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getOrganizationByOrgIsMember } from '@aiozai/nodejs-client';
-
-const response = await getOrganizationByOrgIsMember({ path: { org: '...' } });
-console.log(response.data);
-```
-
----
-
-### `deleteOrganizationByOrgLeave`
-
-**`DELETE /api-key/organization/{org}/leave`** — Leave Organization
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `org` | path | `string` | Yes | organization's username |
-
-**Responses**
-
-**200 OK** — `response.SuccessResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { deleteOrganizationByOrgLeave } from '@aiozai/nodejs-client';
-
-const response = await deleteOrganizationByOrgLeave({ path: { org: '...' } });
 console.log(response.data);
 ```
 
@@ -538,76 +357,14 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getOrganizationByOrgMembers } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await getOrganizationByOrgMembers({ path: { org: '...' } });
-console.log(response.data);
-```
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
 
----
-
-### `getOrganizationByOrgOffers`
-
-**`GET /api-key/organization/{org}/offers`** — Get organization's offers
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `org` | path | `string` | Yes | organization's username |
-| `keyword` | query | `string` | No |  |
-| `offerType` | query | `string` | Yes |  |
-| `page` | query | `integer` | No | Page is the page number (default: 1) (optional) |
-| `pageSize` | query | `integer` | No | PageSize is the page size (default: 10) (optional) |
-
-**Responses**
-
-**200 OK** — `response.GetOffersResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.GetOffersData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.GetOffersData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `offers` | `array[models.Offer]` |  |
-
-**`models.Offer`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `integer` |  |
-| `created_by` | `string` |  |
-| `exp_at` | `integer` |  |
-| `id` | `string` |  |
-| `org_username` | `string` |  |
-| `role` | `string` |  |
-| `type` | `string` |  |
-| `username` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getOrganizationByOrgOffers } from '@aiozai/nodejs-client';
-
-const response = await getOrganizationByOrgOffers({ path: { org: '...' } });
+const response = await services.organizations.getOrganizationByOrgMembers({
+    client: rawClient,
+    path: { org: '...' },
+});
 console.log(response.data);
 ```
 
@@ -668,141 +425,14 @@ _No fields defined._
 **Example**
 
 ```typescript
-import { getOrganizationByOrgPermission } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await getOrganizationByOrgPermission({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.organizations.getOrganizationByOrgPermission({
+    client: rawClient,
     body: {
         
-    },
-});
-console.log(response.data);
-```
-
----
-
-### `getOrganizationByOrgSetting`
-
-**`GET /api-key/organization/{org}/setting`** — Get organization's setting
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `org` | path | `string` | Yes | organization's username |
-
-**Responses**
-
-**200 OK** — `response.GetOrganizationSettingResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.GetOrganizationSettingData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.GetOrganizationSettingData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `allow_join_by_link` | `boolean` |  |
-| `allow_request_to_join` | `boolean` |  |
-| `auto_approve_join_request` | `boolean` |  |
-| `default_role` | `string` |  |
-| `domain` | `string` |  |
-| `email` | `string` |  |
-| `join_id` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getOrganizationByOrgSetting } from '@aiozai/nodejs-client';
-
-const response = await getOrganizationByOrgSetting({ path: { org: '...' } });
-console.log(response.data);
-```
-
----
-
-### `patchOrganizationByOrgSetting`
-
-**`PATCH /api-key/organization/{org}/setting`** — Update organization's join settings
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `org` | path | `string` | Yes | organization's username |
-
-**Request Body** — `request.UpdateJoinSettingsRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `allow_join_by_link` | `boolean` | Yes | AllowJoinByLink is the flag to indicate if the organization allows join by link (required) |
-| `allow_request_to_join` | `boolean` | Yes | AllowRequestToJoin is the flag to indicate if the organization allows request to join (required) |
-| `auto_approve_join_request` | `boolean` | Yes | AutoApproveJoinRequest is the flag to indicate if the organization auto approves join request (required) |
-| `default_role` | `string` | Yes | DefaultRole is the default role when approve new member to organization (required) |
-
-**Responses**
-
-**200 OK** — `response.OrganizationResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `models.OrganizationInfo` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`models.OrganizationInfo`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `full_name` | `string` |  |
-| `id` | `string` |  |
-| `org_type` | `string` |  |
-| `permission` | `map[string]any` |  |
-| `type` | `string` |  |
-| `username` | `string` |  |
-| `verified` | `boolean` |  |
-| `visibility` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { patchOrganizationByOrgSetting } from '@aiozai/nodejs-client';
-
-const response = await patchOrganizationByOrgSetting({
-    body: {
-        allow_join_by_link: '...',  // boolean  // required
-    allow_request_to_join: '...',  // boolean  // required
-    auto_approve_join_request: '...',  // boolean  // required
-    default_role: '...',  // string  // required
     },
 });
 console.log(response.data);
@@ -867,12 +497,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postOrganizationByOrgStatisticsEarnings } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await postOrganizationByOrgStatisticsEarnings({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.organizations.postOrganizationByOrgStatisticsEarnings({
+    client: rawClient,
     body: {
         from: '...',  // string
-    to: '...',  // string
+        to: '...',  // string
     },
 });
 console.log(response.data);
@@ -941,12 +574,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postOrganizationByOrgStatisticsSpendingCost } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await postOrganizationByOrgStatisticsSpendingCost({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.organizations.postOrganizationByOrgStatisticsSpendingCost({
+    client: rawClient,
     body: {
         from: '...',  // string
-    to: '...',  // string
+        to: '...',  // string
     },
 });
 console.log(response.data);
@@ -1019,12 +655,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getOrganizationByOrgWalletDepositHistory } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await getOrganizationByOrgWalletDepositHistory({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.organizations.getOrganizationByOrgWalletDepositHistory({
+    client: rawClient,
     body: {
         limit: '...',  // integer
-    offset: '...',  // integer
+        offset: '...',  // integer
     },
 });
 console.log(response.data);
@@ -1106,12 +745,15 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postOrganizationByOrgWalletTransactionAnalytics } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await postOrganizationByOrgWalletTransactionAnalytics({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.organizations.postOrganizationByOrgWalletTransactionAnalytics({
+    client: rawClient,
     body: {
         from: '...',  // string
-    to: '...',  // string
+        to: '...',  // string
     },
 });
 console.log(response.data);
@@ -1184,9 +826,14 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getOrganizationByOrgWalletTransactionHistory } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await getOrganizationByOrgWalletTransactionHistory({ path: { org: '...' } });
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.organizations.getOrganizationByOrgWalletTransactionHistory({
+    client: rawClient,
+    path: { org: '...' },
+});
 console.log(response.data);
 ```
 
@@ -1264,70 +911,18 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { postOrganizationByOrgWalletTransactionRecent } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await postOrganizationByOrgWalletTransactionRecent({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.organizations.postOrganizationByOrgWalletTransactionRecent({
+    client: rawClient,
     body: {
         from: '...',  // string
-    limit: '...',  // integer
-    offset: '...',  // integer
-    to: '...',  // string
-    type: '...',  // string
-    },
-});
-console.log(response.data);
-```
-
----
-
-### `postOrganizationByOrgWalletWithdrawEarnings`
-
-**`POST /api-key/organization/{org}/wallet/withdraw/earnings`** — Withdraw Org Earnings By Owner
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `org` | path | `string` | Yes | organization's username |
-
-**Request Body** — `request.WithdrawOrgEarningsByOwnerRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `amount` | `string` | Yes |  |
-| `to_wallet` | `string` | Yes |  |
-
-**Responses**
-
-**200 OK** — `response.SuccessResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { postOrganizationByOrgWalletWithdrawEarnings } from '@aiozai/nodejs-client';
-
-const response = await postOrganizationByOrgWalletWithdrawEarnings({
-    body: {
-        amount: '...',  // string  // required
-    to_wallet: '...',  // string  // required
+        limit: '...',  // integer
+        offset: '...',  // integer
+        to: '...',  // string
+        type: '...',  // string
     },
 });
 console.log(response.data);
@@ -1398,410 +993,17 @@ console.log(response.data);
 **Example**
 
 ```typescript
-import { getOrganizationByOrgWalletWithdrawHistory } from '@aiozai/nodejs-client';
+import { createAiozAIClient, services } from '@aiozai/nodejs-client';
 
-const response = await getOrganizationByOrgWalletWithdrawHistory({
+const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY });
+
+const response = await services.organizations.getOrganizationByOrgWalletWithdrawHistory({
+    client: rawClient,
     body: {
         limit: '...',  // integer
-    offset: '...',  // integer
+        offset: '...',  // integer
     },
 });
-console.log(response.data);
-```
-
----
-
-### `deleteOrganizationByOrgByMember`
-
-**`DELETE /api-key/organization/{org}/{member}`** — Delete organization's member
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `org` | path | `string` | Yes | organization's username |
-| `member` | path | `string` | Yes | member's username |
-
-**Responses**
-
-**200 OK** — `response.SuccessResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { deleteOrganizationByOrgByMember } from '@aiozai/nodejs-client';
-
-const response = await deleteOrganizationByOrgByMember({ path: { org: '...', member: '...' } });
-console.log(response.data);
-```
-
----
-
-### `patchOrganizationByOrgByMember`
-
-**`PATCH /api-key/organization/{org}/{member}`** — Change member's role
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `org` | path | `string` | Yes | organization's username |
-
-**Request Body** — `request.ChangeMemberRoleRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `role` | `string` | Yes |  |
-
-**Responses**
-
-**200 OK** — `response.SuccessResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { patchOrganizationByOrgByMember } from '@aiozai/nodejs-client';
-
-const response = await patchOrganizationByOrgByMember({
-    body: {
-        role: '...',  // string  // required
-    },
-});
-console.log(response.data);
-```
-
----
-
-### `getPublicOrganization`
-
-**`GET /public/organization`** — Get public organizations
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `keyword` | query | `string` | No |  |
-| `limit` | query | `integer` | No |  |
-| `offset` | query | `integer` | No |  |
-| `type` | query | `string` | No |  |
-
-**Responses**
-
-**200 OK** — `response.GetLiteOrganizationsResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.GetLiteOrganizationsData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.GetLiteOrganizationsData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `organizations` | `array[models.LiteOrganization]` |  |
-| `total` | `integer` |  |
-
-**`models.LiteOrganization`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `bio` | `string` |  |
-| `created_at` | `string` |  |
-| `created_by` | `string` |  |
-| `datasets_count` | `integer` |  |
-| `full_name` | `string` |  |
-| `github_link` | `string` |  |
-| `github_name` | `string` |  |
-| `home_page` | `string` |  |
-| `id` | `string` |  |
-| `interests` | `string` |  |
-| `join_id` | `string` |  |
-| `models_count` | `integer` |  |
-| `org_team` | `string` |  |
-| `total_repos_size` | `integer` |  |
-| `twitter_link` | `string` |  |
-| `twitter_name` | `string` |  |
-| `type` | `string` |  |
-| `updated_at` | `string` |  |
-| `updated_by` | `string` |  |
-| `username` | `string` |  |
-| `verified` | `boolean` |  |
-| `visibility` | `string` |  |
-| `wallet` | `models.Wallet` |  |
-| `wallet_address` | `string` |  |
-
-**`models.Wallet`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `balance` | `string` |  |
-| `debt` | `string` |  |
-| `earnings` | `string` |  |
-| `free_balance` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getPublicOrganization } from '@aiozai/nodejs-client';
-
-const response = await getPublicOrganization();
-console.log(response.data);
-```
-
----
-
-### `getPublicOrganizationByOrg`
-
-**`GET /public/organization/{org}`** — Get organization detail
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `org` | path | `string` | Yes | organization's username |
-
-**Responses**
-
-**200 OK** — `response.LiteOrganizationResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `models.LiteOrganization` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`models.LiteOrganization`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `bio` | `string` |  |
-| `created_at` | `string` |  |
-| `created_by` | `string` |  |
-| `datasets_count` | `integer` |  |
-| `full_name` | `string` |  |
-| `github_link` | `string` |  |
-| `github_name` | `string` |  |
-| `home_page` | `string` |  |
-| `id` | `string` |  |
-| `interests` | `string` |  |
-| `join_id` | `string` |  |
-| `models_count` | `integer` |  |
-| `org_team` | `string` |  |
-| `total_repos_size` | `integer` |  |
-| `twitter_link` | `string` |  |
-| `twitter_name` | `string` |  |
-| `type` | `string` |  |
-| `updated_at` | `string` |  |
-| `updated_by` | `string` |  |
-| `username` | `string` |  |
-| `verified` | `boolean` |  |
-| `visibility` | `string` |  |
-| `wallet` | `models.Wallet` |  |
-| `wallet_address` | `string` |  |
-
-**`models.Wallet`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `balance` | `string` |  |
-| `debt` | `string` |  |
-| `earnings` | `string` |  |
-| `free_balance` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getPublicOrganizationByOrg } from '@aiozai/nodejs-client';
-
-const response = await getPublicOrganizationByOrg({ path: { org: '...' } });
-console.log(response.data);
-```
-
----
-
-### `getPublicOrganizationByOrgMembers`
-
-**`GET /public/organization/{org}/members`** — Get pulic organization's members
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `org` | path | `string` | Yes | organization's username |
-| `page` | query | `integer` | No | Page is the page number (default: 1) (optional) |
-| `pageSize` | query | `integer` | No | PageSize is the page size (default: 10) (optional) |
-
-**Responses**
-
-**200 OK** — `response.GetPublicOrganizationMembersResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.GetPublicOrganizationMembersData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.GetPublicOrganizationMembersData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `members` | `array[models.LiteUser]` |  |
-| `total` | `integer` |  |
-
-**`models.LiteUser`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `allow_request_to_join` | `boolean` |  |
-| `avatar_url` | `string` |  |
-| `bio` | `string` |  |
-| `blocked` | `boolean` |  |
-| `followers` | `array[models.Follow]` |  |
-| `followers_count` | `integer` |  |
-| `followings` | `array[models.Follow]` |  |
-| `followings_count` | `integer` |  |
-| `github_link` | `string` |  |
-| `github_name` | `string` |  |
-| `home_page_name` | `string` |  |
-| `id` | `string` |  |
-| `interests` | `string` |  |
-| `invite_offers` | `array[models.Offer]` |  |
-| `invite_offers_count` | `integer` |  |
-| `is_following` | `boolean` |  |
-| `join_id` | `string` |  |
-| `join_offers` | `array[models.Offer]` |  |
-| `join_offers_count` | `integer` |  |
-| `members` | `array[models.Member]` |  |
-| `members_count` | `integer` |  |
-| `name` | `string` |  |
-| `role` | `string` |  |
-| `token` | `string` |  |
-| `twitter_link` | `string` |  |
-| `twitter_name` | `string` |  |
-| `type` | `string` |  |
-| `username` | `string` |  |
-| `verified` | `boolean` |  |
-| `visibility` | `string` |  |
-
-**`models.Follow`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `name` | `string` |  |
-| `username` | `string` |  |
-
-**`models.Follow`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `name` | `string` |  |
-| `username` | `string` |  |
-
-**`models.Offer`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `integer` |  |
-| `created_by` | `string` |  |
-| `exp_at` | `integer` |  |
-| `id` | `string` |  |
-| `org_username` | `string` |  |
-| `role` | `string` |  |
-| `type` | `string` |  |
-| `username` | `string` |  |
-
-**`models.Offer`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `integer` |  |
-| `created_by` | `string` |  |
-| `exp_at` | `integer` |  |
-| `id` | `string` |  |
-| `org_username` | `string` |  |
-| `role` | `string` |  |
-| `type` | `string` |  |
-| `username` | `string` |  |
-
-**`models.Member`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar_url` | `string` |  |
-| `full_name` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```typescript
-import { getPublicOrganizationByOrgMembers } from '@aiozai/nodejs-client';
-
-const response = await getPublicOrganizationByOrgMembers({ path: { org: '...' } });
 console.log(response.data);
 ```
 

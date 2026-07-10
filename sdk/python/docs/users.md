@@ -1,509 +1,8 @@
 # Users — Python SDK
 
-> User management — profiles, keys, wallets, and vouchers. Requires: `x-api-key` header.
+> User management — profiles and payments. Requires: `x-api-key` header.
 
 Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](../README.md)
-
----
-
-### `delete_user`
-
-**`DELETE /api-key/user`** — Delete user's account
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Responses**
-
-**200 OK** — `response.SuccessResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```python
-resp = client.users.user.delete_user()
-print(resp)
-```
-
----
-
-### `post_user_api_key`
-
-**`POST /api-key/user/api-key`** — Create ApiKey
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Request Body** — `request.CreateApiKeyRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `active` | `boolean` | No |  |
-| `description` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `org_username` | `string` | No |  |
-
-**Responses**
-
-**200 OK** — `response.ApiKeyResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `models.ApiKey` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`models.ApiKey`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `active` | `boolean` |  |
-| `api_key` | `string` |  |
-| `api_price` | `number` |  |
-| `created_at` | `string` |  |
-| `description` | `string` |  |
-| `id` | `string` |  |
-| `input_format` | `map[string]any` |  |
-| `model_id` | `string` |  |
-| `name` | `string` |  |
-| `output_format` | `map[string]any` |  |
-| `total_cost` | `number` |  |
-| `total_failed` | `integer` |  |
-| `total_request` | `integer` |  |
-| `total_success` | `integer` |  |
-| `updated_at` | `string` |  |
-| `user` | `models.User` |  |
-| `user_id` | `string` |  |
-
-**`models.User`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `allow_request_to_join` | `boolean` |  |
-| `avatar_url` | `string` |  |
-| `bio` | `string` |  |
-| `blocked` | `boolean` |  |
-| `blocked_at` | `string` |  |
-| `email` | `string` |  |
-| `followers` | `array[models.Follow]` |  |
-| `followers_count` | `integer` |  |
-| `followings` | `array[models.Follow]` |  |
-| `followings_count` | `integer` |  |
-| `github_link` | `string` |  |
-| `github_name` | `string` |  |
-| `home_page_name` | `string` |  |
-| `id` | `string` |  |
-| `interests` | `string` |  |
-| `invite_offers` | `array[models.Offer]` |  |
-| `invite_offers_count` | `integer` |  |
-| `is_following` | `boolean` |  |
-| `join_id` | `string` |  |
-| `join_offers` | `array[models.Offer]` |  |
-| `join_offers_count` | `integer` |  |
-| `members` | `array[models.Member]` |  |
-| `members_count` | `integer` |  |
-| `name` | `string` |  |
-| `role` | `string` |  |
-| `token` | `string` |  |
-| `twitter_link` | `string` |  |
-| `twitter_name` | `string` |  |
-| `type` | `string` |  |
-| `username` | `string` |  |
-| `verified` | `boolean` |  |
-| `visibility` | `string` |  |
-| `wallet` | `models.Wallet` |  |
-| `wallet_address` | `string` |  |
-| `wallet_connection` | `string` |  |
-
-**`models.Follow`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `name` | `string` |  |
-| `username` | `string` |  |
-
-**`models.Follow`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `name` | `string` |  |
-| `username` | `string` |  |
-
-**`models.Offer`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `integer` |  |
-| `created_by` | `string` |  |
-| `exp_at` | `integer` |  |
-| `id` | `string` |  |
-| `org_username` | `string` |  |
-| `role` | `string` |  |
-| `type` | `string` |  |
-| `username` | `string` |  |
-
-**`models.Offer`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `integer` |  |
-| `created_by` | `string` |  |
-| `exp_at` | `integer` |  |
-| `id` | `string` |  |
-| `org_username` | `string` |  |
-| `role` | `string` |  |
-| `type` | `string` |  |
-| `username` | `string` |  |
-
-**`models.Member`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar_url` | `string` |  |
-| `full_name` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.Wallet`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `balance` | `string` |  |
-| `debt` | `string` |  |
-| `earnings` | `string` |  |
-| `free_balance` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```python
-from aiozai_sdk.generated.models import CreateApiKeyRequest
-
-request = CreateApiKeyRequest(
-    active="...",  # boolean
-    description="...",  # string
-    name="...",  # string  # required
-    org_username="...",  # string
-)
-resp = client.users.user.post_user_api_key(input=request)
-print(resp)
-```
-
----
-
-### `get_user_challenge_by_walletaddress`
-
-**`GET /api-key/user/challenge/{walletAddress}`** — Get link wallet address challenge
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `walletAddress` | path | `string` | Yes | wallet address |
-
-**Responses**
-
-**200 OK** — `response.GetLinkWalletAddressChallengeResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.GetLinkWalletAddressChallengeData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.GetLinkWalletAddressChallengeData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `challenge` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```python
-resp = client.users.user.get_user_challenge_by_walletaddress(walletAddress="<walletAddress>")
-print(resp)
-```
-
----
-
-### `patch_user_change_password`
-
-**`PATCH /api-key/user/change-password`** — Change user's password
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Request Body** — `request.ChangeUserPasswordRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `new_password` | `string` | Yes | User's new password (required) |
-| `old_password` | `string` | Yes | User's old passowrd (required) |
-
-**Responses**
-
-**200 OK** — `response.SuccessResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```python
-from aiozai_sdk.generated.models import ChangeUserPasswordRequest
-
-request = ChangeUserPasswordRequest(
-    new_password="...",  # string  # required
-    old_password="...",  # string  # required
-)
-resp = client.users.user.patch_user_change_password(input=request)
-print(resp)
-```
-
----
-
-### `put_user_follow_by_id`
-
-**`PUT /api-key/user/follow/{id}`** — Follow/Unfollow user
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `id` | path | `string` | Yes | user's id |
-
-**Responses**
-
-**200 OK** — `response.SuccessResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```python
-resp = client.users.user.put_user_follow_by_id(id="<id>")
-print(resp)
-```
-
----
-
-### `post_user_link_email`
-
-**`POST /api-key/user/link-email`** — Verify link email code
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Request Body** — `request.VerifyLinkEmailCodeRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `code` | `string` | Yes |  |
-| `email` | `string` | Yes |  |
-
-**Responses**
-
-**200 OK** — `response.SuccessResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```python
-from aiozai_sdk.generated.models import VerifyLinkEmailCodeRequest
-
-request = VerifyLinkEmailCodeRequest(
-    code="...",  # string  # required
-    email="...",  # string  # required
-)
-resp = client.users.user.post_user_link_email(input=request)
-print(resp)
-```
-
----
-
-### `patch_user_link_email_by_email`
-
-**`PATCH /api-key/user/link-email/{email}`** — Get link email code
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `email` | path | `string` | Yes | user's email |
-
-**Request Body** — `request.GetLinkEmailCodeRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `email` | `string` | No |  |
-| `password` | `string` | No |  |
-| `username` | `string` | Yes | Username is the username of the user (required) |
-
-**Responses**
-
-**200 OK** — `response.SuccessResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```python
-from aiozai_sdk.generated.models import GetLinkEmailCodeRequest
-
-request = GetLinkEmailCodeRequest(
-    email="...",  # string
-    password="...",  # string
-    username="...",  # string  # required
-)
-resp = client.users.user.patch_user_link_email_by_email(input=request)
-print(resp)
-```
-
----
-
-### `post_user_link_wallet`
-
-**`POST /api-key/user/link-wallet`** — Verify link wallet address signature
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Request Body** — `request.VerifyLinkWalletAddressSignatureRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `signature` | `string` | Yes |  |
-| `wallet_address` | `string` | Yes |  |
-
-**Responses**
-
-**200 OK** — `response.SuccessResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```python
-from aiozai_sdk.generated.models import VerifyLinkWalletAddressSignatureRequest
-
-request = VerifyLinkWalletAddressSignatureRequest(
-    signature="...",  # string  # required
-    wallet_address="...",  # string  # required
-)
-resp = client.users.user.post_user_link_wallet(input=request)
-print(resp)
-```
 
 ---
 
@@ -651,50 +150,6 @@ print(resp)
 
 ---
 
-### `get_user_offers`
-
-**`GET /api-key/user/offers`** — Get user's offers
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `keyword` | query | `string` | No |  |
-| `offerType` | query | `string` | Yes |  |
-| `page` | query | `integer` | No | Page is the page number (default: 1) (optional) |
-| `pageSize` | query | `integer` | No | PageSize is the page size (default: 10) (optional) |
-
-**Responses**
-
-**200 OK** — `response.SuccessResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```python
-resp = client.users.user.get_user_offers()
-print(resp)
-```
-
----
-
 ### `get_user_org_usernames`
 
 **`GET /api-key/user/org-usernames`** — Get user's organization usernames
@@ -748,74 +203,6 @@ print(resp)
 
 ```python
 resp = client.users.user.get_user_org_usernames()
-print(resp)
-```
-
----
-
-### `get_user_permission_search`
-
-**`GET /api-key/user/permission/search`** — Search Users
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `limit` | query | `integer` | No |  |
-| `offset` | query | `integer` | No |  |
-| `search` | query | `string` | Yes |  |
-
-**Responses**
-
-**200 OK** — `response.UserListResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.UserListData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.UserListData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `records` | `array[models.UserInfo]` |  |
-| `total` | `integer` |  |
-
-**`models.UserInfo`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `bio` | `string` |  |
-| `fullname` | `string` |  |
-| `github_link` | `string` |  |
-| `home_page` | `string` |  |
-| `id` | `string` |  |
-| `interests` | `string` |  |
-| `twitter_link` | `string` |  |
-| `twitter_name` | `string` |  |
-| `type` | `string` |  |
-| `username` | `string` |  |
-| `visibility` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```python
-resp = client.users.user.get_user_permission_search()
 print(resp)
 ```
 
@@ -879,150 +266,6 @@ print(resp)
 
 ---
 
-### `get_user_public_key`
-
-**`GET /api-key/user/public-key`** — Get source control public keys
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Responses**
-
-**200 OK** — `response.GetPublicKeysResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `response.GetPublicKeysData` |  |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**`response.GetPublicKeysData`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `keys` | `array[models.PublicKey]` |  |
-
-**`models.PublicKey`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created` | `string` |  |
-| `fingerprint` | `string` |  |
-| `id` | `integer` |  |
-| `key` | `string` |  |
-| `key_type` | `string` |  |
-| `title` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```python
-resp = client.users.public_key.get_user_public_key()
-print(resp)
-```
-
----
-
-### `post_user_public_key`
-
-**`POST /api-key/user/public-key`** — Create source control public key
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Request Body** — `request.CreatePublicKeyRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `key` | `string` | Yes | Key is the ssh public key (required) |
-| `read_only` | `boolean` | No | ReadOnly is the flag to indicate if the key is read only (default: false) (optional) |
-| `title` | `string` | Yes | Title is the title of the key (required) |
-
-**Responses**
-
-**200 OK** — `response.SuccessResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```python
-from aiozai_sdk.generated.models import CreatePublicKeyRequest
-
-request = CreatePublicKeyRequest(
-    key="...",  # string  # required
-    read_only="...",  # boolean
-    title="...",  # string  # required
-)
-resp = client.users.public_key.post_user_public_key(input=request)
-print(resp)
-```
-
----
-
-### `delete_user_public_key_by_keyid`
-
-**`DELETE /api-key/user/public-key/{keyId}`** — Delete source control public key
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Parameters**
-
-| Name | Location | Type | Required | Description |
-| --- | --- | --- | --- | --- |
-| `keyId` | path | `integer` | Yes | key's id |
-
-**Responses**
-
-**200 OK** — `response.SuccessResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```python
-resp = client.users.public_key.delete_user_public_key_by_keyid(keyId="<keyId>")
-print(resp)
-```
-
----
-
 ### `post_user_statistics_earnings`
 
 **`POST /api-key/user/statistics/earnings`** — Get User Earnings Statistics
@@ -1080,7 +323,7 @@ request = GetTransactionAnalyticsRequest(
     from="...",  # string
     to="...",  # string
 )
-resp = client.users.wallet.post_user_statistics_earnings(input=request)
+resp = client.users.payment.post_user_statistics_earnings(input=request)
 print(resp)
 ```
 
@@ -1088,7 +331,7 @@ print(resp)
 
 ### `post_user_statistics_spending_cost`
 
-**`POST /api-key/user/statistics/spending-cost`** — Get User Spending Cost Statitics
+**`POST /api-key/user/statistics/spending-cost`** — Get User Spending Cost Statistics
 
 **Headers**
 
@@ -1147,53 +390,7 @@ request = GetUserSpendingCostStatisticsRequest(
     from="...",  # string
     to="...",  # string
 )
-resp = client.users.wallet.post_user_statistics_spending_cost(input=request)
-print(resp)
-```
-
----
-
-### `post_user_voucher_claim`
-
-**`POST /api-key/user/voucher/claim`** — User Claim Free Balance By Voucher
-
-**Headers**
-
-| Header | Value | Required |
-| --- | --- | --- |
-| `x-api-key` | Your API key | Yes |
-
-**Request Body** — `request.UserClaimFreeBalanceByVoucherRequest`
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `voucher_code` | `string` | Yes |  |
-
-**Responses**
-
-**200 OK** — `response.SuccessResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
-**Error Responses**
-
-| Status | Description |
-| --- | --- |
-| 400 | Bad Request — [response.FailResponse](../README.md#common-response-types) |
-| 500 | Internal Server Error — [response.ErrorResponse](../README.md#common-response-types) |
-
-**Example**
-
-```python
-from aiozai_sdk.generated.models import UserClaimFreeBalanceByVoucherRequest
-
-request = UserClaimFreeBalanceByVoucherRequest(
-    voucher_code="...",  # string  # required
-)
-resp = client.users.voucher.post_user_voucher_claim(input=request)
+resp = client.users.payment.post_user_statistics_spending_cost(input=request)
 print(resp)
 ```
 
@@ -1258,7 +455,7 @@ print(resp)
 **Example**
 
 ```python
-resp = client.users.wallet.get_user_wallet_deposit_history()
+resp = client.users.payment.get_user_wallet_deposit_history()
 print(resp)
 ```
 
@@ -1338,7 +535,7 @@ request = GetUserTransactionAnalyticsRequest(
     from="...",  # string
     to="...",  # string
 )
-resp = client.users.wallet.post_user_wallet_transaction_analytics(input=request)
+resp = client.users.payment.post_user_wallet_transaction_analytics(input=request)
 print(resp)
 ```
 
@@ -1408,7 +605,7 @@ print(resp)
 **Example**
 
 ```python
-resp = client.users.wallet.get_user_wallet_transaction_history()
+resp = client.users.payment.get_user_wallet_transaction_history()
 print(resp)
 ```
 
@@ -1489,7 +686,7 @@ request = GetListRecentTransactionByUserRequest(
     to="...",  # string
     type="...",  # string
 )
-resp = client.users.wallet.post_user_wallet_transaction_recent(input=request)
+resp = client.users.payment.post_user_wallet_transaction_recent(input=request)
 print(resp)
 ```
 
@@ -1552,7 +749,7 @@ print(resp)
 **Example**
 
 ```python
-resp = client.users.wallet.get_user_wallet_withdraw_history()
+resp = client.users.payment.get_user_wallet_withdraw_history()
 print(resp)
 ```
 

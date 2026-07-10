@@ -64,7 +64,7 @@ request = CreatePresignedUrlRequest(
     org_username="...",  # string
     size="...",  # integer  # required
 )
-resp = client.storages.storage.post_storage_upload_create_presigned_url(input=request)
+resp = client.storage.storage.post_storage_upload_create_presigned_url(input=request)
 print(resp)
 ```
 
@@ -115,7 +115,7 @@ print(resp)
 **Example**
 
 ```python
-resp = client.storages.storage.get_storage_upload_statistics()
+resp = client.storage.storage.get_storage_upload_statistics()
 print(resp)
 ```
 
@@ -183,7 +183,7 @@ print(resp)
 **Example**
 
 ```python
-resp = client.storages.storage.get_storage_upload_by_folder(folder="<folder>")
+resp = client.storage.storage.get_storage_upload_by_folder(folder="<folder>")
 print(resp)
 ```
 
@@ -229,7 +229,7 @@ from aiozai_sdk.generated.models import DeleteUrlRequest
 request = DeleteUrlRequest(
     url="...",  # string  # required
 )
-resp = client.storages.storage.delete_storage_w3s_url(input=request)
+resp = client.storage.storage.delete_storage_w3s_url(input=request)
 print(resp)
 ```
 

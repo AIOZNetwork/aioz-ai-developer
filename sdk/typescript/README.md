@@ -4,7 +4,7 @@ TypeScript SDK for the [AIOZ AI](https://aiozai.network) API. Auto-generated fro
 
 ## Features
 
-- Full TypeScript types for all 218 API endpoints and 578 models
+- Full TypeScript types for all API endpoints and models
 - Automatic retry with exponential backoff for transient failures
 - Tree-shakeable ESM and CJS builds
 - Zero runtime dependencies beyond the fetch API
@@ -67,18 +67,18 @@ const { rawClient } = createAiozAIClient({
 
 | Service | Access | Description | Reference |
 | --- | --- | --- | --- |
-| Models | `client.models` | AI model management | [docs/models.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/models.md) |
-| Datasets | `client.datasets` | Dataset management | [docs/datasets.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/datasets.md) |
-| Competitions | `client.competitions` | Competitions & submissions | [docs/competitions.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/competitions.md) |
-| Collections | `client.collections` | Curated collections | [docs/collections.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/collections.md) |
-| Discussions | `client.discussions` | Discussions & comments | [docs/discussions.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/discussions.md) |
-| Notifications | `client.notifications` | Notification system | [docs/notifications.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/notifications.md) |
-| Organizations | `client.organizations` | Organization management | [docs/organizations.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/organizations.md) |
-| Repositories | `client.repositories` | Repository operations | [docs/repositories.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/repositories.md) |
-| Storage | `client.storage` | Storage & uploads | [docs/storage.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/storage.md) |
-| Users | `client.users` | User management | [docs/users.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/users.md) |
-| Core | `client.core` | Core endpoints, search, offers | [docs/core.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/core.md) |
-| Public | `client.public` | Public endpoints (no auth) | [docs/public.md](https://github.com/AIOZNetwork/aioz-ai-sdk/blob/main/typescript/docs/public.md) |
+| Collections | `client.collections` | Collection management | [docs/collections.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/typescript/docs/collections.md) |
+| Competitions | `client.competitions` | Competitions & submissions | [docs/competitions.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/typescript/docs/competitions.md) |
+| Core | `client.core` | Core endpoints | [docs/core.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/typescript/docs/core.md) |
+| Datasets | `client.datasets` | Dataset management | [docs/datasets.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/typescript/docs/datasets.md) |
+| Discussions | `client.discussions` | Discussions & comments | [docs/discussions.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/typescript/docs/discussions.md) |
+| Models | `client.models` | Model management | [docs/models.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/typescript/docs/models.md) |
+| Organizations | `client.organizations` | Organization management | [docs/organizations.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/typescript/docs/organizations.md) |
+| Public | `client.public` | Public endpoints (no auth) | [docs/public.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/typescript/docs/public.md) |
+| Repositories | `client.repositories` | Repository operations | [docs/repositories.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/typescript/docs/repositories.md) |
+| Storage | `client.storage` | Storage & uploads | [docs/storage.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/typescript/docs/storage.md) |
+| Tasks | `client.Tasks()` | Task management | [docs/tasks.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/typescript/docs/tasks.md) |
+| Users | `client.users` | User management | [docs/users.md](https://github.com/AIOZNetwork/aioz-ai-developer/blob/main/sdk/typescript/docs/users.md) |
 
 ## Requirements
 
@@ -94,8 +94,6 @@ Apache-2.0
 
 ## SDK Usage Guide
 
-> Auto-generated from `swagger/sdk.json` — do not edit this section manually.
-> Re-generate with `make guide` from the repo root.
 
 ### Authentication Setup
 
