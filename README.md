@@ -1,5 +1,11 @@
 # AIOZ AI Developer
 
+<p align="center">
+  <a href="https://aiozai.network">
+    <img src="https://aiozai.network/img/aioz-ai-og-image.webp?v=20250519" alt="AIOZ AI" width="100%">
+  </a>
+</p>
+
 Everything you need to build on the [AIOZ AI](https://aiozai.network) platform: run inference on
 models, manage models and datasets, and work with storage, tasks, and organizations.
 
