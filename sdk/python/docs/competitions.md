@@ -107,9 +107,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import GetCompetitionListRequest
+from aiozai_sdk.generated.models import RequestGetCompetitionListRequest
 
-request = GetCompetitionListRequest(
+request = RequestGetCompetitionListRequest(
     category="...",  # string
     following="...",  # boolean
     limit="...",  # integer
@@ -248,9 +248,9 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import CheckValidRepoToEvaluateModelRequest
+from aiozai_sdk.generated.models import RequestCheckValidRepoToEvaluateModelRequest
 
-request = CheckValidRepoToEvaluateModelRequest(
+request = RequestCheckValidRepoToEvaluateModelRequest(
     commit_hash="...",  # string
     model_id="...",  # string  # required
 )
@@ -283,36 +283,19 @@ print(resp)
 
 **Responses**
 
-**200 OK** — `response.SubmitHistoryResponse`
+**200 OK** — `response.EvaluateModelResponse`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `models.SubmitHistory` |  |
+| `data` | `response.EvaluateModelData` |  |
 | `message` | `string` |  |
 | `status` | `string` |  |
 
-**`models.SubmitHistory`**
+**`response.EvaluateModelData`**
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code_size` | `number` |  |
-| `commit_hash` | `string` |  |
-| `created_at` | `string` |  |
-| `description` | `string` | CompetitionId uuid.UUID `json:"competition_id"`
-UserId      uuid.UUID `json:"user_id"` |
-| `file_name` | `string` |  |
-| `file_size` | `number` |  |
-| `id` | `string` |  |
-| `logs` | `map[string]any` |  |
-| `model_id` | `string` | FileUrl        string    `json:"file_url"`
-ModelWeightUrl string    `json:"model_weight_url"`
-SourceCodeUrl  string    `json:"source_code_url"` |
-| `model_size` | `number` |  |
-| `score` | `number` |  |
-| `status` | `string` |  |
-| `submission_type` | `string` |  |
-| `time` | `number` |  |
-| `updated_at` | `string` |  |
+| `task_id` | `string` |  |
 
 **Error Responses**
 
@@ -376,9 +359,9 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import EstimateCostToEvaluateModelRequest
+from aiozai_sdk.generated.models import RequestEstimateCostToEvaluateModelRequest
 
-request = EstimateCostToEvaluateModelRequest(
+request = RequestEstimateCostToEvaluateModelRequest(
     commit_hash="...",  # string
     competition_id="...",  # string  # required
     model_id="...",  # string  # required
@@ -687,7 +670,7 @@ print(resp)
 | Name | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `id` | path | `string` | Yes | Competition Id |
-| `phase` | path | `string` | Yes | Competition Phase |
+| `phaseName` | query | `string` | Yes | Competition Phase |
 
 **Responses**
 
@@ -742,7 +725,7 @@ print(resp)
 **Example**
 
 ```python
-resp = client.competitions.competition.get_competition_by_id_public_leaderboard(id="<id>", phase="<phase>")
+resp = client.competitions.competition.get_competition_by_id_public_leaderboard(id="<id>")
 print(resp)
 ```
 

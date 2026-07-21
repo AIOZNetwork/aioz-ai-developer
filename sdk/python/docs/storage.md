@@ -55,9 +55,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import CreatePresignedUrlRequest
+from aiozai_sdk.generated.models import RequestCreatePresignedUrlRequest
 
-request = CreatePresignedUrlRequest(
+request = RequestCreatePresignedUrlRequest(
     folder="...",  # string  # required
     mime="...",  # string  # required
     name="...",  # string  # required
@@ -224,9 +224,9 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import DeleteUrlRequest
+from aiozai_sdk.generated.models import RequestDeleteUrlRequest
 
-request = DeleteUrlRequest(
+request = RequestDeleteUrlRequest(
     url="...",  # string  # required
 )
 resp = client.storage.storage.delete_storage_w3s_url(input=request)

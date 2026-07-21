@@ -28,13 +28,6 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 **Responses**
 
-**200 OK** — `response.SuccessResponse`
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `message` | `string` |  |
-| `status` | `string` |  |
-
 **Error Responses**
 
 | Status | Description |
@@ -45,7 +38,7 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```python
-resp = client.repositories.repository.get_repository_by_ownerusername_by_repositoryname_content_readme(ownerUsername="<ownerUsername>", repositoryName="<repositoryName>")
+resp = client.repositories.repository.get_repository_by_ownerusername_by_repositoryname_content_readme(owner_username="<ownerUsername>", repository_name="<repositoryName>")
 print(resp)
 ```
 

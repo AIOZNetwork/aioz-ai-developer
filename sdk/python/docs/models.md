@@ -21,9 +21,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `author_id` | `string` | No |  |
-| `cover` | `string` | No |  |
-| `dependency_id` | `string` | No |  |
-| `description` | `string` | No |  |
+| `cover` | `string` | Yes |  |
+| `dependency_id` | `string` | Yes |  |
+| `description` | `string` | Yes |  |
 | `language` | `array[string]` | No | en, vi |
 | `library` | `array[string]` | No | tf |
 | `license` | `string` | Yes |  |
@@ -31,7 +31,7 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 | `pretty_name` | `string` | No |  |
 | `price` | `number` | No |  |
 | `task` | `string` | No |  |
-| `thumbnail` | `string` | No |  |
+| `thumbnail` | `string` | Yes |  |
 | `visibility` | `string` | Yes | One of: `public`, `private` |
 
 **Responses**
@@ -40,23 +40,76 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `response.ModelData` |  |
+| `data` | `models.Model` |  |
 | `message` | `string` |  |
 | `status` | `string` |  |
 
-**`response.ModelData`**
+**`models.Model`**
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `string` |  |
+| `author_avatar` | `string` |  |
+| `author_id` | `string` |  |
+| `commit_hash` | `string` |  |
+| `cover` | `string` |  |
+| `create_by` | `string` |  |
 | `created_at` | `string` |  |
+| `dependency_id` | `string` |  |
 | `description` | `string` |  |
-| `downloads` | `integer` |  |
+| `discussions_count` | `integer` |  |
+| `downloads_count` | `integer` |  |
 | `id` | `string` |  |
 | `is_liked_by_user` | `boolean` |  |
-| `likes` | `integer` |  |
+| `is_official` | `boolean` |  |
+| `is_released` | `boolean` |  |
+| `is_verified` | `boolean` |  |
+| `likes_count` | `integer` |  |
+| `model_metadata` | `models.ModelMetadata` |  |
 | `name` | `string` |  |
+| `playground_count` | `integer` |  |
+| `price` | `number` |  |
+| `reacted` | `models.Reaction` |  |
+| `reactions_statistics` | `array[models.ReactionStats]` |  |
+| `task_reviews_count` | `integer` |  |
+| `task_reviews_point` | `number` |  |
+| `thumbnail` | `string` |  |
 | `updated_at` | `string` |  |
+| `username` | `string` |  |
+| `visibility` | `string` |  |
+
+**`models.ModelMetadata`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
+| `license` | `string` |  |
+| `model_id` | `string` |  |
+| `pretty_name` | `string` |  |
+| `task` | `string` |  |
+
+**`models.Reaction`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `created_at` | `string` |  |
+| `name` | `string` |  |
+| `owner` | `models.Owner` |  |
+| `updated_at` | `string` |  |
+
+**`models.Owner`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `id` | `string` |  |
+| `username` | `string` |  |
+
+**`models.ReactionStats`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `count` | `integer` |  |
+| `name` | `string` |  |
 
 **Error Responses**
 
@@ -68,13 +121,13 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import CreateModelRequest
+from aiozai_sdk.generated.models import RequestCreateModelRequest
 
-request = CreateModelRequest(
+request = RequestCreateModelRequest(
     author_id="...",  # string
-    cover="...",  # string
-    dependency_id="...",  # string
-    description="...",  # string
+    cover="...",  # string  # required
+    dependency_id="...",  # string  # required
+    description="...",  # string  # required
     language="...",  # array[string]
 )
 resp = client.models.model.post_model(input=request)
@@ -203,9 +256,9 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import GetModelListRequest
+from aiozai_sdk.generated.models import RequestGetModelListRequest
 
-request = GetModelListRequest(
+request = RequestGetModelListRequest(
     filter_by="...",  # string
     language="...",  # array[string]
     library="...",  # array[string]
@@ -343,16 +396,16 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import GetModelListByAuthorRequest
+from aiozai_sdk.generated.models import RequestGetModelListByAuthorRequest
 
-request = GetModelListByAuthorRequest(
+request = RequestGetModelListByAuthorRequest(
     language="...",  # array[string]
     library="...",  # array[string]
     license="...",  # string
     limit="...",  # integer
     offset="...",  # integer
 )
-resp = client.models.model.post_model_list_by_author_by_username(input=request)
+resp = client.models.model.post_model_list_by_author_by_username(username="<username>", input=request)
 print(resp)
 ```
 
@@ -380,13 +433,22 @@ print(resp)
 
 **Responses**
 
-**200 OK** — `response.ListDataResponse`
+**200 OK** — `response.MatchingModelsTagsResponse`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `array[string]` |  |
+| `data` | `response.MatchingModelsTagsData` |  |
 | `message` | `string` |  |
 | `status` | `string` |  |
+
+**`response.MatchingModelsTagsData`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `languages` | `array[string]` |  |
+| `libraries` | `array[string]` |  |
+| `licenses` | `array[string]` |  |
+| `tasks` | `array[string]` |  |
 
 **Error Responses**
 
@@ -398,9 +460,9 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import MatchingModelsTagsRequest
+from aiozai_sdk.generated.models import RequestMatchingModelsTagsRequest
 
-request = MatchingModelsTagsRequest(
+request = RequestMatchingModelsTagsRequest(
     language="...",  # array[string]
     library="...",  # array[string]
     license="...",  # string
@@ -554,23 +616,76 @@ print(resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `response.ModelData` |  |
+| `data` | `models.Model` |  |
 | `message` | `string` |  |
 | `status` | `string` |  |
 
-**`response.ModelData`**
+**`models.Model`**
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `string` |  |
+| `author_avatar` | `string` |  |
+| `author_id` | `string` |  |
+| `commit_hash` | `string` |  |
+| `cover` | `string` |  |
+| `create_by` | `string` |  |
 | `created_at` | `string` |  |
+| `dependency_id` | `string` |  |
 | `description` | `string` |  |
-| `downloads` | `integer` |  |
+| `discussions_count` | `integer` |  |
+| `downloads_count` | `integer` |  |
 | `id` | `string` |  |
 | `is_liked_by_user` | `boolean` |  |
-| `likes` | `integer` |  |
+| `is_official` | `boolean` |  |
+| `is_released` | `boolean` |  |
+| `is_verified` | `boolean` |  |
+| `likes_count` | `integer` |  |
+| `model_metadata` | `models.ModelMetadata` |  |
 | `name` | `string` |  |
+| `playground_count` | `integer` |  |
+| `price` | `number` |  |
+| `reacted` | `models.Reaction` |  |
+| `reactions_statistics` | `array[models.ReactionStats]` |  |
+| `task_reviews_count` | `integer` |  |
+| `task_reviews_point` | `number` |  |
+| `thumbnail` | `string` |  |
 | `updated_at` | `string` |  |
+| `username` | `string` |  |
+| `visibility` | `string` |  |
+
+**`models.ModelMetadata`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
+| `license` | `string` |  |
+| `model_id` | `string` |  |
+| `pretty_name` | `string` |  |
+| `task` | `string` |  |
+
+**`models.Reaction`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `created_at` | `string` |  |
+| `name` | `string` |  |
+| `owner` | `models.Owner` |  |
+| `updated_at` | `string` |  |
+
+**`models.Owner`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `id` | `string` |  |
+| `username` | `string` |  |
+
+**`models.ReactionStats`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `count` | `integer` |  |
+| `name` | `string` |  |
 
 **Error Responses**
 
@@ -621,23 +736,76 @@ print(resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `response.ModelData` |  |
+| `data` | `models.Model` |  |
 | `message` | `string` |  |
 | `status` | `string` |  |
 
-**`response.ModelData`**
+**`models.Model`**
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `string` |  |
+| `author_avatar` | `string` |  |
+| `author_id` | `string` |  |
+| `commit_hash` | `string` |  |
+| `cover` | `string` |  |
+| `create_by` | `string` |  |
 | `created_at` | `string` |  |
+| `dependency_id` | `string` |  |
 | `description` | `string` |  |
-| `downloads` | `integer` |  |
+| `discussions_count` | `integer` |  |
+| `downloads_count` | `integer` |  |
 | `id` | `string` |  |
 | `is_liked_by_user` | `boolean` |  |
-| `likes` | `integer` |  |
+| `is_official` | `boolean` |  |
+| `is_released` | `boolean` |  |
+| `is_verified` | `boolean` |  |
+| `likes_count` | `integer` |  |
+| `model_metadata` | `models.ModelMetadata` |  |
 | `name` | `string` |  |
+| `playground_count` | `integer` |  |
+| `price` | `number` |  |
+| `reacted` | `models.Reaction` |  |
+| `reactions_statistics` | `array[models.ReactionStats]` |  |
+| `task_reviews_count` | `integer` |  |
+| `task_reviews_point` | `number` |  |
+| `thumbnail` | `string` |  |
 | `updated_at` | `string` |  |
+| `username` | `string` |  |
+| `visibility` | `string` |  |
+
+**`models.ModelMetadata`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
+| `license` | `string` |  |
+| `model_id` | `string` |  |
+| `pretty_name` | `string` |  |
+| `task` | `string` |  |
+
+**`models.Reaction`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `created_at` | `string` |  |
+| `name` | `string` |  |
+| `owner` | `models.Owner` |  |
+| `updated_at` | `string` |  |
+
+**`models.Owner`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `id` | `string` |  |
+| `username` | `string` |  |
+
+**`models.ReactionStats`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `count` | `integer` |  |
+| `name` | `string` |  |
 
 **Error Responses**
 
@@ -649,16 +817,16 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import UpdateModelRequest
+from aiozai_sdk.generated.models import RequestUpdateModelRequest
 
-request = UpdateModelRequest(
+request = RequestUpdateModelRequest(
     cover="...",  # string
     dependency_id="...",  # string
     description="...",  # string
     price="...",  # number
     thumbnail="...",  # string
 )
-resp = client.models.model.put_model_by_id(input=request)
+resp = client.models.model.put_model_by_id(id="<id>", input=request)
 print(resp)
 ```
 
@@ -749,23 +917,76 @@ print(resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `response.ModelData` |  |
+| `data` | `models.Model` |  |
 | `message` | `string` |  |
 | `status` | `string` |  |
 
-**`response.ModelData`**
+**`models.Model`**
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `string` |  |
+| `author_avatar` | `string` |  |
+| `author_id` | `string` |  |
+| `commit_hash` | `string` |  |
+| `cover` | `string` |  |
+| `create_by` | `string` |  |
 | `created_at` | `string` |  |
+| `dependency_id` | `string` |  |
 | `description` | `string` |  |
-| `downloads` | `integer` |  |
+| `discussions_count` | `integer` |  |
+| `downloads_count` | `integer` |  |
 | `id` | `string` |  |
 | `is_liked_by_user` | `boolean` |  |
-| `likes` | `integer` |  |
+| `is_official` | `boolean` |  |
+| `is_released` | `boolean` |  |
+| `is_verified` | `boolean` |  |
+| `likes_count` | `integer` |  |
+| `model_metadata` | `models.ModelMetadata` |  |
 | `name` | `string` |  |
+| `playground_count` | `integer` |  |
+| `price` | `number` |  |
+| `reacted` | `models.Reaction` |  |
+| `reactions_statistics` | `array[models.ReactionStats]` |  |
+| `task_reviews_count` | `integer` |  |
+| `task_reviews_point` | `number` |  |
+| `thumbnail` | `string` |  |
 | `updated_at` | `string` |  |
+| `username` | `string` |  |
+| `visibility` | `string` |  |
+
+**`models.ModelMetadata`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
+| `license` | `string` |  |
+| `model_id` | `string` |  |
+| `pretty_name` | `string` |  |
+| `task` | `string` |  |
+
+**`models.Reaction`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `created_at` | `string` |  |
+| `name` | `string` |  |
+| `owner` | `models.Owner` |  |
+| `updated_at` | `string` |  |
+
+**`models.Owner`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `id` | `string` |  |
+| `username` | `string` |  |
+
+**`models.ReactionStats`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `count` | `integer` |  |
+| `name` | `string` |  |
 
 **Error Responses**
 
@@ -777,16 +998,16 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import UpdateModelMetadataRequest
+from aiozai_sdk.generated.models import RequestUpdateModelMetadataRequest
 
-request = UpdateModelMetadataRequest(
+request = RequestUpdateModelMetadataRequest(
     language="...",  # array[string]
     library="...",  # array[string]
     license="...",  # string
     pretty_name="...",  # string
     task="...",  # string
 )
-resp = client.models.model.put_model_by_id_metadata(input=request)
+resp = client.models.model.put_model_by_id_metadata(id="<id>", input=request)
 print(resp)
 ```
 
@@ -878,7 +1099,7 @@ print(resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `total_cost` | `integer` |  |
+| `total_cost` | `number` |  |
 | `total_failed` | `integer` |  |
 | `total_request` | `integer` |  |
 | `total_success` | `integer` |  |
@@ -893,13 +1114,13 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import GetApiKeyStatisticsByModelIdRequest
+from aiozai_sdk.generated.models import RequestGetApiKeyStatisticsByModelIdRequest
 
-request = GetApiKeyStatisticsByModelIdRequest(
+request = RequestGetApiKeyStatisticsByModelIdRequest(
     from="...",  # string
     to="...",  # string
 )
-resp = client.models.model.post_model_by_id_statistics(input=request)
+resp = client.models.model.post_model_by_id_statistics(id="<id>", input=request)
 print(resp)
 ```
 
@@ -1064,23 +1285,76 @@ print(resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `response.ModelData` |  |
+| `data` | `models.Model` |  |
 | `message` | `string` |  |
 | `status` | `string` |  |
 
-**`response.ModelData`**
+**`models.Model`**
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `string` |  |
+| `author_avatar` | `string` |  |
+| `author_id` | `string` |  |
+| `commit_hash` | `string` |  |
+| `cover` | `string` |  |
+| `create_by` | `string` |  |
 | `created_at` | `string` |  |
+| `dependency_id` | `string` |  |
 | `description` | `string` |  |
-| `downloads` | `integer` |  |
+| `discussions_count` | `integer` |  |
+| `downloads_count` | `integer` |  |
 | `id` | `string` |  |
 | `is_liked_by_user` | `boolean` |  |
-| `likes` | `integer` |  |
+| `is_official` | `boolean` |  |
+| `is_released` | `boolean` |  |
+| `is_verified` | `boolean` |  |
+| `likes_count` | `integer` |  |
+| `model_metadata` | `models.ModelMetadata` |  |
 | `name` | `string` |  |
+| `playground_count` | `integer` |  |
+| `price` | `number` |  |
+| `reacted` | `models.Reaction` |  |
+| `reactions_statistics` | `array[models.ReactionStats]` |  |
+| `task_reviews_count` | `integer` |  |
+| `task_reviews_point` | `number` |  |
+| `thumbnail` | `string` |  |
 | `updated_at` | `string` |  |
+| `username` | `string` |  |
+| `visibility` | `string` |  |
+
+**`models.ModelMetadata`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | `string` |  |
+| `license` | `string` |  |
+| `model_id` | `string` |  |
+| `pretty_name` | `string` |  |
+| `task` | `string` |  |
+
+**`models.Reaction`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `created_at` | `string` |  |
+| `name` | `string` |  |
+| `owner` | `models.Owner` |  |
+| `updated_at` | `string` |  |
+
+**`models.Owner`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `avatar` | `string` |  |
+| `id` | `string` |  |
+| `username` | `string` |  |
+
+**`models.ReactionStats`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `count` | `integer` |  |
+| `name` | `string` |  |
 
 **Error Responses**
 

@@ -92,7 +92,7 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 | `dataset_id` | `string` |  |
 | `id` | `string` |  |
 | `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
+| `license` | `string` | mit |
 | `pretty_name` | `string` |  |
 | `size_category` | `string` |  |
 | `tags` | `array[string]` | art |
@@ -199,9 +199,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import CreateCollectionRequest
+from aiozai_sdk.generated.models import RequestCreateCollectionRequest
 
-request = CreateCollectionRequest(
+request = RequestCreateCollectionRequest(
     description="...",  # string  # required
     name="...",  # string  # required
     thumbnail="...",  # string
@@ -308,7 +308,7 @@ print(resp)
 | `dataset_id` | `string` |  |
 | `id` | `string` |  |
 | `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
+| `license` | `string` | mit |
 | `pretty_name` | `string` |  |
 | `size_category` | `string` |  |
 | `tags` | `array[string]` | art |
@@ -415,9 +415,9 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import GetListCollectionRequest
+from aiozai_sdk.generated.models import RequestGetListCollectionRequest
 
-request = GetListCollectionRequest(
+request = RequestGetListCollectionRequest(
     filter="...",  # string
     limit="...",  # integer
     offset="...",  # integer
@@ -513,7 +513,7 @@ print(resp)
 | `dataset_id` | `string` |  |
 | `id` | `string` |  |
 | `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
+| `license` | `string` | mit |
 | `pretty_name` | `string` |  |
 | `size_category` | `string` |  |
 | `tags` | `array[string]` | art |
@@ -718,7 +718,7 @@ print(resp)
 | `dataset_id` | `string` |  |
 | `id` | `string` |  |
 | `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
+| `license` | `string` | mit |
 | `pretty_name` | `string` |  |
 | `size_category` | `string` |  |
 | `tags` | `array[string]` | art |
@@ -825,15 +825,15 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import UpdateCollectionRequest
+from aiozai_sdk.generated.models import RequestUpdateCollectionRequest
 
-request = UpdateCollectionRequest(
+request = RequestUpdateCollectionRequest(
     description="...",  # string
     name="...",  # string
     thumbnail="...",  # string
     visibility="...",  # string
 )
-resp = client.collections.collection.put_collection_by_id(input=request)
+resp = client.collections.collection.put_collection_by_id(id="<id>", input=request)
 print(resp)
 ```
 
@@ -929,7 +929,7 @@ print(resp)
 | `dataset_id` | `string` |  |
 | `id` | `string` |  |
 | `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
+| `license` | `string` | mit |
 | `pretty_name` | `string` |  |
 | `size_category` | `string` |  |
 | `tags` | `array[string]` | art |
@@ -1036,13 +1036,13 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import AddItemToCollectionRequest
+from aiozai_sdk.generated.models import RequestAddItemToCollectionRequest
 
-request = AddItemToCollectionRequest(
+request = RequestAddItemToCollectionRequest(
     item_id="...",  # string
     type="...",  # string  # required
 )
-resp = client.collections.collection.post_collection_by_id_item(input=request)
+resp = client.collections.collection.post_collection_by_id_item(id="<id>", input=request)
 print(resp)
 ```
 
@@ -1073,167 +1073,12 @@ print(resp)
 
 **Responses**
 
-**200 OK** — `response.CollectionReponse`
+**200 OK** — `response.SuccessResponse`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `models.Collection` |  |
 | `message` | `string` |  |
 | `status` | `string` |  |
-
-**`models.Collection`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `author_avatar` | `string` |  |
-| `created_at` | `string` |  |
-| `datasets` | `array[models.Dataset]` |  |
-| `datasets_count` | `integer` |  |
-| `description` | `string` |  |
-| `id` | `string` |  |
-| `is_voted_by_user` | `boolean` |  |
-| `models` | `array[models.Model]` |  |
-| `models_count` | `integer` |  |
-| `name` | `string` |  |
-| `thumbnail` | `string` |  |
-| `updated_at` | `string` |  |
-| `user_id` | `string` |  |
-| `username` | `string` |  |
-| `violated` | `boolean` |  |
-| `visibility` | `string` |  |
-| `votes_count` | `integer` |  |
-
-**`models.Dataset`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `author_avatar` | `string` |  |
-| `author_id` | `string` |  |
-| `cover` | `string` |  |
-| `create_by` | `string` |  |
-| `created_at` | `string` |  |
-| `description` | `string` |  |
-| `discussions_count` | `integer` |  |
-| `downloads_count` | `integer` |  |
-| `id` | `string` |  |
-| `is_liked_by_user` | `boolean` |  |
-| `is_official` | `boolean` |  |
-| `is_released` | `boolean` |  |
-| `is_verified` | `boolean` |  |
-| `likes_count` | `integer` |  |
-| `metadata` | `models.DatasetMetadata` |  |
-| `name` | `string` |  |
-| `price` | `number` |  |
-| `reacted` | `models.Reaction` |  |
-| `reactions_statistics` | `array[models.ReactionStats]` |  |
-| `thumbnail` | `string` |  |
-| `updated_at` | `string` |  |
-| `username` | `string` |  |
-| `visibility` | `string` |  |
-
-**`models.DatasetMetadata`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `dataset_id` | `string` |  |
-| `id` | `string` |  |
-| `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
-| `pretty_name` | `string` |  |
-| `size_category` | `string` |  |
-| `tags` | `array[string]` | art |
-| `task_categories` | `array[string]` | text-to-image |
-
-**`models.Reaction`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `name` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `updated_at` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.ReactionStats`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `count` | `integer` |  |
-| `name` | `string` |  |
-
-**`models.Model`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `author_avatar` | `string` |  |
-| `author_id` | `string` |  |
-| `commit_hash` | `string` |  |
-| `cover` | `string` |  |
-| `create_by` | `string` |  |
-| `created_at` | `string` |  |
-| `dependency_id` | `string` |  |
-| `description` | `string` |  |
-| `discussions_count` | `integer` |  |
-| `downloads_count` | `integer` |  |
-| `id` | `string` |  |
-| `is_liked_by_user` | `boolean` |  |
-| `is_official` | `boolean` |  |
-| `is_released` | `boolean` |  |
-| `is_verified` | `boolean` |  |
-| `likes_count` | `integer` |  |
-| `model_metadata` | `models.ModelMetadata` |  |
-| `name` | `string` |  |
-| `playground_count` | `integer` |  |
-| `price` | `number` |  |
-| `reacted` | `models.Reaction` |  |
-| `reactions_statistics` | `array[models.ReactionStats]` |  |
-| `task_reviews_count` | `integer` |  |
-| `task_reviews_point` | `number` |  |
-| `thumbnail` | `string` |  |
-| `updated_at` | `string` |  |
-| `username` | `string` |  |
-| `visibility` | `string` |  |
-
-**`models.ModelMetadata`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `id` | `string` |  |
-| `license` | `string` |  |
-| `model_id` | `string` |  |
-| `pretty_name` | `string` |  |
-| `task` | `string` |  |
-
-**`models.Reaction`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` |  |
-| `name` | `string` |  |
-| `owner` | `models.Owner` |  |
-| `updated_at` | `string` |  |
-
-**`models.Owner`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `avatar` | `string` |  |
-| `id` | `string` |  |
-| `username` | `string` |  |
-
-**`models.ReactionStats`**
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `count` | `integer` |  |
-| `name` | `string` |  |
 
 **Error Responses**
 
@@ -1245,13 +1090,13 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import RemoveItemFromCollectionRequest
+from aiozai_sdk.generated.models import RequestRemoveItemFromCollectionRequest
 
-request = RemoveItemFromCollectionRequest(
+request = RequestRemoveItemFromCollectionRequest(
     item_id="...",  # string  # required
     type="...",  # string  # required
 )
-resp = client.collections.collection.delete_collection_by_id_item(input=request)
+resp = client.collections.collection.delete_collection_by_id_item(id="<id>", input=request)
 print(resp)
 ```
 
@@ -1340,7 +1185,7 @@ print(resp)
 | `dataset_id` | `string` |  |
 | `id` | `string` |  |
 | `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
+| `license` | `string` | mit |
 | `pretty_name` | `string` |  |
 | `size_category` | `string` |  |
 | `tags` | `array[string]` | art |
@@ -1553,7 +1398,7 @@ print(resp)
 | `dataset_id` | `string` |  |
 | `id` | `string` |  |
 | `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
+| `license` | `string` | mit |
 | `pretty_name` | `string` |  |
 | `size_category` | `string` |  |
 | `tags` | `array[string]` | art |
@@ -1660,16 +1505,16 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import GetListCollectionByUsernameRequest
+from aiozai_sdk.generated.models import RequestGetListCollectionByUsernameRequest
 
-request = GetListCollectionByUsernameRequest(
+request = RequestGetListCollectionByUsernameRequest(
     limit="...",  # integer
     offset="...",  # integer
     order="...",  # string
     search="...",  # string
     sort="...",  # string
 )
-resp = client.collections.collection.post_collection_by_username_list(input=request)
+resp = client.collections.collection.post_collection_by_username_list(username="<username>", input=request)
 print(resp)
 ```
 

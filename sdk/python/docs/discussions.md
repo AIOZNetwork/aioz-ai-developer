@@ -114,13 +114,13 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import UpdateCommentRequest
+from aiozai_sdk.generated.models import RequestUpdateCommentRequest
 
-request = UpdateCommentRequest(
+request = RequestUpdateCommentRequest(
     content="...",  # string
     tag_usernames="...",  # array[string]
 )
-resp = client.discussions.comment.put_comments_by_id(input=request)
+resp = client.discussions.comment.put_comments_by_id(id="<id>", input=request)
 print(resp)
 ```
 
@@ -144,12 +144,19 @@ print(resp)
 
 **Responses**
 
-**200 OK** — `response.SuccessResponse`
+**200 OK** — `response.LikeResponse`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `data` | `response.IsLikedByUser` |  |
 | `message` | `string` |  |
 | `status` | `string` |  |
+
+**`response.IsLikedByUser`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `is_liked_by_user` | `boolean` |  |
 
 **Error Responses**
 
@@ -362,13 +369,13 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import CreateCompetitionDiscussionRequest
+from aiozai_sdk.generated.models import RequestCreateCompetitionDiscussionRequest
 
-request = CreateCompetitionDiscussionRequest(
+request = RequestCreateCompetitionDiscussionRequest(
     content="...",  # string  # required
     title="...",  # string  # required
 )
-resp = client.discussions.discussion.post_discussion_competition_by_id(input=request)
+resp = client.discussions.discussion.post_discussion_competition_by_id(id="<id>", input=request)
 print(resp)
 ```
 
@@ -567,13 +574,13 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import CreateDatasetDiscussionRequest
+from aiozai_sdk.generated.models import RequestCreateDatasetDiscussionRequest
 
-request = CreateDatasetDiscussionRequest(
+request = RequestCreateDatasetDiscussionRequest(
     content="...",  # string  # required
     title="...",  # string  # required
 )
-resp = client.discussions.discussion.post_discussion_dataset_by_id(input=request)
+resp = client.discussions.discussion.post_discussion_dataset_by_id(id="<id>", input=request)
 print(resp)
 ```
 
@@ -772,13 +779,13 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import CreateModelDiscussionRequest
+from aiozai_sdk.generated.models import RequestCreateModelDiscussionRequest
 
-request = CreateModelDiscussionRequest(
+request = RequestCreateModelDiscussionRequest(
     content="...",  # string  # required
     title="...",  # string  # required
 )
-resp = client.discussions.discussion.post_discussion_model_by_id(input=request)
+resp = client.discussions.discussion.post_discussion_model_by_id(id="<id>", input=request)
 print(resp)
 ```
 
@@ -877,14 +884,14 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import UpdateDiscussionRequest
+from aiozai_sdk.generated.models import RequestUpdateDiscussionRequest
 
-request = UpdateDiscussionRequest(
+request = RequestUpdateDiscussionRequest(
     content="...",  # string
     is_closed="...",  # boolean
     title="...",  # string
 )
-resp = client.discussions.discussion.put_discussion_by_id(input=request)
+resp = client.discussions.discussion.put_discussion_by_id(id="<id>", input=request)
 print(resp)
 ```
 
@@ -1115,13 +1122,13 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import CreateCommentRequest
+from aiozai_sdk.generated.models import RequestCreateCommentRequest
 
-request = CreateCommentRequest(
+request = RequestCreateCommentRequest(
     content="...",  # string
     tag_usernames="...",  # array[string]
 )
-resp = client.discussions.comment.post_discussion_by_id_comments(input=request)
+resp = client.discussions.comment.post_discussion_by_id_comments(id="<id>", input=request)
 print(resp)
 ```
 
@@ -1169,13 +1176,13 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import ReactItemRequest
+from aiozai_sdk.generated.models import RequestReactItemRequest
 
-request = ReactItemRequest(
+request = RequestReactItemRequest(
     itemName="...",  # string
     reactName="...",  # string
 )
-resp = client.discussions.reaction.put_items_by_id_react(input=request)
+resp = client.discussions.reaction.put_items_by_id_react(id="<id>", input=request)
 print(resp)
 ```
 
@@ -1199,12 +1206,19 @@ print(resp)
 
 **Responses**
 
-**200 OK** — `response.SuccessResponse`
+**200 OK** — `response.LikeResponse`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `data` | `response.IsLikedByUser` |  |
 | `message` | `string` |  |
 | `status` | `string` |  |
+
+**`response.IsLikedByUser`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `is_liked_by_user` | `boolean` |  |
 
 **Error Responses**
 

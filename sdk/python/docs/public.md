@@ -46,12 +46,12 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import EstimateCostRequest
+from aiozai_sdk.generated.models import RequestEstimateCostRequest
 
-request = EstimateCostRequest(
+request = RequestEstimateCostRequest(
     total_size="...",  # number  # required
 )
-resp = client.public.public.post_public_cost_estimating(input=request)
+resp = client.public.public.post_public_cost_estimating(data=request)
 print(resp)
 ```
 

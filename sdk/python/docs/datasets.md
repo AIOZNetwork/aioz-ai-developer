@@ -24,8 +24,8 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 | `cover` | `string` | Yes |  |
 | `description` | `string` | Yes |  |
 | `language` | `array[string]` | No | en, vi |
-| `license` | `string` | Yes |  |
-| `name` | `string` | Yes |  |
+| `license` | `string` | Yes | cc |
+| `name` | `string` | No |  |
 | `pretty_name` | `string` | No |  |
 | `price` | `number` | No |  |
 | `size_category` | `string` | No |  |
@@ -79,7 +79,7 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 | `dataset_id` | `string` |  |
 | `id` | `string` |  |
 | `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
+| `license` | `string` | mit |
 | `pretty_name` | `string` |  |
 | `size_category` | `string` |  |
 | `tags` | `array[string]` | art |
@@ -119,9 +119,9 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import CreateDatasetRequest
+from aiozai_sdk.generated.models import RequestCreateDatasetRequest
 
-request = CreateDatasetRequest(
+request = RequestCreateDatasetRequest(
     author_id="...",  # string
     cover="...",  # string  # required
     description="...",  # string  # required
@@ -213,7 +213,7 @@ print(resp)
 | `dataset_id` | `string` |  |
 | `id` | `string` |  |
 | `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
+| `license` | `string` | mit |
 | `pretty_name` | `string` |  |
 | `size_category` | `string` |  |
 | `tags` | `array[string]` | art |
@@ -253,9 +253,9 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import GetDatasetListRequest
+from aiozai_sdk.generated.models import RequestGetDatasetListRequest
 
-request = GetDatasetListRequest(
+request = RequestGetDatasetListRequest(
     filter_by="...",  # string
     language="...",  # array[string]
     license="...",  # string
@@ -352,7 +352,7 @@ print(resp)
 | `dataset_id` | `string` |  |
 | `id` | `string` |  |
 | `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
+| `license` | `string` | mit |
 | `pretty_name` | `string` |  |
 | `size_category` | `string` |  |
 | `tags` | `array[string]` | art |
@@ -392,16 +392,16 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import GetDatasetListByAuthorRequest
+from aiozai_sdk.generated.models import RequestGetDatasetListByAuthorRequest
 
-request = GetDatasetListByAuthorRequest(
+request = RequestGetDatasetListByAuthorRequest(
     language="...",  # array[string]
     license="...",  # string
     limit="...",  # integer
     offset="...",  # integer
     order="...",  # string
 )
-resp = client.datasets.dataset.post_dataset_list_by_author_by_username(input=request)
+resp = client.datasets.dataset.post_dataset_list_by_author_by_username(username="<username>", input=request)
 print(resp)
 ```
 
@@ -430,13 +430,23 @@ print(resp)
 
 **Responses**
 
-**200 OK** — `response.ListDataResponse`
+**200 OK** — `response.MatchingDatasetsTagsResponse`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `array[string]` |  |
+| `data` | `response.MatchingDatasetsTagsData` |  |
 | `message` | `string` |  |
 | `status` | `string` |  |
+
+**`response.MatchingDatasetsTagsData`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `languages` | `array[string]` |  |
+| `licenses` | `array[string]` |  |
+| `sizes` | `array[string]` |  |
+| `tags` | `array[string]` |  |
+| `tasks` | `array[string]` |  |
 
 **Error Responses**
 
@@ -448,9 +458,9 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import MatchingDatasetsTagsRequest
+from aiozai_sdk.generated.models import RequestMatchingDatasetsTagsRequest
 
-request = MatchingDatasetsTagsRequest(
+request = RequestMatchingDatasetsTagsRequest(
     language="...",  # array[string]
     license="...",  # string
     size_category="...",  # string
@@ -535,7 +545,7 @@ print(resp)
 | `dataset_id` | `string` |  |
 | `id` | `string` |  |
 | `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
+| `license` | `string` | mit |
 | `pretty_name` | `string` |  |
 | `size_category` | `string` |  |
 | `tags` | `array[string]` | art |
@@ -642,7 +652,7 @@ print(resp)
 | `dataset_id` | `string` |  |
 | `id` | `string` |  |
 | `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
+| `license` | `string` | mit |
 | `pretty_name` | `string` |  |
 | `size_category` | `string` |  |
 | `tags` | `array[string]` | art |
@@ -759,7 +769,7 @@ print(resp)
 | `dataset_id` | `string` |  |
 | `id` | `string` |  |
 | `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
+| `license` | `string` | mit |
 | `pretty_name` | `string` |  |
 | `size_category` | `string` |  |
 | `tags` | `array[string]` | art |
@@ -799,16 +809,16 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import UpdateDatasetRequest
+from aiozai_sdk.generated.models import RequestUpdateDatasetRequest
 
-request = UpdateDatasetRequest(
+request = RequestUpdateDatasetRequest(
     cover="...",  # string
     description="...",  # string
     price="...",  # number
     thumbnail="...",  # string
     visibility="...",  # string
 )
-resp = client.datasets.dataset.put_dataset_by_id(input=request)
+resp = client.datasets.dataset.put_dataset_by_id(id="<id>", input=request)
 print(resp)
 ```
 
@@ -858,7 +868,7 @@ print(resp)
 | `dataset_id` | `string` |  |
 | `id` | `string` |  |
 | `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
+| `license` | `string` | mit |
 | `pretty_name` | `string` |  |
 | `size_category` | `string` |  |
 | `tags` | `array[string]` | art |
@@ -874,16 +884,16 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import UpdateDatasetMetadataRequest
+from aiozai_sdk.generated.models import RequestUpdateDatasetMetadataRequest
 
-request = UpdateDatasetMetadataRequest(
+request = RequestUpdateDatasetMetadataRequest(
     language="...",  # array[string]
     license="...",  # string
     pretty_name="...",  # string
     size_category="...",  # string
     tags="...",  # array[string]
 )
-resp = client.datasets.dataset.put_dataset_by_id_metadata(input=request)
+resp = client.datasets.dataset.put_dataset_by_id_metadata(id="<id>", input=request)
 print(resp)
 ```
 
@@ -951,7 +961,7 @@ print(resp)
 | `dataset_id` | `string` |  |
 | `id` | `string` |  |
 | `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
+| `license` | `string` | mit |
 | `pretty_name` | `string` |  |
 | `size_category` | `string` |  |
 | `tags` | `array[string]` | art |

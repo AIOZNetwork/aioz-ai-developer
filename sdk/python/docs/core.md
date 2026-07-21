@@ -133,7 +133,7 @@ print(resp)
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `total_cost` | `integer` |  |
+| `total_cost` | `number` |  |
 | `total_failed` | `integer` |  |
 | `total_request` | `integer` |  |
 | `total_success` | `integer` |  |
@@ -148,9 +148,9 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import GetApiKeyStatisticsByModelIdRequest
+from aiozai_sdk.generated.models import RequestGetApiKeyStatisticsByModelIdRequest
 
-request = GetApiKeyStatisticsByModelIdRequest(
+request = RequestGetApiKeyStatisticsByModelIdRequest(
     from="...",  # string
     to="...",  # string
 )

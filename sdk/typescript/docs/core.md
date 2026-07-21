@@ -141,7 +141,7 @@ console.log(response.data);
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `total_cost` | `integer` |  |
+| `total_cost` | `number` |  |
 | `total_failed` | `integer` |  |
 | `total_request` | `integer` |  |
 | `total_success` | `integer` |  |

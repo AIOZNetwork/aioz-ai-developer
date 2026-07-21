@@ -148,12 +148,19 @@ console.log(response.data);
 
 **Responses**
 
-**200 OK** — `response.SuccessResponse`
+**200 OK** — `response.LikeResponse`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `data` | `response.IsLikedByUser` |  |
 | `message` | `string` |  |
 | `status` | `string` |  |
+
+**`response.IsLikedByUser`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `is_liked_by_user` | `boolean` |  |
 
 **Error Responses**
 
@@ -1262,12 +1269,19 @@ console.log(response.data);
 
 **Responses**
 
-**200 OK** — `response.SuccessResponse`
+**200 OK** — `response.LikeResponse`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `data` | `response.IsLikedByUser` |  |
 | `message` | `string` |  |
 | `status` | `string` |  |
+
+**`response.IsLikedByUser`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `is_liked_by_user` | `boolean` |  |
 
 **Error Responses**
 

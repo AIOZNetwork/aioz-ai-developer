@@ -24,8 +24,8 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 | `cover` | `string` | Yes |  |
 | `description` | `string` | Yes |  |
 | `language` | `array[string]` | No | en, vi |
-| `license` | `string` | Yes |  |
-| `name` | `string` | Yes |  |
+| `license` | `string` | Yes | cc |
+| `name` | `string` | No |  |
 | `pretty_name` | `string` | No |  |
 | `price` | `number` | No |  |
 | `size_category` | `string` | No |  |
@@ -79,7 +79,7 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 | `dataset_id` | `string` |  |
 | `id` | `string` |  |
 | `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
+| `license` | `string` | mit |
 | `pretty_name` | `string` |  |
 | `size_category` | `string` |  |
 | `tags` | `array[string]` | art |
@@ -217,7 +217,7 @@ console.log(response.data);
 | `dataset_id` | `string` |  |
 | `id` | `string` |  |
 | `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
+| `license` | `string` | mit |
 | `pretty_name` | `string` |  |
 | `size_category` | `string` |  |
 | `tags` | `array[string]` | art |
@@ -360,7 +360,7 @@ console.log(response.data);
 | `dataset_id` | `string` |  |
 | `id` | `string` |  |
 | `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
+| `license` | `string` | mit |
 | `pretty_name` | `string` |  |
 | `size_category` | `string` |  |
 | `tags` | `array[string]` | art |
@@ -442,13 +442,23 @@ console.log(response.data);
 
 **Responses**
 
-**200 OK** — `response.ListDataResponse`
+**200 OK** — `response.MatchingDatasetsTagsResponse`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `array[string]` |  |
+| `data` | `response.MatchingDatasetsTagsData` |  |
 | `message` | `string` |  |
 | `status` | `string` |  |
+
+**`response.MatchingDatasetsTagsData`**
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `languages` | `array[string]` |  |
+| `licenses` | `array[string]` |  |
+| `sizes` | `array[string]` |  |
+| `tags` | `array[string]` |  |
+| `tasks` | `array[string]` |  |
 
 **Error Responses**
 
@@ -551,7 +561,7 @@ console.log(response.data);
 | `dataset_id` | `string` |  |
 | `id` | `string` |  |
 | `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
+| `license` | `string` | mit |
 | `pretty_name` | `string` |  |
 | `size_category` | `string` |  |
 | `tags` | `array[string]` | art |
@@ -665,7 +675,7 @@ console.log(response.data);
 | `dataset_id` | `string` |  |
 | `id` | `string` |  |
 | `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
+| `license` | `string` | mit |
 | `pretty_name` | `string` |  |
 | `size_category` | `string` |  |
 | `tags` | `array[string]` | art |
@@ -789,7 +799,7 @@ console.log(response.data);
 | `dataset_id` | `string` |  |
 | `id` | `string` |  |
 | `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
+| `license` | `string` | mit |
 | `pretty_name` | `string` |  |
 | `size_category` | `string` |  |
 | `tags` | `array[string]` | art |
@@ -892,7 +902,7 @@ console.log(response.data);
 | `dataset_id` | `string` |  |
 | `id` | `string` |  |
 | `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
+| `license` | `string` | mit |
 | `pretty_name` | `string` |  |
 | `size_category` | `string` |  |
 | `tags` | `array[string]` | art |
@@ -989,7 +999,7 @@ console.log(response.data);
 | `dataset_id` | `string` |  |
 | `id` | `string` |  |
 | `language` | `array[string]` | en, vi |
-| `license` | `string` |  |
+| `license` | `string` | mit |
 | `pretty_name` | `string` |  |
 | `size_category` | `string` |  |
 | `tags` | `array[string]` | art |

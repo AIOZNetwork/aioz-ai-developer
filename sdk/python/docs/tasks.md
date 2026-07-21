@@ -22,10 +22,6 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 | --- | --- | --- | --- | --- |
 | `id` | path | `string` | Yes | Task's id |
 
-**Request Body** — `request.GetTaskReviewByTaskIdRequest`
-
-_No fields defined._
-
 **Responses**
 
 **200 OK** — `response.TaskReviewsResponse`
@@ -68,12 +64,7 @@ _No fields defined._
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import GetTaskReviewByTaskIdRequest
-
-request = GetTaskReviewByTaskIdRequest(
-    
-)
-resp = client.tasks.task.get_model_task_by_id_reviews(input=request)
+resp = client.tasks.task.get_model_task_by_id_reviews(id="<id>")
 print(resp)
 ```
 
@@ -119,12 +110,7 @@ _No fields defined._
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import DistributeTaskWithApiKeyRequest
-
-request = DistributeTaskWithApiKeyRequest(
-    
-)
-resp = client.tasks.task.post_model_by_id_task(input=request)
+resp = client.tasks.task.post_model_by_id_task(id="<id>", input={})
 print(resp)
 ```
 
@@ -151,8 +137,8 @@ print(resp)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `description` | `string` | No |  |
-| `point` | `integer` | No |  |
-| `task_id` | `string` | No |  |
+| `point` | `integer` | Yes |  |
+| `task_id` | `string` | Yes |  |
 
 **Responses**
 
@@ -196,14 +182,14 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import CreateTaskReviewsRequest
+from aiozai_sdk.generated.models import RequestCreateTaskReviewsRequest
 
-request = CreateTaskReviewsRequest(
+request = RequestCreateTaskReviewsRequest(
     description="...",  # string
-    point="...",  # integer
-    task_id="...",  # string
+    point="...",  # integer  # required
+    task_id="...",  # string  # required
 )
-resp = client.tasks.task.post_model_by_id_task_reviews(input=request)
+resp = client.tasks.task.post_model_by_id_task_reviews(id="<id>", input=request)
 print(resp)
 ```
 
@@ -303,9 +289,9 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import DistributeTaskRequest
+from aiozai_sdk.generated.models import RequestDistributeTaskRequest
 
-request = DistributeTaskRequest(
+request = RequestDistributeTaskRequest(
     files="...",  # array[object]
     input_params="...",  # map[string]any
     model_id="...",  # string

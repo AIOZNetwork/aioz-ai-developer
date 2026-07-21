@@ -298,36 +298,19 @@ console.log(response.data);
 
 **Responses**
 
-**200 OK** — `response.SubmitHistoryResponse`
+**200 OK** — `response.EvaluateModelResponse`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `models.SubmitHistory` |  |
+| `data` | `response.EvaluateModelData` |  |
 | `message` | `string` |  |
 | `status` | `string` |  |
 
-**`models.SubmitHistory`**
+**`response.EvaluateModelData`**
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `code_size` | `number` |  |
-| `commit_hash` | `string` |  |
-| `created_at` | `string` |  |
-| `description` | `string` | CompetitionId uuid.UUID `json:"competition_id"`
-UserId      uuid.UUID `json:"user_id"` |
-| `file_name` | `string` |  |
-| `file_size` | `number` |  |
-| `id` | `string` |  |
-| `logs` | `map[string]any` |  |
-| `model_id` | `string` | FileUrl        string    `json:"file_url"`
-ModelWeightUrl string    `json:"model_weight_url"`
-SourceCodeUrl  string    `json:"source_code_url"` |
-| `model_size` | `number` |  |
-| `score` | `number` |  |
-| `status` | `string` |  |
-| `submission_type` | `string` |  |
-| `time` | `number` |  |
-| `updated_at` | `string` |  |
+| `task_id` | `string` |  |
 
 **Error Responses**
 
@@ -738,7 +721,7 @@ console.log(response.data);
 | Name | Location | Type | Required | Description |
 | --- | --- | --- | --- | --- |
 | `id` | path | `string` | Yes | Competition Id |
-| `phase` | path | `string` | Yes | Competition Phase |
+| `phaseName` | query | `string` | Yes | Competition Phase |
 
 **Responses**
 
@@ -799,7 +782,7 @@ const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY }
 
 const response = await services.competitions.getCompetitionByIdPublicLeaderboard({
     client: rawClient,
-    path: { id: '...', phase: '...' },
+    path: { id: '...' },
 });
 console.log(response.data);
 ```

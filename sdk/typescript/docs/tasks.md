@@ -22,10 +22,6 @@ Reference: [SDK Usage Guide](../README.md#sdk-usage-guide) | [Package README](..
 | --- | --- | --- | --- | --- |
 | `id` | path | `string` | Yes | Task's id |
 
-**Request Body** — `request.GetTaskReviewByTaskIdRequest`
-
-_No fields defined._
-
 **Responses**
 
 **200 OK** — `response.TaskReviewsResponse`
@@ -74,9 +70,7 @@ const { rawClient } = createAiozAIClient({ apiKey: process.env.AIOZ_AI_API_KEY }
 
 const response = await services.tasks.getModelTaskByIdReviews({
     client: rawClient,
-    body: {
-        
-    },
+    path: { id: '...' },
 });
 console.log(response.data);
 ```
@@ -159,8 +153,8 @@ console.log(response.data);
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `description` | `string` | No |  |
-| `point` | `integer` | No |  |
-| `task_id` | `string` | No |  |
+| `point` | `integer` | Yes |  |
+| `task_id` | `string` | Yes |  |
 
 **Responses**
 
@@ -212,8 +206,8 @@ const response = await services.tasks.postModelByIdTaskReviews({
     client: rawClient,
     body: {
         description: '...',  // string
-        point: '...',  // integer
-        task_id: '...',  // string
+        point: '...',  // integer  // required
+        task_id: '...',  // string  // required
     },
 });
 console.log(response.data);

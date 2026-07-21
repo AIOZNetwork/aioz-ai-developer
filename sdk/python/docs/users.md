@@ -251,9 +251,9 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import UpdateUserProfileRequest
+from aiozai_sdk.generated.models import RequestUpdateUserProfileRequest
 
-request = UpdateUserProfileRequest(
+request = RequestUpdateUserProfileRequest(
     avatar="...",  # string
     bio="...",  # string
     full_name="...",  # string
@@ -317,13 +317,13 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import GetTransactionAnalyticsRequest
+from aiozai_sdk.generated.models import RequestGetTransactionAnalyticsRequest
 
-request = GetTransactionAnalyticsRequest(
+request = RequestGetTransactionAnalyticsRequest(
     from="...",  # string
     to="...",  # string
 )
-resp = client.users.payment.post_user_statistics_earnings(input=request)
+resp = client.users.user_payment.post_user_statistics_earnings(input=request)
 print(resp)
 ```
 
@@ -384,13 +384,13 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import GetUserSpendingCostStatisticsRequest
+from aiozai_sdk.generated.models import RequestGetUserSpendingCostStatisticsRequest
 
-request = GetUserSpendingCostStatisticsRequest(
+request = RequestGetUserSpendingCostStatisticsRequest(
     from="...",  # string
     to="...",  # string
 )
-resp = client.users.payment.post_user_statistics_spending_cost(input=request)
+resp = client.users.user_payment.post_user_statistics_spending_cost(input=request)
 print(resp)
 ```
 
@@ -455,7 +455,7 @@ print(resp)
 **Example**
 
 ```python
-resp = client.users.payment.get_user_wallet_deposit_history()
+resp = client.users.user_payment.get_user_wallet_deposit_history()
 print(resp)
 ```
 
@@ -529,13 +529,13 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import GetUserTransactionAnalyticsRequest
+from aiozai_sdk.generated.models import RequestGetUserTransactionAnalyticsRequest
 
-request = GetUserTransactionAnalyticsRequest(
+request = RequestGetUserTransactionAnalyticsRequest(
     from="...",  # string
     to="...",  # string
 )
-resp = client.users.payment.post_user_wallet_transaction_analytics(input=request)
+resp = client.users.user_payment.post_user_wallet_transaction_analytics(input=request)
 print(resp)
 ```
 
@@ -605,7 +605,7 @@ print(resp)
 **Example**
 
 ```python
-resp = client.users.payment.get_user_wallet_transaction_history()
+resp = client.users.user_payment.get_user_wallet_transaction_history()
 print(resp)
 ```
 
@@ -677,16 +677,16 @@ print(resp)
 **Example**
 
 ```python
-from aiozai_sdk.generated.models import GetListRecentTransactionByUserRequest
+from aiozai_sdk.generated.models import RequestGetListRecentTransactionByUserRequest
 
-request = GetListRecentTransactionByUserRequest(
+request = RequestGetListRecentTransactionByUserRequest(
     from="...",  # string
     limit="...",  # integer
     offset="...",  # integer
     to="...",  # string
     type="...",  # string
 )
-resp = client.users.payment.post_user_wallet_transaction_recent(input=request)
+resp = client.users.user_payment.post_user_wallet_transaction_recent(input=request)
 print(resp)
 ```
 
@@ -749,7 +749,7 @@ print(resp)
 **Example**
 
 ```python
-resp = client.users.payment.get_user_wallet_withdraw_history()
+resp = client.users.user_payment.get_user_wallet_withdraw_history()
 print(resp)
 ```
 
